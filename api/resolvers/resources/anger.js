@@ -1,6 +1,7 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 
 module.exports = ( register ) => register( {
+    angers: () => prisma.angers(),
     anger: ( _, { id } ) => prisma.anger( { id } )
 }, {
     mutateAnger: async ( parent, { data } ) => {
