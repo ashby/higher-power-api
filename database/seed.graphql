@@ -1,0 +1,7 @@
+mutation {
+    INVENTORE: createInventory( inventory: {
+        name: "Inventory",
+        description: "The Inventory.",
+        orderIndex: 0,
+    } ) { id }
+}

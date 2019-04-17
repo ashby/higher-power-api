@@ -1,0 +1,13 @@
+scalar DateTime
+
+input AngerInput {
+    id: ID
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}

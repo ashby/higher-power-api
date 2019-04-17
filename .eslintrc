@@ -1,0 +1,6 @@
+{
+    "extends": "cpd/node",
+    "rules": {
+        "prefer-const": "off"
+    }
+}

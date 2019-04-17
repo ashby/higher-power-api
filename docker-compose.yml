@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=higher-power
+      - POSTGRES_USER=higher-power
+      - POSTGRES_PASSWORD=higher-power
+
+  prisma:
+    # build: ./prisma
+    image: prismagraphql/prisma:1.25
+    depends_on:
+      - db
+    restart: always
+    environment:
+      PRISMA_CONFIG: |
+        port: 32669
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        # managementApiSecret: my-secret
+        databases:
+          default:
+            connector: postgres
+            host: db
+            port: '5432'
+            database: higher-power
+            user: higher-power
+            password: higher-power
+            migrations: true
+            rawAccess: true

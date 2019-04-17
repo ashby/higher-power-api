@@ -1,0 +1,236 @@
+scalar DateTime
+
+type Trauma {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Toxicity {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Suffering {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+
+type Defect {
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+    suffering: [Suffering]
+}
+
+type Anger {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type SelfPity {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Fear {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Pride {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+
+type Resentment {
+    anger: [Anger]
+    selfPity: [SelfPity]
+    fear: [Fear]
+    pride: [Pride]
+}
+
+type Obsession {
+    suffering: [Suffering]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    vulnerability: [Vulnerability]
+}
+
+type Compassion {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Courage {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Acceptance {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Vulnerability {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+
+type Experience {
+    compassion: [Compassion]
+    courage: [Courage]
+    acceptance: [Acceptance]
+    vulnerability: [Vulnerability]
+}
+
+type Armor {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Boundary {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Loyalty {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    inventory: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Honor {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    inventory: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+
+type Strength {
+    armor: [Armor]
+    boundary: [Boundary]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    anger: [Anger]
+    courage: [Courage]
+}
+
+type Salvation {
+    id: ID!
+    name: String!
+    description: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+
+type Hope {
+    salvation: [Salvation]
+}
+
+type Inventory {
+    defect: Defect
+    resentment: Resentment
+    obsession: Obsession
+    experience: Experience
+    strength: Strength
+}
+
+type HigherPower {
+    inventory: Inventory
+}

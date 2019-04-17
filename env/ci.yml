@@ -1,0 +1,31 @@
+PRISMA_SERVER=http://localhost:32769
+version: '3.3'
+services:
+  db:
+    container_name: higher-power-db-ci
+
+  prisma:
+    depends_on:
+      - db
+    container_name: higher-power-prisma-ci
+
+  privacy-api:
+    build: .
+
+    container_name: higher-power-api-ci
+    depends_on:
+      - prisma
+
+    volumes:
+      - .:/privacy
+
+    environment:
+      - ENVIRONMENT=ci
+      - PRISMA_SERVER=http://prisma:4466
+
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        cd /higher-power
+        yarn
+        yarn run test:coverage
