@@ -1184,10 +1184,48 @@ export interface ClientConstructor<T> {
 export type HasOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "defect_ASC"
+  | "defect_DESC"
   | "resentment_ASC"
   | "resentment_DESC"
+  | "obsession_ASC"
+  | "obsession_DESC"
+  | "experience_ASC"
+  | "experience_DESC"
+  | "strength_ASC"
+  | "strength_DESC"
+  | "hope_ASC"
+  | "hope_DESC"
+  | "acceptance_ASC"
+  | "acceptance_DESC"
   | "anger_ASC"
   | "anger_DESC"
+  | "armor_ASC"
+  | "armor_DESC"
+  | "boundary_ASC"
+  | "boundary_DESC"
+  | "compassion_ASC"
+  | "compassion_DESC"
+  | "courage_ASC"
+  | "courage_DESC"
+  | "fear_ASC"
+  | "fear_DESC"
+  | "gratitude_ASC"
+  | "gratitude_DESC"
+  | "pride_ASC"
+  | "pride_DESC"
+  | "salvaltion_ASC"
+  | "salvaltion_DESC"
+  | "selfPity_ASC"
+  | "selfPity_DESC"
+  | "suffering_ASC"
+  | "suffering_DESC"
+  | "toxicity_ASC"
+  | "toxicity_DESC"
+  | "trauma_ASC"
+  | "trauma_DESC"
+  | "vulnerability_ASC"
+  | "vulnerability_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -3294,10 +3332,48 @@ export interface HasWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
+  defect?: Boolean;
+  defect_not?: Boolean;
   resentment?: Boolean;
   resentment_not?: Boolean;
+  obsession?: Boolean;
+  obsession_not?: Boolean;
+  experience?: Boolean;
+  experience_not?: Boolean;
+  strength?: Boolean;
+  strength_not?: Boolean;
+  hope?: Boolean;
+  hope_not?: Boolean;
+  acceptance?: Boolean;
+  acceptance_not?: Boolean;
   anger?: Boolean;
   anger_not?: Boolean;
+  armor?: Boolean;
+  armor_not?: Boolean;
+  boundary?: Boolean;
+  boundary_not?: Boolean;
+  compassion?: Boolean;
+  compassion_not?: Boolean;
+  courage?: Boolean;
+  courage_not?: Boolean;
+  fear?: Boolean;
+  fear_not?: Boolean;
+  gratitude?: Boolean;
+  gratitude_not?: Boolean;
+  pride?: Boolean;
+  pride_not?: Boolean;
+  salvaltion?: Boolean;
+  salvaltion_not?: Boolean;
+  selfPity?: Boolean;
+  selfPity_not?: Boolean;
+  suffering?: Boolean;
+  suffering_not?: Boolean;
+  toxicity?: Boolean;
+  toxicity_not?: Boolean;
+  trauma?: Boolean;
+  trauma_not?: Boolean;
+  vulnerability?: Boolean;
+  vulnerability_not?: Boolean;
   AND?: HasWhereInput[] | HasWhereInput;
   OR?: HasWhereInput[] | HasWhereInput;
   NOT?: HasWhereInput[] | HasWhereInput;
@@ -6326,8 +6402,27 @@ export interface SelfPityUpdateInput {
 
 export interface HasCreateInput {
   id?: ID_Input;
-  resentment: Boolean;
-  anger: Boolean;
+  defect?: Boolean;
+  resentment?: Boolean;
+  obsession?: Boolean;
+  experience?: Boolean;
+  strength?: Boolean;
+  hope?: Boolean;
+  acceptance?: Boolean;
+  anger?: Boolean;
+  armor?: Boolean;
+  boundary?: Boolean;
+  compassion?: Boolean;
+  courage?: Boolean;
+  fear?: Boolean;
+  gratitude?: Boolean;
+  pride?: Boolean;
+  salvaltion?: Boolean;
+  selfPity?: Boolean;
+  suffering?: Boolean;
+  toxicity?: Boolean;
+  trauma?: Boolean;
+  vulnerability?: Boolean;
 }
 
 export interface SalvationUpdateInput {
@@ -6342,8 +6437,27 @@ export interface SalvationUpdateInput {
 }
 
 export interface HasUpdateInput {
+  defect?: Boolean;
   resentment?: Boolean;
+  obsession?: Boolean;
+  experience?: Boolean;
+  strength?: Boolean;
+  hope?: Boolean;
+  acceptance?: Boolean;
   anger?: Boolean;
+  armor?: Boolean;
+  boundary?: Boolean;
+  compassion?: Boolean;
+  courage?: Boolean;
+  fear?: Boolean;
+  gratitude?: Boolean;
+  pride?: Boolean;
+  salvaltion?: Boolean;
+  selfPity?: Boolean;
+  suffering?: Boolean;
+  toxicity?: Boolean;
+  trauma?: Boolean;
+  vulnerability?: Boolean;
 }
 
 export interface PrideUpdateInput {
@@ -6358,8 +6472,27 @@ export interface PrideUpdateInput {
 }
 
 export interface HasUpdateManyMutationInput {
+  defect?: Boolean;
   resentment?: Boolean;
+  obsession?: Boolean;
+  experience?: Boolean;
+  strength?: Boolean;
+  hope?: Boolean;
+  acceptance?: Boolean;
   anger?: Boolean;
+  armor?: Boolean;
+  boundary?: Boolean;
+  compassion?: Boolean;
+  courage?: Boolean;
+  fear?: Boolean;
+  gratitude?: Boolean;
+  pride?: Boolean;
+  salvaltion?: Boolean;
+  selfPity?: Boolean;
+  suffering?: Boolean;
+  toxicity?: Boolean;
+  trauma?: Boolean;
+  vulnerability?: Boolean;
 }
 
 export interface ObsessionUpdateInput {
@@ -11238,44 +11371,158 @@ export interface HasSubscriptionPayloadSubscription
 
 export interface Has {
   id: ID_Output;
+  defect: Boolean;
   resentment: Boolean;
+  obsession: Boolean;
+  experience: Boolean;
+  strength: Boolean;
+  hope: Boolean;
+  acceptance: Boolean;
   anger: Boolean;
+  armor: Boolean;
+  boundary: Boolean;
+  compassion: Boolean;
+  courage: Boolean;
+  fear: Boolean;
+  gratitude: Boolean;
+  pride: Boolean;
+  salvaltion: Boolean;
+  selfPity: Boolean;
+  suffering: Boolean;
+  toxicity: Boolean;
+  trauma: Boolean;
+  vulnerability: Boolean;
 }
 
 export interface HasPromise extends Promise<Has>, Fragmentable {
   id: () => Promise<ID_Output>;
+  defect: () => Promise<Boolean>;
   resentment: () => Promise<Boolean>;
+  obsession: () => Promise<Boolean>;
+  experience: () => Promise<Boolean>;
+  strength: () => Promise<Boolean>;
+  hope: () => Promise<Boolean>;
+  acceptance: () => Promise<Boolean>;
   anger: () => Promise<Boolean>;
+  armor: () => Promise<Boolean>;
+  boundary: () => Promise<Boolean>;
+  compassion: () => Promise<Boolean>;
+  courage: () => Promise<Boolean>;
+  fear: () => Promise<Boolean>;
+  gratitude: () => Promise<Boolean>;
+  pride: () => Promise<Boolean>;
+  salvaltion: () => Promise<Boolean>;
+  selfPity: () => Promise<Boolean>;
+  suffering: () => Promise<Boolean>;
+  toxicity: () => Promise<Boolean>;
+  trauma: () => Promise<Boolean>;
+  vulnerability: () => Promise<Boolean>;
 }
 
 export interface HasSubscription
   extends Promise<AsyncIterator<Has>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  defect: () => Promise<AsyncIterator<Boolean>>;
   resentment: () => Promise<AsyncIterator<Boolean>>;
+  obsession: () => Promise<AsyncIterator<Boolean>>;
+  experience: () => Promise<AsyncIterator<Boolean>>;
+  strength: () => Promise<AsyncIterator<Boolean>>;
+  hope: () => Promise<AsyncIterator<Boolean>>;
+  acceptance: () => Promise<AsyncIterator<Boolean>>;
   anger: () => Promise<AsyncIterator<Boolean>>;
+  armor: () => Promise<AsyncIterator<Boolean>>;
+  boundary: () => Promise<AsyncIterator<Boolean>>;
+  compassion: () => Promise<AsyncIterator<Boolean>>;
+  courage: () => Promise<AsyncIterator<Boolean>>;
+  fear: () => Promise<AsyncIterator<Boolean>>;
+  gratitude: () => Promise<AsyncIterator<Boolean>>;
+  pride: () => Promise<AsyncIterator<Boolean>>;
+  salvaltion: () => Promise<AsyncIterator<Boolean>>;
+  selfPity: () => Promise<AsyncIterator<Boolean>>;
+  suffering: () => Promise<AsyncIterator<Boolean>>;
+  toxicity: () => Promise<AsyncIterator<Boolean>>;
+  trauma: () => Promise<AsyncIterator<Boolean>>;
+  vulnerability: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface HasPreviousValues {
   id: ID_Output;
+  defect: Boolean;
   resentment: Boolean;
+  obsession: Boolean;
+  experience: Boolean;
+  strength: Boolean;
+  hope: Boolean;
+  acceptance: Boolean;
   anger: Boolean;
+  armor: Boolean;
+  boundary: Boolean;
+  compassion: Boolean;
+  courage: Boolean;
+  fear: Boolean;
+  gratitude: Boolean;
+  pride: Boolean;
+  salvaltion: Boolean;
+  selfPity: Boolean;
+  suffering: Boolean;
+  toxicity: Boolean;
+  trauma: Boolean;
+  vulnerability: Boolean;
 }
 
 export interface HasPreviousValuesPromise
   extends Promise<HasPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  defect: () => Promise<Boolean>;
   resentment: () => Promise<Boolean>;
+  obsession: () => Promise<Boolean>;
+  experience: () => Promise<Boolean>;
+  strength: () => Promise<Boolean>;
+  hope: () => Promise<Boolean>;
+  acceptance: () => Promise<Boolean>;
   anger: () => Promise<Boolean>;
+  armor: () => Promise<Boolean>;
+  boundary: () => Promise<Boolean>;
+  compassion: () => Promise<Boolean>;
+  courage: () => Promise<Boolean>;
+  fear: () => Promise<Boolean>;
+  gratitude: () => Promise<Boolean>;
+  pride: () => Promise<Boolean>;
+  salvaltion: () => Promise<Boolean>;
+  selfPity: () => Promise<Boolean>;
+  suffering: () => Promise<Boolean>;
+  toxicity: () => Promise<Boolean>;
+  trauma: () => Promise<Boolean>;
+  vulnerability: () => Promise<Boolean>;
 }
 
 export interface HasPreviousValuesSubscription
   extends Promise<AsyncIterator<HasPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  defect: () => Promise<AsyncIterator<Boolean>>;
   resentment: () => Promise<AsyncIterator<Boolean>>;
+  obsession: () => Promise<AsyncIterator<Boolean>>;
+  experience: () => Promise<AsyncIterator<Boolean>>;
+  strength: () => Promise<AsyncIterator<Boolean>>;
+  hope: () => Promise<AsyncIterator<Boolean>>;
+  acceptance: () => Promise<AsyncIterator<Boolean>>;
   anger: () => Promise<AsyncIterator<Boolean>>;
+  armor: () => Promise<AsyncIterator<Boolean>>;
+  boundary: () => Promise<AsyncIterator<Boolean>>;
+  compassion: () => Promise<AsyncIterator<Boolean>>;
+  courage: () => Promise<AsyncIterator<Boolean>>;
+  fear: () => Promise<AsyncIterator<Boolean>>;
+  gratitude: () => Promise<AsyncIterator<Boolean>>;
+  pride: () => Promise<AsyncIterator<Boolean>>;
+  salvaltion: () => Promise<AsyncIterator<Boolean>>;
+  selfPity: () => Promise<AsyncIterator<Boolean>>;
+  suffering: () => Promise<AsyncIterator<Boolean>>;
+  toxicity: () => Promise<AsyncIterator<Boolean>>;
+  trauma: () => Promise<AsyncIterator<Boolean>>;
+  vulnerability: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface GratitudeEdge {

@@ -2,9 +2,8 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 module.exports = ( register ) => register( {
     inventory: async ( _, data ) => {
-        const has = {
-            resentment: await prisma.has()
-        }
+        const has = await prisma.has( 'has' );
+        console.log( has );
         //const defect = await prisma.defect();
         //const resentment = await prisma.resentment();
         // const obsession = await prisma.obsession();

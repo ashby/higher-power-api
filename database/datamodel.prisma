@@ -1,7 +1,26 @@
 type Has {
     id: ID! @id
-    resentment: Boolean!
-    anger: Boolean!
+    defect: Boolean! @default(value: false)
+    resentment: Boolean! @default(value: false)
+    obsession: Boolean! @default(value: false)
+    experience: Boolean! @default(value: false)
+    strength: Boolean! @default(value: false)
+    hope: Boolean! @default(value: false)
+    acceptance: Boolean! @default(value: false)
+    anger: Boolean! @default(value: false)
+    armor: Boolean! @default(value: false)
+    boundary: Boolean! @default(value: false)
+    compassion: Boolean! @default(value: false)
+    courage: Boolean! @default(value: false)
+    fear: Boolean! @default(value: false)
+    gratitude: Boolean! @default(value: false)
+    pride: Boolean! @default(value: false)
+    salvaltion: Boolean! @default(value: false)
+    selfPity: Boolean! @default(value: false)
+    suffering: Boolean! @default(value: false)
+    toxicity: Boolean! @default(value: false)
+    trauma: Boolean! @default(value: false)
+    vulnerability: Boolean! @default(value: false)
 }
 
 type Trauma {

@@ -199,7 +199,27 @@ input VulnerabilityInput {
 }
 
 input HasInput {
+    id: ID
     has: String!
+    defect: Boolean
+    resentment: Boolean
+    obsession: Boolean
+    experience: Boolean
+    strength: Boolean
+    hope: Boolean
+    acceptance: Boolean
+    anger: Boolean
+    armor: Boolean
+    boundary: Boolean
+    compassion: Boolean
+    courage: Boolean
+    fear: Boolean
+    gratitude: Boolean
+    pride: Boolean
+    salvaltion: Boolean
+    selfPity: Boolean
+    suffering: Boolean
+    toxicity: Boolean
+    trauma: Boolean
+    vulnerability: Boolean
 }
-
-

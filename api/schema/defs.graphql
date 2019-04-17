@@ -36,7 +36,7 @@
 
 
 type Query {
-    has: Has
+    has(id: ID!): Has
     inventory: Inventory
     resentment: Resentment
 
@@ -73,7 +73,7 @@ type Query {
 }
 
 type Mutation {
-    has(data:HasInput): Has!
+    mutateHas(data:HasInput): Has!
 
     mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
     mutateAnger(id:String,data:AngerInput): Anger!

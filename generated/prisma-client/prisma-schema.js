@@ -3912,8 +3912,27 @@ input GratitudeWhereUniqueInput {
 
 type Has {
   id: ID!
+  defect: Boolean!
   resentment: Boolean!
+  obsession: Boolean!
+  experience: Boolean!
+  strength: Boolean!
+  hope: Boolean!
+  acceptance: Boolean!
   anger: Boolean!
+  armor: Boolean!
+  boundary: Boolean!
+  compassion: Boolean!
+  courage: Boolean!
+  fear: Boolean!
+  gratitude: Boolean!
+  pride: Boolean!
+  salvaltion: Boolean!
+  selfPity: Boolean!
+  suffering: Boolean!
+  toxicity: Boolean!
+  trauma: Boolean!
+  vulnerability: Boolean!
 }
 
 type HasConnection {
@@ -3924,8 +3943,27 @@ type HasConnection {
 
 input HasCreateInput {
   id: ID
-  resentment: Boolean!
-  anger: Boolean!
+  defect: Boolean
+  resentment: Boolean
+  obsession: Boolean
+  experience: Boolean
+  strength: Boolean
+  hope: Boolean
+  acceptance: Boolean
+  anger: Boolean
+  armor: Boolean
+  boundary: Boolean
+  compassion: Boolean
+  courage: Boolean
+  fear: Boolean
+  gratitude: Boolean
+  pride: Boolean
+  salvaltion: Boolean
+  selfPity: Boolean
+  suffering: Boolean
+  toxicity: Boolean
+  trauma: Boolean
+  vulnerability: Boolean
 }
 
 type HasEdge {
@@ -3936,10 +3974,48 @@ type HasEdge {
 enum HasOrderByInput {
   id_ASC
   id_DESC
+  defect_ASC
+  defect_DESC
   resentment_ASC
   resentment_DESC
+  obsession_ASC
+  obsession_DESC
+  experience_ASC
+  experience_DESC
+  strength_ASC
+  strength_DESC
+  hope_ASC
+  hope_DESC
+  acceptance_ASC
+  acceptance_DESC
   anger_ASC
   anger_DESC
+  armor_ASC
+  armor_DESC
+  boundary_ASC
+  boundary_DESC
+  compassion_ASC
+  compassion_DESC
+  courage_ASC
+  courage_DESC
+  fear_ASC
+  fear_DESC
+  gratitude_ASC
+  gratitude_DESC
+  pride_ASC
+  pride_DESC
+  salvaltion_ASC
+  salvaltion_DESC
+  selfPity_ASC
+  selfPity_DESC
+  suffering_ASC
+  suffering_DESC
+  toxicity_ASC
+  toxicity_DESC
+  trauma_ASC
+  trauma_DESC
+  vulnerability_ASC
+  vulnerability_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -3948,8 +4024,27 @@ enum HasOrderByInput {
 
 type HasPreviousValues {
   id: ID!
+  defect: Boolean!
   resentment: Boolean!
+  obsession: Boolean!
+  experience: Boolean!
+  strength: Boolean!
+  hope: Boolean!
+  acceptance: Boolean!
   anger: Boolean!
+  armor: Boolean!
+  boundary: Boolean!
+  compassion: Boolean!
+  courage: Boolean!
+  fear: Boolean!
+  gratitude: Boolean!
+  pride: Boolean!
+  salvaltion: Boolean!
+  selfPity: Boolean!
+  suffering: Boolean!
+  toxicity: Boolean!
+  trauma: Boolean!
+  vulnerability: Boolean!
 }
 
 type HasSubscriptionPayload {
@@ -3971,13 +4066,51 @@ input HasSubscriptionWhereInput {
 }
 
 input HasUpdateInput {
+  defect: Boolean
   resentment: Boolean
+  obsession: Boolean
+  experience: Boolean
+  strength: Boolean
+  hope: Boolean
+  acceptance: Boolean
   anger: Boolean
+  armor: Boolean
+  boundary: Boolean
+  compassion: Boolean
+  courage: Boolean
+  fear: Boolean
+  gratitude: Boolean
+  pride: Boolean
+  salvaltion: Boolean
+  selfPity: Boolean
+  suffering: Boolean
+  toxicity: Boolean
+  trauma: Boolean
+  vulnerability: Boolean
 }
 
 input HasUpdateManyMutationInput {
+  defect: Boolean
   resentment: Boolean
+  obsession: Boolean
+  experience: Boolean
+  strength: Boolean
+  hope: Boolean
+  acceptance: Boolean
   anger: Boolean
+  armor: Boolean
+  boundary: Boolean
+  compassion: Boolean
+  courage: Boolean
+  fear: Boolean
+  gratitude: Boolean
+  pride: Boolean
+  salvaltion: Boolean
+  selfPity: Boolean
+  suffering: Boolean
+  toxicity: Boolean
+  trauma: Boolean
+  vulnerability: Boolean
 }
 
 input HasWhereInput {
@@ -3995,10 +4128,48 @@ input HasWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  defect: Boolean
+  defect_not: Boolean
   resentment: Boolean
   resentment_not: Boolean
+  obsession: Boolean
+  obsession_not: Boolean
+  experience: Boolean
+  experience_not: Boolean
+  strength: Boolean
+  strength_not: Boolean
+  hope: Boolean
+  hope_not: Boolean
+  acceptance: Boolean
+  acceptance_not: Boolean
   anger: Boolean
   anger_not: Boolean
+  armor: Boolean
+  armor_not: Boolean
+  boundary: Boolean
+  boundary_not: Boolean
+  compassion: Boolean
+  compassion_not: Boolean
+  courage: Boolean
+  courage_not: Boolean
+  fear: Boolean
+  fear_not: Boolean
+  gratitude: Boolean
+  gratitude_not: Boolean
+  pride: Boolean
+  pride_not: Boolean
+  salvaltion: Boolean
+  salvaltion_not: Boolean
+  selfPity: Boolean
+  selfPity_not: Boolean
+  suffering: Boolean
+  suffering_not: Boolean
+  toxicity: Boolean
+  toxicity_not: Boolean
+  trauma: Boolean
+  trauma_not: Boolean
+  vulnerability: Boolean
+  vulnerability_not: Boolean
   AND: [HasWhereInput!]
   OR: [HasWhereInput!]
   NOT: [HasWhereInput!]
