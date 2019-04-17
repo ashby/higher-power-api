@@ -33,9 +33,9 @@ type Suffering {
 }
 
 type Defect {
-    trauma: [Trauma]!
-    toxicity: [Toxicity]!
-    suffering: [Suffering]!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+    suffering: [Suffering]
 }
 
 type Anger {
@@ -84,17 +84,17 @@ type Pride {
 }
 
 type Resentment {
-    anger: [Anger]!
-    selfPity: [SelfPity]!
-    fear: [Fear]!
-    pride: [Pride]!
+    anger: [Anger]
+    selfPity: [SelfPity]
+    fear: [Fear]
+    pride: [Pride]
 }
 
 type Obsession {
-    suffering: [Suffering]!
-    loyalty: [Loyalty]!
-    honor: [Honor]!
-    vulnerability: [Vulnerability]!
+    suffering: [Suffering]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    vulnerability: [Vulnerability]
 }
 
 type Compassion {
@@ -143,10 +143,10 @@ type Vulnerability {
 }
 
 type Experience {
-    compassion: [Compassion]!
-    courage: [Courage]!
-    acceptance: [Acceptance]!
-    vulnerability: [Vulnerability]!
+    compassion: [Compassion]
+    courage: [Courage]
+    acceptance: [Acceptance]
+    vulnerability: [Vulnerability]
 }
 
 type Armor {
@@ -195,10 +195,10 @@ type Honor {
 }
 
 type Strength {
-    armor: [Armor]!
-    boundary: [Boundary]!
-    loyalty: [Loyalty]!
-    honor: [Honor]!
+    armor: [Armor]
+    boundary: [Boundary]
+    loyalty: [Loyalty]
+    honor: [Honor]
 }
 
 type Salvation {
@@ -214,16 +214,16 @@ type Salvation {
 }
 
 type Hope {
-    salvation: [Salvation]!
+    salvation: [Salvation]
 }
 
 type Inventory {
-    defect: [Defect]!
-    resentment: [Resentment]!
-    obsession: [Obsession]!
-    experience: [Experience]!
-    strength: [Strength]!
-    hope: [Hope]!
+    defect: [Defect]
+    resentment: [Resentment]
+    obsession: [Obsession]
+    experience: [Experience]
+    strength: [Strength]
+    hope: [Hope]
 }
 
 type HigherPower {
