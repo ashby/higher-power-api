@@ -1,17 +1,9 @@
-# import Inventory from "./types.graphql"
-# import Defect from "./types.graphql"
-# import Resentment from "./types.graphql"
-# import Obsession from "./types.graphql"
-# import Experience from "./types.graphql"
-# import Strength from "./types.graphql"
-# import Hope from "./types.graphql"
-
 # import Anger from "./types.graphql"
 # import AngerInput from "./inputs.graphql"
 
 type Query {
     angers: [Anger]
-    anger: Anger
+    anger(id: ID!): Anger
     inventory: Inventory
     defects: [Defect]
     defect(id: ID!): Defect
