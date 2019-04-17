@@ -197,6 +197,32 @@ input VulnerabilityInput {
     amendedAt: DateTime
     resolvedAt: DateTime
 }
+input LoyaltyInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input HonorInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
 
 input HasInput {
     id: ID
@@ -222,4 +248,47 @@ input HasInput {
     toxicity: Boolean
     trauma: Boolean
     vulnerability: Boolean
+}
+
+input DefectInput {
+    id: ID
+    trauma: [TraumaInput]
+    toxicity: [ToxicityInput]
+    suffering: [SufferingInput]
+}
+input ResentmentInput {
+    id: ID
+    anger: [AngerInput]
+    selfPity: [SelfPityInput]
+    fear: [FearInput]
+    pride: [PrideInput]
+}
+input ObsessionInput {
+    id: ID
+    suffering: [SufferingInput]
+    loyalty: [LoyaltyInput]
+    honor: [HonorInput]
+    vulnerability: [VulnerabilityInput]
+}
+input ExperienceInput {
+    id: ID
+    compassion: [CompassionInput]
+    courage: [CourageInput]
+    acceptance: [AcceptanceInput]
+    vulnerability: [VulnerabilityInput]
+    gratitude: [GratitudeInput]
+    suffering: [SufferingInput]
+}
+input StrengthInput {
+    id: ID
+    armor: [ArmorInput]
+    boundary: [BoundaryInput]
+    loyalty: [LoyaltyInput]
+    honor: [HonorInput]
+    anger: [AngerInput]
+    courage: [CourageInput]
+}
+input HopeInput {
+    id: ID
+    salvation: [SalvationInput]
 }

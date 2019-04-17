@@ -6,9 +6,15 @@ function registerResolvers( queries = {}, mutations = {} ) {
     Object.assign( Mutation, mutations );
 }
 
-require( './resources/inventory' )( registerResolvers );
-require( './resources/resentment' )( registerResolvers );
 require( './resources/has' )( registerResolvers );
+require( './resources/inventory' )( registerResolvers );
+
+require( './resources/defect' )( registerResolvers );
+require( './resources/resentment' )( registerResolvers );
+require( './resources/obsession' )( registerResolvers );
+require( './resources/experience' )( registerResolvers );
+require( './resources/strength' )( registerResolvers );
+require( './resources/hope' )( registerResolvers );
 
 require( './resources/acceptance' )( registerResolvers );
 require( './resources/anger' )( registerResolvers );

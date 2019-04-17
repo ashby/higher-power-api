@@ -66,6 +66,7 @@ type Suffering {
 }
 
 type Defect {
+    id: ID!
     trauma: [Trauma]
     toxicity: [Toxicity]
     suffering: [Suffering]
@@ -125,6 +126,7 @@ type Pride {
 }
 
 type Resentment {
+    id: ID!
     anger: [Anger]
     selfPity: [SelfPity]
     fear: [Fear]
@@ -132,6 +134,7 @@ type Resentment {
 }
 
 type Obsession {
+    id: ID!
     suffering: [Suffering]
     loyalty: [Loyalty]
     honor: [Honor]
@@ -205,6 +208,7 @@ type Gratitude {
 }
 
 type Experience {
+    id: ID!
     compassion: [Compassion]
     courage: [Courage]
     acceptance: [Acceptance]
@@ -269,6 +273,7 @@ type Honor {
 }
 
 type Strength {
+    id: ID!
     armor: [Armor]
     boundary: [Boundary]
     loyalty: [Loyalty]
@@ -292,6 +297,7 @@ type Salvation {
 }
 
 type Hope {
+    id: ID!
     salvation: [Salvation]
 }
 

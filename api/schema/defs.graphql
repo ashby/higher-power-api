@@ -1,7 +1,19 @@
 # import Has from "./types.graphql"
 # import HasInput from "./inputs.graphql"
 # import Inventory from "./types.graphql";
+
+# import Defect from "./types.graphql";
+# import DefectInput from "./inputs.graphql"
 # import Resentment from "./types.graphql";
+# import ResentmentInput from "./inputs.graphql"
+# import Obsession from "./types.graphql";
+# import ObsessionInput from "./inputs.graphql"
+# import Experience from "./types.graphql";
+# import ExperienceInput from "./inputs.graphql"
+# import Strength from "./types.graphql";
+# import StrengthInput from "./inputs.graphql"
+# import Hope from "./types.graphql";
+# import HopeInput from "./inputs.graphql"
 
 # import Acceptance from "./types.graphql"
 # import AcceptanceInput from "./inputs.graphql"
@@ -38,7 +50,13 @@
 type Query {
     has(id: ID!): Has
     inventory: Inventory
-    resentment: Resentment
+
+    defect(id: ID!): Defect
+    resentment(id: ID!): Resentment
+    obsession(id: ID!): Obsession
+    experience(id: ID!): Experience
+    strength(id: ID!): Strength
+    hope(id: ID!): Hope
 
     acceptances: [Acceptance]
     acceptance(id: ID!): Acceptance
@@ -74,6 +92,13 @@ type Query {
 
 type Mutation {
     mutateHas(data:HasInput): Has!
+
+    mutateDefect(data:DefectInput): Defect!
+    mutateResentment(data:ResentmentInput): Resentment!
+    mutateObsession(data:ObsessionInput): Obsession!
+    mutateExperience(data:ExperienceInput): Experience!
+    mutateStrength(data:StrengthInput): Strength!
+    mutateHope(data:HopeInput): Hope!
 
     mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
     mutateAnger(id:String,data:AngerInput): Anger!
