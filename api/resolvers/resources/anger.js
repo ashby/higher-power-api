@@ -4,24 +4,16 @@ module.exports = ( register ) => register( {
     angers: () => prisma.angers(),
     anger: ( _, { id } ) => prisma.anger( { id } )
 }, {
-    mutateAnger: async ( parent, { data } ) => {
-        if ( !data.id ) {
+    mutateAnger: async ( parent, { id, data } ) => {
+        if ( !id ) {
             return prisma.createAnger( data );
         }
         const anger = {
-            id: data.id,
-            name: data.name,
-            description: data.description,
-            attribute: data.attribute,
-            createdAt: data.createdAt,
-            updatedAt: data.updatedAt,
-            sharedAt: data.sharedAt,
-            amendedAt: data.amendedAt,
-            resolvedAt: data.resolvedAt
-        } 
+            ...data
+        }; 
         return prisma.updateAnger( {
             data: anger,
-            where: { id: data.id }
+            where: { id }
         } );
     }
 } );

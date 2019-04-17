@@ -1,9 +1,16 @@
 scalar DateTime
 
+type Has {
+    resentment: Boolean!
+    anger: Boolean!
+}
+
 type Trauma {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -13,8 +20,10 @@ type Trauma {
 }
 type Toxicity {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -24,8 +33,10 @@ type Toxicity {
 }
 type Suffering {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -42,8 +53,10 @@ type Defect {
 
 type Anger {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -53,8 +66,10 @@ type Anger {
 }
 type SelfPity {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -64,8 +79,10 @@ type SelfPity {
 }
 type Fear {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -75,8 +92,10 @@ type Fear {
 }
 type Pride {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -101,8 +120,10 @@ type Obsession {
 
 type Compassion {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -112,8 +133,10 @@ type Compassion {
 }
 type Courage {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -123,8 +146,10 @@ type Courage {
 }
 type Acceptance {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -134,8 +159,23 @@ type Acceptance {
 }
 type Vulnerability {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Gratitude {
+    id: ID!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -149,12 +189,16 @@ type Experience {
     courage: [Courage]
     acceptance: [Acceptance]
     vulnerability: [Vulnerability]
+    gratitude: [Gratitude]
+    suffering: [Suffering]
 }
 
 type Armor {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -164,8 +208,10 @@ type Armor {
 }
 type Boundary {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -175,8 +221,10 @@ type Boundary {
 }
 type Loyalty {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     inventory: String!
     createdAt: DateTime
@@ -187,8 +235,10 @@ type Loyalty {
 }
 type Honor {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     inventory: String!
     createdAt: DateTime
@@ -209,8 +259,10 @@ type Strength {
 
 type Salvation {
     id: ID!
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
@@ -224,6 +276,7 @@ type Hope {
 }
 
 type Inventory {
+    has: Has
     defect: Defect
     resentment: Resentment
     obsession: Obsession

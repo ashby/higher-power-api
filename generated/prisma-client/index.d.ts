@@ -23,6 +23,8 @@ export interface Exists {
   defect: (where?: DefectWhereInput) => Promise<boolean>;
   experience: (where?: ExperienceWhereInput) => Promise<boolean>;
   fear: (where?: FearWhereInput) => Promise<boolean>;
+  gratitude: (where?: GratitudeWhereInput) => Promise<boolean>;
+  has: (where?: HasWhereInput) => Promise<boolean>;
   higherPower: (where?: HigherPowerWhereInput) => Promise<boolean>;
   honor: (where?: HonorWhereInput) => Promise<boolean>;
   hope: (where?: HopeWhereInput) => Promise<boolean>;
@@ -197,6 +199,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => CourageConnectionPromise;
+  defect: (where: DefectWhereUniqueInput) => DefectPromise;
   defects: (
     args?: {
       where?: DefectWhereInput;
@@ -219,6 +222,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => DefectConnectionPromise;
+  experience: (where: ExperienceWhereUniqueInput) => ExperiencePromise;
   experiences: (
     args?: {
       where?: ExperienceWhereInput;
@@ -264,6 +268,52 @@ export interface Prisma {
       last?: Int;
     }
   ) => FearConnectionPromise;
+  gratitude: (where: GratitudeWhereUniqueInput) => GratitudePromise;
+  gratitudes: (
+    args?: {
+      where?: GratitudeWhereInput;
+      orderBy?: GratitudeOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Gratitude>;
+  gratitudesConnection: (
+    args?: {
+      where?: GratitudeWhereInput;
+      orderBy?: GratitudeOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => GratitudeConnectionPromise;
+  has: (where: HasWhereUniqueInput) => HasPromise;
+  hases: (
+    args?: {
+      where?: HasWhereInput;
+      orderBy?: HasOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Has>;
+  hasesConnection: (
+    args?: {
+      where?: HasWhereInput;
+      orderBy?: HasOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => HasConnectionPromise;
   higherPower: (where: HigherPowerWhereUniqueInput) => HigherPowerPromise;
   higherPowers: (
     args?: {
@@ -310,6 +360,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => HonorConnectionPromise;
+  hope: (where: HopeWhereUniqueInput) => HopePromise;
   hopes: (
     args?: {
       where?: HopeWhereInput;
@@ -332,6 +383,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => HopeConnectionPromise;
+  inventory: (where: InventoryWhereUniqueInput) => InventoryPromise;
   inventories: (
     args?: {
       where?: InventoryWhereInput;
@@ -377,6 +429,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => LoyaltyConnectionPromise;
+  obsession: (where: ObsessionWhereUniqueInput) => ObsessionPromise;
   obsessions: (
     args?: {
       where?: ObsessionWhereInput;
@@ -422,6 +475,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => PrideConnectionPromise;
+  resentment: (where: ResentmentWhereUniqueInput) => ResentmentPromise;
   resentments: (
     args?: {
       where?: ResentmentWhereInput;
@@ -490,6 +544,7 @@ export interface Prisma {
       last?: Int;
     }
   ) => SelfPityConnectionPromise;
+  strength: (where: StrengthWhereUniqueInput) => StrengthPromise;
   strengths: (
     args?: {
       where?: StrengthWhereInput;
@@ -713,8 +768,30 @@ export interface Prisma {
   deleteCourage: (where: CourageWhereUniqueInput) => CouragePromise;
   deleteManyCourages: (where?: CourageWhereInput) => BatchPayloadPromise;
   createDefect: (data: DefectCreateInput) => DefectPromise;
+  updateDefect: (
+    args: { data: DefectUpdateInput; where: DefectWhereUniqueInput }
+  ) => DefectPromise;
+  upsertDefect: (
+    args: {
+      where: DefectWhereUniqueInput;
+      create: DefectCreateInput;
+      update: DefectUpdateInput;
+    }
+  ) => DefectPromise;
+  deleteDefect: (where: DefectWhereUniqueInput) => DefectPromise;
   deleteManyDefects: (where?: DefectWhereInput) => BatchPayloadPromise;
   createExperience: (data: ExperienceCreateInput) => ExperiencePromise;
+  updateExperience: (
+    args: { data: ExperienceUpdateInput; where: ExperienceWhereUniqueInput }
+  ) => ExperiencePromise;
+  upsertExperience: (
+    args: {
+      where: ExperienceWhereUniqueInput;
+      create: ExperienceCreateInput;
+      update: ExperienceUpdateInput;
+    }
+  ) => ExperiencePromise;
+  deleteExperience: (where: ExperienceWhereUniqueInput) => ExperiencePromise;
   deleteManyExperiences: (where?: ExperienceWhereInput) => BatchPayloadPromise;
   createFear: (data: FearCreateInput) => FearPromise;
   updateFear: (
@@ -732,6 +809,41 @@ export interface Prisma {
   ) => FearPromise;
   deleteFear: (where: FearWhereUniqueInput) => FearPromise;
   deleteManyFears: (where?: FearWhereInput) => BatchPayloadPromise;
+  createGratitude: (data: GratitudeCreateInput) => GratitudePromise;
+  updateGratitude: (
+    args: { data: GratitudeUpdateInput; where: GratitudeWhereUniqueInput }
+  ) => GratitudePromise;
+  updateManyGratitudes: (
+    args: {
+      data: GratitudeUpdateManyMutationInput;
+      where?: GratitudeWhereInput;
+    }
+  ) => BatchPayloadPromise;
+  upsertGratitude: (
+    args: {
+      where: GratitudeWhereUniqueInput;
+      create: GratitudeCreateInput;
+      update: GratitudeUpdateInput;
+    }
+  ) => GratitudePromise;
+  deleteGratitude: (where: GratitudeWhereUniqueInput) => GratitudePromise;
+  deleteManyGratitudes: (where?: GratitudeWhereInput) => BatchPayloadPromise;
+  createHas: (data: HasCreateInput) => HasPromise;
+  updateHas: (
+    args: { data: HasUpdateInput; where: HasWhereUniqueInput }
+  ) => HasPromise;
+  updateManyHases: (
+    args: { data: HasUpdateManyMutationInput; where?: HasWhereInput }
+  ) => BatchPayloadPromise;
+  upsertHas: (
+    args: {
+      where: HasWhereUniqueInput;
+      create: HasCreateInput;
+      update: HasUpdateInput;
+    }
+  ) => HasPromise;
+  deleteHas: (where: HasWhereUniqueInput) => HasPromise;
+  deleteManyHases: (where?: HasWhereInput) => BatchPayloadPromise;
   createHigherPower: (data: HigherPowerCreateInput) => HigherPowerPromise;
   updateHigherPower: (
     args: { data: HigherPowerUpdateInput; where: HigherPowerWhereUniqueInput }
@@ -764,8 +876,30 @@ export interface Prisma {
   deleteHonor: (where: HonorWhereUniqueInput) => HonorPromise;
   deleteManyHonors: (where?: HonorWhereInput) => BatchPayloadPromise;
   createHope: (data: HopeCreateInput) => HopePromise;
+  updateHope: (
+    args: { data: HopeUpdateInput; where: HopeWhereUniqueInput }
+  ) => HopePromise;
+  upsertHope: (
+    args: {
+      where: HopeWhereUniqueInput;
+      create: HopeCreateInput;
+      update: HopeUpdateInput;
+    }
+  ) => HopePromise;
+  deleteHope: (where: HopeWhereUniqueInput) => HopePromise;
   deleteManyHopes: (where?: HopeWhereInput) => BatchPayloadPromise;
   createInventory: (data: InventoryCreateInput) => InventoryPromise;
+  updateInventory: (
+    args: { data: InventoryUpdateInput; where: InventoryWhereUniqueInput }
+  ) => InventoryPromise;
+  upsertInventory: (
+    args: {
+      where: InventoryWhereUniqueInput;
+      create: InventoryCreateInput;
+      update: InventoryUpdateInput;
+    }
+  ) => InventoryPromise;
+  deleteInventory: (where: InventoryWhereUniqueInput) => InventoryPromise;
   deleteManyInventories: (where?: InventoryWhereInput) => BatchPayloadPromise;
   createLoyalty: (data: LoyaltyCreateInput) => LoyaltyPromise;
   updateLoyalty: (
@@ -784,6 +918,17 @@ export interface Prisma {
   deleteLoyalty: (where: LoyaltyWhereUniqueInput) => LoyaltyPromise;
   deleteManyLoyalties: (where?: LoyaltyWhereInput) => BatchPayloadPromise;
   createObsession: (data: ObsessionCreateInput) => ObsessionPromise;
+  updateObsession: (
+    args: { data: ObsessionUpdateInput; where: ObsessionWhereUniqueInput }
+  ) => ObsessionPromise;
+  upsertObsession: (
+    args: {
+      where: ObsessionWhereUniqueInput;
+      create: ObsessionCreateInput;
+      update: ObsessionUpdateInput;
+    }
+  ) => ObsessionPromise;
+  deleteObsession: (where: ObsessionWhereUniqueInput) => ObsessionPromise;
   deleteManyObsessions: (where?: ObsessionWhereInput) => BatchPayloadPromise;
   createPride: (data: PrideCreateInput) => PridePromise;
   updatePride: (
@@ -802,6 +947,17 @@ export interface Prisma {
   deletePride: (where: PrideWhereUniqueInput) => PridePromise;
   deleteManyPrides: (where?: PrideWhereInput) => BatchPayloadPromise;
   createResentment: (data: ResentmentCreateInput) => ResentmentPromise;
+  updateResentment: (
+    args: { data: ResentmentUpdateInput; where: ResentmentWhereUniqueInput }
+  ) => ResentmentPromise;
+  upsertResentment: (
+    args: {
+      where: ResentmentWhereUniqueInput;
+      create: ResentmentCreateInput;
+      update: ResentmentUpdateInput;
+    }
+  ) => ResentmentPromise;
+  deleteResentment: (where: ResentmentWhereUniqueInput) => ResentmentPromise;
   deleteManyResentments: (where?: ResentmentWhereInput) => BatchPayloadPromise;
   createSalvation: (data: SalvationCreateInput) => SalvationPromise;
   updateSalvation: (
@@ -839,6 +995,17 @@ export interface Prisma {
   deleteSelfPity: (where: SelfPityWhereUniqueInput) => SelfPityPromise;
   deleteManySelfPities: (where?: SelfPityWhereInput) => BatchPayloadPromise;
   createStrength: (data: StrengthCreateInput) => StrengthPromise;
+  updateStrength: (
+    args: { data: StrengthUpdateInput; where: StrengthWhereUniqueInput }
+  ) => StrengthPromise;
+  upsertStrength: (
+    args: {
+      where: StrengthWhereUniqueInput;
+      create: StrengthCreateInput;
+      update: StrengthUpdateInput;
+    }
+  ) => StrengthPromise;
+  deleteStrength: (where: StrengthWhereUniqueInput) => StrengthPromise;
   deleteManyStrengths: (where?: StrengthWhereInput) => BatchPayloadPromise;
   createSuffering: (data: SufferingCreateInput) => SufferingPromise;
   updateSuffering: (
@@ -953,6 +1120,12 @@ export interface Subscription {
   fear: (
     where?: FearSubscriptionWhereInput
   ) => FearSubscriptionPayloadSubscription;
+  gratitude: (
+    where?: GratitudeSubscriptionWhereInput
+  ) => GratitudeSubscriptionPayloadSubscription;
+  has: (
+    where?: HasSubscriptionWhereInput
+  ) => HasSubscriptionPayloadSubscription;
   higherPower: (
     where?: HigherPowerSubscriptionWhereInput
   ) => HigherPowerSubscriptionPayloadSubscription;
@@ -1008,33 +1181,29 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type FearOrderByInput =
+export type HasOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
+  | "resentment_ASC"
+  | "resentment_DESC"
+  | "anger_ASC"
+  | "anger_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
+  | "updatedAt_DESC";
 
 export type BoundaryOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1051,10 +1220,14 @@ export type BoundaryOrderByInput =
 export type AngerOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1068,7 +1241,7 @@ export type AngerOrderByInput =
   | "resolvedAt_ASC"
   | "resolvedAt_DESC";
 
-export type HigherPowerOrderByInput =
+export type InventoryOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "createdAt_ASC"
@@ -1076,13 +1249,17 @@ export type HigherPowerOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type VulnerabilityOrderByInput =
+export type FearOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1096,13 +1273,17 @@ export type VulnerabilityOrderByInput =
   | "resolvedAt_ASC"
   | "resolvedAt_DESC";
 
-export type AcceptanceOrderByInput =
+export type SalvationOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1124,212 +1305,6 @@ export type ExperienceOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type StrengthOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type SufferingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type LoyaltyOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type ToxicityOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type PrideOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type TraumaOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type ResentmentOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type DefectOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type SalvationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type CompassionOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
-export type CourageOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
-export type ArmorOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "attribute_ASC"
-  | "attribute_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "sharedAt_ASC"
-  | "sharedAt_DESC"
-  | "amendedAt_ASC"
-  | "amendedAt_DESC"
-  | "resolvedAt_ASC"
-  | "resolvedAt_DESC";
-
 export type HopeOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -1338,21 +1313,65 @@ export type HopeOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type InventoryOrderByInput =
+export type GratitudeOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
 
-export type SelfPityOrderByInput =
+export type HonorOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type VulnerabilityOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1374,13 +1393,25 @@ export type ObsessionOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type HonorOrderByInput =
+export type DefectOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type SelfPityOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
   | "attribute_ASC"
   | "attribute_DESC"
   | "createdAt_ASC"
@@ -1394,34 +1425,249 @@ export type HonorOrderByInput =
   | "resolvedAt_ASC"
   | "resolvedAt_DESC";
 
-export interface ObsessionWhereInput {
-  suffering_every?: SufferingWhereInput;
-  suffering_some?: SufferingWhereInput;
-  suffering_none?: SufferingWhereInput;
-  loyalty_every?: LoyaltyWhereInput;
-  loyalty_some?: LoyaltyWhereInput;
-  loyalty_none?: LoyaltyWhereInput;
-  honor_every?: HonorWhereInput;
-  honor_some?: HonorWhereInput;
-  honor_none?: HonorWhereInput;
-  vulnerability_every?: VulnerabilityWhereInput;
-  vulnerability_some?: VulnerabilityWhereInput;
-  vulnerability_none?: VulnerabilityWhereInput;
-  AND?: ObsessionWhereInput[] | ObsessionWhereInput;
-  OR?: ObsessionWhereInput[] | ObsessionWhereInput;
-  NOT?: ObsessionWhereInput[] | ObsessionWhereInput;
-}
+export type SufferingOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
 
-export interface BoundaryUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface SalvationWhereInput {
+export type ArmorOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type AcceptanceOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type CompassionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type CourageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type TraumaOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type ToxicityOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type StrengthOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type HigherPowerOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type ResentmentOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type PrideOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export type LoyaltyOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "character_ASC"
+  | "character_DESC"
+  | "thought_ASC"
+  | "thought_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "process_ASC"
+  | "process_DESC"
+  | "attribute_ASC"
+  | "attribute_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "sharedAt_ASC"
+  | "sharedAt_DESC"
+  | "amendedAt_ASC"
+  | "amendedAt_DESC"
+  | "resolvedAt_ASC"
+  | "resolvedAt_DESC";
+
+export interface CourageScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -1436,34 +1682,62 @@ export interface SalvationWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -1518,47 +1792,16 @@ export interface SalvationWhereInput {
   resolvedAt_lte?: DateTimeInput;
   resolvedAt_gt?: DateTimeInput;
   resolvedAt_gte?: DateTimeInput;
-  AND?: SalvationWhereInput[] | SalvationWhereInput;
-  OR?: SalvationWhereInput[] | SalvationWhereInput;
-  NOT?: SalvationWhereInput[] | SalvationWhereInput;
+  AND?: CourageScalarWhereInput[] | CourageScalarWhereInput;
+  OR?: CourageScalarWhereInput[] | CourageScalarWhereInput;
+  NOT?: CourageScalarWhereInput[] | CourageScalarWhereInput;
 }
 
 export type AcceptanceWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface SufferingSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: SufferingWhereInput;
-  AND?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
-  OR?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
-  NOT?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
-}
-
-export interface DefectSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: DefectWhereInput;
-  AND?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
-  OR?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
-  NOT?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
-}
-
-export interface SalvationCreateManyInput {
-  create?: SalvationCreateInput[] | SalvationCreateInput;
-  connect?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
-}
-
-export type BoundaryWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface AcceptanceWhereInput {
+export interface VulnerabilityScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -1573,34 +1816,62 @@ export interface AcceptanceWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -1655,1238 +1926,9 @@ export interface AcceptanceWhereInput {
   resolvedAt_lte?: DateTimeInput;
   resolvedAt_gt?: DateTimeInput;
   resolvedAt_gte?: DateTimeInput;
-  AND?: AcceptanceWhereInput[] | AcceptanceWhereInput;
-  OR?: AcceptanceWhereInput[] | AcceptanceWhereInput;
-  NOT?: AcceptanceWhereInput[] | AcceptanceWhereInput;
-}
-
-export interface CompassionSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CompassionWhereInput;
-  AND?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
-  OR?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
-  NOT?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
-}
-
-export interface HopeCreateInput {
-  salvation?: SalvationCreateManyInput;
-}
-
-export type CompassionWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface HigherPowerWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  inventory?: InventoryWhereInput;
-  AND?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-  OR?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-  NOT?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-}
-
-export interface CompassionWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: CompassionWhereInput[] | CompassionWhereInput;
-  OR?: CompassionWhereInput[] | CompassionWhereInput;
-  NOT?: CompassionWhereInput[] | CompassionWhereInput;
-}
-
-export interface InventoryWhereInput {
-  defect_every?: DefectWhereInput;
-  defect_some?: DefectWhereInput;
-  defect_none?: DefectWhereInput;
-  resentment_every?: ResentmentWhereInput;
-  resentment_some?: ResentmentWhereInput;
-  resentment_none?: ResentmentWhereInput;
-  obsession_every?: ObsessionWhereInput;
-  obsession_some?: ObsessionWhereInput;
-  obsession_none?: ObsessionWhereInput;
-  experience_every?: ExperienceWhereInput;
-  experience_some?: ExperienceWhereInput;
-  experience_none?: ExperienceWhereInput;
-  strength_every?: StrengthWhereInput;
-  strength_some?: StrengthWhereInput;
-  strength_none?: StrengthWhereInput;
-  hope_every?: HopeWhereInput;
-  hope_some?: HopeWhereInput;
-  hope_none?: HopeWhereInput;
-  AND?: InventoryWhereInput[] | InventoryWhereInput;
-  OR?: InventoryWhereInput[] | InventoryWhereInput;
-  NOT?: InventoryWhereInput[] | InventoryWhereInput;
-}
-
-export interface AngerSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: AngerWhereInput;
-  AND?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
-  OR?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
-  NOT?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
-}
-
-export interface ToxicitySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ToxicityWhereInput;
-  AND?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
-  OR?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
-  NOT?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
-}
-
-export interface AcceptanceSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: AcceptanceWhereInput;
-  AND?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
-  OR?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
-  NOT?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
-}
-
-export interface HopeCreateManyInput {
-  create?: HopeCreateInput[] | HopeCreateInput;
-}
-
-export interface VulnerabilityUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface BoundaryCreateManyInput {
-  create?: BoundaryCreateInput[] | BoundaryCreateInput;
-  connect?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
-}
-
-export interface HigherPowerSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: HigherPowerWhereInput;
-  AND?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-  OR?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-  NOT?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-}
-
-export interface ArmorCreateManyInput {
-  create?: ArmorCreateInput[] | ArmorCreateInput;
-  connect?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
-}
-
-export interface TraumaUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type HonorWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface DefectWhereInput {
-  trauma_every?: TraumaWhereInput;
-  trauma_some?: TraumaWhereInput;
-  trauma_none?: TraumaWhereInput;
-  toxicity_every?: ToxicityWhereInput;
-  toxicity_some?: ToxicityWhereInput;
-  toxicity_none?: ToxicityWhereInput;
-  suffering_every?: SufferingWhereInput;
-  suffering_some?: SufferingWhereInput;
-  suffering_none?: SufferingWhereInput;
-  AND?: DefectWhereInput[] | DefectWhereInput;
-  OR?: DefectWhereInput[] | DefectWhereInput;
-  NOT?: DefectWhereInput[] | DefectWhereInput;
-}
-
-export interface StrengthCreateInput {
-  armor?: ArmorCreateManyInput;
-  boundary?: BoundaryCreateManyInput;
-  loyalty?: LoyaltyCreateManyInput;
-  honor?: HonorCreateManyInput;
-}
-
-export interface ToxicityWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: ToxicityWhereInput[] | ToxicityWhereInput;
-  OR?: ToxicityWhereInput[] | ToxicityWhereInput;
-  NOT?: ToxicityWhereInput[] | ToxicityWhereInput;
-}
-
-export interface StrengthCreateManyInput {
-  create?: StrengthCreateInput[] | StrengthCreateInput;
-}
-
-export interface ArmorWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: ArmorWhereInput[] | ArmorWhereInput;
-  OR?: ArmorWhereInput[] | ArmorWhereInput;
-  NOT?: ArmorWhereInput[] | ArmorWhereInput;
-}
-
-export interface ExperienceCreateManyInput {
-  create?: ExperienceCreateInput[] | ExperienceCreateInput;
-}
-
-export interface HonorSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: HonorWhereInput;
-  AND?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
-  OR?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
-  NOT?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
-}
-
-export interface HonorCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type ArmorWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface HonorCreateManyInput {
-  create?: HonorCreateInput[] | HonorCreateInput;
-  connect?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
-}
-
-export interface HopeSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: HopeWhereInput;
-  AND?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
-  OR?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
-  NOT?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
-}
-
-export interface LoyaltyCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface SelfPityUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface TraumaSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: TraumaWhereInput;
-  AND?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
-  OR?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
-  NOT?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
-}
-
-export interface SalvationUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface LoyaltyCreateManyInput {
-  create?: LoyaltyCreateInput[] | LoyaltyCreateInput;
-  connect?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
-}
-
-export interface VulnerabilityWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
-  OR?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
-  NOT?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
-}
-
-export interface ObsessionCreateInput {
-  suffering?: SufferingCreateManyInput;
-  loyalty?: LoyaltyCreateManyInput;
-  honor?: HonorCreateManyInput;
-  vulnerability?: VulnerabilityCreateManyInput;
-}
-
-export interface SalvationUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ObsessionCreateManyInput {
-  create?: ObsessionCreateInput[] | ObsessionCreateInput;
-}
-
-export interface PrideUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type LoyaltyWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface LoyaltyUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface PrideCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type FearWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PrideCreateManyInput {
-  create?: PrideCreateInput[] | PrideCreateInput;
-  connect?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
-}
-
-export interface FearWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: FearWhereInput[] | FearWhereInput;
-  OR?: FearWhereInput[] | FearWhereInput;
-  NOT?: FearWhereInput[] | FearWhereInput;
-}
-
-export interface FearCreateManyInput {
-  create?: FearCreateInput[] | FearCreateInput;
-  connect?: FearWhereUniqueInput[] | FearWhereUniqueInput;
-}
-
-export interface HonorUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface SelfPityCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface HopeUpdateManyInput {
-  create?: HopeCreateInput[] | HopeCreateInput;
-}
-
-export interface SelfPityCreateManyInput {
-  create?: SelfPityCreateInput[] | SelfPityCreateInput;
-  connect?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
-}
-
-export interface StrengthUpdateManyInput {
-  create?: StrengthCreateInput[] | StrengthCreateInput;
-}
-
-export interface AngerCreateManyInput {
-  create?: AngerCreateInput[] | AngerCreateInput;
-  connect?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
-}
-
-export interface ResentmentWhereInput {
-  anger_every?: AngerWhereInput;
-  anger_some?: AngerWhereInput;
-  anger_none?: AngerWhereInput;
-  selfPity_every?: SelfPityWhereInput;
-  selfPity_some?: SelfPityWhereInput;
-  selfPity_none?: SelfPityWhereInput;
-  fear_every?: FearWhereInput;
-  fear_some?: FearWhereInput;
-  fear_none?: FearWhereInput;
-  pride_every?: PrideWhereInput;
-  pride_some?: PrideWhereInput;
-  pride_none?: PrideWhereInput;
-  AND?: ResentmentWhereInput[] | ResentmentWhereInput;
-  OR?: ResentmentWhereInput[] | ResentmentWhereInput;
-  NOT?: ResentmentWhereInput[] | ResentmentWhereInput;
-}
-
-export type PrideWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PrideWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: PrideWhereInput[] | PrideWhereInput;
-  OR?: PrideWhereInput[] | PrideWhereInput;
-  NOT?: PrideWhereInput[] | PrideWhereInput;
-}
-
-export interface ResentmentCreateInput {
-  anger?: AngerCreateManyInput;
-  selfPity?: SelfPityCreateManyInput;
-  fear?: FearCreateManyInput;
-  pride?: PrideCreateManyInput;
-}
-
-export interface ObsessionUpdateManyInput {
-  create?: ObsessionCreateInput[] | ObsessionCreateInput;
-}
-
-export interface ResentmentCreateManyInput {
-  create?: ResentmentCreateInput[] | ResentmentCreateInput;
-}
-
-export interface ResentmentUpdateManyInput {
-  create?: ResentmentCreateInput[] | ResentmentCreateInput;
-}
-
-export interface DefectCreateManyInput {
-  create?: DefectCreateInput[] | DefectCreateInput;
-}
-
-export interface DefectUpdateManyInput {
-  create?: DefectCreateInput[] | DefectCreateInput;
-}
-
-export interface InventoryCreateInput {
-  defect?: DefectCreateManyInput;
-  resentment?: ResentmentCreateManyInput;
-  obsession?: ObsessionCreateManyInput;
-  experience?: ExperienceCreateManyInput;
-  strength?: StrengthCreateManyInput;
-  hope?: HopeCreateManyInput;
-}
-
-export interface LoyaltyWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: LoyaltyWhereInput[] | LoyaltyWhereInput;
-  OR?: LoyaltyWhereInput[] | LoyaltyWhereInput;
-  NOT?: LoyaltyWhereInput[] | LoyaltyWhereInput;
-}
-
-export interface InventoryCreateOneInput {
-  create?: InventoryCreateInput;
-}
-
-export interface ResentmentSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ResentmentWhereInput;
-  AND?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
-  OR?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
-  NOT?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
-}
-
-export interface HigherPowerCreateInput {
-  inventory?: InventoryCreateOneInput;
-}
-
-export interface SalvationSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: SalvationWhereInput;
-  AND?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
-  OR?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
-  NOT?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
-}
-
-export type SalvationWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface SelfPitySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: SelfPityWhereInput;
-  AND?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
-  OR?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
-  NOT?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
-}
-
-export interface FearUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface StrengthWhereInput {
-  armor_every?: ArmorWhereInput;
-  armor_some?: ArmorWhereInput;
-  armor_none?: ArmorWhereInput;
-  boundary_every?: BoundaryWhereInput;
-  boundary_some?: BoundaryWhereInput;
-  boundary_none?: BoundaryWhereInput;
-  loyalty_every?: LoyaltyWhereInput;
-  loyalty_some?: LoyaltyWhereInput;
-  loyalty_none?: LoyaltyWhereInput;
-  honor_every?: HonorWhereInput;
-  honor_some?: HonorWhereInput;
-  honor_none?: HonorWhereInput;
-  AND?: StrengthWhereInput[] | StrengthWhereInput;
-  OR?: StrengthWhereInput[] | StrengthWhereInput;
-  NOT?: StrengthWhereInput[] | StrengthWhereInput;
-}
-
-export interface FearUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface SalvationCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface FearCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
+  AND?: VulnerabilityScalarWhereInput[] | VulnerabilityScalarWhereInput;
+  OR?: VulnerabilityScalarWhereInput[] | VulnerabilityScalarWhereInput;
+  NOT?: VulnerabilityScalarWhereInput[] | VulnerabilityScalarWhereInput;
 }
 
 export interface BoundaryWhereInput {
@@ -2904,34 +1946,62 @@ export interface BoundaryWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -2991,67 +2061,336 @@ export interface BoundaryWhereInput {
   NOT?: BoundaryWhereInput[] | BoundaryWhereInput;
 }
 
-export type SelfPityWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface BoundarySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: BoundaryWhereInput;
-  AND?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
-  OR?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
-  NOT?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
+export interface ResentmentScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: ResentmentScalarWhereInput[] | ResentmentScalarWhereInput;
+  OR?: ResentmentScalarWhereInput[] | ResentmentScalarWhereInput;
+  NOT?: ResentmentScalarWhereInput[] | ResentmentScalarWhereInput;
 }
 
-export interface VulnerabilityCreateInput {
-  name: String;
-  description: String;
+export interface PrideUpsertWithWhereUniqueNestedInput {
+  where: PrideWhereUniqueInput;
+  update: PrideUpdateDataInput;
+  create: PrideCreateInput;
+}
+
+export interface ResentmentUpsertWithWhereUniqueNestedInput {
+  where: ResentmentWhereUniqueInput;
+  update: ResentmentUpdateDataInput;
+  create: ResentmentCreateInput;
+}
+
+export interface VulnerabilityUpdateManyWithWhereNestedInput {
+  where: VulnerabilityScalarWhereInput;
+  data: VulnerabilityUpdateManyDataInput;
+}
+
+export interface AngerCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   sharedAt?: DateTimeInput;
   amendedAt?: DateTimeInput;
   resolvedAt?: DateTimeInput;
 }
 
-export interface ExperienceSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ExperienceWhereInput;
-  AND?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
-  OR?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
-  NOT?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
-}
-
-export interface VulnerabilityCreateManyInput {
-  create?: VulnerabilityCreateInput[] | VulnerabilityCreateInput;
-  connect?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
-}
-
-export type CourageWhereUniqueInput = AtLeastOne<{
+export type CompassionWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface AcceptanceCreateManyInput {
-  create?: AcceptanceCreateInput[] | AcceptanceCreateInput;
-  connect?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
-}
-
-export interface VulnerabilityUpdateInput {
-  name?: String;
-  description?: String;
+export interface AngerUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
   attribute?: String;
   sharedAt?: DateTimeInput;
   amendedAt?: DateTimeInput;
   resolvedAt?: DateTimeInput;
 }
 
-export interface CourageCreateManyInput {
-  create?: CourageCreateInput[] | CourageCreateInput;
-  connect?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+export interface CompassionWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: CompassionWhereInput[] | CompassionWhereInput;
+  OR?: CompassionWhereInput[] | CompassionWhereInput;
+  NOT?: CompassionWhereInput[] | CompassionWhereInput;
+}
+
+export interface AngerUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicitySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ToxicityWhereInput;
+  AND?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
+  OR?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
+  NOT?: ToxicitySubscriptionWhereInput[] | ToxicitySubscriptionWhereInput;
+}
+
+export interface ArmorCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface StrengthSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: StrengthWhereInput;
+  AND?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+  OR?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+  NOT?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+}
+
+export interface ArmorUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SelfPitySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: SelfPityWhereInput;
+  AND?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
+  OR?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
+  NOT?: SelfPitySubscriptionWhereInput[] | SelfPitySubscriptionWhereInput;
+}
+
+export interface ArmorUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SalvationSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: SalvationWhereInput;
+  AND?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
+  OR?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
+  NOT?: SalvationSubscriptionWhereInput[] | SalvationSubscriptionWhereInput;
+}
+
+export interface BoundaryCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface PrideSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: PrideWhereInput;
+  AND?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
+  OR?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
+  NOT?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
+}
+
+export interface BoundaryUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type DefectWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface BoundaryUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
 }
 
 export interface TraumaWhereInput {
@@ -3069,34 +2408,62 @@ export interface TraumaWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -3156,772 +2523,57 @@ export interface TraumaWhereInput {
   NOT?: TraumaWhereInput[] | TraumaWhereInput;
 }
 
-export interface CompassionCreateManyInput {
-  create?: CompassionCreateInput[] | CompassionCreateInput;
-  connect?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
-}
-
-export interface ToxicityUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ExperienceCreateInput {
-  compassion?: CompassionCreateManyInput;
-  courage?: CourageCreateManyInput;
-  acceptance?: AcceptanceCreateManyInput;
-  vulnerability?: VulnerabilityCreateManyInput;
-}
-
-export interface SufferingUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type SufferingWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface SelfPityUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface SufferingCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface InventorySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: InventoryWhereInput;
-  AND?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-  OR?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-  NOT?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-}
-
-export interface SufferingCreateManyInput {
-  create?: SufferingCreateInput[] | SufferingCreateInput;
-  connect?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
-}
-
-export interface PrideUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ToxicityCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface HonorUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type ToxicityWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface InventoryUpsertNestedInput {
-  update: InventoryUpdateDataInput;
-  create: InventoryCreateInput;
-}
-
-export interface ToxicityCreateManyInput {
-  create?: ToxicityCreateInput[] | ToxicityCreateInput;
-  connect?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
-}
-
-export interface ExperienceUpdateManyInput {
-  create?: ExperienceCreateInput[] | ExperienceCreateInput;
-}
-
-export interface TraumaCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ObsessionSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ObsessionWhereInput;
-  AND?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
-  OR?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
-  NOT?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
-}
-
-export interface TraumaCreateManyInput {
-  create?: TraumaCreateInput[] | TraumaCreateInput;
-  connect?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
-}
-
-export interface PrideSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: PrideWhereInput;
-  AND?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
-  OR?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
-  NOT?: PrideSubscriptionWhereInput[] | PrideSubscriptionWhereInput;
-}
-
-export type TraumaWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface HonorWhereInput {
+export interface CompassionCreateInput {
   id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: HonorWhereInput[] | HonorWhereInput;
-  OR?: HonorWhereInput[] | HonorWhereInput;
-  NOT?: HonorWhereInput[] | HonorWhereInput;
-}
-
-export interface DefectCreateInput {
-  trauma?: TraumaCreateManyInput;
-  toxicity?: ToxicityCreateManyInput;
-  suffering?: SufferingCreateManyInput;
-}
-
-export interface InventoryUpdateOneInput {
-  create?: InventoryCreateInput;
-  update?: InventoryUpdateDataInput;
-  upsert?: InventoryUpsertNestedInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-}
-
-export interface CourageUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface StrengthSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: StrengthWhereInput;
-  AND?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
-  OR?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
-  NOT?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
-}
-
-export interface CourageUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface CourageSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CourageWhereInput;
-  AND?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
-  OR?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
-  NOT?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
-}
-
-export type VulnerabilityWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface FearSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: FearWhereInput;
-  AND?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
-  OR?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
-  NOT?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
-}
-
-export interface CourageCreateInput {
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   sharedAt?: DateTimeInput;
   amendedAt?: DateTimeInput;
   resolvedAt?: DateTimeInput;
 }
 
-export interface TraumaUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface CompassionUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ToxicityUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
+export interface HopeSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: HopeWhereInput;
+  AND?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
+  OR?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
+  NOT?: HopeSubscriptionWhereInput[] | HopeSubscriptionWhereInput;
 }
 
 export interface CompassionUpdateInput {
-  name?: String;
-  description?: String;
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
   attribute?: String;
   sharedAt?: DateTimeInput;
   amendedAt?: DateTimeInput;
   resolvedAt?: DateTimeInput;
 }
 
-export interface ExperienceWhereInput {
-  compassion_every?: CompassionWhereInput;
-  compassion_some?: CompassionWhereInput;
-  compassion_none?: CompassionWhereInput;
-  courage_every?: CourageWhereInput;
-  courage_some?: CourageWhereInput;
-  courage_none?: CourageWhereInput;
-  acceptance_every?: AcceptanceWhereInput;
-  acceptance_some?: AcceptanceWhereInput;
-  acceptance_none?: AcceptanceWhereInput;
-  vulnerability_every?: VulnerabilityWhereInput;
-  vulnerability_some?: VulnerabilityWhereInput;
-  vulnerability_none?: VulnerabilityWhereInput;
-  AND?: ExperienceWhereInput[] | ExperienceWhereInput;
-  OR?: ExperienceWhereInput[] | ExperienceWhereInput;
-  NOT?: ExperienceWhereInput[] | ExperienceWhereInput;
-}
-
-export interface LoyaltyUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type HigherPowerWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface AcceptanceCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export type AngerWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface AcceptanceUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface InventoryUpdateDataInput {
-  defect?: DefectUpdateManyInput;
-  resentment?: ResentmentUpdateManyInput;
-  obsession?: ObsessionUpdateManyInput;
-  experience?: ExperienceUpdateManyInput;
-  strength?: StrengthUpdateManyInput;
-  hope?: HopeUpdateManyInput;
-}
-
-export interface AcceptanceUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface HopeWhereInput {
-  salvation_every?: SalvationWhereInput;
-  salvation_some?: SalvationWhereInput;
-  salvation_none?: SalvationWhereInput;
-  AND?: HopeWhereInput[] | HopeWhereInput;
-  OR?: HopeWhereInput[] | HopeWhereInput;
-  NOT?: HopeWhereInput[] | HopeWhereInput;
-}
-
-export interface CompassionCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface CourageWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: CourageWhereInput[] | CourageWhereInput;
-  OR?: CourageWhereInput[] | CourageWhereInput;
-  NOT?: CourageWhereInput[] | CourageWhereInput;
-}
-
-export interface BoundaryUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface SufferingUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface AngerCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface AngerWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  attribute?: String;
-  attribute_not?: String;
-  attribute_in?: String[] | String;
-  attribute_not_in?: String[] | String;
-  attribute_lt?: String;
-  attribute_lte?: String;
-  attribute_gt?: String;
-  attribute_gte?: String;
-  attribute_contains?: String;
-  attribute_not_contains?: String;
-  attribute_starts_with?: String;
-  attribute_not_starts_with?: String;
-  attribute_ends_with?: String;
-  attribute_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  AND?: AngerWhereInput[] | AngerWhereInput;
-  OR?: AngerWhereInput[] | AngerWhereInput;
-  NOT?: AngerWhereInput[] | AngerWhereInput;
-}
-
-export interface AngerUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface VulnerabilitySubscriptionWhereInput {
+export interface HonorSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: VulnerabilityWhereInput;
-  AND?:
-    | VulnerabilitySubscriptionWhereInput[]
-    | VulnerabilitySubscriptionWhereInput;
-  OR?:
-    | VulnerabilitySubscriptionWhereInput[]
-    | VulnerabilitySubscriptionWhereInput;
-  NOT?:
-    | VulnerabilitySubscriptionWhereInput[]
-    | VulnerabilitySubscriptionWhereInput;
+  node?: HonorWhereInput;
+  AND?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
+  OR?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
+  NOT?: HonorSubscriptionWhereInput[] | HonorSubscriptionWhereInput;
 }
 
-export interface AngerUpdateManyMutationInput {
-  name?: String;
-  description?: String;
+export interface CompassionUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
   attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ArmorSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ArmorWhereInput;
-  AND?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
-  OR?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
-  NOT?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
-}
-
-export interface BoundaryCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ArmorUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ArmorUpdateInput {
-  name?: String;
-  description?: String;
-  attribute?: String;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-}
-
-export interface ArmorCreateInput {
-  name: String;
-  description: String;
-  attribute: String;
   sharedAt?: DateTimeInput;
   amendedAt?: DateTimeInput;
   resolvedAt?: DateTimeInput;
@@ -3942,34 +2594,62 @@ export interface SufferingWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -4029,8 +2709,4783 @@ export interface SufferingWhereInput {
   NOT?: SufferingWhereInput[] | SufferingWhereInput;
 }
 
+export interface CourageCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HasSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: HasWhereInput;
+  AND?: HasSubscriptionWhereInput[] | HasSubscriptionWhereInput;
+  OR?: HasSubscriptionWhereInput[] | HasSubscriptionWhereInput;
+  NOT?: HasSubscriptionWhereInput[] | HasSubscriptionWhereInput;
+}
+
+export interface CourageUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface GratitudeSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GratitudeWhereInput;
+  AND?: GratitudeSubscriptionWhereInput[] | GratitudeSubscriptionWhereInput;
+  OR?: GratitudeSubscriptionWhereInput[] | GratitudeSubscriptionWhereInput;
+  NOT?: GratitudeSubscriptionWhereInput[] | GratitudeSubscriptionWhereInput;
+}
+
+export interface CourageUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ExperienceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ExperienceWhereInput;
+  AND?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
+  OR?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
+  NOT?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput;
+}
+
+export interface DefectCreateInput {
+  id?: ID_Input;
+  trauma?: TraumaCreateManyInput;
+  toxicity?: ToxicityCreateManyInput;
+  suffering?: SufferingCreateManyInput;
+}
+
+export type ExperienceWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface TraumaCreateManyInput {
+  create?: TraumaCreateInput[] | TraumaCreateInput;
+  connect?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
+}
+
+export interface VulnerabilityWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
+  OR?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
+  NOT?: VulnerabilityWhereInput[] | VulnerabilityWhereInput;
+}
+
+export interface TraumaCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface CompassionSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CompassionWhereInput;
+  AND?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
+  OR?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
+  NOT?: CompassionSubscriptionWhereInput[] | CompassionSubscriptionWhereInput;
+}
+
+export interface ToxicityCreateManyInput {
+  create?: ToxicityCreateInput[] | ToxicityCreateInput;
+  connect?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
+}
+
+export interface BoundarySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: BoundaryWhereInput;
+  AND?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
+  OR?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
+  NOT?: BoundarySubscriptionWhereInput[] | BoundarySubscriptionWhereInput;
+}
+
+export interface ToxicityCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ExperienceWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  compassion_every?: CompassionWhereInput;
+  compassion_some?: CompassionWhereInput;
+  compassion_none?: CompassionWhereInput;
+  courage_every?: CourageWhereInput;
+  courage_some?: CourageWhereInput;
+  courage_none?: CourageWhereInput;
+  acceptance_every?: AcceptanceWhereInput;
+  acceptance_some?: AcceptanceWhereInput;
+  acceptance_none?: AcceptanceWhereInput;
+  vulnerability_every?: VulnerabilityWhereInput;
+  vulnerability_some?: VulnerabilityWhereInput;
+  vulnerability_none?: VulnerabilityWhereInput;
+  gratitude_every?: GratitudeWhereInput;
+  gratitude_some?: GratitudeWhereInput;
+  gratitude_none?: GratitudeWhereInput;
+  suffering_every?: SufferingWhereInput;
+  suffering_some?: SufferingWhereInput;
+  suffering_none?: SufferingWhereInput;
+  AND?: ExperienceWhereInput[] | ExperienceWhereInput;
+  OR?: ExperienceWhereInput[] | ExperienceWhereInput;
+  NOT?: ExperienceWhereInput[] | ExperienceWhereInput;
+}
+
+export interface SufferingCreateManyInput {
+  create?: SufferingCreateInput[] | SufferingCreateInput;
+  connect?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
+}
+
+export interface AcceptanceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AcceptanceWhereInput;
+  AND?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
+  OR?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
+  NOT?: AcceptanceSubscriptionWhereInput[] | AcceptanceSubscriptionWhereInput;
+}
+
+export interface SufferingCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface VulnerabilityUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface DefectUpdateInput {
+  trauma?: TraumaUpdateManyInput;
+  toxicity?: ToxicityUpdateManyInput;
+  suffering?: SufferingUpdateManyInput;
+}
+
+export interface TraumaUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface TraumaUpdateManyInput {
+  create?: TraumaCreateInput[] | TraumaCreateInput;
+  update?:
+    | TraumaUpdateWithWhereUniqueNestedInput[]
+    | TraumaUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | TraumaUpsertWithWhereUniqueNestedInput[]
+    | TraumaUpsertWithWhereUniqueNestedInput;
+  delete?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
+  connect?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
+  set?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
+  disconnect?: TraumaWhereUniqueInput[] | TraumaWhereUniqueInput;
+  deleteMany?: TraumaScalarWhereInput[] | TraumaScalarWhereInput;
+  updateMany?:
+    | TraumaUpdateManyWithWhereNestedInput[]
+    | TraumaUpdateManyWithWhereNestedInput;
+}
+
+export interface TraumaUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface TraumaUpdateWithWhereUniqueNestedInput {
+  where: TraumaWhereUniqueInput;
+  data: TraumaUpdateDataInput;
+}
+
+export interface ToxicityUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface TraumaUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type GratitudeWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface TraumaUpsertWithWhereUniqueNestedInput {
+  where: TraumaWhereUniqueInput;
+  update: TraumaUpdateDataInput;
+  create: TraumaCreateInput;
+}
+
+export interface StrengthUpdateInput {
+  armor?: ArmorUpdateManyInput;
+  boundary?: BoundaryUpdateManyInput;
+  loyalty?: LoyaltyUpdateManyInput;
+  honor?: HonorUpdateManyInput;
+}
+
+export interface TraumaScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: TraumaScalarWhereInput[] | TraumaScalarWhereInput;
+  OR?: TraumaScalarWhereInput[] | TraumaScalarWhereInput;
+  NOT?: TraumaScalarWhereInput[] | TraumaScalarWhereInput;
+}
+
+export type HasWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface TraumaUpdateManyWithWhereNestedInput {
+  where: TraumaScalarWhereInput;
+  data: TraumaUpdateManyDataInput;
+}
+
+export interface HasWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  resentment?: Boolean;
+  resentment_not?: Boolean;
+  anger?: Boolean;
+  anger_not?: Boolean;
+  AND?: HasWhereInput[] | HasWhereInput;
+  OR?: HasWhereInput[] | HasWhereInput;
+  NOT?: HasWhereInput[] | HasWhereInput;
+}
+
+export interface TraumaUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SalvationUpdateManyMutationInput {
+  thought?: String;
+  character?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityUpdateManyInput {
+  create?: ToxicityCreateInput[] | ToxicityCreateInput;
+  update?:
+    | ToxicityUpdateWithWhereUniqueNestedInput[]
+    | ToxicityUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | ToxicityUpsertWithWhereUniqueNestedInput[]
+    | ToxicityUpsertWithWhereUniqueNestedInput;
+  delete?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
+  connect?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
+  set?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
+  disconnect?: ToxicityWhereUniqueInput[] | ToxicityWhereUniqueInput;
+  deleteMany?: ToxicityScalarWhereInput[] | ToxicityScalarWhereInput;
+  updateMany?:
+    | ToxicityUpdateManyWithWhereNestedInput[]
+    | ToxicityUpdateManyWithWhereNestedInput;
+}
+
+export interface ResentmentUpdateInput {
+  anger?: AngerUpdateManyInput;
+  selfPity?: SelfPityUpdateManyInput;
+  fear?: FearUpdateManyInput;
+  pride?: PrideUpdateManyInput;
+}
+
+export interface ToxicityUpdateWithWhereUniqueNestedInput {
+  where: ToxicityWhereUniqueInput;
+  data: ToxicityUpdateDataInput;
+}
+
+export interface PrideUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ResentmentWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  anger_every?: AngerWhereInput;
+  anger_some?: AngerWhereInput;
+  anger_none?: AngerWhereInput;
+  selfPity_every?: SelfPityWhereInput;
+  selfPity_some?: SelfPityWhereInput;
+  selfPity_none?: SelfPityWhereInput;
+  fear_every?: FearWhereInput;
+  fear_some?: FearWhereInput;
+  fear_none?: FearWhereInput;
+  pride_every?: PrideWhereInput;
+  pride_some?: PrideWhereInput;
+  pride_none?: PrideWhereInput;
+  AND?: ResentmentWhereInput[] | ResentmentWhereInput;
+  OR?: ResentmentWhereInput[] | ResentmentWhereInput;
+  NOT?: ResentmentWhereInput[] | ResentmentWhereInput;
+}
+
+export interface ToxicityUpsertWithWhereUniqueNestedInput {
+  where: ToxicityWhereUniqueInput;
+  update: ToxicityUpdateDataInput;
+  create: ToxicityCreateInput;
+}
+
+export interface PrideWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: PrideWhereInput[] | PrideWhereInput;
+  OR?: PrideWhereInput[] | PrideWhereInput;
+  NOT?: PrideWhereInput[] | PrideWhereInput;
+}
+
+export interface ToxicityScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: ToxicityScalarWhereInput[] | ToxicityScalarWhereInput;
+  OR?: ToxicityScalarWhereInput[] | ToxicityScalarWhereInput;
+  NOT?: ToxicityScalarWhereInput[] | ToxicityScalarWhereInput;
+}
+
+export interface LoyaltyUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityUpdateManyWithWhereNestedInput {
+  where: ToxicityScalarWhereInput;
+  data: ToxicityUpdateManyDataInput;
+}
+
+export interface LoyaltyUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HopeUpdateInput {
+  salvation?: SalvationUpdateManyInput;
+}
+
+export interface SufferingUpdateManyInput {
+  create?: SufferingCreateInput[] | SufferingCreateInput;
+  update?:
+    | SufferingUpdateWithWhereUniqueNestedInput[]
+    | SufferingUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | SufferingUpsertWithWhereUniqueNestedInput[]
+    | SufferingUpsertWithWhereUniqueNestedInput;
+  delete?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
+  connect?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
+  set?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
+  disconnect?: SufferingWhereUniqueInput[] | SufferingWhereUniqueInput;
+  deleteMany?: SufferingScalarWhereInput[] | SufferingScalarWhereInput;
+  updateMany?:
+    | SufferingUpdateManyWithWhereNestedInput[]
+    | SufferingUpdateManyWithWhereNestedInput;
+}
+
+export interface LoyaltyWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: LoyaltyWhereInput[] | LoyaltyWhereInput;
+  OR?: LoyaltyWhereInput[] | LoyaltyWhereInput;
+  NOT?: LoyaltyWhereInput[] | LoyaltyWhereInput;
+}
+
+export interface SufferingUpdateWithWhereUniqueNestedInput {
+  where: SufferingWhereUniqueInput;
+  data: SufferingUpdateDataInput;
+}
+
+export interface HonorUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SufferingUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface InventoryUpsertNestedInput {
+  update: InventoryUpdateDataInput;
+  create: InventoryCreateInput;
+}
+
+export interface SufferingUpsertWithWhereUniqueNestedInput {
+  where: SufferingWhereUniqueInput;
+  update: SufferingUpdateDataInput;
+  create: SufferingCreateInput;
+}
+
+export interface HopeUpsertWithWhereUniqueNestedInput {
+  where: HopeWhereUniqueInput;
+  update: HopeUpdateDataInput;
+  create: HopeCreateInput;
+}
+
+export interface SufferingScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: SufferingScalarWhereInput[] | SufferingScalarWhereInput;
+  OR?: SufferingScalarWhereInput[] | SufferingScalarWhereInput;
+  NOT?: SufferingScalarWhereInput[] | SufferingScalarWhereInput;
+}
+
+export interface StrengthWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  armor_every?: ArmorWhereInput;
+  armor_some?: ArmorWhereInput;
+  armor_none?: ArmorWhereInput;
+  boundary_every?: BoundaryWhereInput;
+  boundary_some?: BoundaryWhereInput;
+  boundary_none?: BoundaryWhereInput;
+  loyalty_every?: LoyaltyWhereInput;
+  loyalty_some?: LoyaltyWhereInput;
+  loyalty_none?: LoyaltyWhereInput;
+  honor_every?: HonorWhereInput;
+  honor_some?: HonorWhereInput;
+  honor_none?: HonorWhereInput;
+  AND?: StrengthWhereInput[] | StrengthWhereInput;
+  OR?: StrengthWhereInput[] | StrengthWhereInput;
+  NOT?: StrengthWhereInput[] | StrengthWhereInput;
+}
+
+export interface SufferingUpdateManyWithWhereNestedInput {
+  where: SufferingScalarWhereInput;
+  data: SufferingUpdateManyDataInput;
+}
+
+export interface SalvationScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: SalvationScalarWhereInput[] | SalvationScalarWhereInput;
+  OR?: SalvationScalarWhereInput[] | SalvationScalarWhereInput;
+  NOT?: SalvationScalarWhereInput[] | SalvationScalarWhereInput;
+}
+
+export interface SufferingUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SalvationWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: SalvationWhereInput[] | SalvationWhereInput;
+  OR?: SalvationWhereInput[] | SalvationWhereInput;
+  NOT?: SalvationWhereInput[] | SalvationWhereInput;
+}
+
+export interface ExperienceCreateInput {
+  id?: ID_Input;
+  compassion?: CompassionCreateManyInput;
+  courage?: CourageCreateManyInput;
+  acceptance?: AcceptanceCreateManyInput;
+  vulnerability?: VulnerabilityCreateManyInput;
+  gratitude?: GratitudeCreateManyInput;
+  suffering?: SufferingCreateManyInput;
+}
+
+export interface SalvationUpdateDataInput {
+  thought?: String;
+  character?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface CompassionCreateManyInput {
+  create?: CompassionCreateInput[] | CompassionCreateInput;
+  connect?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
+}
+
+export interface SalvationUpdateWithWhereUniqueNestedInput {
+  where: SalvationWhereUniqueInput;
+  data: SalvationUpdateDataInput;
+}
+
+export interface CourageCreateManyInput {
+  create?: CourageCreateInput[] | CourageCreateInput;
+  connect?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+}
+
+export interface InventoryWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  defect_every?: DefectWhereInput;
+  defect_some?: DefectWhereInput;
+  defect_none?: DefectWhereInput;
+  resentment_every?: ResentmentWhereInput;
+  resentment_some?: ResentmentWhereInput;
+  resentment_none?: ResentmentWhereInput;
+  obsession_every?: ObsessionWhereInput;
+  obsession_some?: ObsessionWhereInput;
+  obsession_none?: ObsessionWhereInput;
+  experience_every?: ExperienceWhereInput;
+  experience_some?: ExperienceWhereInput;
+  experience_none?: ExperienceWhereInput;
+  strength_every?: StrengthWhereInput;
+  strength_some?: StrengthWhereInput;
+  strength_none?: StrengthWhereInput;
+  hope_every?: HopeWhereInput;
+  hope_some?: HopeWhereInput;
+  hope_none?: HopeWhereInput;
+  AND?: InventoryWhereInput[] | InventoryWhereInput;
+  OR?: InventoryWhereInput[] | InventoryWhereInput;
+  NOT?: InventoryWhereInput[] | InventoryWhereInput;
+}
+
+export interface AcceptanceCreateManyInput {
+  create?: AcceptanceCreateInput[] | AcceptanceCreateInput;
+  connect?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
+}
+
+export interface HopeUpdateDataInput {
+  salvation?: SalvationUpdateManyInput;
+}
+
+export interface VulnerabilityCreateManyInput {
+  create?: VulnerabilityCreateInput[] | VulnerabilityCreateInput;
+  connect?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
+}
+
+export interface HopeUpdateManyInput {
+  create?: HopeCreateInput[] | HopeCreateInput;
+  update?:
+    | HopeUpdateWithWhereUniqueNestedInput[]
+    | HopeUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | HopeUpsertWithWhereUniqueNestedInput[]
+    | HopeUpsertWithWhereUniqueNestedInput;
+  delete?: HopeWhereUniqueInput[] | HopeWhereUniqueInput;
+  connect?: HopeWhereUniqueInput[] | HopeWhereUniqueInput;
+  set?: HopeWhereUniqueInput[] | HopeWhereUniqueInput;
+  disconnect?: HopeWhereUniqueInput[] | HopeWhereUniqueInput;
+  deleteMany?: HopeScalarWhereInput[] | HopeScalarWhereInput;
+}
+
+export interface VulnerabilityCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface StrengthScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: StrengthScalarWhereInput[] | StrengthScalarWhereInput;
+  OR?: StrengthScalarWhereInput[] | StrengthScalarWhereInput;
+  NOT?: StrengthScalarWhereInput[] | StrengthScalarWhereInput;
+}
+
+export interface GratitudeCreateManyInput {
+  create?: GratitudeCreateInput[] | GratitudeCreateInput;
+  connect?: GratitudeWhereUniqueInput[] | GratitudeWhereUniqueInput;
+}
+
+export interface BoundaryUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface GratitudeCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface BoundaryUpdateManyWithWhereNestedInput {
+  where: BoundaryScalarWhereInput;
+  data: BoundaryUpdateManyDataInput;
+}
+
+export interface ExperienceUpdateInput {
+  compassion?: CompassionUpdateManyInput;
+  courage?: CourageUpdateManyInput;
+  acceptance?: AcceptanceUpdateManyInput;
+  vulnerability?: VulnerabilityUpdateManyInput;
+  gratitude?: GratitudeUpdateManyInput;
+  suffering?: SufferingUpdateManyInput;
+}
+
+export interface BoundaryUpsertWithWhereUniqueNestedInput {
+  where: BoundaryWhereUniqueInput;
+  update: BoundaryUpdateDataInput;
+  create: BoundaryCreateInput;
+}
+
+export interface CompassionUpdateManyInput {
+  create?: CompassionCreateInput[] | CompassionCreateInput;
+  update?:
+    | CompassionUpdateWithWhereUniqueNestedInput[]
+    | CompassionUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | CompassionUpsertWithWhereUniqueNestedInput[]
+    | CompassionUpsertWithWhereUniqueNestedInput;
+  delete?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
+  connect?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
+  set?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
+  disconnect?: CompassionWhereUniqueInput[] | CompassionWhereUniqueInput;
+  deleteMany?: CompassionScalarWhereInput[] | CompassionScalarWhereInput;
+  updateMany?:
+    | CompassionUpdateManyWithWhereNestedInput[]
+    | CompassionUpdateManyWithWhereNestedInput;
+}
+
+export interface BoundaryUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface CompassionUpdateWithWhereUniqueNestedInput {
+  where: CompassionWhereUniqueInput;
+  data: CompassionUpdateDataInput;
+}
+
+export interface BoundaryUpdateManyInput {
+  create?: BoundaryCreateInput[] | BoundaryCreateInput;
+  update?:
+    | BoundaryUpdateWithWhereUniqueNestedInput[]
+    | BoundaryUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | BoundaryUpsertWithWhereUniqueNestedInput[]
+    | BoundaryUpsertWithWhereUniqueNestedInput;
+  delete?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
+  connect?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
+  set?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
+  disconnect?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
+  deleteMany?: BoundaryScalarWhereInput[] | BoundaryScalarWhereInput;
+  updateMany?:
+    | BoundaryUpdateManyWithWhereNestedInput[]
+    | BoundaryUpdateManyWithWhereNestedInput;
+}
+
+export interface CompassionUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type LoyaltyWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface CompassionUpsertWithWhereUniqueNestedInput {
+  where: CompassionWhereUniqueInput;
+  update: CompassionUpdateDataInput;
+  create: CompassionCreateInput;
+}
+
+export interface ArmorScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: ArmorScalarWhereInput[] | ArmorScalarWhereInput;
+  OR?: ArmorScalarWhereInput[] | ArmorScalarWhereInput;
+  NOT?: ArmorScalarWhereInput[] | ArmorScalarWhereInput;
+}
+
+export interface CompassionScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: CompassionScalarWhereInput[] | CompassionScalarWhereInput;
+  OR?: CompassionScalarWhereInput[] | CompassionScalarWhereInput;
+  NOT?: CompassionScalarWhereInput[] | CompassionScalarWhereInput;
+}
+
+export type ObsessionWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface CompassionUpdateManyWithWhereNestedInput {
+  where: CompassionScalarWhereInput;
+  data: CompassionUpdateManyDataInput;
+}
+
+export interface ArmorUpdateWithWhereUniqueNestedInput {
+  where: ArmorWhereUniqueInput;
+  data: ArmorUpdateDataInput;
+}
+
+export interface CompassionUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type PrideWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface CourageUpdateManyInput {
+  create?: CourageCreateInput[] | CourageCreateInput;
+  update?:
+    | CourageUpdateWithWhereUniqueNestedInput[]
+    | CourageUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | CourageUpsertWithWhereUniqueNestedInput[]
+    | CourageUpsertWithWhereUniqueNestedInput;
+  delete?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+  connect?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+  set?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+  disconnect?: CourageWhereUniqueInput[] | CourageWhereUniqueInput;
+  deleteMany?: CourageScalarWhereInput[] | CourageScalarWhereInput;
+  updateMany?:
+    | CourageUpdateManyWithWhereNestedInput[]
+    | CourageUpdateManyWithWhereNestedInput;
+}
+
+export interface StrengthUpdateWithWhereUniqueNestedInput {
+  where: StrengthWhereUniqueInput;
+  data: StrengthUpdateDataInput;
+}
+
+export interface CourageUpdateWithWhereUniqueNestedInput {
+  where: CourageWhereUniqueInput;
+  data: CourageUpdateDataInput;
+}
+
+export type ResentmentWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface CourageUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ExperienceUpsertWithWhereUniqueNestedInput {
+  where: ExperienceWhereUniqueInput;
+  update: ExperienceUpdateDataInput;
+  create: ExperienceCreateInput;
+}
+
+export interface CourageUpsertWithWhereUniqueNestedInput {
+  where: CourageWhereUniqueInput;
+  update: CourageUpdateDataInput;
+  create: CourageCreateInput;
+}
+
+export type SalvationWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface PrideUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ExperienceUpdateManyInput {
+  create?: ExperienceCreateInput[] | ExperienceCreateInput;
+  update?:
+    | ExperienceUpdateWithWhereUniqueNestedInput[]
+    | ExperienceUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | ExperienceUpsertWithWhereUniqueNestedInput[]
+    | ExperienceUpsertWithWhereUniqueNestedInput;
+  delete?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput;
+  connect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput;
+  set?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput;
+  disconnect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput;
+  deleteMany?: ExperienceScalarWhereInput[] | ExperienceScalarWhereInput;
+}
+
+export interface CourageUpdateManyWithWhereNestedInput {
+  where: CourageScalarWhereInput;
+  data: CourageUpdateManyDataInput;
+}
+
+export type SelfPityWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface CourageUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HonorUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface AcceptanceUpdateManyInput {
+  create?: AcceptanceCreateInput[] | AcceptanceCreateInput;
+  update?:
+    | AcceptanceUpdateWithWhereUniqueNestedInput[]
+    | AcceptanceUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | AcceptanceUpsertWithWhereUniqueNestedInput[]
+    | AcceptanceUpsertWithWhereUniqueNestedInput;
+  delete?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
+  connect?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
+  set?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
+  disconnect?: AcceptanceWhereUniqueInput[] | AcceptanceWhereUniqueInput;
+  deleteMany?: AcceptanceScalarWhereInput[] | AcceptanceScalarWhereInput;
+  updateMany?:
+    | AcceptanceUpdateManyWithWhereNestedInput[]
+    | AcceptanceUpdateManyWithWhereNestedInput;
+}
+
+export type StrengthWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AcceptanceUpdateWithWhereUniqueNestedInput {
+  where: AcceptanceWhereUniqueInput;
+  data: AcceptanceUpdateDataInput;
+}
+
+export interface HonorUpsertWithWhereUniqueNestedInput {
+  where: HonorWhereUniqueInput;
+  update: HonorUpdateDataInput;
+  create: HonorCreateInput;
+}
+
+export interface AcceptanceUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type SufferingWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AcceptanceUpsertWithWhereUniqueNestedInput {
+  where: AcceptanceWhereUniqueInput;
+  update: AcceptanceUpdateDataInput;
+  create: AcceptanceCreateInput;
+}
+
+export interface HonorUpdateManyInput {
+  create?: HonorCreateInput[] | HonorCreateInput;
+  update?:
+    | HonorUpdateWithWhereUniqueNestedInput[]
+    | HonorUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | HonorUpsertWithWhereUniqueNestedInput[]
+    | HonorUpsertWithWhereUniqueNestedInput;
+  delete?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
+  connect?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
+  set?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
+  disconnect?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
+  deleteMany?: HonorScalarWhereInput[] | HonorScalarWhereInput;
+  updateMany?:
+    | HonorUpdateManyWithWhereNestedInput[]
+    | HonorUpdateManyWithWhereNestedInput;
+}
+
+export interface AcceptanceScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: AcceptanceScalarWhereInput[] | AcceptanceScalarWhereInput;
+  OR?: AcceptanceScalarWhereInput[] | AcceptanceScalarWhereInput;
+  NOT?: AcceptanceScalarWhereInput[] | AcceptanceScalarWhereInput;
+}
+
+export type ToxicityWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AcceptanceUpdateManyWithWhereNestedInput {
+  where: AcceptanceScalarWhereInput;
+  data: AcceptanceUpdateManyDataInput;
+}
+
+export interface LoyaltyScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: LoyaltyScalarWhereInput[] | LoyaltyScalarWhereInput;
+  OR?: LoyaltyScalarWhereInput[] | LoyaltyScalarWhereInput;
+  NOT?: LoyaltyScalarWhereInput[] | LoyaltyScalarWhereInput;
+}
+
+export interface AcceptanceUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type TraumaWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface VulnerabilityUpdateManyInput {
+  create?: VulnerabilityCreateInput[] | VulnerabilityCreateInput;
+  update?:
+    | VulnerabilityUpdateWithWhereUniqueNestedInput[]
+    | VulnerabilityUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | VulnerabilityUpsertWithWhereUniqueNestedInput[]
+    | VulnerabilityUpsertWithWhereUniqueNestedInput;
+  delete?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
+  connect?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
+  set?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
+  disconnect?: VulnerabilityWhereUniqueInput[] | VulnerabilityWhereUniqueInput;
+  deleteMany?: VulnerabilityScalarWhereInput[] | VulnerabilityScalarWhereInput;
+  updateMany?:
+    | VulnerabilityUpdateManyWithWhereNestedInput[]
+    | VulnerabilityUpdateManyWithWhereNestedInput;
+}
+
+export interface LoyaltyUpdateWithWhereUniqueNestedInput {
+  where: LoyaltyWhereUniqueInput;
+  data: LoyaltyUpdateDataInput;
+}
+
+export interface VulnerabilityUpdateWithWhereUniqueNestedInput {
+  where: VulnerabilityWhereUniqueInput;
+  data: VulnerabilityUpdateDataInput;
+}
+
+export type VulnerabilityWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface VulnerabilityUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ObsessionUpdateWithWhereUniqueNestedInput {
+  where: ObsessionWhereUniqueInput;
+  data: ObsessionUpdateDataInput;
+}
+
+export interface VulnerabilityUpsertWithWhereUniqueNestedInput {
+  where: VulnerabilityWhereUniqueInput;
+  update: VulnerabilityUpdateDataInput;
+  create: VulnerabilityCreateInput;
+}
+
+export interface AcceptanceUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface PrideUpdateManyWithWhereNestedInput {
+  where: PrideScalarWhereInput;
+  data: PrideUpdateManyDataInput;
+}
+
+export interface VulnerabilitySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: VulnerabilityWhereInput;
+  AND?:
+    | VulnerabilitySubscriptionWhereInput[]
+    | VulnerabilitySubscriptionWhereInput;
+  OR?:
+    | VulnerabilitySubscriptionWhereInput[]
+    | VulnerabilitySubscriptionWhereInput;
+  NOT?:
+    | VulnerabilitySubscriptionWhereInput[]
+    | VulnerabilitySubscriptionWhereInput;
+}
+
+export interface PrideScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: PrideScalarWhereInput[] | PrideScalarWhereInput;
+  OR?: PrideScalarWhereInput[] | PrideScalarWhereInput;
+  NOT?: PrideScalarWhereInput[] | PrideScalarWhereInput;
+}
+
+export type BoundaryWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface VulnerabilityUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type CourageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface GratitudeUpdateManyInput {
+  create?: GratitudeCreateInput[] | GratitudeCreateInput;
+  update?:
+    | GratitudeUpdateWithWhereUniqueNestedInput[]
+    | GratitudeUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | GratitudeUpsertWithWhereUniqueNestedInput[]
+    | GratitudeUpsertWithWhereUniqueNestedInput;
+  delete?: GratitudeWhereUniqueInput[] | GratitudeWhereUniqueInput;
+  connect?: GratitudeWhereUniqueInput[] | GratitudeWhereUniqueInput;
+  set?: GratitudeWhereUniqueInput[] | GratitudeWhereUniqueInput;
+  disconnect?: GratitudeWhereUniqueInput[] | GratitudeWhereUniqueInput;
+  deleteMany?: GratitudeScalarWhereInput[] | GratitudeScalarWhereInput;
+  updateMany?:
+    | GratitudeUpdateManyWithWhereNestedInput[]
+    | GratitudeUpdateManyWithWhereNestedInput;
+}
+
+export interface ResentmentSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ResentmentWhereInput;
+  AND?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
+  OR?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
+  NOT?: ResentmentSubscriptionWhereInput[] | ResentmentSubscriptionWhereInput;
+}
+
+export interface GratitudeUpdateWithWhereUniqueNestedInput {
+  where: GratitudeWhereUniqueInput;
+  data: GratitudeUpdateDataInput;
+}
+
+export interface LoyaltySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: LoyaltyWhereInput;
+  AND?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
+  OR?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
+  NOT?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
+}
+
+export interface GratitudeUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: ToxicityWhereInput[] | ToxicityWhereInput;
+  OR?: ToxicityWhereInput[] | ToxicityWhereInput;
+  NOT?: ToxicityWhereInput[] | ToxicityWhereInput;
+}
+
+export interface GratitudeUpsertWithWhereUniqueNestedInput {
+  where: GratitudeWhereUniqueInput;
+  update: GratitudeUpdateDataInput;
+  create: GratitudeCreateInput;
+}
+
+export interface ArmorWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: ArmorWhereInput[] | ArmorWhereInput;
+  OR?: ArmorWhereInput[] | ArmorWhereInput;
+  NOT?: ArmorWhereInput[] | ArmorWhereInput;
+}
+
+export interface GratitudeScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: GratitudeScalarWhereInput[] | GratitudeScalarWhereInput;
+  OR?: GratitudeScalarWhereInput[] | GratitudeScalarWhereInput;
+  NOT?: GratitudeScalarWhereInput[] | GratitudeScalarWhereInput;
+}
+
+export interface FearSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: FearWhereInput;
+  AND?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
+  OR?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
+  NOT?: FearSubscriptionWhereInput[] | FearSubscriptionWhereInput;
+}
+
+export interface GratitudeUpdateManyWithWhereNestedInput {
+  where: GratitudeScalarWhereInput;
+  data: GratitudeUpdateManyDataInput;
+}
+
+export interface CourageSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CourageWhereInput;
+  AND?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
+  OR?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
+  NOT?: CourageSubscriptionWhereInput[] | CourageSubscriptionWhereInput;
+}
+
+export interface GratitudeUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface GratitudeWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: GratitudeWhereInput[] | GratitudeWhereInput;
+  OR?: GratitudeWhereInput[] | GratitudeWhereInput;
+  NOT?: GratitudeWhereInput[] | GratitudeWhereInput;
+}
+
+export interface FearCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface AngerSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AngerWhereInput;
+  AND?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
+  OR?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
+  NOT?: AngerSubscriptionWhereInput[] | AngerSubscriptionWhereInput;
+}
+
+export interface FearUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type FearWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface FearUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ToxicityUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface GratitudeUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SufferingUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface GratitudeUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SelfPityUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HasCreateInput {
+  id?: ID_Input;
+  resentment: Boolean;
+  anger: Boolean;
+}
+
+export interface SalvationUpdateInput {
+  thought?: String;
+  character?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HasUpdateInput {
+  resentment?: Boolean;
+  anger?: Boolean;
+}
+
+export interface PrideUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HasUpdateManyMutationInput {
+  resentment?: Boolean;
+  anger?: Boolean;
+}
+
+export interface ObsessionUpdateInput {
+  suffering?: SufferingUpdateManyInput;
+  loyalty?: LoyaltyUpdateManyInput;
+  honor?: HonorUpdateManyInput;
+  vulnerability?: VulnerabilityUpdateManyInput;
+}
+
+export interface HigherPowerCreateInput {
+  id?: ID_Input;
+  inventory?: InventoryCreateOneInput;
+}
+
+export interface InventoryUpdateInput {
+  defect?: DefectUpdateManyInput;
+  resentment?: ResentmentUpdateManyInput;
+  obsession?: ObsessionUpdateManyInput;
+  experience?: ExperienceUpdateManyInput;
+  strength?: StrengthUpdateManyInput;
+  hope?: HopeUpdateManyInput;
+}
+
+export interface InventoryCreateOneInput {
+  create?: InventoryCreateInput;
+  connect?: InventoryWhereUniqueInput;
+}
+
+export interface HonorWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: HonorWhereInput[] | HonorWhereInput;
+  OR?: HonorWhereInput[] | HonorWhereInput;
+  NOT?: HonorWhereInput[] | HonorWhereInput;
+}
+
+export interface InventoryCreateInput {
+  id?: ID_Input;
+  defect?: DefectCreateManyInput;
+  resentment?: ResentmentCreateManyInput;
+  obsession?: ObsessionCreateManyInput;
+  experience?: ExperienceCreateManyInput;
+  strength?: StrengthCreateManyInput;
+  hope?: HopeCreateManyInput;
+}
+
+export interface HopeScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: HopeScalarWhereInput[] | HopeScalarWhereInput;
+  OR?: HopeScalarWhereInput[] | HopeScalarWhereInput;
+  NOT?: HopeScalarWhereInput[] | HopeScalarWhereInput;
+}
+
+export interface DefectCreateManyInput {
+  create?: DefectCreateInput[] | DefectCreateInput;
+  connect?: DefectWhereUniqueInput[] | DefectWhereUniqueInput;
+}
+
+export interface SalvationUpdateManyWithWhereNestedInput {
+  where: SalvationScalarWhereInput;
+  data: SalvationUpdateManyDataInput;
+}
+
+export interface ResentmentCreateManyInput {
+  create?: ResentmentCreateInput[] | ResentmentCreateInput;
+  connect?: ResentmentWhereUniqueInput[] | ResentmentWhereUniqueInput;
+}
+
+export interface SalvationUpsertWithWhereUniqueNestedInput {
+  where: SalvationWhereUniqueInput;
+  update: SalvationUpdateDataInput;
+  create: SalvationCreateInput;
+}
+
+export interface ResentmentCreateInput {
+  id?: ID_Input;
+  anger?: AngerCreateManyInput;
+  selfPity?: SelfPityCreateManyInput;
+  fear?: FearCreateManyInput;
+  pride?: PrideCreateManyInput;
+}
+
+export interface HigherPowerWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  inventory?: InventoryWhereInput;
+  AND?: HigherPowerWhereInput[] | HigherPowerWhereInput;
+  OR?: HigherPowerWhereInput[] | HigherPowerWhereInput;
+  NOT?: HigherPowerWhereInput[] | HigherPowerWhereInput;
+}
+
+export interface AngerCreateManyInput {
+  create?: AngerCreateInput[] | AngerCreateInput;
+  connect?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
+}
+
+export interface HopeUpdateWithWhereUniqueNestedInput {
+  where: HopeWhereUniqueInput;
+  data: HopeUpdateDataInput;
+}
+
+export interface SelfPityCreateManyInput {
+  create?: SelfPityCreateInput[] | SelfPityCreateInput;
+  connect?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
+}
+
+export interface StrengthUpsertWithWhereUniqueNestedInput {
+  where: StrengthWhereUniqueInput;
+  update: StrengthUpdateDataInput;
+  create: StrengthCreateInput;
+}
+
+export interface SelfPityCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface BoundaryScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: BoundaryScalarWhereInput[] | BoundaryScalarWhereInput;
+  OR?: BoundaryScalarWhereInput[] | BoundaryScalarWhereInput;
+  NOT?: BoundaryScalarWhereInput[] | BoundaryScalarWhereInput;
+}
+
+export interface FearCreateManyInput {
+  create?: FearCreateInput[] | FearCreateInput;
+  connect?: FearWhereUniqueInput[] | FearWhereUniqueInput;
+}
+
+export interface BoundaryUpdateWithWhereUniqueNestedInput {
+  where: BoundaryWhereUniqueInput;
+  data: BoundaryUpdateDataInput;
+}
+
+export interface PrideCreateManyInput {
+  create?: PrideCreateInput[] | PrideCreateInput;
+  connect?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
+}
+
+export interface ArmorUpdateManyWithWhereNestedInput {
+  where: ArmorScalarWhereInput;
+  data: ArmorUpdateManyDataInput;
+}
+
+export interface PrideCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ArmorUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ObsessionCreateManyInput {
+  create?: ObsessionCreateInput[] | ObsessionCreateInput;
+  connect?: ObsessionWhereUniqueInput[] | ObsessionWhereUniqueInput;
+}
+
+export interface StrengthUpdateDataInput {
+  armor?: ArmorUpdateManyInput;
+  boundary?: BoundaryUpdateManyInput;
+  loyalty?: LoyaltyUpdateManyInput;
+  honor?: HonorUpdateManyInput;
+}
+
+export interface ObsessionCreateInput {
+  id?: ID_Input;
+  suffering?: SufferingCreateManyInput;
+  loyalty?: LoyaltyCreateManyInput;
+  honor?: HonorCreateManyInput;
+  vulnerability?: VulnerabilityCreateManyInput;
+}
+
+export interface ExperienceScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: ExperienceScalarWhereInput[] | ExperienceScalarWhereInput;
+  OR?: ExperienceScalarWhereInput[] | ExperienceScalarWhereInput;
+  NOT?: ExperienceScalarWhereInput[] | ExperienceScalarWhereInput;
+}
+
+export interface LoyaltyCreateManyInput {
+  create?: LoyaltyCreateInput[] | LoyaltyCreateInput;
+  connect?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
+}
+
+export interface ExperienceUpdateWithWhereUniqueNestedInput {
+  where: ExperienceWhereUniqueInput;
+  data: ExperienceUpdateDataInput;
+}
+
+export interface LoyaltyCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ObsessionUpsertWithWhereUniqueNestedInput {
+  where: ObsessionWhereUniqueInput;
+  update: ObsessionUpdateDataInput;
+  create: ObsessionCreateInput;
+}
+
+export interface HonorCreateManyInput {
+  create?: HonorCreateInput[] | HonorCreateInput;
+  connect?: HonorWhereUniqueInput[] | HonorWhereUniqueInput;
+}
+
+export interface HonorScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: HonorScalarWhereInput[] | HonorScalarWhereInput;
+  OR?: HonorScalarWhereInput[] | HonorScalarWhereInput;
+  NOT?: HonorScalarWhereInput[] | HonorScalarWhereInput;
+}
+
+export interface HonorCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HonorUpdateWithWhereUniqueNestedInput {
+  where: HonorWhereUniqueInput;
+  data: HonorUpdateDataInput;
+}
+
+export interface ExperienceCreateManyInput {
+  create?: ExperienceCreateInput[] | ExperienceCreateInput;
+  connect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput;
+}
+
+export interface LoyaltyUpdateManyWithWhereNestedInput {
+  where: LoyaltyScalarWhereInput;
+  data: LoyaltyUpdateManyDataInput;
+}
+
+export interface StrengthCreateManyInput {
+  create?: StrengthCreateInput[] | StrengthCreateInput;
+  connect?: StrengthWhereUniqueInput[] | StrengthWhereUniqueInput;
+}
+
+export interface LoyaltyUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface StrengthCreateInput {
+  id?: ID_Input;
+  armor?: ArmorCreateManyInput;
+  boundary?: BoundaryCreateManyInput;
+  loyalty?: LoyaltyCreateManyInput;
+  honor?: HonorCreateManyInput;
+}
+
+export interface ObsessionUpdateDataInput {
+  suffering?: SufferingUpdateManyInput;
+  loyalty?: LoyaltyUpdateManyInput;
+  honor?: HonorUpdateManyInput;
+  vulnerability?: VulnerabilityUpdateManyInput;
+}
+
+export interface ArmorCreateManyInput {
+  create?: ArmorCreateInput[] | ArmorCreateInput;
+  connect?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
+}
+
+export interface AcceptanceCreateInput {
+  id?: ID_Input;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface BoundaryCreateManyInput {
+  create?: BoundaryCreateInput[] | BoundaryCreateInput;
+  connect?: BoundaryWhereUniqueInput[] | BoundaryWhereUniqueInput;
+}
+
+export interface TraumaSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TraumaWhereInput;
+  AND?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
+  OR?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
+  NOT?: TraumaSubscriptionWhereInput[] | TraumaSubscriptionWhereInput;
+}
+
+export interface HopeCreateManyInput {
+  create?: HopeCreateInput[] | HopeCreateInput;
+  connect?: HopeWhereUniqueInput[] | HopeWhereUniqueInput;
+}
+
+export interface CourageWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: CourageWhereInput[] | CourageWhereInput;
+  OR?: CourageWhereInput[] | CourageWhereInput;
+  NOT?: CourageWhereInput[] | CourageWhereInput;
+}
+
+export interface HopeCreateInput {
+  id?: ID_Input;
+  salvation?: SalvationCreateManyInput;
+}
+
+export interface InventorySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: InventoryWhereInput;
+  AND?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
+  OR?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
+  NOT?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
+}
+
+export interface SalvationCreateManyInput {
+  create?: SalvationCreateInput[] | SalvationCreateInput;
+  connect?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
+}
+
+export interface DefectWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  trauma_every?: TraumaWhereInput;
+  trauma_some?: TraumaWhereInput;
+  trauma_none?: TraumaWhereInput;
+  toxicity_every?: ToxicityWhereInput;
+  toxicity_some?: ToxicityWhereInput;
+  toxicity_none?: ToxicityWhereInput;
+  suffering_every?: SufferingWhereInput;
+  suffering_some?: SufferingWhereInput;
+  suffering_none?: SufferingWhereInput;
+  AND?: DefectWhereInput[] | DefectWhereInput;
+  OR?: DefectWhereInput[] | DefectWhereInput;
+  NOT?: DefectWhereInput[] | DefectWhereInput;
+}
+
+export interface SalvationCreateInput {
+  id?: ID_Input;
+  thought: String;
+  character: String;
+  location: String;
+  process: String;
+  attribute: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type ArmorWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
 export interface HigherPowerUpdateInput {
   inventory?: InventoryUpdateOneInput;
+}
+
+export interface VulnerabilityUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface InventoryUpdateOneInput {
+  create?: InventoryCreateInput;
+  update?: InventoryUpdateDataInput;
+  upsert?: InventoryUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: InventoryWhereUniqueInput;
+}
+
+export interface SufferingUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface InventoryUpdateDataInput {
+  defect?: DefectUpdateManyInput;
+  resentment?: ResentmentUpdateManyInput;
+  obsession?: ObsessionUpdateManyInput;
+  experience?: ExperienceUpdateManyInput;
+  strength?: StrengthUpdateManyInput;
+  hope?: HopeUpdateManyInput;
+}
+
+export interface AngerWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: AngerWhereInput[] | AngerWhereInput;
+  OR?: AngerWhereInput[] | AngerWhereInput;
+  NOT?: AngerWhereInput[] | AngerWhereInput;
+}
+
+export interface DefectUpdateManyInput {
+  create?: DefectCreateInput[] | DefectCreateInput;
+  update?:
+    | DefectUpdateWithWhereUniqueNestedInput[]
+    | DefectUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | DefectUpsertWithWhereUniqueNestedInput[]
+    | DefectUpsertWithWhereUniqueNestedInput;
+  delete?: DefectWhereUniqueInput[] | DefectWhereUniqueInput;
+  connect?: DefectWhereUniqueInput[] | DefectWhereUniqueInput;
+  set?: DefectWhereUniqueInput[] | DefectWhereUniqueInput;
+  disconnect?: DefectWhereUniqueInput[] | DefectWhereUniqueInput;
+  deleteMany?: DefectScalarWhereInput[] | DefectScalarWhereInput;
 }
 
 export interface SelfPityWhereInput {
@@ -4048,34 +7503,62 @@ export interface SelfPityWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   attribute?: String;
   attribute_not?: String;
   attribute_in?: String[] | String;
@@ -4135,19 +7618,1526 @@ export interface SelfPityWhereInput {
   NOT?: SelfPityWhereInput[] | SelfPityWhereInput;
 }
 
-export interface LoyaltySubscriptionWhereInput {
+export interface DefectUpdateWithWhereUniqueNestedInput {
+  where: DefectWhereUniqueInput;
+  data: DefectUpdateDataInput;
+}
+
+export interface ObsessionWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  suffering_every?: SufferingWhereInput;
+  suffering_some?: SufferingWhereInput;
+  suffering_none?: SufferingWhereInput;
+  loyalty_every?: LoyaltyWhereInput;
+  loyalty_some?: LoyaltyWhereInput;
+  loyalty_none?: LoyaltyWhereInput;
+  honor_every?: HonorWhereInput;
+  honor_some?: HonorWhereInput;
+  honor_none?: HonorWhereInput;
+  vulnerability_every?: VulnerabilityWhereInput;
+  vulnerability_some?: VulnerabilityWhereInput;
+  vulnerability_none?: VulnerabilityWhereInput;
+  AND?: ObsessionWhereInput[] | ObsessionWhereInput;
+  OR?: ObsessionWhereInput[] | ObsessionWhereInput;
+  NOT?: ObsessionWhereInput[] | ObsessionWhereInput;
+}
+
+export interface DefectUpdateDataInput {
+  trauma?: TraumaUpdateManyInput;
+  toxicity?: ToxicityUpdateManyInput;
+  suffering?: SufferingUpdateManyInput;
+}
+
+export interface SalvationUpdateManyDataInput {
+  thought?: String;
+  character?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface DefectUpsertWithWhereUniqueNestedInput {
+  where: DefectWhereUniqueInput;
+  update: DefectUpdateDataInput;
+  create: DefectCreateInput;
+}
+
+export interface AcceptanceWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: AcceptanceWhereInput[] | AcceptanceWhereInput;
+  OR?: AcceptanceWhereInput[] | AcceptanceWhereInput;
+  NOT?: AcceptanceWhereInput[] | AcceptanceWhereInput;
+}
+
+export interface DefectScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: DefectScalarWhereInput[] | DefectScalarWhereInput;
+  OR?: DefectScalarWhereInput[] | DefectScalarWhereInput;
+  NOT?: DefectScalarWhereInput[] | DefectScalarWhereInput;
+}
+
+export type HonorWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface ResentmentUpdateManyInput {
+  create?: ResentmentCreateInput[] | ResentmentCreateInput;
+  update?:
+    | ResentmentUpdateWithWhereUniqueNestedInput[]
+    | ResentmentUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | ResentmentUpsertWithWhereUniqueNestedInput[]
+    | ResentmentUpsertWithWhereUniqueNestedInput;
+  delete?: ResentmentWhereUniqueInput[] | ResentmentWhereUniqueInput;
+  connect?: ResentmentWhereUniqueInput[] | ResentmentWhereUniqueInput;
+  set?: ResentmentWhereUniqueInput[] | ResentmentWhereUniqueInput;
+  disconnect?: ResentmentWhereUniqueInput[] | ResentmentWhereUniqueInput;
+  deleteMany?: ResentmentScalarWhereInput[] | ResentmentScalarWhereInput;
+}
+
+export type InventoryWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface ResentmentUpdateWithWhereUniqueNestedInput {
+  where: ResentmentWhereUniqueInput;
+  data: ResentmentUpdateDataInput;
+}
+
+export interface ArmorUpsertWithWhereUniqueNestedInput {
+  where: ArmorWhereUniqueInput;
+  update: ArmorUpdateDataInput;
+  create: ArmorCreateInput;
+}
+
+export interface ResentmentUpdateDataInput {
+  anger?: AngerUpdateManyInput;
+  selfPity?: SelfPityUpdateManyInput;
+  fear?: FearUpdateManyInput;
+  pride?: PrideUpdateManyInput;
+}
+
+export interface StrengthUpdateManyInput {
+  create?: StrengthCreateInput[] | StrengthCreateInput;
+  update?:
+    | StrengthUpdateWithWhereUniqueNestedInput[]
+    | StrengthUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | StrengthUpsertWithWhereUniqueNestedInput[]
+    | StrengthUpsertWithWhereUniqueNestedInput;
+  delete?: StrengthWhereUniqueInput[] | StrengthWhereUniqueInput;
+  connect?: StrengthWhereUniqueInput[] | StrengthWhereUniqueInput;
+  set?: StrengthWhereUniqueInput[] | StrengthWhereUniqueInput;
+  disconnect?: StrengthWhereUniqueInput[] | StrengthWhereUniqueInput;
+  deleteMany?: StrengthScalarWhereInput[] | StrengthScalarWhereInput;
+}
+
+export interface AngerUpdateManyInput {
+  create?: AngerCreateInput[] | AngerCreateInput;
+  update?:
+    | AngerUpdateWithWhereUniqueNestedInput[]
+    | AngerUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | AngerUpsertWithWhereUniqueNestedInput[]
+    | AngerUpsertWithWhereUniqueNestedInput;
+  delete?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
+  connect?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
+  set?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
+  disconnect?: AngerWhereUniqueInput[] | AngerWhereUniqueInput;
+  deleteMany?: AngerScalarWhereInput[] | AngerScalarWhereInput;
+  updateMany?:
+    | AngerUpdateManyWithWhereNestedInput[]
+    | AngerUpdateManyWithWhereNestedInput;
+}
+
+export interface ObsessionScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: ObsessionScalarWhereInput[] | ObsessionScalarWhereInput;
+  OR?: ObsessionScalarWhereInput[] | ObsessionScalarWhereInput;
+  NOT?: ObsessionScalarWhereInput[] | ObsessionScalarWhereInput;
+}
+
+export interface AngerUpdateWithWhereUniqueNestedInput {
+  where: AngerWhereUniqueInput;
+  data: AngerUpdateDataInput;
+}
+
+export interface HonorUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface AngerUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface LoyaltyUpsertWithWhereUniqueNestedInput {
+  where: LoyaltyWhereUniqueInput;
+  update: LoyaltyUpdateDataInput;
+  create: LoyaltyCreateInput;
+}
+
+export interface AngerUpsertWithWhereUniqueNestedInput {
+  where: AngerWhereUniqueInput;
+  update: AngerUpdateDataInput;
+  create: AngerCreateInput;
+}
+
+export interface ObsessionUpdateManyInput {
+  create?: ObsessionCreateInput[] | ObsessionCreateInput;
+  update?:
+    | ObsessionUpdateWithWhereUniqueNestedInput[]
+    | ObsessionUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | ObsessionUpsertWithWhereUniqueNestedInput[]
+    | ObsessionUpsertWithWhereUniqueNestedInput;
+  delete?: ObsessionWhereUniqueInput[] | ObsessionWhereUniqueInput;
+  connect?: ObsessionWhereUniqueInput[] | ObsessionWhereUniqueInput;
+  set?: ObsessionWhereUniqueInput[] | ObsessionWhereUniqueInput;
+  disconnect?: ObsessionWhereUniqueInput[] | ObsessionWhereUniqueInput;
+  deleteMany?: ObsessionScalarWhereInput[] | ObsessionScalarWhereInput;
+}
+
+export interface AngerScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: AngerScalarWhereInput[] | AngerScalarWhereInput;
+  OR?: AngerScalarWhereInput[] | AngerScalarWhereInput;
+  NOT?: AngerScalarWhereInput[] | AngerScalarWhereInput;
+}
+
+export interface SufferingSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: LoyaltyWhereInput;
-  AND?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
-  OR?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
-  NOT?: LoyaltySubscriptionWhereInput[] | LoyaltySubscriptionWhereInput;
+  node?: SufferingWhereInput;
+  AND?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
+  OR?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
+  NOT?: SufferingSubscriptionWhereInput[] | SufferingSubscriptionWhereInput;
+}
+
+export interface AngerUpdateManyWithWhereNestedInput {
+  where: AngerScalarWhereInput;
+  data: AngerUpdateManyDataInput;
+}
+
+export interface HigherPowerSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: HigherPowerWhereInput;
+  AND?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
+  OR?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
+  NOT?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
+}
+
+export interface AngerUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ArmorSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ArmorWhereInput;
+  AND?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
+  OR?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
+  NOT?: ArmorSubscriptionWhereInput[] | ArmorSubscriptionWhereInput;
+}
+
+export interface SelfPityUpdateManyInput {
+  create?: SelfPityCreateInput[] | SelfPityCreateInput;
+  update?:
+    | SelfPityUpdateWithWhereUniqueNestedInput[]
+    | SelfPityUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | SelfPityUpsertWithWhereUniqueNestedInput[]
+    | SelfPityUpsertWithWhereUniqueNestedInput;
+  delete?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
+  connect?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
+  set?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
+  disconnect?: SelfPityWhereUniqueInput[] | SelfPityWhereUniqueInput;
+  deleteMany?: SelfPityScalarWhereInput[] | SelfPityScalarWhereInput;
+  updateMany?:
+    | SelfPityUpdateManyWithWhereNestedInput[]
+    | SelfPityUpdateManyWithWhereNestedInput;
+}
+
+export interface SelfPityUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface SelfPityUpdateWithWhereUniqueNestedInput {
+  where: SelfPityWhereUniqueInput;
+  data: SelfPityUpdateDataInput;
+}
+
+export type AngerWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface SelfPityUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HopeWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  salvation_every?: SalvationWhereInput;
+  salvation_some?: SalvationWhereInput;
+  salvation_none?: SalvationWhereInput;
+  AND?: HopeWhereInput[] | HopeWhereInput;
+  OR?: HopeWhereInput[] | HopeWhereInput;
+  NOT?: HopeWhereInput[] | HopeWhereInput;
+}
+
+export interface SelfPityUpsertWithWhereUniqueNestedInput {
+  where: SelfPityWhereUniqueInput;
+  update: SelfPityUpdateDataInput;
+  create: SelfPityCreateInput;
+}
+
+export type HopeWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface SelfPityScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: SelfPityScalarWhereInput[] | SelfPityScalarWhereInput;
+  OR?: SelfPityScalarWhereInput[] | SelfPityScalarWhereInput;
+  NOT?: SelfPityScalarWhereInput[] | SelfPityScalarWhereInput;
+}
+
+export interface ArmorUpdateManyInput {
+  create?: ArmorCreateInput[] | ArmorCreateInput;
+  update?:
+    | ArmorUpdateWithWhereUniqueNestedInput[]
+    | ArmorUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | ArmorUpsertWithWhereUniqueNestedInput[]
+    | ArmorUpsertWithWhereUniqueNestedInput;
+  delete?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
+  connect?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
+  set?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
+  disconnect?: ArmorWhereUniqueInput[] | ArmorWhereUniqueInput;
+  deleteMany?: ArmorScalarWhereInput[] | ArmorScalarWhereInput;
+  updateMany?:
+    | ArmorUpdateManyWithWhereNestedInput[]
+    | ArmorUpdateManyWithWhereNestedInput;
+}
+
+export interface SelfPityUpdateManyWithWhereNestedInput {
+  where: SelfPityScalarWhereInput;
+  data: SelfPityUpdateManyDataInput;
+}
+
+export interface HonorUpdateManyWithWhereNestedInput {
+  where: HonorScalarWhereInput;
+  data: HonorUpdateManyDataInput;
+}
+
+export interface SelfPityUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface LoyaltyUpdateManyInput {
+  create?: LoyaltyCreateInput[] | LoyaltyCreateInput;
+  update?:
+    | LoyaltyUpdateWithWhereUniqueNestedInput[]
+    | LoyaltyUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | LoyaltyUpsertWithWhereUniqueNestedInput[]
+    | LoyaltyUpsertWithWhereUniqueNestedInput;
+  delete?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
+  connect?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
+  set?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
+  disconnect?: LoyaltyWhereUniqueInput[] | LoyaltyWhereUniqueInput;
+  deleteMany?: LoyaltyScalarWhereInput[] | LoyaltyScalarWhereInput;
+  updateMany?:
+    | LoyaltyUpdateManyWithWhereNestedInput[]
+    | LoyaltyUpdateManyWithWhereNestedInput;
+}
+
+export interface FearUpdateManyInput {
+  create?: FearCreateInput[] | FearCreateInput;
+  update?:
+    | FearUpdateWithWhereUniqueNestedInput[]
+    | FearUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | FearUpsertWithWhereUniqueNestedInput[]
+    | FearUpsertWithWhereUniqueNestedInput;
+  delete?: FearWhereUniqueInput[] | FearWhereUniqueInput;
+  connect?: FearWhereUniqueInput[] | FearWhereUniqueInput;
+  set?: FearWhereUniqueInput[] | FearWhereUniqueInput;
+  disconnect?: FearWhereUniqueInput[] | FearWhereUniqueInput;
+  deleteMany?: FearScalarWhereInput[] | FearScalarWhereInput;
+  updateMany?:
+    | FearUpdateManyWithWhereNestedInput[]
+    | FearUpdateManyWithWhereNestedInput;
+}
+
+export interface ObsessionSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ObsessionWhereInput;
+  AND?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
+  OR?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
+  NOT?: ObsessionSubscriptionWhereInput[] | ObsessionSubscriptionWhereInput;
+}
+
+export interface FearUpdateWithWhereUniqueNestedInput {
+  where: FearWhereUniqueInput;
+  data: FearUpdateDataInput;
+}
+
+export interface FearWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: FearWhereInput[] | FearWhereInput;
+  OR?: FearWhereInput[] | FearWhereInput;
+  NOT?: FearWhereInput[] | FearWhereInput;
+}
+
+export interface FearUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface HonorUpdateInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface FearUpsertWithWhereUniqueNestedInput {
+  where: FearWhereUniqueInput;
+  update: FearUpdateDataInput;
+  create: FearCreateInput;
+}
+
+export interface ArmorUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface FearScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  character?: String;
+  character_not?: String;
+  character_in?: String[] | String;
+  character_not_in?: String[] | String;
+  character_lt?: String;
+  character_lte?: String;
+  character_gt?: String;
+  character_gte?: String;
+  character_contains?: String;
+  character_not_contains?: String;
+  character_starts_with?: String;
+  character_not_starts_with?: String;
+  character_ends_with?: String;
+  character_not_ends_with?: String;
+  thought?: String;
+  thought_not?: String;
+  thought_in?: String[] | String;
+  thought_not_in?: String[] | String;
+  thought_lt?: String;
+  thought_lte?: String;
+  thought_gt?: String;
+  thought_gte?: String;
+  thought_contains?: String;
+  thought_not_contains?: String;
+  thought_starts_with?: String;
+  thought_not_starts_with?: String;
+  thought_ends_with?: String;
+  thought_not_ends_with?: String;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
+  attribute?: String;
+  attribute_not?: String;
+  attribute_in?: String[] | String;
+  attribute_not_in?: String[] | String;
+  attribute_lt?: String;
+  attribute_lte?: String;
+  attribute_gt?: String;
+  attribute_gte?: String;
+  attribute_contains?: String;
+  attribute_not_contains?: String;
+  attribute_starts_with?: String;
+  attribute_not_starts_with?: String;
+  attribute_ends_with?: String;
+  attribute_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  sharedAt_not?: DateTimeInput;
+  sharedAt_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  sharedAt_lt?: DateTimeInput;
+  sharedAt_lte?: DateTimeInput;
+  sharedAt_gt?: DateTimeInput;
+  sharedAt_gte?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  amendedAt_not?: DateTimeInput;
+  amendedAt_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  amendedAt_lt?: DateTimeInput;
+  amendedAt_lte?: DateTimeInput;
+  amendedAt_gt?: DateTimeInput;
+  amendedAt_gte?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  resolvedAt_not?: DateTimeInput;
+  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  resolvedAt_lt?: DateTimeInput;
+  resolvedAt_lte?: DateTimeInput;
+  resolvedAt_gt?: DateTimeInput;
+  resolvedAt_gte?: DateTimeInput;
+  AND?: FearScalarWhereInput[] | FearScalarWhereInput;
+  OR?: FearScalarWhereInput[] | FearScalarWhereInput;
+  NOT?: FearScalarWhereInput[] | FearScalarWhereInput;
+}
+
+export interface LoyaltyUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface FearUpdateManyWithWhereNestedInput {
+  where: FearScalarWhereInput;
+  data: FearUpdateManyDataInput;
+}
+
+export interface DefectSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: DefectWhereInput;
+  AND?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
+  OR?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
+  NOT?: DefectSubscriptionWhereInput[] | DefectSubscriptionWhereInput;
+}
+
+export interface PrideUpdateDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface PrideUpdateWithWhereUniqueNestedInput {
+  where: PrideWhereUniqueInput;
+  data: PrideUpdateDataInput;
+}
+
+export interface PrideUpdateManyInput {
+  create?: PrideCreateInput[] | PrideCreateInput;
+  update?:
+    | PrideUpdateWithWhereUniqueNestedInput[]
+    | PrideUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | PrideUpsertWithWhereUniqueNestedInput[]
+    | PrideUpsertWithWhereUniqueNestedInput;
+  delete?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
+  connect?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
+  set?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
+  disconnect?: PrideWhereUniqueInput[] | PrideWhereUniqueInput;
+  deleteMany?: PrideScalarWhereInput[] | PrideScalarWhereInput;
+  updateMany?:
+    | PrideUpdateManyWithWhereNestedInput[]
+    | PrideUpdateManyWithWhereNestedInput;
+}
+
+export interface FearUpdateManyDataInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export type HigherPowerWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AcceptanceUpdateManyMutationInput {
+  character?: String;
+  thought?: String;
+  location?: String;
+  process?: String;
+  attribute?: String;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+}
+
+export interface ExperienceUpdateDataInput {
+  compassion?: CompassionUpdateManyInput;
+  courage?: CourageUpdateManyInput;
+  acceptance?: AcceptanceUpdateManyInput;
+  vulnerability?: VulnerabilityUpdateManyInput;
+  gratitude?: GratitudeUpdateManyInput;
+  suffering?: SufferingUpdateManyInput;
+}
+
+export interface SalvationUpdateManyInput {
+  create?: SalvationCreateInput[] | SalvationCreateInput;
+  update?:
+    | SalvationUpdateWithWhereUniqueNestedInput[]
+    | SalvationUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | SalvationUpsertWithWhereUniqueNestedInput[]
+    | SalvationUpsertWithWhereUniqueNestedInput;
+  delete?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
+  connect?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
+  set?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
+  disconnect?: SalvationWhereUniqueInput[] | SalvationWhereUniqueInput;
+  deleteMany?: SalvationScalarWhereInput[] | SalvationScalarWhereInput;
+  updateMany?:
+    | SalvationUpdateManyWithWhereNestedInput[]
+    | SalvationUpdateManyWithWhereNestedInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface VulnerabilityPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface VulnerabilityPreviousValuesPromise
+  extends Promise<VulnerabilityPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface VulnerabilityPreviousValuesSubscription
+  extends Promise<AsyncIterator<VulnerabilityPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Fear {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface FearPromise extends Promise<Fear>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface FearSubscription
+  extends Promise<AsyncIterator<Fear>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface BoundaryConnection {
+  pageInfo: PageInfo;
+  edges: BoundaryEdge[];
+}
+
+export interface BoundaryConnectionPromise
+  extends Promise<BoundaryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BoundaryEdge>>() => T;
+  aggregate: <T = AggregateBoundaryPromise>() => T;
+}
+
+export interface BoundaryConnectionSubscription
+  extends Promise<AsyncIterator<BoundaryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BoundaryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBoundarySubscription>() => T;
+}
+
+export interface AggregateExperience {
+  count: Int;
+}
+
+export interface AggregateExperiencePromise
+  extends Promise<AggregateExperience>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateExperienceSubscription
+  extends Promise<AsyncIterator<AggregateExperience>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BoundaryEdge {
+  node: Boundary;
+  cursor: String;
+}
+
+export interface BoundaryEdgePromise
+  extends Promise<BoundaryEdge>,
+    Fragmentable {
+  node: <T = BoundaryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface BoundaryEdgeSubscription
+  extends Promise<AsyncIterator<BoundaryEdge>>,
+    Fragmentable {
+  node: <T = BoundarySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ExperienceEdge {
+  node: Experience;
+  cursor: String;
+}
+
+export interface ExperienceEdgePromise
+  extends Promise<ExperienceEdge>,
+    Fragmentable {
+  node: <T = ExperiencePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ExperienceEdgeSubscription
+  extends Promise<AsyncIterator<ExperienceEdge>>,
+    Fragmentable {
+  node: <T = ExperienceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface ExperienceConnection {
+  pageInfo: PageInfo;
+  edges: ExperienceEdge[];
+}
+
+export interface ExperienceConnectionPromise
+  extends Promise<ExperienceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ExperienceEdge>>() => T;
+  aggregate: <T = AggregateExperiencePromise>() => T;
+}
+
+export interface ExperienceConnectionSubscription
+  extends Promise<AsyncIterator<ExperienceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ExperienceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateExperienceSubscription>() => T;
+}
+
+export interface VulnerabilityEdge {
+  node: Vulnerability;
+  cursor: String;
+}
+
+export interface VulnerabilityEdgePromise
+  extends Promise<VulnerabilityEdge>,
+    Fragmentable {
+  node: <T = VulnerabilityPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VulnerabilityEdgeSubscription
+  extends Promise<AsyncIterator<VulnerabilityEdge>>,
+    Fragmentable {
+  node: <T = VulnerabilitySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Acceptance {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface AcceptancePromise extends Promise<Acceptance>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AcceptanceSubscription
+  extends Promise<AsyncIterator<Acceptance>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AggregateTrauma {
@@ -4162,413 +9152,6 @@ export interface AggregateTraumaPromise
 
 export interface AggregateTraumaSubscription
   extends Promise<AsyncIterator<AggregateTrauma>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Trauma {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface TraumaPromise extends Promise<Trauma>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface TraumaSubscription
-  extends Promise<AsyncIterator<Trauma>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface VulnerabilityPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface VulnerabilityPreviousValuesPromise
-  extends Promise<VulnerabilityPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface VulnerabilityPreviousValuesSubscription
-  extends Promise<AsyncIterator<VulnerabilityPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface Defect {}
-
-export interface DefectPromise extends Promise<Defect>, Fragmentable {
-  trauma: <T = FragmentableArray<Trauma>>(
-    args?: {
-      where?: TraumaWhereInput;
-      orderBy?: TraumaOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  toxicity: <T = FragmentableArray<Toxicity>>(
-    args?: {
-      where?: ToxicityWhereInput;
-      orderBy?: ToxicityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  suffering: <T = FragmentableArray<Suffering>>(
-    args?: {
-      where?: SufferingWhereInput;
-      orderBy?: SufferingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface DefectSubscription
-  extends Promise<AsyncIterator<Defect>>,
-    Fragmentable {
-  trauma: <T = Promise<AsyncIterator<TraumaSubscription>>>(
-    args?: {
-      where?: TraumaWhereInput;
-      orderBy?: TraumaOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  toxicity: <T = Promise<AsyncIterator<ToxicitySubscription>>>(
-    args?: {
-      where?: ToxicityWhereInput;
-      orderBy?: ToxicityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  suffering: <T = Promise<AsyncIterator<SufferingSubscription>>>(
-    args?: {
-      where?: SufferingWhereInput;
-      orderBy?: SufferingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface AggregateVulnerability {
-  count: Int;
-}
-
-export interface AggregateVulnerabilityPromise
-  extends Promise<AggregateVulnerability>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateVulnerabilitySubscription
-  extends Promise<AsyncIterator<AggregateVulnerability>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateCourage {
-  count: Int;
-}
-
-export interface AggregateCouragePromise
-  extends Promise<AggregateCourage>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCourageSubscription
-  extends Promise<AsyncIterator<AggregateCourage>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface VulnerabilityConnection {
-  pageInfo: PageInfo;
-  edges: VulnerabilityEdge[];
-}
-
-export interface VulnerabilityConnectionPromise
-  extends Promise<VulnerabilityConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<VulnerabilityEdge>>() => T;
-  aggregate: <T = AggregateVulnerabilityPromise>() => T;
-}
-
-export interface VulnerabilityConnectionSubscription
-  extends Promise<AsyncIterator<VulnerabilityConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<VulnerabilityEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateVulnerabilitySubscription>() => T;
-}
-
-export interface CourageEdge {
-  node: Courage;
-  cursor: String;
-}
-
-export interface CourageEdgePromise extends Promise<CourageEdge>, Fragmentable {
-  node: <T = CouragePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CourageEdgeSubscription
-  extends Promise<AsyncIterator<CourageEdge>>,
-    Fragmentable {
-  node: <T = CourageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TraumaEdge {
-  node: Trauma;
-  cursor: String;
-}
-
-export interface TraumaEdgePromise extends Promise<TraumaEdge>, Fragmentable {
-  node: <T = TraumaPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TraumaEdgeSubscription
-  extends Promise<AsyncIterator<TraumaEdge>>,
-    Fragmentable {
-  node: <T = TraumaSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CourageConnection {
-  pageInfo: PageInfo;
-  edges: CourageEdge[];
-}
-
-export interface CourageConnectionPromise
-  extends Promise<CourageConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CourageEdge>>() => T;
-  aggregate: <T = AggregateCouragePromise>() => T;
-}
-
-export interface CourageConnectionSubscription
-  extends Promise<AsyncIterator<CourageConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CourageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCourageSubscription>() => T;
-}
-
-export interface AggregateToxicity {
-  count: Int;
-}
-
-export interface AggregateToxicityPromise
-  extends Promise<AggregateToxicity>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateToxicitySubscription
-  extends Promise<AsyncIterator<AggregateToxicity>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Courage {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface CouragePromise extends Promise<Courage>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CourageSubscription
-  extends Promise<AsyncIterator<Courage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ToxicityConnection {
-  pageInfo: PageInfo;
-  edges: ToxicityEdge[];
-}
-
-export interface ToxicityConnectionPromise
-  extends Promise<ToxicityConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ToxicityEdge>>() => T;
-  aggregate: <T = AggregateToxicityPromise>() => T;
-}
-
-export interface ToxicityConnectionSubscription
-  extends Promise<AsyncIterator<ToxicityConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ToxicityEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateToxicitySubscription>() => T;
-}
-
-export interface AggregateCompassion {
-  count: Int;
-}
-
-export interface AggregateCompassionPromise
-  extends Promise<AggregateCompassion>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCompassionSubscription
-  extends Promise<AsyncIterator<AggregateCompassion>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface SufferingEdge {
-  node: Suffering;
-  cursor: String;
-}
-
-export interface SufferingEdgePromise
-  extends Promise<SufferingEdge>,
-    Fragmentable {
-  node: <T = SufferingPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SufferingEdgeSubscription
-  extends Promise<AsyncIterator<SufferingEdge>>,
-    Fragmentable {
-  node: <T = SufferingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CompassionEdge {
-  node: Compassion;
-  cursor: String;
-}
-
-export interface CompassionEdgePromise
-  extends Promise<CompassionEdge>,
-    Fragmentable {
-  node: <T = CompassionPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CompassionEdgeSubscription
-  extends Promise<AsyncIterator<CompassionEdge>>,
-    Fragmentable {
-  node: <T = CompassionSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateStrength {
-  count: Int;
-}
-
-export interface AggregateStrengthPromise
-  extends Promise<AggregateStrength>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateStrengthSubscription
-  extends Promise<AsyncIterator<AggregateStrength>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -4598,28 +9181,33 @@ export interface AcceptanceSubscriptionPayloadSubscription
   previousValues: <T = AcceptancePreviousValuesSubscription>() => T;
 }
 
-export interface StrengthConnection {}
-
-export interface StrengthConnectionPromise
-  extends Promise<StrengthConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<StrengthEdge>>() => T;
-  aggregate: <T = AggregateStrengthPromise>() => T;
+export interface TraumaConnection {
+  pageInfo: PageInfo;
+  edges: TraumaEdge[];
 }
 
-export interface StrengthConnectionSubscription
-  extends Promise<AsyncIterator<StrengthConnection>>,
+export interface TraumaConnectionPromise
+  extends Promise<TraumaConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TraumaEdge>>() => T;
+  aggregate: <T = AggregateTraumaPromise>() => T;
+}
+
+export interface TraumaConnectionSubscription
+  extends Promise<AsyncIterator<TraumaConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<StrengthEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateStrengthSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TraumaEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTraumaSubscription>() => T;
 }
 
 export interface AcceptancePreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -4632,8 +9220,10 @@ export interface AcceptancePreviousValuesPromise
   extends Promise<AcceptancePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -4646,8 +9236,10 @@ export interface AcceptancePreviousValuesSubscription
   extends Promise<AsyncIterator<AcceptancePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -4656,58 +9248,54 @@ export interface AcceptancePreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface SelfPityEdge {
-  node: SelfPity;
+export interface ToxicityEdge {
+  node: Toxicity;
   cursor: String;
 }
 
-export interface SelfPityEdgePromise
-  extends Promise<SelfPityEdge>,
+export interface ToxicityEdgePromise
+  extends Promise<ToxicityEdge>,
     Fragmentable {
-  node: <T = SelfPityPromise>() => T;
+  node: <T = ToxicityPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface SelfPityEdgeSubscription
-  extends Promise<AsyncIterator<SelfPityEdge>>,
+export interface ToxicityEdgeSubscription
+  extends Promise<AsyncIterator<ToxicityEdge>>,
     Fragmentable {
-  node: <T = SelfPitySubscription>() => T;
+  node: <T = ToxicitySubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface CompassionConnection {
-  pageInfo: PageInfo;
-  edges: CompassionEdge[];
+export interface AngerEdge {
+  node: Anger;
+  cursor: String;
 }
 
-export interface CompassionConnectionPromise
-  extends Promise<CompassionConnection>,
+export interface AngerEdgePromise extends Promise<AngerEdge>, Fragmentable {
+  node: <T = AngerPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AngerEdgeSubscription
+  extends Promise<AsyncIterator<AngerEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CompassionEdge>>() => T;
-  aggregate: <T = AggregateCompassionPromise>() => T;
+  node: <T = AngerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface CompassionConnectionSubscription
-  extends Promise<AsyncIterator<CompassionConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CompassionEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCompassionSubscription>() => T;
-}
-
-export interface AggregateSalvation {
+export interface AggregateSuffering {
   count: Int;
 }
 
-export interface AggregateSalvationPromise
-  extends Promise<AggregateSalvation>,
+export interface AggregateSufferingPromise
+  extends Promise<AggregateSuffering>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateSalvationSubscription
-  extends Promise<AsyncIterator<AggregateSalvation>>,
+export interface AggregateSufferingSubscription
+  extends Promise<AsyncIterator<AggregateSuffering>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -4737,31 +9325,33 @@ export interface AngerSubscriptionPayloadSubscription
   previousValues: <T = AngerPreviousValuesSubscription>() => T;
 }
 
-export interface SalvationConnection {
+export interface SufferingConnection {
   pageInfo: PageInfo;
-  edges: SalvationEdge[];
+  edges: SufferingEdge[];
 }
 
-export interface SalvationConnectionPromise
-  extends Promise<SalvationConnection>,
+export interface SufferingConnectionPromise
+  extends Promise<SufferingConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SalvationEdge>>() => T;
-  aggregate: <T = AggregateSalvationPromise>() => T;
+  edges: <T = FragmentableArray<SufferingEdge>>() => T;
+  aggregate: <T = AggregateSufferingPromise>() => T;
 }
 
-export interface SalvationConnectionSubscription
-  extends Promise<AsyncIterator<SalvationConnection>>,
+export interface SufferingConnectionSubscription
+  extends Promise<AsyncIterator<SufferingConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SalvationEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSalvationSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SufferingEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSufferingSubscription>() => T;
 }
 
 export interface AngerPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -4774,8 +9364,10 @@ export interface AngerPreviousValuesPromise
   extends Promise<AngerPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -4788,8 +9380,10 @@ export interface AngerPreviousValuesSubscription
   extends Promise<AsyncIterator<AngerPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -4798,29 +9392,31 @@ export interface AngerPreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ResentmentEdge {
-  node: Resentment;
+export interface StrengthEdge {
+  node: Strength;
   cursor: String;
 }
 
-export interface ResentmentEdgePromise
-  extends Promise<ResentmentEdge>,
+export interface StrengthEdgePromise
+  extends Promise<StrengthEdge>,
     Fragmentable {
-  node: <T = ResentmentPromise>() => T;
+  node: <T = StrengthPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface ResentmentEdgeSubscription
-  extends Promise<AsyncIterator<ResentmentEdge>>,
+export interface StrengthEdgeSubscription
+  extends Promise<AsyncIterator<StrengthEdge>>,
     Fragmentable {
-  node: <T = ResentmentSubscription>() => T;
+  node: <T = StrengthSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Compassion {
+export interface Gratitude {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -4829,10 +9425,12 @@ export interface Compassion {
   resolvedAt?: DateTimeOutput;
 }
 
-export interface CompassionPromise extends Promise<Compassion>, Fragmentable {
+export interface GratitudePromise extends Promise<Gratitude>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -4841,12 +9439,14 @@ export interface CompassionPromise extends Promise<Compassion>, Fragmentable {
   resolvedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface CompassionSubscription
-  extends Promise<AsyncIterator<Compassion>>,
+export interface GratitudeSubscription
+  extends Promise<AsyncIterator<Gratitude>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -4855,18 +9455,18 @@ export interface CompassionSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregatePride {
+export interface AggregateSelfPity {
   count: Int;
 }
 
-export interface AggregatePridePromise
-  extends Promise<AggregatePride>,
+export interface AggregateSelfPityPromise
+  extends Promise<AggregateSelfPity>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregatePrideSubscription
-  extends Promise<AsyncIterator<AggregatePride>>,
+export interface AggregateSelfPitySubscription
+  extends Promise<AsyncIterator<AggregateSelfPity>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -4896,31 +9496,33 @@ export interface ArmorSubscriptionPayloadSubscription
   previousValues: <T = ArmorPreviousValuesSubscription>() => T;
 }
 
-export interface PrideConnection {
+export interface SelfPityConnection {
   pageInfo: PageInfo;
-  edges: PrideEdge[];
+  edges: SelfPityEdge[];
 }
 
-export interface PrideConnectionPromise
-  extends Promise<PrideConnection>,
+export interface SelfPityConnectionPromise
+  extends Promise<SelfPityConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PrideEdge>>() => T;
-  aggregate: <T = AggregatePridePromise>() => T;
+  edges: <T = FragmentableArray<SelfPityEdge>>() => T;
+  aggregate: <T = AggregateSelfPityPromise>() => T;
 }
 
-export interface PrideConnectionSubscription
-  extends Promise<AsyncIterator<PrideConnection>>,
+export interface SelfPityConnectionSubscription
+  extends Promise<AsyncIterator<SelfPityConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PrideEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePrideSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SelfPityEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSelfPitySubscription>() => T;
 }
 
 export interface ArmorPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -4933,8 +9535,10 @@ export interface ArmorPreviousValuesPromise
   extends Promise<ArmorPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -4947,8 +9551,10 @@ export interface ArmorPreviousValuesSubscription
   extends Promise<AsyncIterator<ArmorPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -4957,53 +9563,53 @@ export interface ArmorPreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ObsessionEdge {
-  node: Obsession;
+export interface SalvationEdge {
+  node: Salvation;
   cursor: String;
 }
 
-export interface ObsessionEdgePromise
-  extends Promise<ObsessionEdge>,
+export interface SalvationEdgePromise
+  extends Promise<SalvationEdge>,
     Fragmentable {
-  node: <T = ObsessionPromise>() => T;
+  node: <T = SalvationPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface ObsessionEdgeSubscription
-  extends Promise<AsyncIterator<ObsessionEdge>>,
+export interface SalvationEdgeSubscription
+  extends Promise<AsyncIterator<SalvationEdge>>,
     Fragmentable {
-  node: <T = ObsessionSubscription>() => T;
+  node: <T = SalvationSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateBoundary {
+export interface AggregateAnger {
   count: Int;
 }
 
-export interface AggregateBoundaryPromise
-  extends Promise<AggregateBoundary>,
+export interface AggregateAngerPromise
+  extends Promise<AggregateAnger>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateBoundarySubscription
-  extends Promise<AsyncIterator<AggregateBoundary>>,
+export interface AggregateAngerSubscription
+  extends Promise<AsyncIterator<AggregateAnger>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AggregateLoyalty {
+export interface AggregateResentment {
   count: Int;
 }
 
-export interface AggregateLoyaltyPromise
-  extends Promise<AggregateLoyalty>,
+export interface AggregateResentmentPromise
+  extends Promise<AggregateResentment>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateLoyaltySubscription
-  extends Promise<AsyncIterator<AggregateLoyalty>>,
+export interface AggregateResentmentSubscription
+  extends Promise<AsyncIterator<AggregateResentment>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -5033,31 +9639,33 @@ export interface BoundarySubscriptionPayloadSubscription
   previousValues: <T = BoundaryPreviousValuesSubscription>() => T;
 }
 
-export interface LoyaltyConnection {
+export interface ResentmentConnection {
   pageInfo: PageInfo;
-  edges: LoyaltyEdge[];
+  edges: ResentmentEdge[];
 }
 
-export interface LoyaltyConnectionPromise
-  extends Promise<LoyaltyConnection>,
+export interface ResentmentConnectionPromise
+  extends Promise<ResentmentConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<LoyaltyEdge>>() => T;
-  aggregate: <T = AggregateLoyaltyPromise>() => T;
+  edges: <T = FragmentableArray<ResentmentEdge>>() => T;
+  aggregate: <T = AggregateResentmentPromise>() => T;
 }
 
-export interface LoyaltyConnectionSubscription
-  extends Promise<AsyncIterator<LoyaltyConnection>>,
+export interface ResentmentConnectionSubscription
+  extends Promise<AsyncIterator<ResentmentConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<LoyaltyEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateLoyaltySubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ResentmentEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateResentmentSubscription>() => T;
 }
 
 export interface BoundaryPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -5070,8 +9678,10 @@ export interface BoundaryPreviousValuesPromise
   extends Promise<BoundaryPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -5084,8 +9694,10 @@ export interface BoundaryPreviousValuesSubscription
   extends Promise<AsyncIterator<BoundaryPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5094,56 +9706,81 @@ export interface BoundaryPreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface InventoryEdge {
-  node: Inventory;
+export interface PrideEdge {
+  node: Pride;
   cursor: String;
 }
 
-export interface InventoryEdgePromise
-  extends Promise<InventoryEdge>,
-    Fragmentable {
-  node: <T = InventoryPromise>() => T;
+export interface PrideEdgePromise extends Promise<PrideEdge>, Fragmentable {
+  node: <T = PridePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface InventoryEdgeSubscription
-  extends Promise<AsyncIterator<InventoryEdge>>,
+export interface PrideEdgeSubscription
+  extends Promise<AsyncIterator<PrideEdge>>,
     Fragmentable {
-  node: <T = InventorySubscription>() => T;
+  node: <T = PrideSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BoundaryEdge {
-  node: Boundary;
-  cursor: String;
+export interface Vulnerability {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
 }
 
-export interface BoundaryEdgePromise
-  extends Promise<BoundaryEdge>,
+export interface VulnerabilityPromise
+  extends Promise<Vulnerability>,
     Fragmentable {
-  node: <T = BoundaryPromise>() => T;
-  cursor: () => Promise<String>;
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface BoundaryEdgeSubscription
-  extends Promise<AsyncIterator<BoundaryEdge>>,
+export interface VulnerabilitySubscription
+  extends Promise<AsyncIterator<Vulnerability>>,
     Fragmentable {
-  node: <T = BoundarySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateHope {
+export interface AggregateObsession {
   count: Int;
 }
 
-export interface AggregateHopePromise
-  extends Promise<AggregateHope>,
+export interface AggregateObsessionPromise
+  extends Promise<AggregateObsession>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateHopeSubscription
-  extends Promise<AsyncIterator<AggregateHope>>,
+export interface AggregateObsessionSubscription
+  extends Promise<AsyncIterator<AggregateObsession>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -5173,28 +9810,33 @@ export interface CompassionSubscriptionPayloadSubscription
   previousValues: <T = CompassionPreviousValuesSubscription>() => T;
 }
 
-export interface HopeConnection {}
-
-export interface HopeConnectionPromise
-  extends Promise<HopeConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<HopeEdge>>() => T;
-  aggregate: <T = AggregateHopePromise>() => T;
+export interface ObsessionConnection {
+  pageInfo: PageInfo;
+  edges: ObsessionEdge[];
 }
 
-export interface HopeConnectionSubscription
-  extends Promise<AsyncIterator<HopeConnection>>,
+export interface ObsessionConnectionPromise
+  extends Promise<ObsessionConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ObsessionEdge>>() => T;
+  aggregate: <T = AggregateObsessionPromise>() => T;
+}
+
+export interface ObsessionConnectionSubscription
+  extends Promise<AsyncIterator<ObsessionConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<HopeEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateHopeSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ObsessionEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateObsessionSubscription>() => T;
 }
 
 export interface CompassionPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -5207,8 +9849,10 @@ export interface CompassionPreviousValuesPromise
   extends Promise<CompassionPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -5221,8 +9865,10 @@ export interface CompassionPreviousValuesSubscription
   extends Promise<AsyncIterator<CompassionPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5231,56 +9877,181 @@ export interface CompassionPreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface HonorEdge {
-  node: Honor;
+export interface LoyaltyEdge {
+  node: Loyalty;
   cursor: String;
 }
 
-export interface HonorEdgePromise extends Promise<HonorEdge>, Fragmentable {
-  node: <T = HonorPromise>() => T;
+export interface LoyaltyEdgePromise extends Promise<LoyaltyEdge>, Fragmentable {
+  node: <T = LoyaltyPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface HonorEdgeSubscription
-  extends Promise<AsyncIterator<HonorEdge>>,
+export interface LoyaltyEdgeSubscription
+  extends Promise<AsyncIterator<LoyaltyEdge>>,
     Fragmentable {
-  node: <T = HonorSubscription>() => T;
+  node: <T = LoyaltySubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BoundaryConnection {
-  pageInfo: PageInfo;
-  edges: BoundaryEdge[];
+export interface Experience {
+  id: ID_Output;
 }
 
-export interface BoundaryConnectionPromise
-  extends Promise<BoundaryConnection>,
+export interface ExperiencePromise extends Promise<Experience>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  compassion: <T = FragmentableArray<Compassion>>(
+    args?: {
+      where?: CompassionWhereInput;
+      orderBy?: CompassionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  courage: <T = FragmentableArray<Courage>>(
+    args?: {
+      where?: CourageWhereInput;
+      orderBy?: CourageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  acceptance: <T = FragmentableArray<Acceptance>>(
+    args?: {
+      where?: AcceptanceWhereInput;
+      orderBy?: AcceptanceOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  vulnerability: <T = FragmentableArray<Vulnerability>>(
+    args?: {
+      where?: VulnerabilityWhereInput;
+      orderBy?: VulnerabilityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  gratitude: <T = FragmentableArray<Gratitude>>(
+    args?: {
+      where?: GratitudeWhereInput;
+      orderBy?: GratitudeOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  suffering: <T = FragmentableArray<Suffering>>(
+    args?: {
+      where?: SufferingWhereInput;
+      orderBy?: SufferingOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ExperienceSubscription
+  extends Promise<AsyncIterator<Experience>>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BoundaryEdge>>() => T;
-  aggregate: <T = AggregateBoundaryPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  compassion: <T = Promise<AsyncIterator<CompassionSubscription>>>(
+    args?: {
+      where?: CompassionWhereInput;
+      orderBy?: CompassionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  courage: <T = Promise<AsyncIterator<CourageSubscription>>>(
+    args?: {
+      where?: CourageWhereInput;
+      orderBy?: CourageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  acceptance: <T = Promise<AsyncIterator<AcceptanceSubscription>>>(
+    args?: {
+      where?: AcceptanceWhereInput;
+      orderBy?: AcceptanceOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  vulnerability: <T = Promise<AsyncIterator<VulnerabilitySubscription>>>(
+    args?: {
+      where?: VulnerabilityWhereInput;
+      orderBy?: VulnerabilityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  gratitude: <T = Promise<AsyncIterator<GratitudeSubscription>>>(
+    args?: {
+      where?: GratitudeWhereInput;
+      orderBy?: GratitudeOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  suffering: <T = Promise<AsyncIterator<SufferingSubscription>>>(
+    args?: {
+      where?: SufferingWhereInput;
+      orderBy?: SufferingOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
-export interface BoundaryConnectionSubscription
-  extends Promise<AsyncIterator<BoundaryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BoundaryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBoundarySubscription>() => T;
-}
-
-export interface AggregateHigherPower {
+export interface AggregateInventory {
   count: Int;
 }
 
-export interface AggregateHigherPowerPromise
-  extends Promise<AggregateHigherPower>,
+export interface AggregateInventoryPromise
+  extends Promise<AggregateInventory>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateHigherPowerSubscription
-  extends Promise<AsyncIterator<AggregateHigherPower>>,
+export interface AggregateInventorySubscription
+  extends Promise<AsyncIterator<AggregateInventory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -5310,6 +10081,217 @@ export interface CourageSubscriptionPayloadSubscription
   previousValues: <T = CouragePreviousValuesSubscription>() => T;
 }
 
+export interface InventoryConnection {
+  pageInfo: PageInfo;
+  edges: InventoryEdge[];
+}
+
+export interface InventoryConnectionPromise
+  extends Promise<InventoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<InventoryEdge>>() => T;
+  aggregate: <T = AggregateInventoryPromise>() => T;
+}
+
+export interface InventoryConnectionSubscription
+  extends Promise<AsyncIterator<InventoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<InventoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateInventorySubscription>() => T;
+}
+
+export interface CouragePreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface CouragePreviousValuesPromise
+  extends Promise<CouragePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CouragePreviousValuesSubscription
+  extends Promise<AsyncIterator<CouragePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateHope {
+  count: Int;
+}
+
+export interface AggregateHopePromise
+  extends Promise<AggregateHope>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateHopeSubscription
+  extends Promise<AsyncIterator<AggregateHope>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateDefect {
+  count: Int;
+}
+
+export interface AggregateDefectPromise
+  extends Promise<AggregateDefect>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateDefectSubscription
+  extends Promise<AsyncIterator<AggregateDefect>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface HopeConnection {
+  pageInfo: PageInfo;
+  edges: HopeEdge[];
+}
+
+export interface HopeConnectionPromise
+  extends Promise<HopeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<HopeEdge>>() => T;
+  aggregate: <T = AggregateHopePromise>() => T;
+}
+
+export interface HopeConnectionSubscription
+  extends Promise<AsyncIterator<HopeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<HopeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateHopeSubscription>() => T;
+}
+
+export interface DefectSubscriptionPayload {
+  mutation: MutationType;
+  node: Defect;
+  updatedFields: String[];
+  previousValues: DefectPreviousValues;
+}
+
+export interface DefectSubscriptionPayloadPromise
+  extends Promise<DefectSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = DefectPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = DefectPreviousValuesPromise>() => T;
+}
+
+export interface DefectSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<DefectSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = DefectSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = DefectPreviousValuesSubscription>() => T;
+}
+
+export interface HonorEdge {
+  node: Honor;
+  cursor: String;
+}
+
+export interface HonorEdgePromise extends Promise<HonorEdge>, Fragmentable {
+  node: <T = HonorPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface HonorEdgeSubscription
+  extends Promise<AsyncIterator<HonorEdge>>,
+    Fragmentable {
+  node: <T = HonorSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface DefectPreviousValues {
+  id: ID_Output;
+}
+
+export interface DefectPreviousValuesPromise
+  extends Promise<DefectPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface DefectPreviousValuesSubscription
+  extends Promise<AsyncIterator<DefectPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface AggregateHigherPower {
+  count: Int;
+}
+
+export interface AggregateHigherPowerPromise
+  extends Promise<AggregateHigherPower>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateHigherPowerSubscription
+  extends Promise<AsyncIterator<AggregateHigherPower>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface DefectEdge {
+  node: Defect;
+  cursor: String;
+}
+
+export interface DefectEdgePromise extends Promise<DefectEdge>, Fragmentable {
+  node: <T = DefectPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface DefectEdgeSubscription
+  extends Promise<AsyncIterator<DefectEdge>>,
+    Fragmentable {
+  node: <T = DefectSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
 export interface HigherPowerConnection {
   pageInfo: PageInfo;
   edges: HigherPowerEdge[];
@@ -5331,10 +10313,37 @@ export interface HigherPowerConnectionSubscription
   aggregate: <T = AggregateHigherPowerSubscription>() => T;
 }
 
-export interface CouragePreviousValues {
+export interface ExperienceSubscriptionPayload {
+  mutation: MutationType;
+  node: Experience;
+  updatedFields: String[];
+  previousValues: ExperiencePreviousValues;
+}
+
+export interface ExperienceSubscriptionPayloadPromise
+  extends Promise<ExperienceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ExperiencePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ExperiencePreviousValuesPromise>() => T;
+}
+
+export interface ExperienceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ExperienceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ExperienceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ExperiencePreviousValuesSubscription>() => T;
+}
+
+export interface Salvation {
   id: ID_Output;
-  name: String;
-  description: String;
+  thought: String;
+  character: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -5343,12 +10352,12 @@ export interface CouragePreviousValues {
   resolvedAt?: DateTimeOutput;
 }
 
-export interface CouragePreviousValuesPromise
-  extends Promise<CouragePreviousValues>,
-    Fragmentable {
+export interface SalvationPromise extends Promise<Salvation>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  thought: () => Promise<String>;
+  character: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -5357,12 +10366,14 @@ export interface CouragePreviousValuesPromise
   resolvedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface CouragePreviousValuesSubscription
-  extends Promise<AsyncIterator<CouragePreviousValues>>,
+export interface SalvationSubscription
+  extends Promise<AsyncIterator<Salvation>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5371,9 +10382,81 @@ export interface CouragePreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface Hope {}
+export interface TraumaSubscriptionPayload {
+  mutation: MutationType;
+  node: Trauma;
+  updatedFields: String[];
+  previousValues: TraumaPreviousValues;
+}
+
+export interface TraumaSubscriptionPayloadPromise
+  extends Promise<TraumaSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = TraumaPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TraumaPreviousValuesPromise>() => T;
+}
+
+export interface TraumaSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TraumaSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TraumaSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TraumaPreviousValuesSubscription>() => T;
+}
+
+export interface Compassion {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface CompassionPromise extends Promise<Compassion>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CompassionSubscription
+  extends Promise<AsyncIterator<Compassion>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Hope {
+  id: ID_Output;
+}
 
 export interface HopePromise extends Promise<Hope>, Fragmentable {
+  id: () => Promise<ID_Output>;
   salvation: <T = FragmentableArray<Salvation>>(
     args?: {
       where?: SalvationWhereInput;
@@ -5390,6 +10473,7 @@ export interface HopePromise extends Promise<Hope>, Fragmentable {
 export interface HopeSubscription
   extends Promise<AsyncIterator<Hope>>,
     Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
   salvation: <T = Promise<AsyncIterator<SalvationSubscription>>>(
     args?: {
       where?: SalvationWhereInput;
@@ -5403,48 +10487,130 @@ export interface HopeSubscription
   ) => T;
 }
 
-export interface Boundary {
+export interface ExperiencePreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
 }
 
-export interface BoundaryPromise extends Promise<Boundary>, Fragmentable {
+export interface ExperiencePreviousValuesPromise
+  extends Promise<ExperiencePreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface BoundarySubscription
-  extends Promise<AsyncIterator<Boundary>>,
+export interface ExperiencePreviousValuesSubscription
+  extends Promise<AsyncIterator<ExperiencePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Strength {
+  id: ID_Output;
+}
+
+export interface StrengthPromise extends Promise<Strength>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  armor: <T = FragmentableArray<Armor>>(
+    args?: {
+      where?: ArmorWhereInput;
+      orderBy?: ArmorOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  boundary: <T = FragmentableArray<Boundary>>(
+    args?: {
+      where?: BoundaryWhereInput;
+      orderBy?: BoundaryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  loyalty: <T = FragmentableArray<Loyalty>>(
+    args?: {
+      where?: LoyaltyWhereInput;
+      orderBy?: LoyaltyOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  honor: <T = FragmentableArray<Honor>>(
+    args?: {
+      where?: HonorWhereInput;
+      orderBy?: HonorOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface StrengthSubscription
+  extends Promise<AsyncIterator<Strength>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  armor: <T = Promise<AsyncIterator<ArmorSubscription>>>(
+    args?: {
+      where?: ArmorWhereInput;
+      orderBy?: ArmorOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  boundary: <T = Promise<AsyncIterator<BoundarySubscription>>>(
+    args?: {
+      where?: BoundaryWhereInput;
+      orderBy?: BoundaryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  loyalty: <T = Promise<AsyncIterator<LoyaltySubscription>>>(
+    args?: {
+      where?: LoyaltyWhereInput;
+      orderBy?: LoyaltyOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  honor: <T = Promise<AsyncIterator<HonorSubscription>>>(
+    args?: {
+      where?: HonorWhereInput;
+      orderBy?: HonorOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface Honor {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -5455,8 +10621,10 @@ export interface Honor {
 
 export interface HonorPromise extends Promise<Honor>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -5469,8 +10637,10 @@ export interface HonorSubscription
   extends Promise<AsyncIterator<Honor>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5479,31 +10649,102 @@ export interface HonorSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface DefectSubscriptionPayload {
-  mutation: MutationType;
-  node: Defect;
-  updatedFields: String[];
+export interface DefectConnection {
+  pageInfo: PageInfo;
+  edges: DefectEdge[];
 }
 
-export interface DefectSubscriptionPayloadPromise
-  extends Promise<DefectSubscriptionPayload>,
+export interface DefectConnectionPromise
+  extends Promise<DefectConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DefectEdge>>() => T;
+  aggregate: <T = AggregateDefectPromise>() => T;
+}
+
+export interface DefectConnectionSubscription
+  extends Promise<AsyncIterator<DefectConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<DefectEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateDefectSubscription>() => T;
+}
+
+export interface Loyalty {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface LoyaltyPromise extends Promise<Loyalty>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface LoyaltySubscription
+  extends Promise<AsyncIterator<Loyalty>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface FearSubscriptionPayload {
+  mutation: MutationType;
+  node: Fear;
+  updatedFields: String[];
+  previousValues: FearPreviousValues;
+}
+
+export interface FearSubscriptionPayloadPromise
+  extends Promise<FearSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = DefectPromise>() => T;
+  node: <T = FearPromise>() => T;
   updatedFields: () => Promise<String[]>;
+  previousValues: <T = FearPreviousValuesPromise>() => T;
 }
 
-export interface DefectSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<DefectSubscriptionPayload>>,
+export interface FearSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FearSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = DefectSubscription>() => T;
+  node: <T = FearSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FearPreviousValuesSubscription>() => T;
 }
 
-export interface Obsession {}
+export interface Obsession {
+  id: ID_Output;
+}
 
 export interface ObsessionPromise extends Promise<Obsession>, Fragmentable {
+  id: () => Promise<ID_Output>;
   suffering: <T = FragmentableArray<Suffering>>(
     args?: {
       where?: SufferingWhereInput;
@@ -5553,6 +10794,7 @@ export interface ObsessionPromise extends Promise<Obsession>, Fragmentable {
 export interface ObsessionSubscription
   extends Promise<AsyncIterator<Obsession>>,
     Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
   suffering: <T = Promise<AsyncIterator<SufferingSubscription>>>(
     args?: {
       where?: SufferingWhereInput;
@@ -5599,6 +10841,1714 @@ export interface ObsessionSubscription
   ) => T;
 }
 
+export interface FearPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface FearPreviousValuesPromise
+  extends Promise<FearPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface FearPreviousValuesSubscription
+  extends Promise<AsyncIterator<FearPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Pride {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface PridePromise extends Promise<Pride>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface PrideSubscription
+  extends Promise<AsyncIterator<Pride>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Armor {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface ArmorPromise extends Promise<Armor>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ArmorSubscription
+  extends Promise<AsyncIterator<Armor>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface SelfPity {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface SelfPityPromise extends Promise<SelfPity>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SelfPitySubscription
+  extends Promise<AsyncIterator<SelfPity>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GratitudeSubscriptionPayload {
+  mutation: MutationType;
+  node: Gratitude;
+  updatedFields: String[];
+  previousValues: GratitudePreviousValues;
+}
+
+export interface GratitudeSubscriptionPayloadPromise
+  extends Promise<GratitudeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GratitudePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GratitudePreviousValuesPromise>() => T;
+}
+
+export interface GratitudeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GratitudeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GratitudeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GratitudePreviousValuesSubscription>() => T;
+}
+
+export interface Anger {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface AngerPromise extends Promise<Anger>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AngerSubscription
+  extends Promise<AsyncIterator<Anger>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GratitudePreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface GratitudePreviousValuesPromise
+  extends Promise<GratitudePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface GratitudePreviousValuesSubscription
+  extends Promise<AsyncIterator<GratitudePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface HigherPower {
+  id: ID_Output;
+}
+
+export interface HigherPowerPromise extends Promise<HigherPower>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  inventory: <T = InventoryPromise>() => T;
+}
+
+export interface HigherPowerSubscription
+  extends Promise<AsyncIterator<HigherPower>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  inventory: <T = InventorySubscription>() => T;
+}
+
+export interface Suffering {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface SufferingPromise extends Promise<Suffering>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SufferingSubscription
+  extends Promise<AsyncIterator<Suffering>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface HasEdge {
+  node: Has;
+  cursor: String;
+}
+
+export interface HasEdgePromise extends Promise<HasEdge>, Fragmentable {
+  node: <T = HasPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface HasEdgeSubscription
+  extends Promise<AsyncIterator<HasEdge>>,
+    Fragmentable {
+  node: <T = HasSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface HasSubscriptionPayload {
+  mutation: MutationType;
+  node: Has;
+  updatedFields: String[];
+  previousValues: HasPreviousValues;
+}
+
+export interface HasSubscriptionPayloadPromise
+  extends Promise<HasSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = HasPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = HasPreviousValuesPromise>() => T;
+}
+
+export interface HasSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<HasSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = HasSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = HasPreviousValuesSubscription>() => T;
+}
+
+export interface Has {
+  id: ID_Output;
+  resentment: Boolean;
+  anger: Boolean;
+}
+
+export interface HasPromise extends Promise<Has>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  resentment: () => Promise<Boolean>;
+  anger: () => Promise<Boolean>;
+}
+
+export interface HasSubscription
+  extends Promise<AsyncIterator<Has>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  resentment: () => Promise<AsyncIterator<Boolean>>;
+  anger: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface HasPreviousValues {
+  id: ID_Output;
+  resentment: Boolean;
+  anger: Boolean;
+}
+
+export interface HasPreviousValuesPromise
+  extends Promise<HasPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  resentment: () => Promise<Boolean>;
+  anger: () => Promise<Boolean>;
+}
+
+export interface HasPreviousValuesSubscription
+  extends Promise<AsyncIterator<HasPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  resentment: () => Promise<AsyncIterator<Boolean>>;
+  anger: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface GratitudeEdge {
+  node: Gratitude;
+  cursor: String;
+}
+
+export interface GratitudeEdgePromise
+  extends Promise<GratitudeEdge>,
+    Fragmentable {
+  node: <T = GratitudePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GratitudeEdgeSubscription
+  extends Promise<AsyncIterator<GratitudeEdge>>,
+    Fragmentable {
+  node: <T = GratitudeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Toxicity {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface ToxicityPromise extends Promise<Toxicity>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ToxicitySubscription
+  extends Promise<AsyncIterator<Toxicity>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateFear {
+  count: Int;
+}
+
+export interface AggregateFearPromise
+  extends Promise<AggregateFear>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateFearSubscription
+  extends Promise<AsyncIterator<AggregateFear>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface HigherPowerSubscriptionPayload {
+  mutation: MutationType;
+  node: HigherPower;
+  updatedFields: String[];
+  previousValues: HigherPowerPreviousValues;
+}
+
+export interface HigherPowerSubscriptionPayloadPromise
+  extends Promise<HigherPowerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = HigherPowerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = HigherPowerPreviousValuesPromise>() => T;
+}
+
+export interface HigherPowerSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<HigherPowerSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = HigherPowerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = HigherPowerPreviousValuesSubscription>() => T;
+}
+
+export interface FearConnection {
+  pageInfo: PageInfo;
+  edges: FearEdge[];
+}
+
+export interface FearConnectionPromise
+  extends Promise<FearConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FearEdge>>() => T;
+  aggregate: <T = AggregateFearPromise>() => T;
+}
+
+export interface FearConnectionSubscription
+  extends Promise<AsyncIterator<FearConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FearEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFearSubscription>() => T;
+}
+
+export interface HigherPowerPreviousValues {
+  id: ID_Output;
+}
+
+export interface HigherPowerPreviousValuesPromise
+  extends Promise<HigherPowerPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface HigherPowerPreviousValuesSubscription
+  extends Promise<AsyncIterator<HigherPowerPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface Boundary {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface BoundaryPromise extends Promise<Boundary>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface BoundarySubscription
+  extends Promise<AsyncIterator<Boundary>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ArmorConnection {
+  pageInfo: PageInfo;
+  edges: ArmorEdge[];
+}
+
+export interface ArmorConnectionPromise
+  extends Promise<ArmorConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ArmorEdge>>() => T;
+  aggregate: <T = AggregateArmorPromise>() => T;
+}
+
+export interface ArmorConnectionSubscription
+  extends Promise<AsyncIterator<ArmorConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ArmorEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateArmorSubscription>() => T;
+}
+
+export interface AggregateVulnerability {
+  count: Int;
+}
+
+export interface AggregateVulnerabilityPromise
+  extends Promise<AggregateVulnerability>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVulnerabilitySubscription
+  extends Promise<AsyncIterator<AggregateVulnerability>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface HonorSubscriptionPayload {
+  mutation: MutationType;
+  node: Honor;
+  updatedFields: String[];
+  previousValues: HonorPreviousValues;
+}
+
+export interface HonorSubscriptionPayloadPromise
+  extends Promise<HonorSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = HonorPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = HonorPreviousValuesPromise>() => T;
+}
+
+export interface HonorSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<HonorSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = HonorSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = HonorPreviousValuesSubscription>() => T;
+}
+
+export interface TraumaEdge {
+  node: Trauma;
+  cursor: String;
+}
+
+export interface TraumaEdgePromise extends Promise<TraumaEdge>, Fragmentable {
+  node: <T = TraumaPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TraumaEdgeSubscription
+  extends Promise<AsyncIterator<TraumaEdge>>,
+    Fragmentable {
+  node: <T = TraumaSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface HonorPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface HonorPreviousValuesPromise
+  extends Promise<HonorPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface HonorPreviousValuesSubscription
+  extends Promise<AsyncIterator<HonorPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ToxicityConnection {
+  pageInfo: PageInfo;
+  edges: ToxicityEdge[];
+}
+
+export interface ToxicityConnectionPromise
+  extends Promise<ToxicityConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ToxicityEdge>>() => T;
+  aggregate: <T = AggregateToxicityPromise>() => T;
+}
+
+export interface ToxicityConnectionSubscription
+  extends Promise<AsyncIterator<ToxicityConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ToxicityEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateToxicitySubscription>() => T;
+}
+
+export interface Trauma {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface TraumaPromise extends Promise<Trauma>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface TraumaSubscription
+  extends Promise<AsyncIterator<Trauma>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateStrength {
+  count: Int;
+}
+
+export interface AggregateStrengthPromise
+  extends Promise<AggregateStrength>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateStrengthSubscription
+  extends Promise<AsyncIterator<AggregateStrength>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface HopeSubscriptionPayload {
+  mutation: MutationType;
+  node: Hope;
+  updatedFields: String[];
+  previousValues: HopePreviousValues;
+}
+
+export interface HopeSubscriptionPayloadPromise
+  extends Promise<HopeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = HopePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = HopePreviousValuesPromise>() => T;
+}
+
+export interface HopeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<HopeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = HopeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = HopePreviousValuesSubscription>() => T;
+}
+
+export interface SelfPityEdge {
+  node: SelfPity;
+  cursor: String;
+}
+
+export interface SelfPityEdgePromise
+  extends Promise<SelfPityEdge>,
+    Fragmentable {
+  node: <T = SelfPityPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SelfPityEdgeSubscription
+  extends Promise<AsyncIterator<SelfPityEdge>>,
+    Fragmentable {
+  node: <T = SelfPitySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface HopePreviousValues {
+  id: ID_Output;
+}
+
+export interface HopePreviousValuesPromise
+  extends Promise<HopePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface HopePreviousValuesSubscription
+  extends Promise<AsyncIterator<HopePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface SalvationConnection {
+  pageInfo: PageInfo;
+  edges: SalvationEdge[];
+}
+
+export interface SalvationConnectionPromise
+  extends Promise<SalvationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SalvationEdge>>() => T;
+  aggregate: <T = AggregateSalvationPromise>() => T;
+}
+
+export interface SalvationConnectionSubscription
+  extends Promise<AsyncIterator<SalvationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SalvationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSalvationSubscription>() => T;
+}
+
+export interface ArmorEdge {
+  node: Armor;
+  cursor: String;
+}
+
+export interface ArmorEdgePromise extends Promise<ArmorEdge>, Fragmentable {
+  node: <T = ArmorPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ArmorEdgeSubscription
+  extends Promise<AsyncIterator<ArmorEdge>>,
+    Fragmentable {
+  node: <T = ArmorSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregatePride {
+  count: Int;
+}
+
+export interface AggregatePridePromise
+  extends Promise<AggregatePride>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePrideSubscription
+  extends Promise<AsyncIterator<AggregatePride>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface InventorySubscriptionPayload {
+  mutation: MutationType;
+  node: Inventory;
+  updatedFields: String[];
+  previousValues: InventoryPreviousValues;
+}
+
+export interface InventorySubscriptionPayloadPromise
+  extends Promise<InventorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = InventoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = InventoryPreviousValuesPromise>() => T;
+}
+
+export interface InventorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<InventorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = InventorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = InventoryPreviousValuesSubscription>() => T;
+}
+
+export interface ObsessionEdge {
+  node: Obsession;
+  cursor: String;
+}
+
+export interface ObsessionEdgePromise
+  extends Promise<ObsessionEdge>,
+    Fragmentable {
+  node: <T = ObsessionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ObsessionEdgeSubscription
+  extends Promise<AsyncIterator<ObsessionEdge>>,
+    Fragmentable {
+  node: <T = ObsessionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface InventoryPreviousValues {
+  id: ID_Output;
+}
+
+export interface InventoryPreviousValuesPromise
+  extends Promise<InventoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface InventoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<InventoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface LoyaltyConnection {
+  pageInfo: PageInfo;
+  edges: LoyaltyEdge[];
+}
+
+export interface LoyaltyConnectionPromise
+  extends Promise<LoyaltyConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<LoyaltyEdge>>() => T;
+  aggregate: <T = AggregateLoyaltyPromise>() => T;
+}
+
+export interface LoyaltyConnectionSubscription
+  extends Promise<AsyncIterator<LoyaltyConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<LoyaltyEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateLoyaltySubscription>() => T;
+}
+
+export interface Defect {
+  id: ID_Output;
+}
+
+export interface DefectPromise extends Promise<Defect>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  trauma: <T = FragmentableArray<Trauma>>(
+    args?: {
+      where?: TraumaWhereInput;
+      orderBy?: TraumaOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  toxicity: <T = FragmentableArray<Toxicity>>(
+    args?: {
+      where?: ToxicityWhereInput;
+      orderBy?: ToxicityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  suffering: <T = FragmentableArray<Suffering>>(
+    args?: {
+      where?: SufferingWhereInput;
+      orderBy?: SufferingOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface DefectSubscription
+  extends Promise<AsyncIterator<Defect>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  trauma: <T = Promise<AsyncIterator<TraumaSubscription>>>(
+    args?: {
+      where?: TraumaWhereInput;
+      orderBy?: TraumaOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  toxicity: <T = Promise<AsyncIterator<ToxicitySubscription>>>(
+    args?: {
+      where?: ToxicityWhereInput;
+      orderBy?: ToxicityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  suffering: <T = Promise<AsyncIterator<SufferingSubscription>>>(
+    args?: {
+      where?: SufferingWhereInput;
+      orderBy?: SufferingOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface TraumaPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface TraumaPreviousValuesPromise
+  extends Promise<TraumaPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface TraumaPreviousValuesSubscription
+  extends Promise<AsyncIterator<TraumaPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface LoyaltySubscriptionPayload {
+  mutation: MutationType;
+  node: Loyalty;
+  updatedFields: String[];
+  previousValues: LoyaltyPreviousValues;
+}
+
+export interface LoyaltySubscriptionPayloadPromise
+  extends Promise<LoyaltySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = LoyaltyPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = LoyaltyPreviousValuesPromise>() => T;
+}
+
+export interface LoyaltySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<LoyaltySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = LoyaltySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = LoyaltyPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateHonor {
+  count: Int;
+}
+
+export interface AggregateHonorPromise
+  extends Promise<AggregateHonor>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateHonorSubscription
+  extends Promise<AsyncIterator<AggregateHonor>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface LoyaltyPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface LoyaltyPreviousValuesPromise
+  extends Promise<LoyaltyPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface LoyaltyPreviousValuesSubscription
+  extends Promise<AsyncIterator<LoyaltyPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface HigherPowerEdge {
+  node: HigherPower;
+  cursor: String;
+}
+
+export interface HigherPowerEdgePromise
+  extends Promise<HigherPowerEdge>,
+    Fragmentable {
+  node: <T = HigherPowerPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface HigherPowerEdgeSubscription
+  extends Promise<AsyncIterator<HigherPowerEdge>>,
+    Fragmentable {
+  node: <T = HigherPowerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCourage {
+  count: Int;
+}
+
+export interface AggregateCouragePromise
+  extends Promise<AggregateCourage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCourageSubscription
+  extends Promise<AsyncIterator<AggregateCourage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ObsessionSubscriptionPayload {
+  mutation: MutationType;
+  node: Obsession;
+  updatedFields: String[];
+  previousValues: ObsessionPreviousValues;
+}
+
+export interface ObsessionSubscriptionPayloadPromise
+  extends Promise<ObsessionSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ObsessionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ObsessionPreviousValuesPromise>() => T;
+}
+
+export interface ObsessionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ObsessionSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ObsessionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ObsessionPreviousValuesSubscription>() => T;
+}
+
+export interface AcceptanceEdge {
+  node: Acceptance;
+  cursor: String;
+}
+
+export interface AcceptanceEdgePromise
+  extends Promise<AcceptanceEdge>,
+    Fragmentable {
+  node: <T = AcceptancePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AcceptanceEdgeSubscription
+  extends Promise<AsyncIterator<AcceptanceEdge>>,
+    Fragmentable {
+  node: <T = AcceptanceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ObsessionPreviousValues {
+  id: ID_Output;
+}
+
+export interface ObsessionPreviousValuesPromise
+  extends Promise<ObsessionPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface ObsessionPreviousValuesSubscription
+  extends Promise<AsyncIterator<ObsessionPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface Resentment {
+  id: ID_Output;
+}
+
+export interface ResentmentPromise extends Promise<Resentment>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  anger: <T = FragmentableArray<Anger>>(
+    args?: {
+      where?: AngerWhereInput;
+      orderBy?: AngerOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  selfPity: <T = FragmentableArray<SelfPity>>(
+    args?: {
+      where?: SelfPityWhereInput;
+      orderBy?: SelfPityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  fear: <T = FragmentableArray<Fear>>(
+    args?: {
+      where?: FearWhereInput;
+      orderBy?: FearOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  pride: <T = FragmentableArray<Pride>>(
+    args?: {
+      where?: PrideWhereInput;
+      orderBy?: PrideOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ResentmentSubscription
+  extends Promise<AsyncIterator<Resentment>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  anger: <T = Promise<AsyncIterator<AngerSubscription>>>(
+    args?: {
+      where?: AngerWhereInput;
+      orderBy?: AngerOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  selfPity: <T = Promise<AsyncIterator<SelfPitySubscription>>>(
+    args?: {
+      where?: SelfPityWhereInput;
+      orderBy?: SelfPityOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  fear: <T = Promise<AsyncIterator<FearSubscription>>>(
+    args?: {
+      where?: FearWhereInput;
+      orderBy?: FearOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  pride: <T = Promise<AsyncIterator<PrideSubscription>>>(
+    args?: {
+      where?: PrideWhereInput;
+      orderBy?: PrideOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface CourageEdge {
+  node: Courage;
+  cursor: String;
+}
+
+export interface CourageEdgePromise extends Promise<CourageEdge>, Fragmentable {
+  node: <T = CouragePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CourageEdgeSubscription
+  extends Promise<AsyncIterator<CourageEdge>>,
+    Fragmentable {
+  node: <T = CourageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateHas {
+  count: Int;
+}
+
+export interface AggregateHasPromise
+  extends Promise<AggregateHas>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateHasSubscription
+  extends Promise<AsyncIterator<AggregateHas>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface PrideSubscriptionPayload {
+  mutation: MutationType;
+  node: Pride;
+  updatedFields: String[];
+  previousValues: PridePreviousValues;
+}
+
+export interface PrideSubscriptionPayloadPromise
+  extends Promise<PrideSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PridePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PridePreviousValuesPromise>() => T;
+}
+
+export interface PrideSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PrideSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PrideSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PridePreviousValuesSubscription>() => T;
+}
+
+export interface AggregateGratitude {
+  count: Int;
+}
+
+export interface AggregateGratitudePromise
+  extends Promise<AggregateGratitude>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGratitudeSubscription
+  extends Promise<AsyncIterator<AggregateGratitude>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface PridePreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface PridePreviousValuesPromise
+  extends Promise<PridePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface PridePreviousValuesSubscription
+  extends Promise<AsyncIterator<PridePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface FearEdge {
+  node: Fear;
+  cursor: String;
+}
+
+export interface FearEdgePromise extends Promise<FearEdge>, Fragmentable {
+  node: <T = FearPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface FearEdgeSubscription
+  extends Promise<AsyncIterator<FearEdge>>,
+    Fragmentable {
+  node: <T = FearSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CourageConnection {
+  pageInfo: PageInfo;
+  edges: CourageEdge[];
+}
+
+export interface CourageConnectionPromise
+  extends Promise<CourageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CourageEdge>>() => T;
+  aggregate: <T = AggregateCouragePromise>() => T;
+}
+
+export interface CourageConnectionSubscription
+  extends Promise<AsyncIterator<CourageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CourageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCourageSubscription>() => T;
+}
+
+export interface AggregateBoundary {
+  count: Int;
+}
+
+export interface AggregateBoundaryPromise
+  extends Promise<AggregateBoundary>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateBoundarySubscription
+  extends Promise<AsyncIterator<AggregateBoundary>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ResentmentSubscriptionPayload {
+  mutation: MutationType;
+  node: Resentment;
+  updatedFields: String[];
+  previousValues: ResentmentPreviousValues;
+}
+
+export interface ResentmentSubscriptionPayloadPromise
+  extends Promise<ResentmentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ResentmentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ResentmentPreviousValuesPromise>() => T;
+}
+
+export interface ResentmentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ResentmentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ResentmentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ResentmentPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateToxicity {
+  count: Int;
+}
+
+export interface AggregateToxicityPromise
+  extends Promise<AggregateToxicity>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateToxicitySubscription
+  extends Promise<AsyncIterator<AggregateToxicity>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ResentmentPreviousValues {
+  id: ID_Output;
+}
+
+export interface ResentmentPreviousValuesPromise
+  extends Promise<ResentmentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface ResentmentPreviousValuesSubscription
+  extends Promise<AsyncIterator<ResentmentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface StrengthConnection {
+  pageInfo: PageInfo;
+  edges: StrengthEdge[];
+}
+
+export interface StrengthConnectionPromise
+  extends Promise<StrengthConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<StrengthEdge>>() => T;
+  aggregate: <T = AggregateStrengthPromise>() => T;
+}
+
+export interface StrengthConnectionSubscription
+  extends Promise<AsyncIterator<StrengthConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<StrengthEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateStrengthSubscription>() => T;
+}
+
 export interface AggregateArmor {
   count: Int;
 }
@@ -5615,10 +12565,72 @@ export interface AggregateArmorSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface SelfPity {
+export interface ResentmentEdge {
+  node: Resentment;
+  cursor: String;
+}
+
+export interface ResentmentEdgePromise
+  extends Promise<ResentmentEdge>,
+    Fragmentable {
+  node: <T = ResentmentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ResentmentEdgeSubscription
+  extends Promise<AsyncIterator<ResentmentEdge>>,
+    Fragmentable {
+  node: <T = ResentmentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface SalvationSubscriptionPayload {
+  mutation: MutationType;
+  node: Salvation;
+  updatedFields: String[];
+  previousValues: SalvationPreviousValues;
+}
+
+export interface SalvationSubscriptionPayloadPromise
+  extends Promise<SalvationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SalvationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SalvationPreviousValuesPromise>() => T;
+}
+
+export interface SalvationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SalvationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SalvationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SalvationPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateLoyalty {
+  count: Int;
+}
+
+export interface AggregateLoyaltyPromise
+  extends Promise<AggregateLoyalty>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateLoyaltySubscription
+  extends Promise<AsyncIterator<AggregateLoyalty>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SalvationPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  thought: String;
+  character: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -5627,10 +12639,14 @@ export interface SelfPity {
   resolvedAt?: DateTimeOutput;
 }
 
-export interface SelfPityPromise extends Promise<SelfPity>, Fragmentable {
+export interface SalvationPreviousValuesPromise
+  extends Promise<SalvationPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  thought: () => Promise<String>;
+  character: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -5639,12 +12655,14 @@ export interface SelfPityPromise extends Promise<SelfPity>, Fragmentable {
   resolvedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface SelfPitySubscription
-  extends Promise<AsyncIterator<SelfPity>>,
+export interface SalvationPreviousValuesSubscription
+  extends Promise<AsyncIterator<SalvationPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5653,31 +12671,385 @@ export interface SelfPitySubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ExperienceSubscriptionPayload {
-  mutation: MutationType;
-  node: Experience;
-  updatedFields: String[];
+export interface HopeEdge {
+  node: Hope;
+  cursor: String;
 }
 
-export interface ExperienceSubscriptionPayloadPromise
-  extends Promise<ExperienceSubscriptionPayload>,
+export interface HopeEdgePromise extends Promise<HopeEdge>, Fragmentable {
+  node: <T = HopePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface HopeEdgeSubscription
+  extends Promise<AsyncIterator<HopeEdge>>,
+    Fragmentable {
+  node: <T = HopeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Courage {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface CouragePromise extends Promise<Courage>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CourageSubscription
+  extends Promise<AsyncIterator<Courage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AcceptanceConnection {
+  pageInfo: PageInfo;
+  edges: AcceptanceEdge[];
+}
+
+export interface AcceptanceConnectionPromise
+  extends Promise<AcceptanceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AcceptanceEdge>>() => T;
+  aggregate: <T = AggregateAcceptancePromise>() => T;
+}
+
+export interface AcceptanceConnectionSubscription
+  extends Promise<AsyncIterator<AcceptanceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AcceptanceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAcceptanceSubscription>() => T;
+}
+
+export interface SelfPitySubscriptionPayload {
+  mutation: MutationType;
+  node: SelfPity;
+  updatedFields: String[];
+  previousValues: SelfPityPreviousValues;
+}
+
+export interface SelfPitySubscriptionPayloadPromise
+  extends Promise<SelfPitySubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = ExperiencePromise>() => T;
+  node: <T = SelfPityPromise>() => T;
   updatedFields: () => Promise<String[]>;
+  previousValues: <T = SelfPityPreviousValuesPromise>() => T;
 }
 
-export interface ExperienceSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ExperienceSubscriptionPayload>>,
+export interface SelfPitySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SelfPitySubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ExperienceSubscription>() => T;
+  node: <T = SelfPitySubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SelfPityPreviousValuesSubscription>() => T;
 }
 
-export interface Inventory {}
+export interface AggregateAcceptance {
+  count: Int;
+}
+
+export interface AggregateAcceptancePromise
+  extends Promise<AggregateAcceptance>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAcceptanceSubscription
+  extends Promise<AsyncIterator<AggregateAcceptance>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SelfPityPreviousValues {
+  id: ID_Output;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
+  attribute: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  sharedAt?: DateTimeOutput;
+  amendedAt?: DateTimeOutput;
+  resolvedAt?: DateTimeOutput;
+}
+
+export interface SelfPityPreviousValuesPromise
+  extends Promise<SelfPityPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
+  attribute: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  sharedAt: () => Promise<DateTimeOutput>;
+  amendedAt: () => Promise<DateTimeOutput>;
+  resolvedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SelfPityPreviousValuesSubscription
+  extends Promise<AsyncIterator<SelfPityPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  attribute: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface HasConnection {
+  pageInfo: PageInfo;
+  edges: HasEdge[];
+}
+
+export interface HasConnectionPromise
+  extends Promise<HasConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<HasEdge>>() => T;
+  aggregate: <T = AggregateHasPromise>() => T;
+}
+
+export interface HasConnectionSubscription
+  extends Promise<AsyncIterator<HasConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<HasEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateHasSubscription>() => T;
+}
+
+export interface AggregateCompassion {
+  count: Int;
+}
+
+export interface AggregateCompassionPromise
+  extends Promise<AggregateCompassion>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCompassionSubscription
+  extends Promise<AsyncIterator<AggregateCompassion>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AngerConnection {
+  pageInfo: PageInfo;
+  edges: AngerEdge[];
+}
+
+export interface AngerConnectionPromise
+  extends Promise<AngerConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AngerEdge>>() => T;
+  aggregate: <T = AggregateAngerPromise>() => T;
+}
+
+export interface AngerConnectionSubscription
+  extends Promise<AsyncIterator<AngerConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AngerEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAngerSubscription>() => T;
+}
+
+export interface StrengthSubscriptionPayload {
+  mutation: MutationType;
+  node: Strength;
+  updatedFields: String[];
+  previousValues: StrengthPreviousValues;
+}
+
+export interface StrengthSubscriptionPayloadPromise
+  extends Promise<StrengthSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = StrengthPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StrengthPreviousValuesPromise>() => T;
+}
+
+export interface StrengthSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StrengthSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StrengthSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StrengthPreviousValuesSubscription>() => T;
+}
+
+export interface SufferingEdge {
+  node: Suffering;
+  cursor: String;
+}
+
+export interface SufferingEdgePromise
+  extends Promise<SufferingEdge>,
+    Fragmentable {
+  node: <T = SufferingPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SufferingEdgeSubscription
+  extends Promise<AsyncIterator<SufferingEdge>>,
+    Fragmentable {
+  node: <T = SufferingSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StrengthPreviousValues {
+  id: ID_Output;
+}
+
+export interface StrengthPreviousValuesPromise
+  extends Promise<StrengthPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface StrengthPreviousValuesSubscription
+  extends Promise<AsyncIterator<StrengthPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface PrideConnection {
+  pageInfo: PageInfo;
+  edges: PrideEdge[];
+}
+
+export interface PrideConnectionPromise
+  extends Promise<PrideConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PrideEdge>>() => T;
+  aggregate: <T = AggregatePridePromise>() => T;
+}
+
+export interface PrideConnectionSubscription
+  extends Promise<AsyncIterator<PrideConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PrideEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePrideSubscription>() => T;
+}
+
+export interface CompassionEdge {
+  node: Compassion;
+  cursor: String;
+}
+
+export interface CompassionEdgePromise
+  extends Promise<CompassionEdge>,
+    Fragmentable {
+  node: <T = CompassionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CompassionEdgeSubscription
+  extends Promise<AsyncIterator<CompassionEdge>>,
+    Fragmentable {
+  node: <T = CompassionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface HonorConnection {
+  pageInfo: PageInfo;
+  edges: HonorEdge[];
+}
+
+export interface HonorConnectionPromise
+  extends Promise<HonorConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<HonorEdge>>() => T;
+  aggregate: <T = AggregateHonorPromise>() => T;
+}
+
+export interface HonorConnectionSubscription
+  extends Promise<AsyncIterator<HonorConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<HonorEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateHonorSubscription>() => T;
+}
+
+export interface SufferingSubscriptionPayload {
+  mutation: MutationType;
+  node: Suffering;
+  updatedFields: String[];
+  previousValues: SufferingPreviousValues;
+}
+
+export interface SufferingSubscriptionPayloadPromise
+  extends Promise<SufferingSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SufferingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SufferingPreviousValuesPromise>() => T;
+}
+
+export interface SufferingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SufferingSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SufferingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SufferingPreviousValuesSubscription>() => T;
+}
+
+export interface Inventory {
+  id: ID_Output;
+}
 
 export interface InventoryPromise extends Promise<Inventory>, Fragmentable {
+  id: () => Promise<ID_Output>;
   defect: <T = FragmentableArray<Defect>>(
     args?: {
       where?: DefectWhereInput;
@@ -5749,6 +13121,7 @@ export interface InventoryPromise extends Promise<Inventory>, Fragmentable {
 export interface InventorySubscription
   extends Promise<AsyncIterator<Inventory>>,
     Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
   defect: <T = Promise<AsyncIterator<DefectSubscription>>>(
     args?: {
       where?: DefectWhereInput;
@@ -5817,1912 +13190,33 @@ export interface InventorySubscription
   ) => T;
 }
 
-export interface ArmorEdge {
-  node: Armor;
-  cursor: String;
-}
-
-export interface ArmorEdgePromise extends Promise<ArmorEdge>, Fragmentable {
-  node: <T = ArmorPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ArmorEdgeSubscription
-  extends Promise<AsyncIterator<ArmorEdge>>,
-    Fragmentable {
-  node: <T = ArmorSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateFear {
-  count: Int;
-}
-
-export interface AggregateFearPromise
-  extends Promise<AggregateFear>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateFearSubscription
-  extends Promise<AsyncIterator<AggregateFear>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface FearSubscriptionPayload {
-  mutation: MutationType;
-  node: Fear;
-  updatedFields: String[];
-  previousValues: FearPreviousValues;
-}
-
-export interface FearSubscriptionPayloadPromise
-  extends Promise<FearSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = FearPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = FearPreviousValuesPromise>() => T;
-}
-
-export interface FearSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<FearSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = FearSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = FearPreviousValuesSubscription>() => T;
-}
-
-export interface FearConnection {
+export interface VulnerabilityConnection {
   pageInfo: PageInfo;
-  edges: FearEdge[];
+  edges: VulnerabilityEdge[];
 }
 
-export interface FearConnectionPromise
-  extends Promise<FearConnection>,
+export interface VulnerabilityConnectionPromise
+  extends Promise<VulnerabilityConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<FearEdge>>() => T;
-  aggregate: <T = AggregateFearPromise>() => T;
+  edges: <T = FragmentableArray<VulnerabilityEdge>>() => T;
+  aggregate: <T = AggregateVulnerabilityPromise>() => T;
 }
 
-export interface FearConnectionSubscription
-  extends Promise<AsyncIterator<FearConnection>>,
+export interface VulnerabilityConnectionSubscription
+  extends Promise<AsyncIterator<VulnerabilityConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<FearEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateFearSubscription>() => T;
-}
-
-export interface FearPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface FearPreviousValuesPromise
-  extends Promise<FearPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface FearPreviousValuesSubscription
-  extends Promise<AsyncIterator<FearPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface AggregateExperience {
-  count: Int;
-}
-
-export interface AggregateExperiencePromise
-  extends Promise<AggregateExperience>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateExperienceSubscription
-  extends Promise<AsyncIterator<AggregateExperience>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ArmorConnection {
-  pageInfo: PageInfo;
-  edges: ArmorEdge[];
-}
-
-export interface ArmorConnectionPromise
-  extends Promise<ArmorConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ArmorEdge>>() => T;
-  aggregate: <T = AggregateArmorPromise>() => T;
-}
-
-export interface ArmorConnectionSubscription
-  extends Promise<AsyncIterator<ArmorConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ArmorEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateArmorSubscription>() => T;
-}
-
-export interface ExperienceConnection {}
-
-export interface ExperienceConnectionPromise
-  extends Promise<ExperienceConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ExperienceEdge>>() => T;
-  aggregate: <T = AggregateExperiencePromise>() => T;
-}
-
-export interface ExperienceConnectionSubscription
-  extends Promise<AsyncIterator<ExperienceConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ExperienceEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateExperienceSubscription>() => T;
-}
-
-export interface HigherPowerSubscriptionPayload {
-  mutation: MutationType;
-  node: HigherPower;
-  updatedFields: String[];
-  previousValues: HigherPowerPreviousValues;
-}
-
-export interface HigherPowerSubscriptionPayloadPromise
-  extends Promise<HigherPowerSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = HigherPowerPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = HigherPowerPreviousValuesPromise>() => T;
-}
-
-export interface HigherPowerSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<HigherPowerSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = HigherPowerSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = HigherPowerPreviousValuesSubscription>() => T;
-}
-
-export interface Experience {}
-
-export interface ExperiencePromise extends Promise<Experience>, Fragmentable {
-  compassion: <T = FragmentableArray<Compassion>>(
-    args?: {
-      where?: CompassionWhereInput;
-      orderBy?: CompassionOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  courage: <T = FragmentableArray<Courage>>(
-    args?: {
-      where?: CourageWhereInput;
-      orderBy?: CourageOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  acceptance: <T = FragmentableArray<Acceptance>>(
-    args?: {
-      where?: AcceptanceWhereInput;
-      orderBy?: AcceptanceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  vulnerability: <T = FragmentableArray<Vulnerability>>(
-    args?: {
-      where?: VulnerabilityWhereInput;
-      orderBy?: VulnerabilityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface ExperienceSubscription
-  extends Promise<AsyncIterator<Experience>>,
-    Fragmentable {
-  compassion: <T = Promise<AsyncIterator<CompassionSubscription>>>(
-    args?: {
-      where?: CompassionWhereInput;
-      orderBy?: CompassionOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  courage: <T = Promise<AsyncIterator<CourageSubscription>>>(
-    args?: {
-      where?: CourageWhereInput;
-      orderBy?: CourageOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  acceptance: <T = Promise<AsyncIterator<AcceptanceSubscription>>>(
-    args?: {
-      where?: AcceptanceWhereInput;
-      orderBy?: AcceptanceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  vulnerability: <T = Promise<AsyncIterator<VulnerabilitySubscription>>>(
-    args?: {
-      where?: VulnerabilityWhereInput;
-      orderBy?: VulnerabilityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface HigherPowerPreviousValues {
-  id: ID_Output;
-}
-
-export interface HigherPowerPreviousValuesPromise
-  extends Promise<HigherPowerPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-}
-
-export interface HigherPowerPreviousValuesSubscription
-  extends Promise<AsyncIterator<HigherPowerPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface DefectEdge {
-  node: Defect;
-  cursor: String;
-}
-
-export interface DefectEdgePromise extends Promise<DefectEdge>, Fragmentable {
-  node: <T = DefectPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface DefectEdgeSubscription
-  extends Promise<AsyncIterator<DefectEdge>>,
-    Fragmentable {
-  node: <T = DefectSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface Armor {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface ArmorPromise extends Promise<Armor>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ArmorSubscription
-  extends Promise<AsyncIterator<Armor>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface Suffering {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface SufferingPromise extends Promise<Suffering>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface SufferingSubscription
-  extends Promise<AsyncIterator<Suffering>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface HonorSubscriptionPayload {
-  mutation: MutationType;
-  node: Honor;
-  updatedFields: String[];
-  previousValues: HonorPreviousValues;
-}
-
-export interface HonorSubscriptionPayloadPromise
-  extends Promise<HonorSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = HonorPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = HonorPreviousValuesPromise>() => T;
-}
-
-export interface HonorSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<HonorSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = HonorSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = HonorPreviousValuesSubscription>() => T;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface Toxicity {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface ToxicityPromise extends Promise<Toxicity>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ToxicitySubscription
-  extends Promise<AsyncIterator<Toxicity>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface TraumaSubscriptionPayload {
-  mutation: MutationType;
-  node: Trauma;
-  updatedFields: String[];
-  previousValues: TraumaPreviousValues;
-}
-
-export interface TraumaSubscriptionPayloadPromise
-  extends Promise<TraumaSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TraumaPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TraumaPreviousValuesPromise>() => T;
-}
-
-export interface TraumaSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TraumaSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TraumaSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TraumaPreviousValuesSubscription>() => T;
-}
-
-export interface VulnerabilityEdge {
-  node: Vulnerability;
-  cursor: String;
-}
-
-export interface VulnerabilityEdgePromise
-  extends Promise<VulnerabilityEdge>,
-    Fragmentable {
-  node: <T = VulnerabilityPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface VulnerabilityEdgeSubscription
-  extends Promise<AsyncIterator<VulnerabilityEdge>>,
-    Fragmentable {
-  node: <T = VulnerabilitySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface HonorPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface HonorPreviousValuesPromise
-  extends Promise<HonorPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface HonorPreviousValuesSubscription
-  extends Promise<AsyncIterator<HonorPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface TraumaConnection {
-  pageInfo: PageInfo;
-  edges: TraumaEdge[];
-}
-
-export interface TraumaConnectionPromise
-  extends Promise<TraumaConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TraumaEdge>>() => T;
-  aggregate: <T = AggregateTraumaPromise>() => T;
-}
-
-export interface TraumaConnectionSubscription
-  extends Promise<AsyncIterator<TraumaConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TraumaEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTraumaSubscription>() => T;
-}
-
-export interface AggregateSuffering {
-  count: Int;
-}
-
-export interface AggregateSufferingPromise
-  extends Promise<AggregateSuffering>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSufferingSubscription
-  extends Promise<AsyncIterator<AggregateSuffering>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateAnger {
-  count: Int;
-}
-
-export interface AggregateAngerPromise
-  extends Promise<AggregateAnger>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAngerSubscription
-  extends Promise<AsyncIterator<AggregateAnger>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface StrengthEdge {
-  node: Strength;
-  cursor: String;
-}
-
-export interface StrengthEdgePromise
-  extends Promise<StrengthEdge>,
-    Fragmentable {
-  node: <T = StrengthPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface StrengthEdgeSubscription
-  extends Promise<AsyncIterator<StrengthEdge>>,
-    Fragmentable {
-  node: <T = StrengthSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface HopeSubscriptionPayload {
-  mutation: MutationType;
-  node: Hope;
-  updatedFields: String[];
-}
-
-export interface HopeSubscriptionPayloadPromise
-  extends Promise<HopeSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = HopePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-}
-
-export interface HopeSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<HopeSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = HopeSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-}
-
-export interface SelfPityConnection {
-  pageInfo: PageInfo;
-  edges: SelfPityEdge[];
-}
-
-export interface SelfPityConnectionPromise
-  extends Promise<SelfPityConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SelfPityEdge>>() => T;
-  aggregate: <T = AggregateSelfPityPromise>() => T;
-}
-
-export interface SelfPityConnectionSubscription
-  extends Promise<AsyncIterator<SelfPityConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SelfPityEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSelfPitySubscription>() => T;
-}
-
-export interface AngerEdge {
-  node: Anger;
-  cursor: String;
-}
-
-export interface AngerEdgePromise extends Promise<AngerEdge>, Fragmentable {
-  node: <T = AngerPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AngerEdgeSubscription
-  extends Promise<AsyncIterator<AngerEdge>>,
-    Fragmentable {
-  node: <T = AngerSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateResentment {
-  count: Int;
-}
-
-export interface AggregateResentmentPromise
-  extends Promise<AggregateResentment>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateResentmentSubscription
-  extends Promise<AsyncIterator<AggregateResentment>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface InventorySubscriptionPayload {
-  mutation: MutationType;
-  node: Inventory;
-  updatedFields: String[];
-}
-
-export interface InventorySubscriptionPayloadPromise
-  extends Promise<InventorySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = InventoryPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-}
-
-export interface InventorySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<InventorySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = InventorySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-}
-
-export interface PrideEdge {
-  node: Pride;
-  cursor: String;
-}
-
-export interface PrideEdgePromise extends Promise<PrideEdge>, Fragmentable {
-  node: <T = PridePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PrideEdgeSubscription
-  extends Promise<AsyncIterator<PrideEdge>>,
-    Fragmentable {
-  node: <T = PrideSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AngerConnection {
-  pageInfo: PageInfo;
-  edges: AngerEdge[];
-}
-
-export interface AngerConnectionPromise
-  extends Promise<AngerConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AngerEdge>>() => T;
-  aggregate: <T = AggregateAngerPromise>() => T;
-}
-
-export interface AngerConnectionSubscription
-  extends Promise<AsyncIterator<AngerConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AngerEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAngerSubscription>() => T;
-}
-
-export interface ObsessionConnection {}
-
-export interface ObsessionConnectionPromise
-  extends Promise<ObsessionConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ObsessionEdge>>() => T;
-  aggregate: <T = AggregateObsessionPromise>() => T;
-}
-
-export interface ObsessionConnectionSubscription
-  extends Promise<AsyncIterator<ObsessionConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ObsessionEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateObsessionSubscription>() => T;
-}
-
-export interface LoyaltySubscriptionPayload {
-  mutation: MutationType;
-  node: Loyalty;
-  updatedFields: String[];
-  previousValues: LoyaltyPreviousValues;
-}
-
-export interface LoyaltySubscriptionPayloadPromise
-  extends Promise<LoyaltySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = LoyaltyPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = LoyaltyPreviousValuesPromise>() => T;
-}
-
-export interface LoyaltySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<LoyaltySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = LoyaltySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = LoyaltyPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateInventory {
-  count: Int;
-}
-
-export interface AggregateInventoryPromise
-  extends Promise<AggregateInventory>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateInventorySubscription
-  extends Promise<AsyncIterator<AggregateInventory>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface LoyaltyPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface LoyaltyPreviousValuesPromise
-  extends Promise<LoyaltyPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface LoyaltyPreviousValuesSubscription
-  extends Promise<AsyncIterator<LoyaltyPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface HopeEdge {
-  node: Hope;
-  cursor: String;
-}
-
-export interface HopeEdgePromise extends Promise<HopeEdge>, Fragmentable {
-  node: <T = HopePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface HopeEdgeSubscription
-  extends Promise<AsyncIterator<HopeEdge>>,
-    Fragmentable {
-  node: <T = HopeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface Anger {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface AngerPromise extends Promise<Anger>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface AngerSubscription
-  extends Promise<AsyncIterator<Anger>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface HonorConnection {
-  pageInfo: PageInfo;
-  edges: HonorEdge[];
-}
-
-export interface HonorConnectionPromise
-  extends Promise<HonorConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<HonorEdge>>() => T;
-  aggregate: <T = AggregateHonorPromise>() => T;
-}
-
-export interface HonorConnectionSubscription
-  extends Promise<AsyncIterator<HonorConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<HonorEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateHonorSubscription>() => T;
-}
-
-export interface ObsessionSubscriptionPayload {
-  mutation: MutationType;
-  node: Obsession;
-  updatedFields: String[];
-}
-
-export interface ObsessionSubscriptionPayloadPromise
-  extends Promise<ObsessionSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ObsessionPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-}
-
-export interface ObsessionSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ObsessionSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ObsessionSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-}
-
-export interface Salvation {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface SalvationPromise extends Promise<Salvation>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface SalvationSubscription
-  extends Promise<AsyncIterator<Salvation>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface AggregateAcceptance {
-  count: Int;
-}
-
-export interface AggregateAcceptancePromise
-  extends Promise<AggregateAcceptance>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAcceptanceSubscription
-  extends Promise<AsyncIterator<AggregateAcceptance>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Loyalty {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface LoyaltyPromise extends Promise<Loyalty>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface LoyaltySubscription
-  extends Promise<AsyncIterator<Loyalty>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface PrideSubscriptionPayload {
-  mutation: MutationType;
-  node: Pride;
-  updatedFields: String[];
-  previousValues: PridePreviousValues;
-}
-
-export interface PrideSubscriptionPayloadPromise
-  extends Promise<PrideSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PridePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PridePreviousValuesPromise>() => T;
-}
-
-export interface PrideSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PrideSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PrideSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PridePreviousValuesSubscription>() => T;
-}
-
-export interface Resentment {}
-
-export interface ResentmentPromise extends Promise<Resentment>, Fragmentable {
-  anger: <T = FragmentableArray<Anger>>(
-    args?: {
-      where?: AngerWhereInput;
-      orderBy?: AngerOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  selfPity: <T = FragmentableArray<SelfPity>>(
-    args?: {
-      where?: SelfPityWhereInput;
-      orderBy?: SelfPityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  fear: <T = FragmentableArray<Fear>>(
-    args?: {
-      where?: FearWhereInput;
-      orderBy?: FearOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  pride: <T = FragmentableArray<Pride>>(
-    args?: {
-      where?: PrideWhereInput;
-      orderBy?: PrideOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface ResentmentSubscription
-  extends Promise<AsyncIterator<Resentment>>,
-    Fragmentable {
-  anger: <T = Promise<AsyncIterator<AngerSubscription>>>(
-    args?: {
-      where?: AngerWhereInput;
-      orderBy?: AngerOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  selfPity: <T = Promise<AsyncIterator<SelfPitySubscription>>>(
-    args?: {
-      where?: SelfPityWhereInput;
-      orderBy?: SelfPityOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  fear: <T = Promise<AsyncIterator<FearSubscription>>>(
-    args?: {
-      where?: FearWhereInput;
-      orderBy?: FearOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  pride: <T = Promise<AsyncIterator<PrideSubscription>>>(
-    args?: {
-      where?: PrideWhereInput;
-      orderBy?: PrideOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface PridePreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface PridePreviousValuesPromise
-  extends Promise<PridePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface PridePreviousValuesSubscription
-  extends Promise<AsyncIterator<PridePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface FearEdge {
-  node: Fear;
-  cursor: String;
-}
-
-export interface FearEdgePromise extends Promise<FearEdge>, Fragmentable {
-  node: <T = FearPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface FearEdgeSubscription
-  extends Promise<AsyncIterator<FearEdge>>,
-    Fragmentable {
-  node: <T = FearSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AcceptanceEdge {
-  node: Acceptance;
-  cursor: String;
-}
-
-export interface AcceptanceEdgePromise
-  extends Promise<AcceptanceEdge>,
-    Fragmentable {
-  node: <T = AcceptancePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AcceptanceEdgeSubscription
-  extends Promise<AsyncIterator<AcceptanceEdge>>,
-    Fragmentable {
-  node: <T = AcceptanceSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ExperienceEdge {
-  node: Experience;
-  cursor: String;
-}
-
-export interface ExperienceEdgePromise
-  extends Promise<ExperienceEdge>,
-    Fragmentable {
-  node: <T = ExperiencePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ExperienceEdgeSubscription
-  extends Promise<AsyncIterator<ExperienceEdge>>,
-    Fragmentable {
-  node: <T = ExperienceSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ResentmentSubscriptionPayload {
-  mutation: MutationType;
-  node: Resentment;
-  updatedFields: String[];
-}
-
-export interface ResentmentSubscriptionPayloadPromise
-  extends Promise<ResentmentSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ResentmentPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-}
-
-export interface ResentmentSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ResentmentSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ResentmentSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-}
-
-export interface AggregateDefect {
-  count: Int;
-}
-
-export interface AggregateDefectPromise
-  extends Promise<AggregateDefect>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateDefectSubscription
-  extends Promise<AsyncIterator<AggregateDefect>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface VulnerabilitySubscriptionPayload {
-  mutation: MutationType;
-  node: Vulnerability;
-  updatedFields: String[];
-  previousValues: VulnerabilityPreviousValues;
-}
-
-export interface VulnerabilitySubscriptionPayloadPromise
-  extends Promise<VulnerabilitySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = VulnerabilityPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = VulnerabilityPreviousValuesPromise>() => T;
-}
-
-export interface VulnerabilitySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<VulnerabilitySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = VulnerabilitySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = VulnerabilityPreviousValuesSubscription>() => T;
-}
-
-export interface ToxicityEdge {
-  node: Toxicity;
-  cursor: String;
-}
-
-export interface ToxicityEdgePromise
-  extends Promise<ToxicityEdge>,
-    Fragmentable {
-  node: <T = ToxicityPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ToxicityEdgeSubscription
-  extends Promise<AsyncIterator<ToxicityEdge>>,
-    Fragmentable {
-  node: <T = ToxicitySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SalvationSubscriptionPayload {
-  mutation: MutationType;
-  node: Salvation;
-  updatedFields: String[];
-  previousValues: SalvationPreviousValues;
-}
-
-export interface SalvationSubscriptionPayloadPromise
-  extends Promise<SalvationSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SalvationPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SalvationPreviousValuesPromise>() => T;
-}
-
-export interface SalvationSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SalvationSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SalvationSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SalvationPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateSelfPity {
-  count: Int;
-}
-
-export interface AggregateSelfPityPromise
-  extends Promise<AggregateSelfPity>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSelfPitySubscription
-  extends Promise<AsyncIterator<AggregateSelfPity>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface SalvationPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface SalvationPreviousValuesPromise
-  extends Promise<SalvationPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface SalvationPreviousValuesSubscription
-  extends Promise<AsyncIterator<SalvationPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ResentmentConnection {}
-
-export interface ResentmentConnectionPromise
-  extends Promise<ResentmentConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ResentmentEdge>>() => T;
-  aggregate: <T = AggregateResentmentPromise>() => T;
-}
-
-export interface ResentmentConnectionSubscription
-  extends Promise<AsyncIterator<ResentmentConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ResentmentEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateResentmentSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface LoyaltyEdge {
-  node: Loyalty;
-  cursor: String;
-}
-
-export interface LoyaltyEdgePromise extends Promise<LoyaltyEdge>, Fragmentable {
-  node: <T = LoyaltyPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface LoyaltyEdgeSubscription
-  extends Promise<AsyncIterator<LoyaltyEdge>>,
-    Fragmentable {
-  node: <T = LoyaltySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SelfPitySubscriptionPayload {
-  mutation: MutationType;
-  node: SelfPity;
-  updatedFields: String[];
-  previousValues: SelfPityPreviousValues;
-}
-
-export interface SelfPitySubscriptionPayloadPromise
-  extends Promise<SelfPitySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SelfPityPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SelfPityPreviousValuesPromise>() => T;
-}
-
-export interface SelfPitySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SelfPitySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SelfPitySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SelfPityPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateHonor {
-  count: Int;
-}
-
-export interface AggregateHonorPromise
-  extends Promise<AggregateHonor>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateHonorSubscription
-  extends Promise<AsyncIterator<AggregateHonor>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface SelfPityPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface SelfPityPreviousValuesPromise
-  extends Promise<SelfPityPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface SelfPityPreviousValuesSubscription
-  extends Promise<AsyncIterator<SelfPityPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface Strength {}
-
-export interface StrengthPromise extends Promise<Strength>, Fragmentable {
-  armor: <T = FragmentableArray<Armor>>(
-    args?: {
-      where?: ArmorWhereInput;
-      orderBy?: ArmorOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  boundary: <T = FragmentableArray<Boundary>>(
-    args?: {
-      where?: BoundaryWhereInput;
-      orderBy?: BoundaryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  loyalty: <T = FragmentableArray<Loyalty>>(
-    args?: {
-      where?: LoyaltyWhereInput;
-      orderBy?: LoyaltyOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  honor: <T = FragmentableArray<Honor>>(
-    args?: {
-      where?: HonorWhereInput;
-      orderBy?: HonorOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface StrengthSubscription
-  extends Promise<AsyncIterator<Strength>>,
-    Fragmentable {
-  armor: <T = Promise<AsyncIterator<ArmorSubscription>>>(
-    args?: {
-      where?: ArmorWhereInput;
-      orderBy?: ArmorOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  boundary: <T = Promise<AsyncIterator<BoundarySubscription>>>(
-    args?: {
-      where?: BoundaryWhereInput;
-      orderBy?: BoundaryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  loyalty: <T = Promise<AsyncIterator<LoyaltySubscription>>>(
-    args?: {
-      where?: LoyaltyWhereInput;
-      orderBy?: LoyaltyOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  honor: <T = Promise<AsyncIterator<HonorSubscription>>>(
-    args?: {
-      where?: HonorWhereInput;
-      orderBy?: HonorOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface AcceptanceConnection {
-  pageInfo: PageInfo;
-  edges: AcceptanceEdge[];
-}
-
-export interface AcceptanceConnectionPromise
-  extends Promise<AcceptanceConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AcceptanceEdge>>() => T;
-  aggregate: <T = AggregateAcceptancePromise>() => T;
-}
-
-export interface AcceptanceConnectionSubscription
-  extends Promise<AsyncIterator<AcceptanceConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AcceptanceEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAcceptanceSubscription>() => T;
-}
-
-export interface HigherPower {
-  id: ID_Output;
-}
-
-export interface HigherPowerPromise extends Promise<HigherPower>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  inventory: <T = InventoryPromise>() => T;
-}
-
-export interface HigherPowerSubscription
-  extends Promise<AsyncIterator<HigherPower>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  inventory: <T = InventorySubscription>() => T;
-}
-
-export interface StrengthSubscriptionPayload {
-  mutation: MutationType;
-  node: Strength;
-  updatedFields: String[];
-}
-
-export interface StrengthSubscriptionPayloadPromise
-  extends Promise<StrengthSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = StrengthPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-}
-
-export interface StrengthSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<StrengthSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = StrengthSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-}
-
-export interface Vulnerability {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface VulnerabilityPromise
-  extends Promise<Vulnerability>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface VulnerabilitySubscription
-  extends Promise<AsyncIterator<Vulnerability>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface Acceptance {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface AcceptancePromise extends Promise<Acceptance>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface AcceptanceSubscription
-  extends Promise<AsyncIterator<Acceptance>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface SufferingConnection {
-  pageInfo: PageInfo;
-  edges: SufferingEdge[];
-}
-
-export interface SufferingConnectionPromise
-  extends Promise<SufferingConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SufferingEdge>>() => T;
-  aggregate: <T = AggregateSufferingPromise>() => T;
-}
-
-export interface SufferingConnectionSubscription
-  extends Promise<AsyncIterator<SufferingConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SufferingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSufferingSubscription>() => T;
-}
-
-export interface SufferingSubscriptionPayload {
-  mutation: MutationType;
-  node: Suffering;
-  updatedFields: String[];
-  previousValues: SufferingPreviousValues;
-}
-
-export interface SufferingSubscriptionPayloadPromise
-  extends Promise<SufferingSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SufferingPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SufferingPreviousValuesPromise>() => T;
-}
-
-export interface SufferingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SufferingSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SufferingSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SufferingPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateObsession {
-  count: Int;
-}
-
-export interface AggregateObsessionPromise
-  extends Promise<AggregateObsession>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateObsessionSubscription
-  extends Promise<AsyncIterator<AggregateObsession>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface HigherPowerEdge {
-  node: HigherPower;
-  cursor: String;
-}
-
-export interface HigherPowerEdgePromise
-  extends Promise<HigherPowerEdge>,
-    Fragmentable {
-  node: <T = HigherPowerPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface HigherPowerEdgeSubscription
-  extends Promise<AsyncIterator<HigherPowerEdge>>,
-    Fragmentable {
-  node: <T = HigherPowerSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  edges: <T = Promise<AsyncIterator<VulnerabilityEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVulnerabilitySubscription>() => T;
 }
 
 export interface ToxicityPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -7735,8 +13229,10 @@ export interface ToxicityPreviousValuesPromise
   extends Promise<ToxicityPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -7749,8 +13245,10 @@ export interface ToxicityPreviousValuesSubscription
   extends Promise<AsyncIterator<ToxicityPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -7784,50 +13282,33 @@ export interface ToxicitySubscriptionPayloadSubscription
   previousValues: <T = ToxicityPreviousValuesSubscription>() => T;
 }
 
-export interface TraumaPreviousValues {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
+export interface CompassionConnection {
+  pageInfo: PageInfo;
+  edges: CompassionEdge[];
 }
 
-export interface TraumaPreviousValuesPromise
-  extends Promise<TraumaPreviousValues>,
+export interface CompassionConnectionPromise
+  extends Promise<CompassionConnection>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CompassionEdge>>() => T;
+  aggregate: <T = AggregateCompassionPromise>() => T;
 }
 
-export interface TraumaPreviousValuesSubscription
-  extends Promise<AsyncIterator<TraumaPreviousValues>>,
+export interface CompassionConnectionSubscription
+  extends Promise<AsyncIterator<CompassionConnection>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CompassionEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCompassionSubscription>() => T;
 }
 
 export interface SufferingPreviousValues {
   id: ID_Output;
-  name: String;
-  description: String;
+  character: String;
+  thought: String;
+  location: String;
+  process: String;
   attribute: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -7840,8 +13321,10 @@ export interface SufferingPreviousValuesPromise
   extends Promise<SufferingPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  character: () => Promise<String>;
+  thought: () => Promise<String>;
+  location: () => Promise<String>;
+  process: () => Promise<String>;
   attribute: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -7854,8 +13337,10 @@ export interface SufferingPreviousValuesSubscription
   extends Promise<AsyncIterator<SufferingPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  character: () => Promise<AsyncIterator<String>>;
+  thought: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
   attribute: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -7864,138 +13349,86 @@ export interface SufferingPreviousValuesSubscription
   resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface Pride {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
+export interface AggregateSalvation {
+  count: Int;
 }
 
-export interface PridePromise extends Promise<Pride>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface PrideSubscription
-  extends Promise<AsyncIterator<Pride>>,
+export interface AggregateSalvationPromise
+  extends Promise<AggregateSalvation>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  count: () => Promise<Int>;
 }
 
-export interface InventoryConnection {}
+export interface AggregateSalvationSubscription
+  extends Promise<AsyncIterator<AggregateSalvation>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
 
-export interface InventoryConnectionPromise
-  extends Promise<InventoryConnection>,
+export interface GratitudeConnection {
+  pageInfo: PageInfo;
+  edges: GratitudeEdge[];
+}
+
+export interface GratitudeConnectionPromise
+  extends Promise<GratitudeConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<InventoryEdge>>() => T;
-  aggregate: <T = AggregateInventoryPromise>() => T;
+  edges: <T = FragmentableArray<GratitudeEdge>>() => T;
+  aggregate: <T = AggregateGratitudePromise>() => T;
 }
 
-export interface InventoryConnectionSubscription
-  extends Promise<AsyncIterator<InventoryConnection>>,
+export interface GratitudeConnectionSubscription
+  extends Promise<AsyncIterator<GratitudeConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<InventoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateInventorySubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GratitudeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGratitudeSubscription>() => T;
 }
 
-export interface SalvationEdge {
-  node: Salvation;
+export interface VulnerabilitySubscriptionPayload {
+  mutation: MutationType;
+  node: Vulnerability;
+  updatedFields: String[];
+  previousValues: VulnerabilityPreviousValues;
+}
+
+export interface VulnerabilitySubscriptionPayloadPromise
+  extends Promise<VulnerabilitySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VulnerabilityPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VulnerabilityPreviousValuesPromise>() => T;
+}
+
+export interface VulnerabilitySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VulnerabilitySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VulnerabilitySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VulnerabilityPreviousValuesSubscription>() => T;
+}
+
+export interface InventoryEdge {
+  node: Inventory;
   cursor: String;
 }
 
-export interface SalvationEdgePromise
-  extends Promise<SalvationEdge>,
+export interface InventoryEdgePromise
+  extends Promise<InventoryEdge>,
     Fragmentable {
-  node: <T = SalvationPromise>() => T;
+  node: <T = InventoryPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface SalvationEdgeSubscription
-  extends Promise<AsyncIterator<SalvationEdge>>,
+export interface InventoryEdgeSubscription
+  extends Promise<AsyncIterator<InventoryEdge>>,
     Fragmentable {
-  node: <T = SalvationSubscription>() => T;
+  node: <T = InventorySubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
-
-export interface DefectConnection {}
-
-export interface DefectConnectionPromise
-  extends Promise<DefectConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<DefectEdge>>() => T;
-  aggregate: <T = AggregateDefectPromise>() => T;
-}
-
-export interface DefectConnectionSubscription
-  extends Promise<AsyncIterator<DefectConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<DefectEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateDefectSubscription>() => T;
-}
-
-export interface Fear {
-  id: ID_Output;
-  name: String;
-  description: String;
-  attribute: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sharedAt?: DateTimeOutput;
-  amendedAt?: DateTimeOutput;
-  resolvedAt?: DateTimeOutput;
-}
-
-export interface FearPromise extends Promise<Fear>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  attribute: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sharedAt: () => Promise<DateTimeOutput>;
-  amendedAt: () => Promise<DateTimeOutput>;
-  resolvedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface FearSubscription
-  extends Promise<AsyncIterator<Fear>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  attribute: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sharedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amendedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  resolvedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -8004,14 +13437,21 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
+
+/*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
 
+export type Long = string;
+
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
-export type Int = number;
+export type String = string;
 
 /*
 DateTime scalar input type, allowing Date
@@ -8023,16 +13463,15 @@ DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
 
-/*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string;
-
 /**
  * Model Metadata
  */
 
 export const models: Model[] = [
+  {
+    name: "Has",
+    embedded: false
+  },
   {
     name: "Trauma",
     embedded: false
@@ -8087,6 +13526,10 @@ export const models: Model[] = [
   },
   {
     name: "Vulnerability",
+    embedded: false
+  },
+  {
+    name: "Gratitude",
     embedded: false
   },
   {

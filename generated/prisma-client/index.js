@@ -5,6 +5,10 @@ var typeDefs = require("./prisma-schema").typeDefs;
 
 var models = [
   {
+    name: "Has",
+    embedded: false
+  },
+  {
     name: "Trauma",
     embedded: false
   },
@@ -58,6 +62,10 @@ var models = [
   },
   {
     name: "Vulnerability",
+    embedded: false
+  },
+  {
+    name: "Gratitude",
     embedded: false
   },
   {

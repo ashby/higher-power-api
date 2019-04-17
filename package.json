@@ -1,10 +1,11 @@
 {
     "name": "higher-power-service",
     "version": "1.0.1",
-    "description": "Higher Power service api",
+    "thought": "Higher Power service api",
     "scripts": {
       "start": "prisma deploy && NODE_ENV=production node ./api/server.js",
       "start:dev": "nodemon ./api/server.js",
+      "restart:dev": "prisma reset && yarn generate && yarn run:dev",
       "run:dev": "npm-run-all run-dep:dev prisma-deploy:dev start:dev",
       "run-dep:dev": "docker-compose -p dev -f docker-compose.yml -f env/dev.yml up --build -d",
       "run-dep:test": "docker-compose -p test -f docker-compose.yml -f env/test.yml up --build -d",

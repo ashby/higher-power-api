@@ -1,89 +1,111 @@
+type Has {
+    id: ID! @id
+    resentment: Boolean!
+    anger: Boolean!
+}
+
 type Trauma {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Toxicity {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Suffering {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 
 type Defect {
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
     suffering: [Suffering]
 }
 
 type Anger {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type SelfPity {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Fear {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Pride {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 
 type Resentment {
+    id: ID! @id
     anger: [Anger]
     selfPity: [SelfPity]
     fear: [Fear]
@@ -91,6 +113,7 @@ type Resentment {
 }
 
 type Obsession {
+    id: ID! @id
     suffering: [Suffering]
     loyalty: [Loyalty]
     honor: [Honor]
@@ -98,103 +121,137 @@ type Obsession {
 }
 
 type Compassion {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Courage {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Acceptance {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Vulnerability {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+
+type Gratitude {
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 
 type Experience {
+    id: ID! @id
     compassion: [Compassion]
     courage: [Courage]
     acceptance: [Acceptance]
     vulnerability: [Vulnerability]
+    gratitude: [Gratitude]
+    suffering: [Suffering]
 }
 
 type Armor {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Boundary {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Loyalty {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 type Honor {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 
 type Strength {
+    id: ID! @id
     armor: [Armor]
     boundary: [Boundary]
     loyalty: [Loyalty]
@@ -202,22 +259,26 @@ type Strength {
 }
 
 type Salvation {
-    id: ID! @unique
-    name: String!
-    description: String!
+    id: ID! @id
+    thought: String!
+    character: String!
+    location: String!
+    process: String!
     attribute: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
 
 type Hope {
+    id: ID! @id
     salvation: [Salvation]
 }
 
 type Inventory {
+    id: ID! @id
     defect: [Defect]
     resentment: [Resentment]
     obsession: [Obsession]
@@ -227,6 +288,6 @@ type Inventory {
 }
 
 type HigherPower {
-    id: ID! @unique
+    id: ID! @id
     inventory: Inventory
 }

@@ -2,16 +2,204 @@
 
 scalar DateTime
 
-input AngerInput {
+input AcceptanceInput {
     id: ID
-    name: String!
-    description: String!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
     attribute: String!
     createdAt: DateTime
     updatedAt: DateTime
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+}
+input AngerInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input ArmorInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input BoundaryInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input CompassionInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input CourageInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input FearInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input GratitudeInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input PrideInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input SalvationInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input SelfPityInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input SufferingInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input ToxicityInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input TraumaInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+input VulnerabilityInput {
+    id: ID
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+
+input HasInput {
+    has: String!
 }
 
 

@@ -5,7 +5,7 @@ const HigherPowerFragment = `
                 anger {
                     id
                     name
-                    description
+                    thought
                     attribute
                     createdAt
                     updatedAt

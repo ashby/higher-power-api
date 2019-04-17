@@ -1,7 +1,9 @@
 type Acceptance {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -17,8 +19,11 @@ type AcceptanceConnection {
 }
 
 input AcceptanceCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -38,10 +43,14 @@ type AcceptanceEdge {
 enum AcceptanceOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -58,14 +67,146 @@ enum AcceptanceOrderByInput {
 
 type AcceptancePreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input AcceptanceScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [AcceptanceScalarWhereInput!]
+  OR: [AcceptanceScalarWhereInput!]
+  NOT: [AcceptanceScalarWhereInput!]
 }
 
 type AcceptanceSubscriptionPayload {
@@ -86,22 +227,76 @@ input AcceptanceSubscriptionWhereInput {
   NOT: [AcceptanceSubscriptionWhereInput!]
 }
 
-input AcceptanceUpdateInput {
-  name: String
-  description: String
+input AcceptanceUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input AcceptanceUpdateManyMutationInput {
-  name: String
-  description: String
+input AcceptanceUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input AcceptanceUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input AcceptanceUpdateManyInput {
+  create: [AcceptanceCreateInput!]
+  update: [AcceptanceUpdateWithWhereUniqueNestedInput!]
+  upsert: [AcceptanceUpsertWithWhereUniqueNestedInput!]
+  delete: [AcceptanceWhereUniqueInput!]
+  connect: [AcceptanceWhereUniqueInput!]
+  set: [AcceptanceWhereUniqueInput!]
+  disconnect: [AcceptanceWhereUniqueInput!]
+  deleteMany: [AcceptanceScalarWhereInput!]
+  updateMany: [AcceptanceUpdateManyWithWhereNestedInput!]
+}
+
+input AcceptanceUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input AcceptanceUpdateManyWithWhereNestedInput {
+  where: AcceptanceScalarWhereInput!
+  data: AcceptanceUpdateManyDataInput!
+}
+
+input AcceptanceUpdateWithWhereUniqueNestedInput {
+  where: AcceptanceWhereUniqueInput!
+  data: AcceptanceUpdateDataInput!
+}
+
+input AcceptanceUpsertWithWhereUniqueNestedInput {
+  where: AcceptanceWhereUniqueInput!
+  update: AcceptanceUpdateDataInput!
+  create: AcceptanceCreateInput!
 }
 
 input AcceptanceWhereInput {
@@ -119,34 +314,62 @@ input AcceptanceWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -246,6 +469,14 @@ type AggregateFear {
   count: Int!
 }
 
+type AggregateGratitude {
+  count: Int!
+}
+
+type AggregateHas {
+  count: Int!
+}
+
 type AggregateHigherPower {
   count: Int!
 }
@@ -308,8 +539,10 @@ type AggregateVulnerability {
 
 type Anger {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -325,8 +558,11 @@ type AngerConnection {
 }
 
 input AngerCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -346,10 +582,14 @@ type AngerEdge {
 enum AngerOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -366,14 +606,146 @@ enum AngerOrderByInput {
 
 type AngerPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input AngerScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [AngerScalarWhereInput!]
+  OR: [AngerScalarWhereInput!]
+  NOT: [AngerScalarWhereInput!]
 }
 
 type AngerSubscriptionPayload {
@@ -394,22 +766,76 @@ input AngerSubscriptionWhereInput {
   NOT: [AngerSubscriptionWhereInput!]
 }
 
-input AngerUpdateInput {
-  name: String
-  description: String
+input AngerUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input AngerUpdateManyMutationInput {
-  name: String
-  description: String
+input AngerUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input AngerUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input AngerUpdateManyInput {
+  create: [AngerCreateInput!]
+  update: [AngerUpdateWithWhereUniqueNestedInput!]
+  upsert: [AngerUpsertWithWhereUniqueNestedInput!]
+  delete: [AngerWhereUniqueInput!]
+  connect: [AngerWhereUniqueInput!]
+  set: [AngerWhereUniqueInput!]
+  disconnect: [AngerWhereUniqueInput!]
+  deleteMany: [AngerScalarWhereInput!]
+  updateMany: [AngerUpdateManyWithWhereNestedInput!]
+}
+
+input AngerUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input AngerUpdateManyWithWhereNestedInput {
+  where: AngerScalarWhereInput!
+  data: AngerUpdateManyDataInput!
+}
+
+input AngerUpdateWithWhereUniqueNestedInput {
+  where: AngerWhereUniqueInput!
+  data: AngerUpdateDataInput!
+}
+
+input AngerUpsertWithWhereUniqueNestedInput {
+  where: AngerWhereUniqueInput!
+  update: AngerUpdateDataInput!
+  create: AngerCreateInput!
 }
 
 input AngerWhereInput {
@@ -427,34 +853,62 @@ input AngerWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -520,8 +974,10 @@ input AngerWhereUniqueInput {
 
 type Armor {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -537,8 +993,11 @@ type ArmorConnection {
 }
 
 input ArmorCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -558,10 +1017,14 @@ type ArmorEdge {
 enum ArmorOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -578,14 +1041,146 @@ enum ArmorOrderByInput {
 
 type ArmorPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input ArmorScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [ArmorScalarWhereInput!]
+  OR: [ArmorScalarWhereInput!]
+  NOT: [ArmorScalarWhereInput!]
 }
 
 type ArmorSubscriptionPayload {
@@ -606,22 +1201,76 @@ input ArmorSubscriptionWhereInput {
   NOT: [ArmorSubscriptionWhereInput!]
 }
 
-input ArmorUpdateInput {
-  name: String
-  description: String
+input ArmorUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input ArmorUpdateManyMutationInput {
-  name: String
-  description: String
+input ArmorUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input ArmorUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input ArmorUpdateManyInput {
+  create: [ArmorCreateInput!]
+  update: [ArmorUpdateWithWhereUniqueNestedInput!]
+  upsert: [ArmorUpsertWithWhereUniqueNestedInput!]
+  delete: [ArmorWhereUniqueInput!]
+  connect: [ArmorWhereUniqueInput!]
+  set: [ArmorWhereUniqueInput!]
+  disconnect: [ArmorWhereUniqueInput!]
+  deleteMany: [ArmorScalarWhereInput!]
+  updateMany: [ArmorUpdateManyWithWhereNestedInput!]
+}
+
+input ArmorUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input ArmorUpdateManyWithWhereNestedInput {
+  where: ArmorScalarWhereInput!
+  data: ArmorUpdateManyDataInput!
+}
+
+input ArmorUpdateWithWhereUniqueNestedInput {
+  where: ArmorWhereUniqueInput!
+  data: ArmorUpdateDataInput!
+}
+
+input ArmorUpsertWithWhereUniqueNestedInput {
+  where: ArmorWhereUniqueInput!
+  update: ArmorUpdateDataInput!
+  create: ArmorCreateInput!
 }
 
 input ArmorWhereInput {
@@ -639,34 +1288,62 @@ input ArmorWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -736,8 +1413,10 @@ type BatchPayload {
 
 type Boundary {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -753,8 +1432,11 @@ type BoundaryConnection {
 }
 
 input BoundaryCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -774,10 +1456,14 @@ type BoundaryEdge {
 enum BoundaryOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -794,14 +1480,146 @@ enum BoundaryOrderByInput {
 
 type BoundaryPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input BoundaryScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [BoundaryScalarWhereInput!]
+  OR: [BoundaryScalarWhereInput!]
+  NOT: [BoundaryScalarWhereInput!]
 }
 
 type BoundarySubscriptionPayload {
@@ -822,22 +1640,76 @@ input BoundarySubscriptionWhereInput {
   NOT: [BoundarySubscriptionWhereInput!]
 }
 
-input BoundaryUpdateInput {
-  name: String
-  description: String
+input BoundaryUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input BoundaryUpdateManyMutationInput {
-  name: String
-  description: String
+input BoundaryUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input BoundaryUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input BoundaryUpdateManyInput {
+  create: [BoundaryCreateInput!]
+  update: [BoundaryUpdateWithWhereUniqueNestedInput!]
+  upsert: [BoundaryUpsertWithWhereUniqueNestedInput!]
+  delete: [BoundaryWhereUniqueInput!]
+  connect: [BoundaryWhereUniqueInput!]
+  set: [BoundaryWhereUniqueInput!]
+  disconnect: [BoundaryWhereUniqueInput!]
+  deleteMany: [BoundaryScalarWhereInput!]
+  updateMany: [BoundaryUpdateManyWithWhereNestedInput!]
+}
+
+input BoundaryUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input BoundaryUpdateManyWithWhereNestedInput {
+  where: BoundaryScalarWhereInput!
+  data: BoundaryUpdateManyDataInput!
+}
+
+input BoundaryUpdateWithWhereUniqueNestedInput {
+  where: BoundaryWhereUniqueInput!
+  data: BoundaryUpdateDataInput!
+}
+
+input BoundaryUpsertWithWhereUniqueNestedInput {
+  where: BoundaryWhereUniqueInput!
+  update: BoundaryUpdateDataInput!
+  create: BoundaryCreateInput!
 }
 
 input BoundaryWhereInput {
@@ -855,34 +1727,62 @@ input BoundaryWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -948,8 +1848,10 @@ input BoundaryWhereUniqueInput {
 
 type Compassion {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -965,8 +1867,11 @@ type CompassionConnection {
 }
 
 input CompassionCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -986,10 +1891,14 @@ type CompassionEdge {
 enum CompassionOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -1006,14 +1915,146 @@ enum CompassionOrderByInput {
 
 type CompassionPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input CompassionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [CompassionScalarWhereInput!]
+  OR: [CompassionScalarWhereInput!]
+  NOT: [CompassionScalarWhereInput!]
 }
 
 type CompassionSubscriptionPayload {
@@ -1034,22 +2075,76 @@ input CompassionSubscriptionWhereInput {
   NOT: [CompassionSubscriptionWhereInput!]
 }
 
-input CompassionUpdateInput {
-  name: String
-  description: String
+input CompassionUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input CompassionUpdateManyMutationInput {
-  name: String
-  description: String
+input CompassionUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input CompassionUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input CompassionUpdateManyInput {
+  create: [CompassionCreateInput!]
+  update: [CompassionUpdateWithWhereUniqueNestedInput!]
+  upsert: [CompassionUpsertWithWhereUniqueNestedInput!]
+  delete: [CompassionWhereUniqueInput!]
+  connect: [CompassionWhereUniqueInput!]
+  set: [CompassionWhereUniqueInput!]
+  disconnect: [CompassionWhereUniqueInput!]
+  deleteMany: [CompassionScalarWhereInput!]
+  updateMany: [CompassionUpdateManyWithWhereNestedInput!]
+}
+
+input CompassionUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input CompassionUpdateManyWithWhereNestedInput {
+  where: CompassionScalarWhereInput!
+  data: CompassionUpdateManyDataInput!
+}
+
+input CompassionUpdateWithWhereUniqueNestedInput {
+  where: CompassionWhereUniqueInput!
+  data: CompassionUpdateDataInput!
+}
+
+input CompassionUpsertWithWhereUniqueNestedInput {
+  where: CompassionWhereUniqueInput!
+  update: CompassionUpdateDataInput!
+  create: CompassionCreateInput!
 }
 
 input CompassionWhereInput {
@@ -1067,34 +2162,62 @@ input CompassionWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -1160,8 +2283,10 @@ input CompassionWhereUniqueInput {
 
 type Courage {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1177,8 +2302,11 @@ type CourageConnection {
 }
 
 input CourageCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -1198,10 +2326,14 @@ type CourageEdge {
 enum CourageOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -1218,14 +2350,146 @@ enum CourageOrderByInput {
 
 type CouragePreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input CourageScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [CourageScalarWhereInput!]
+  OR: [CourageScalarWhereInput!]
+  NOT: [CourageScalarWhereInput!]
 }
 
 type CourageSubscriptionPayload {
@@ -1246,22 +2510,76 @@ input CourageSubscriptionWhereInput {
   NOT: [CourageSubscriptionWhereInput!]
 }
 
-input CourageUpdateInput {
-  name: String
-  description: String
+input CourageUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input CourageUpdateManyMutationInput {
-  name: String
-  description: String
+input CourageUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input CourageUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input CourageUpdateManyInput {
+  create: [CourageCreateInput!]
+  update: [CourageUpdateWithWhereUniqueNestedInput!]
+  upsert: [CourageUpsertWithWhereUniqueNestedInput!]
+  delete: [CourageWhereUniqueInput!]
+  connect: [CourageWhereUniqueInput!]
+  set: [CourageWhereUniqueInput!]
+  disconnect: [CourageWhereUniqueInput!]
+  deleteMany: [CourageScalarWhereInput!]
+  updateMany: [CourageUpdateManyWithWhereNestedInput!]
+}
+
+input CourageUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input CourageUpdateManyWithWhereNestedInput {
+  where: CourageScalarWhereInput!
+  data: CourageUpdateManyDataInput!
+}
+
+input CourageUpdateWithWhereUniqueNestedInput {
+  where: CourageWhereUniqueInput!
+  data: CourageUpdateDataInput!
+}
+
+input CourageUpsertWithWhereUniqueNestedInput {
+  where: CourageWhereUniqueInput!
+  update: CourageUpdateDataInput!
+  create: CourageCreateInput!
 }
 
 input CourageWhereInput {
@@ -1279,34 +2597,62 @@ input CourageWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -1373,6 +2719,7 @@ input CourageWhereUniqueInput {
 scalar DateTime
 
 type Defect {
+  id: ID!
   trauma(where: TraumaWhereInput, orderBy: TraumaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Trauma!]
   toxicity(where: ToxicityWhereInput, orderBy: ToxicityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Toxicity!]
   suffering(where: SufferingWhereInput, orderBy: SufferingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Suffering!]
@@ -1385,6 +2732,7 @@ type DefectConnection {
 }
 
 input DefectCreateInput {
+  id: ID
   trauma: TraumaCreateManyInput
   toxicity: ToxicityCreateManyInput
   suffering: SufferingCreateManyInput
@@ -1392,6 +2740,7 @@ input DefectCreateInput {
 
 input DefectCreateManyInput {
   create: [DefectCreateInput!]
+  connect: [DefectWhereUniqueInput!]
 }
 
 type DefectEdge {
@@ -1408,10 +2757,35 @@ enum DefectOrderByInput {
   updatedAt_DESC
 }
 
+type DefectPreviousValues {
+  id: ID!
+}
+
+input DefectScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [DefectScalarWhereInput!]
+  OR: [DefectScalarWhereInput!]
+  NOT: [DefectScalarWhereInput!]
+}
+
 type DefectSubscriptionPayload {
   mutation: MutationType!
   node: Defect
   updatedFields: [String!]
+  previousValues: DefectPreviousValues
 }
 
 input DefectSubscriptionWhereInput {
@@ -1425,11 +2799,55 @@ input DefectSubscriptionWhereInput {
   NOT: [DefectSubscriptionWhereInput!]
 }
 
+input DefectUpdateDataInput {
+  trauma: TraumaUpdateManyInput
+  toxicity: ToxicityUpdateManyInput
+  suffering: SufferingUpdateManyInput
+}
+
+input DefectUpdateInput {
+  trauma: TraumaUpdateManyInput
+  toxicity: ToxicityUpdateManyInput
+  suffering: SufferingUpdateManyInput
+}
+
 input DefectUpdateManyInput {
   create: [DefectCreateInput!]
+  update: [DefectUpdateWithWhereUniqueNestedInput!]
+  upsert: [DefectUpsertWithWhereUniqueNestedInput!]
+  delete: [DefectWhereUniqueInput!]
+  connect: [DefectWhereUniqueInput!]
+  set: [DefectWhereUniqueInput!]
+  disconnect: [DefectWhereUniqueInput!]
+  deleteMany: [DefectScalarWhereInput!]
+}
+
+input DefectUpdateWithWhereUniqueNestedInput {
+  where: DefectWhereUniqueInput!
+  data: DefectUpdateDataInput!
+}
+
+input DefectUpsertWithWhereUniqueNestedInput {
+  where: DefectWhereUniqueInput!
+  update: DefectUpdateDataInput!
+  create: DefectCreateInput!
 }
 
 input DefectWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   trauma_every: TraumaWhereInput
   trauma_some: TraumaWhereInput
   trauma_none: TraumaWhereInput
@@ -1444,11 +2862,18 @@ input DefectWhereInput {
   NOT: [DefectWhereInput!]
 }
 
+input DefectWhereUniqueInput {
+  id: ID
+}
+
 type Experience {
+  id: ID!
   compassion(where: CompassionWhereInput, orderBy: CompassionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Compassion!]
   courage(where: CourageWhereInput, orderBy: CourageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Courage!]
   acceptance(where: AcceptanceWhereInput, orderBy: AcceptanceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Acceptance!]
   vulnerability(where: VulnerabilityWhereInput, orderBy: VulnerabilityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Vulnerability!]
+  gratitude(where: GratitudeWhereInput, orderBy: GratitudeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Gratitude!]
+  suffering(where: SufferingWhereInput, orderBy: SufferingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Suffering!]
 }
 
 type ExperienceConnection {
@@ -1458,14 +2883,18 @@ type ExperienceConnection {
 }
 
 input ExperienceCreateInput {
+  id: ID
   compassion: CompassionCreateManyInput
   courage: CourageCreateManyInput
   acceptance: AcceptanceCreateManyInput
   vulnerability: VulnerabilityCreateManyInput
+  gratitude: GratitudeCreateManyInput
+  suffering: SufferingCreateManyInput
 }
 
 input ExperienceCreateManyInput {
   create: [ExperienceCreateInput!]
+  connect: [ExperienceWhereUniqueInput!]
 }
 
 type ExperienceEdge {
@@ -1482,10 +2911,35 @@ enum ExperienceOrderByInput {
   updatedAt_DESC
 }
 
+type ExperiencePreviousValues {
+  id: ID!
+}
+
+input ExperienceScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [ExperienceScalarWhereInput!]
+  OR: [ExperienceScalarWhereInput!]
+  NOT: [ExperienceScalarWhereInput!]
+}
+
 type ExperienceSubscriptionPayload {
   mutation: MutationType!
   node: Experience
   updatedFields: [String!]
+  previousValues: ExperiencePreviousValues
 }
 
 input ExperienceSubscriptionWhereInput {
@@ -1499,11 +2953,61 @@ input ExperienceSubscriptionWhereInput {
   NOT: [ExperienceSubscriptionWhereInput!]
 }
 
+input ExperienceUpdateDataInput {
+  compassion: CompassionUpdateManyInput
+  courage: CourageUpdateManyInput
+  acceptance: AcceptanceUpdateManyInput
+  vulnerability: VulnerabilityUpdateManyInput
+  gratitude: GratitudeUpdateManyInput
+  suffering: SufferingUpdateManyInput
+}
+
+input ExperienceUpdateInput {
+  compassion: CompassionUpdateManyInput
+  courage: CourageUpdateManyInput
+  acceptance: AcceptanceUpdateManyInput
+  vulnerability: VulnerabilityUpdateManyInput
+  gratitude: GratitudeUpdateManyInput
+  suffering: SufferingUpdateManyInput
+}
+
 input ExperienceUpdateManyInput {
   create: [ExperienceCreateInput!]
+  update: [ExperienceUpdateWithWhereUniqueNestedInput!]
+  upsert: [ExperienceUpsertWithWhereUniqueNestedInput!]
+  delete: [ExperienceWhereUniqueInput!]
+  connect: [ExperienceWhereUniqueInput!]
+  set: [ExperienceWhereUniqueInput!]
+  disconnect: [ExperienceWhereUniqueInput!]
+  deleteMany: [ExperienceScalarWhereInput!]
+}
+
+input ExperienceUpdateWithWhereUniqueNestedInput {
+  where: ExperienceWhereUniqueInput!
+  data: ExperienceUpdateDataInput!
+}
+
+input ExperienceUpsertWithWhereUniqueNestedInput {
+  where: ExperienceWhereUniqueInput!
+  update: ExperienceUpdateDataInput!
+  create: ExperienceCreateInput!
 }
 
 input ExperienceWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   compassion_every: CompassionWhereInput
   compassion_some: CompassionWhereInput
   compassion_none: CompassionWhereInput
@@ -1516,15 +3020,27 @@ input ExperienceWhereInput {
   vulnerability_every: VulnerabilityWhereInput
   vulnerability_some: VulnerabilityWhereInput
   vulnerability_none: VulnerabilityWhereInput
+  gratitude_every: GratitudeWhereInput
+  gratitude_some: GratitudeWhereInput
+  gratitude_none: GratitudeWhereInput
+  suffering_every: SufferingWhereInput
+  suffering_some: SufferingWhereInput
+  suffering_none: SufferingWhereInput
   AND: [ExperienceWhereInput!]
   OR: [ExperienceWhereInput!]
   NOT: [ExperienceWhereInput!]
 }
 
+input ExperienceWhereUniqueInput {
+  id: ID
+}
+
 type Fear {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1540,8 +3056,11 @@ type FearConnection {
 }
 
 input FearCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -1561,10 +3080,14 @@ type FearEdge {
 enum FearOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -1581,14 +3104,146 @@ enum FearOrderByInput {
 
 type FearPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input FearScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [FearScalarWhereInput!]
+  OR: [FearScalarWhereInput!]
+  NOT: [FearScalarWhereInput!]
 }
 
 type FearSubscriptionPayload {
@@ -1609,22 +3264,76 @@ input FearSubscriptionWhereInput {
   NOT: [FearSubscriptionWhereInput!]
 }
 
-input FearUpdateInput {
-  name: String
-  description: String
+input FearUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input FearUpdateManyMutationInput {
-  name: String
-  description: String
+input FearUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input FearUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FearUpdateManyInput {
+  create: [FearCreateInput!]
+  update: [FearUpdateWithWhereUniqueNestedInput!]
+  upsert: [FearUpsertWithWhereUniqueNestedInput!]
+  delete: [FearWhereUniqueInput!]
+  connect: [FearWhereUniqueInput!]
+  set: [FearWhereUniqueInput!]
+  disconnect: [FearWhereUniqueInput!]
+  deleteMany: [FearScalarWhereInput!]
+  updateMany: [FearUpdateManyWithWhereNestedInput!]
+}
+
+input FearUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FearUpdateManyWithWhereNestedInput {
+  where: FearScalarWhereInput!
+  data: FearUpdateManyDataInput!
+}
+
+input FearUpdateWithWhereUniqueNestedInput {
+  where: FearWhereUniqueInput!
+  data: FearUpdateDataInput!
+}
+
+input FearUpsertWithWhereUniqueNestedInput {
+  where: FearWhereUniqueInput!
+  update: FearUpdateDataInput!
+  create: FearCreateInput!
 }
 
 input FearWhereInput {
@@ -1642,34 +3351,62 @@ input FearWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -1733,6 +3470,539 @@ input FearWhereUniqueInput {
   id: ID
 }
 
+type Gratitude {
+  id: ID!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
+  attribute: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+type GratitudeConnection {
+  pageInfo: PageInfo!
+  edges: [GratitudeEdge]!
+  aggregate: AggregateGratitude!
+}
+
+input GratitudeCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
+  attribute: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeCreateManyInput {
+  create: [GratitudeCreateInput!]
+  connect: [GratitudeWhereUniqueInput!]
+}
+
+type GratitudeEdge {
+  node: Gratitude!
+  cursor: String!
+}
+
+enum GratitudeOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
+  attribute_ASC
+  attribute_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolvedAt_ASC
+  resolvedAt_DESC
+}
+
+type GratitudePreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
+  attribute: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [GratitudeScalarWhereInput!]
+  OR: [GratitudeScalarWhereInput!]
+  NOT: [GratitudeScalarWhereInput!]
+}
+
+type GratitudeSubscriptionPayload {
+  mutation: MutationType!
+  node: Gratitude
+  updatedFields: [String!]
+  previousValues: GratitudePreviousValues
+}
+
+input GratitudeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GratitudeWhereInput
+  AND: [GratitudeSubscriptionWhereInput!]
+  OR: [GratitudeSubscriptionWhereInput!]
+  NOT: [GratitudeSubscriptionWhereInput!]
+}
+
+input GratitudeUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeUpdateManyInput {
+  create: [GratitudeCreateInput!]
+  update: [GratitudeUpdateWithWhereUniqueNestedInput!]
+  upsert: [GratitudeUpsertWithWhereUniqueNestedInput!]
+  delete: [GratitudeWhereUniqueInput!]
+  connect: [GratitudeWhereUniqueInput!]
+  set: [GratitudeWhereUniqueInput!]
+  disconnect: [GratitudeWhereUniqueInput!]
+  deleteMany: [GratitudeScalarWhereInput!]
+  updateMany: [GratitudeUpdateManyWithWhereNestedInput!]
+}
+
+input GratitudeUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input GratitudeUpdateManyWithWhereNestedInput {
+  where: GratitudeScalarWhereInput!
+  data: GratitudeUpdateManyDataInput!
+}
+
+input GratitudeUpdateWithWhereUniqueNestedInput {
+  where: GratitudeWhereUniqueInput!
+  data: GratitudeUpdateDataInput!
+}
+
+input GratitudeUpsertWithWhereUniqueNestedInput {
+  where: GratitudeWhereUniqueInput!
+  update: GratitudeUpdateDataInput!
+  create: GratitudeCreateInput!
+}
+
+input GratitudeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [GratitudeWhereInput!]
+  OR: [GratitudeWhereInput!]
+  NOT: [GratitudeWhereInput!]
+}
+
+input GratitudeWhereUniqueInput {
+  id: ID
+}
+
+type Has {
+  id: ID!
+  resentment: Boolean!
+  anger: Boolean!
+}
+
+type HasConnection {
+  pageInfo: PageInfo!
+  edges: [HasEdge]!
+  aggregate: AggregateHas!
+}
+
+input HasCreateInput {
+  id: ID
+  resentment: Boolean!
+  anger: Boolean!
+}
+
+type HasEdge {
+  node: Has!
+  cursor: String!
+}
+
+enum HasOrderByInput {
+  id_ASC
+  id_DESC
+  resentment_ASC
+  resentment_DESC
+  anger_ASC
+  anger_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type HasPreviousValues {
+  id: ID!
+  resentment: Boolean!
+  anger: Boolean!
+}
+
+type HasSubscriptionPayload {
+  mutation: MutationType!
+  node: Has
+  updatedFields: [String!]
+  previousValues: HasPreviousValues
+}
+
+input HasSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: HasWhereInput
+  AND: [HasSubscriptionWhereInput!]
+  OR: [HasSubscriptionWhereInput!]
+  NOT: [HasSubscriptionWhereInput!]
+}
+
+input HasUpdateInput {
+  resentment: Boolean
+  anger: Boolean
+}
+
+input HasUpdateManyMutationInput {
+  resentment: Boolean
+  anger: Boolean
+}
+
+input HasWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  resentment: Boolean
+  resentment_not: Boolean
+  anger: Boolean
+  anger_not: Boolean
+  AND: [HasWhereInput!]
+  OR: [HasWhereInput!]
+  NOT: [HasWhereInput!]
+}
+
+input HasWhereUniqueInput {
+  id: ID
+}
+
 type HigherPower {
   id: ID!
   inventory: Inventory
@@ -1745,6 +4015,7 @@ type HigherPowerConnection {
 }
 
 input HigherPowerCreateInput {
+  id: ID
   inventory: InventoryCreateOneInput
 }
 
@@ -1815,8 +4086,10 @@ input HigherPowerWhereUniqueInput {
 
 type Honor {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1832,8 +4105,11 @@ type HonorConnection {
 }
 
 input HonorCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -1853,10 +4129,14 @@ type HonorEdge {
 enum HonorOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -1873,14 +4153,146 @@ enum HonorOrderByInput {
 
 type HonorPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input HonorScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [HonorScalarWhereInput!]
+  OR: [HonorScalarWhereInput!]
+  NOT: [HonorScalarWhereInput!]
 }
 
 type HonorSubscriptionPayload {
@@ -1901,22 +4313,76 @@ input HonorSubscriptionWhereInput {
   NOT: [HonorSubscriptionWhereInput!]
 }
 
-input HonorUpdateInput {
-  name: String
-  description: String
+input HonorUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input HonorUpdateManyMutationInput {
-  name: String
-  description: String
+input HonorUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input HonorUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input HonorUpdateManyInput {
+  create: [HonorCreateInput!]
+  update: [HonorUpdateWithWhereUniqueNestedInput!]
+  upsert: [HonorUpsertWithWhereUniqueNestedInput!]
+  delete: [HonorWhereUniqueInput!]
+  connect: [HonorWhereUniqueInput!]
+  set: [HonorWhereUniqueInput!]
+  disconnect: [HonorWhereUniqueInput!]
+  deleteMany: [HonorScalarWhereInput!]
+  updateMany: [HonorUpdateManyWithWhereNestedInput!]
+}
+
+input HonorUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input HonorUpdateManyWithWhereNestedInput {
+  where: HonorScalarWhereInput!
+  data: HonorUpdateManyDataInput!
+}
+
+input HonorUpdateWithWhereUniqueNestedInput {
+  where: HonorWhereUniqueInput!
+  data: HonorUpdateDataInput!
+}
+
+input HonorUpsertWithWhereUniqueNestedInput {
+  where: HonorWhereUniqueInput!
+  update: HonorUpdateDataInput!
+  create: HonorCreateInput!
 }
 
 input HonorWhereInput {
@@ -1934,34 +4400,62 @@ input HonorWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -2026,6 +4520,7 @@ input HonorWhereUniqueInput {
 }
 
 type Hope {
+  id: ID!
   salvation(where: SalvationWhereInput, orderBy: SalvationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Salvation!]
 }
 
@@ -2036,11 +4531,13 @@ type HopeConnection {
 }
 
 input HopeCreateInput {
+  id: ID
   salvation: SalvationCreateManyInput
 }
 
 input HopeCreateManyInput {
   create: [HopeCreateInput!]
+  connect: [HopeWhereUniqueInput!]
 }
 
 type HopeEdge {
@@ -2057,10 +4554,35 @@ enum HopeOrderByInput {
   updatedAt_DESC
 }
 
+type HopePreviousValues {
+  id: ID!
+}
+
+input HopeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [HopeScalarWhereInput!]
+  OR: [HopeScalarWhereInput!]
+  NOT: [HopeScalarWhereInput!]
+}
+
 type HopeSubscriptionPayload {
   mutation: MutationType!
   node: Hope
   updatedFields: [String!]
+  previousValues: HopePreviousValues
 }
 
 input HopeSubscriptionWhereInput {
@@ -2074,11 +4596,51 @@ input HopeSubscriptionWhereInput {
   NOT: [HopeSubscriptionWhereInput!]
 }
 
+input HopeUpdateDataInput {
+  salvation: SalvationUpdateManyInput
+}
+
+input HopeUpdateInput {
+  salvation: SalvationUpdateManyInput
+}
+
 input HopeUpdateManyInput {
   create: [HopeCreateInput!]
+  update: [HopeUpdateWithWhereUniqueNestedInput!]
+  upsert: [HopeUpsertWithWhereUniqueNestedInput!]
+  delete: [HopeWhereUniqueInput!]
+  connect: [HopeWhereUniqueInput!]
+  set: [HopeWhereUniqueInput!]
+  disconnect: [HopeWhereUniqueInput!]
+  deleteMany: [HopeScalarWhereInput!]
+}
+
+input HopeUpdateWithWhereUniqueNestedInput {
+  where: HopeWhereUniqueInput!
+  data: HopeUpdateDataInput!
+}
+
+input HopeUpsertWithWhereUniqueNestedInput {
+  where: HopeWhereUniqueInput!
+  update: HopeUpdateDataInput!
+  create: HopeCreateInput!
 }
 
 input HopeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   salvation_every: SalvationWhereInput
   salvation_some: SalvationWhereInput
   salvation_none: SalvationWhereInput
@@ -2087,7 +4649,12 @@ input HopeWhereInput {
   NOT: [HopeWhereInput!]
 }
 
+input HopeWhereUniqueInput {
+  id: ID
+}
+
 type Inventory {
+  id: ID!
   defect(where: DefectWhereInput, orderBy: DefectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Defect!]
   resentment(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Resentment!]
   obsession(where: ObsessionWhereInput, orderBy: ObsessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Obsession!]
@@ -2103,6 +4670,7 @@ type InventoryConnection {
 }
 
 input InventoryCreateInput {
+  id: ID
   defect: DefectCreateManyInput
   resentment: ResentmentCreateManyInput
   obsession: ObsessionCreateManyInput
@@ -2113,6 +4681,7 @@ input InventoryCreateInput {
 
 input InventoryCreateOneInput {
   create: InventoryCreateInput
+  connect: InventoryWhereUniqueInput
 }
 
 type InventoryEdge {
@@ -2129,10 +4698,15 @@ enum InventoryOrderByInput {
   updatedAt_DESC
 }
 
+type InventoryPreviousValues {
+  id: ID!
+}
+
 type InventorySubscriptionPayload {
   mutation: MutationType!
   node: Inventory
   updatedFields: [String!]
+  previousValues: InventoryPreviousValues
 }
 
 input InventorySubscriptionWhereInput {
@@ -2155,12 +4729,22 @@ input InventoryUpdateDataInput {
   hope: HopeUpdateManyInput
 }
 
+input InventoryUpdateInput {
+  defect: DefectUpdateManyInput
+  resentment: ResentmentUpdateManyInput
+  obsession: ObsessionUpdateManyInput
+  experience: ExperienceUpdateManyInput
+  strength: StrengthUpdateManyInput
+  hope: HopeUpdateManyInput
+}
+
 input InventoryUpdateOneInput {
   create: InventoryCreateInput
   update: InventoryUpdateDataInput
   upsert: InventoryUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
+  connect: InventoryWhereUniqueInput
 }
 
 input InventoryUpsertNestedInput {
@@ -2169,6 +4753,20 @@ input InventoryUpsertNestedInput {
 }
 
 input InventoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   defect_every: DefectWhereInput
   defect_some: DefectWhereInput
   defect_none: DefectWhereInput
@@ -2192,12 +4790,18 @@ input InventoryWhereInput {
   NOT: [InventoryWhereInput!]
 }
 
+input InventoryWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Loyalty {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2213,8 +4817,11 @@ type LoyaltyConnection {
 }
 
 input LoyaltyCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -2234,10 +4841,14 @@ type LoyaltyEdge {
 enum LoyaltyOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -2254,14 +4865,146 @@ enum LoyaltyOrderByInput {
 
 type LoyaltyPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input LoyaltyScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [LoyaltyScalarWhereInput!]
+  OR: [LoyaltyScalarWhereInput!]
+  NOT: [LoyaltyScalarWhereInput!]
 }
 
 type LoyaltySubscriptionPayload {
@@ -2282,22 +5025,76 @@ input LoyaltySubscriptionWhereInput {
   NOT: [LoyaltySubscriptionWhereInput!]
 }
 
-input LoyaltyUpdateInput {
-  name: String
-  description: String
+input LoyaltyUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input LoyaltyUpdateManyMutationInput {
-  name: String
-  description: String
+input LoyaltyUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input LoyaltyUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input LoyaltyUpdateManyInput {
+  create: [LoyaltyCreateInput!]
+  update: [LoyaltyUpdateWithWhereUniqueNestedInput!]
+  upsert: [LoyaltyUpsertWithWhereUniqueNestedInput!]
+  delete: [LoyaltyWhereUniqueInput!]
+  connect: [LoyaltyWhereUniqueInput!]
+  set: [LoyaltyWhereUniqueInput!]
+  disconnect: [LoyaltyWhereUniqueInput!]
+  deleteMany: [LoyaltyScalarWhereInput!]
+  updateMany: [LoyaltyUpdateManyWithWhereNestedInput!]
+}
+
+input LoyaltyUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input LoyaltyUpdateManyWithWhereNestedInput {
+  where: LoyaltyScalarWhereInput!
+  data: LoyaltyUpdateManyDataInput!
+}
+
+input LoyaltyUpdateWithWhereUniqueNestedInput {
+  where: LoyaltyWhereUniqueInput!
+  data: LoyaltyUpdateDataInput!
+}
+
+input LoyaltyUpsertWithWhereUniqueNestedInput {
+  where: LoyaltyWhereUniqueInput!
+  update: LoyaltyUpdateDataInput!
+  create: LoyaltyCreateInput!
 }
 
 input LoyaltyWhereInput {
@@ -2315,34 +5112,62 @@ input LoyaltyWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -2444,8 +5269,14 @@ type Mutation {
   deleteCourage(where: CourageWhereUniqueInput!): Courage
   deleteManyCourages(where: CourageWhereInput): BatchPayload!
   createDefect(data: DefectCreateInput!): Defect!
+  updateDefect(data: DefectUpdateInput!, where: DefectWhereUniqueInput!): Defect
+  upsertDefect(where: DefectWhereUniqueInput!, create: DefectCreateInput!, update: DefectUpdateInput!): Defect!
+  deleteDefect(where: DefectWhereUniqueInput!): Defect
   deleteManyDefects(where: DefectWhereInput): BatchPayload!
   createExperience(data: ExperienceCreateInput!): Experience!
+  updateExperience(data: ExperienceUpdateInput!, where: ExperienceWhereUniqueInput!): Experience
+  upsertExperience(where: ExperienceWhereUniqueInput!, create: ExperienceCreateInput!, update: ExperienceUpdateInput!): Experience!
+  deleteExperience(where: ExperienceWhereUniqueInput!): Experience
   deleteManyExperiences(where: ExperienceWhereInput): BatchPayload!
   createFear(data: FearCreateInput!): Fear!
   updateFear(data: FearUpdateInput!, where: FearWhereUniqueInput!): Fear
@@ -2453,6 +5284,18 @@ type Mutation {
   upsertFear(where: FearWhereUniqueInput!, create: FearCreateInput!, update: FearUpdateInput!): Fear!
   deleteFear(where: FearWhereUniqueInput!): Fear
   deleteManyFears(where: FearWhereInput): BatchPayload!
+  createGratitude(data: GratitudeCreateInput!): Gratitude!
+  updateGratitude(data: GratitudeUpdateInput!, where: GratitudeWhereUniqueInput!): Gratitude
+  updateManyGratitudes(data: GratitudeUpdateManyMutationInput!, where: GratitudeWhereInput): BatchPayload!
+  upsertGratitude(where: GratitudeWhereUniqueInput!, create: GratitudeCreateInput!, update: GratitudeUpdateInput!): Gratitude!
+  deleteGratitude(where: GratitudeWhereUniqueInput!): Gratitude
+  deleteManyGratitudes(where: GratitudeWhereInput): BatchPayload!
+  createHas(data: HasCreateInput!): Has!
+  updateHas(data: HasUpdateInput!, where: HasWhereUniqueInput!): Has
+  updateManyHases(data: HasUpdateManyMutationInput!, where: HasWhereInput): BatchPayload!
+  upsertHas(where: HasWhereUniqueInput!, create: HasCreateInput!, update: HasUpdateInput!): Has!
+  deleteHas(where: HasWhereUniqueInput!): Has
+  deleteManyHases(where: HasWhereInput): BatchPayload!
   createHigherPower(data: HigherPowerCreateInput!): HigherPower!
   updateHigherPower(data: HigherPowerUpdateInput!, where: HigherPowerWhereUniqueInput!): HigherPower
   upsertHigherPower(where: HigherPowerWhereUniqueInput!, create: HigherPowerCreateInput!, update: HigherPowerUpdateInput!): HigherPower!
@@ -2465,8 +5308,14 @@ type Mutation {
   deleteHonor(where: HonorWhereUniqueInput!): Honor
   deleteManyHonors(where: HonorWhereInput): BatchPayload!
   createHope(data: HopeCreateInput!): Hope!
+  updateHope(data: HopeUpdateInput!, where: HopeWhereUniqueInput!): Hope
+  upsertHope(where: HopeWhereUniqueInput!, create: HopeCreateInput!, update: HopeUpdateInput!): Hope!
+  deleteHope(where: HopeWhereUniqueInput!): Hope
   deleteManyHopes(where: HopeWhereInput): BatchPayload!
   createInventory(data: InventoryCreateInput!): Inventory!
+  updateInventory(data: InventoryUpdateInput!, where: InventoryWhereUniqueInput!): Inventory
+  upsertInventory(where: InventoryWhereUniqueInput!, create: InventoryCreateInput!, update: InventoryUpdateInput!): Inventory!
+  deleteInventory(where: InventoryWhereUniqueInput!): Inventory
   deleteManyInventories(where: InventoryWhereInput): BatchPayload!
   createLoyalty(data: LoyaltyCreateInput!): Loyalty!
   updateLoyalty(data: LoyaltyUpdateInput!, where: LoyaltyWhereUniqueInput!): Loyalty
@@ -2475,6 +5324,9 @@ type Mutation {
   deleteLoyalty(where: LoyaltyWhereUniqueInput!): Loyalty
   deleteManyLoyalties(where: LoyaltyWhereInput): BatchPayload!
   createObsession(data: ObsessionCreateInput!): Obsession!
+  updateObsession(data: ObsessionUpdateInput!, where: ObsessionWhereUniqueInput!): Obsession
+  upsertObsession(where: ObsessionWhereUniqueInput!, create: ObsessionCreateInput!, update: ObsessionUpdateInput!): Obsession!
+  deleteObsession(where: ObsessionWhereUniqueInput!): Obsession
   deleteManyObsessions(where: ObsessionWhereInput): BatchPayload!
   createPride(data: PrideCreateInput!): Pride!
   updatePride(data: PrideUpdateInput!, where: PrideWhereUniqueInput!): Pride
@@ -2483,6 +5335,9 @@ type Mutation {
   deletePride(where: PrideWhereUniqueInput!): Pride
   deleteManyPrides(where: PrideWhereInput): BatchPayload!
   createResentment(data: ResentmentCreateInput!): Resentment!
+  updateResentment(data: ResentmentUpdateInput!, where: ResentmentWhereUniqueInput!): Resentment
+  upsertResentment(where: ResentmentWhereUniqueInput!, create: ResentmentCreateInput!, update: ResentmentUpdateInput!): Resentment!
+  deleteResentment(where: ResentmentWhereUniqueInput!): Resentment
   deleteManyResentments(where: ResentmentWhereInput): BatchPayload!
   createSalvation(data: SalvationCreateInput!): Salvation!
   updateSalvation(data: SalvationUpdateInput!, where: SalvationWhereUniqueInput!): Salvation
@@ -2497,6 +5352,9 @@ type Mutation {
   deleteSelfPity(where: SelfPityWhereUniqueInput!): SelfPity
   deleteManySelfPities(where: SelfPityWhereInput): BatchPayload!
   createStrength(data: StrengthCreateInput!): Strength!
+  updateStrength(data: StrengthUpdateInput!, where: StrengthWhereUniqueInput!): Strength
+  upsertStrength(where: StrengthWhereUniqueInput!, create: StrengthCreateInput!, update: StrengthUpdateInput!): Strength!
+  deleteStrength(where: StrengthWhereUniqueInput!): Strength
   deleteManyStrengths(where: StrengthWhereInput): BatchPayload!
   createSuffering(data: SufferingCreateInput!): Suffering!
   updateSuffering(data: SufferingUpdateInput!, where: SufferingWhereUniqueInput!): Suffering
@@ -2535,6 +5393,7 @@ interface Node {
 }
 
 type Obsession {
+  id: ID!
   suffering(where: SufferingWhereInput, orderBy: SufferingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Suffering!]
   loyalty(where: LoyaltyWhereInput, orderBy: LoyaltyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Loyalty!]
   honor(where: HonorWhereInput, orderBy: HonorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Honor!]
@@ -2548,6 +5407,7 @@ type ObsessionConnection {
 }
 
 input ObsessionCreateInput {
+  id: ID
   suffering: SufferingCreateManyInput
   loyalty: LoyaltyCreateManyInput
   honor: HonorCreateManyInput
@@ -2556,6 +5416,7 @@ input ObsessionCreateInput {
 
 input ObsessionCreateManyInput {
   create: [ObsessionCreateInput!]
+  connect: [ObsessionWhereUniqueInput!]
 }
 
 type ObsessionEdge {
@@ -2572,10 +5433,35 @@ enum ObsessionOrderByInput {
   updatedAt_DESC
 }
 
+type ObsessionPreviousValues {
+  id: ID!
+}
+
+input ObsessionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [ObsessionScalarWhereInput!]
+  OR: [ObsessionScalarWhereInput!]
+  NOT: [ObsessionScalarWhereInput!]
+}
+
 type ObsessionSubscriptionPayload {
   mutation: MutationType!
   node: Obsession
   updatedFields: [String!]
+  previousValues: ObsessionPreviousValues
 }
 
 input ObsessionSubscriptionWhereInput {
@@ -2589,11 +5475,57 @@ input ObsessionSubscriptionWhereInput {
   NOT: [ObsessionSubscriptionWhereInput!]
 }
 
+input ObsessionUpdateDataInput {
+  suffering: SufferingUpdateManyInput
+  loyalty: LoyaltyUpdateManyInput
+  honor: HonorUpdateManyInput
+  vulnerability: VulnerabilityUpdateManyInput
+}
+
+input ObsessionUpdateInput {
+  suffering: SufferingUpdateManyInput
+  loyalty: LoyaltyUpdateManyInput
+  honor: HonorUpdateManyInput
+  vulnerability: VulnerabilityUpdateManyInput
+}
+
 input ObsessionUpdateManyInput {
   create: [ObsessionCreateInput!]
+  update: [ObsessionUpdateWithWhereUniqueNestedInput!]
+  upsert: [ObsessionUpsertWithWhereUniqueNestedInput!]
+  delete: [ObsessionWhereUniqueInput!]
+  connect: [ObsessionWhereUniqueInput!]
+  set: [ObsessionWhereUniqueInput!]
+  disconnect: [ObsessionWhereUniqueInput!]
+  deleteMany: [ObsessionScalarWhereInput!]
+}
+
+input ObsessionUpdateWithWhereUniqueNestedInput {
+  where: ObsessionWhereUniqueInput!
+  data: ObsessionUpdateDataInput!
+}
+
+input ObsessionUpsertWithWhereUniqueNestedInput {
+  where: ObsessionWhereUniqueInput!
+  update: ObsessionUpdateDataInput!
+  create: ObsessionCreateInput!
 }
 
 input ObsessionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   suffering_every: SufferingWhereInput
   suffering_some: SufferingWhereInput
   suffering_none: SufferingWhereInput
@@ -2611,6 +5543,10 @@ input ObsessionWhereInput {
   NOT: [ObsessionWhereInput!]
 }
 
+input ObsessionWhereUniqueInput {
+  id: ID
+}
+
 type PageInfo {
   hasNextPage: Boolean!
   hasPreviousPage: Boolean!
@@ -2620,8 +5556,10 @@ type PageInfo {
 
 type Pride {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2637,8 +5575,11 @@ type PrideConnection {
 }
 
 input PrideCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -2658,10 +5599,14 @@ type PrideEdge {
 enum PrideOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -2678,14 +5623,146 @@ enum PrideOrderByInput {
 
 type PridePreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input PrideScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [PrideScalarWhereInput!]
+  OR: [PrideScalarWhereInput!]
+  NOT: [PrideScalarWhereInput!]
 }
 
 type PrideSubscriptionPayload {
@@ -2706,22 +5783,76 @@ input PrideSubscriptionWhereInput {
   NOT: [PrideSubscriptionWhereInput!]
 }
 
-input PrideUpdateInput {
-  name: String
-  description: String
+input PrideUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input PrideUpdateManyMutationInput {
-  name: String
-  description: String
+input PrideUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input PrideUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input PrideUpdateManyInput {
+  create: [PrideCreateInput!]
+  update: [PrideUpdateWithWhereUniqueNestedInput!]
+  upsert: [PrideUpsertWithWhereUniqueNestedInput!]
+  delete: [PrideWhereUniqueInput!]
+  connect: [PrideWhereUniqueInput!]
+  set: [PrideWhereUniqueInput!]
+  disconnect: [PrideWhereUniqueInput!]
+  deleteMany: [PrideScalarWhereInput!]
+  updateMany: [PrideUpdateManyWithWhereNestedInput!]
+}
+
+input PrideUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input PrideUpdateManyWithWhereNestedInput {
+  where: PrideScalarWhereInput!
+  data: PrideUpdateManyDataInput!
+}
+
+input PrideUpdateWithWhereUniqueNestedInput {
+  where: PrideWhereUniqueInput!
+  data: PrideUpdateDataInput!
+}
+
+input PrideUpsertWithWhereUniqueNestedInput {
+  where: PrideWhereUniqueInput!
+  update: PrideUpdateDataInput!
+  create: PrideCreateInput!
 }
 
 input PrideWhereInput {
@@ -2739,34 +5870,62 @@ input PrideWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -2849,31 +6008,43 @@ type Query {
   courage(where: CourageWhereUniqueInput!): Courage
   courages(where: CourageWhereInput, orderBy: CourageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Courage]!
   couragesConnection(where: CourageWhereInput, orderBy: CourageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CourageConnection!
+  defect(where: DefectWhereUniqueInput!): Defect
   defects(where: DefectWhereInput, orderBy: DefectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Defect]!
   defectsConnection(where: DefectWhereInput, orderBy: DefectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DefectConnection!
+  experience(where: ExperienceWhereUniqueInput!): Experience
   experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience]!
   experiencesConnection(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceConnection!
   fear(where: FearWhereUniqueInput!): Fear
   fears(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fear]!
   fearsConnection(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FearConnection!
+  gratitude(where: GratitudeWhereUniqueInput!): Gratitude
+  gratitudes(where: GratitudeWhereInput, orderBy: GratitudeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Gratitude]!
+  gratitudesConnection(where: GratitudeWhereInput, orderBy: GratitudeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GratitudeConnection!
+  has(where: HasWhereUniqueInput!): Has
+  hases(where: HasWhereInput, orderBy: HasOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Has]!
+  hasesConnection(where: HasWhereInput, orderBy: HasOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HasConnection!
   higherPower(where: HigherPowerWhereUniqueInput!): HigherPower
   higherPowers(where: HigherPowerWhereInput, orderBy: HigherPowerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HigherPower]!
   higherPowersConnection(where: HigherPowerWhereInput, orderBy: HigherPowerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HigherPowerConnection!
   honor(where: HonorWhereUniqueInput!): Honor
   honors(where: HonorWhereInput, orderBy: HonorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Honor]!
   honorsConnection(where: HonorWhereInput, orderBy: HonorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HonorConnection!
+  hope(where: HopeWhereUniqueInput!): Hope
   hopes(where: HopeWhereInput, orderBy: HopeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Hope]!
   hopesConnection(where: HopeWhereInput, orderBy: HopeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HopeConnection!
+  inventory(where: InventoryWhereUniqueInput!): Inventory
   inventories(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventory]!
   inventoriesConnection(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InventoryConnection!
   loyalty(where: LoyaltyWhereUniqueInput!): Loyalty
   loyalties(where: LoyaltyWhereInput, orderBy: LoyaltyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Loyalty]!
   loyaltiesConnection(where: LoyaltyWhereInput, orderBy: LoyaltyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LoyaltyConnection!
+  obsession(where: ObsessionWhereUniqueInput!): Obsession
   obsessions(where: ObsessionWhereInput, orderBy: ObsessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Obsession]!
   obsessionsConnection(where: ObsessionWhereInput, orderBy: ObsessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ObsessionConnection!
   pride(where: PrideWhereUniqueInput!): Pride
   prides(where: PrideWhereInput, orderBy: PrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pride]!
   pridesConnection(where: PrideWhereInput, orderBy: PrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PrideConnection!
+  resentment(where: ResentmentWhereUniqueInput!): Resentment
   resentments(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Resentment]!
   resentmentsConnection(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ResentmentConnection!
   salvation(where: SalvationWhereUniqueInput!): Salvation
@@ -2882,6 +6053,7 @@ type Query {
   selfPity(where: SelfPityWhereUniqueInput!): SelfPity
   selfPities(where: SelfPityWhereInput, orderBy: SelfPityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SelfPity]!
   selfPitiesConnection(where: SelfPityWhereInput, orderBy: SelfPityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SelfPityConnection!
+  strength(where: StrengthWhereUniqueInput!): Strength
   strengths(where: StrengthWhereInput, orderBy: StrengthOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Strength]!
   strengthsConnection(where: StrengthWhereInput, orderBy: StrengthOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StrengthConnection!
   suffering(where: SufferingWhereUniqueInput!): Suffering
@@ -2900,6 +6072,7 @@ type Query {
 }
 
 type Resentment {
+  id: ID!
   anger(where: AngerWhereInput, orderBy: AngerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Anger!]
   selfPity(where: SelfPityWhereInput, orderBy: SelfPityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SelfPity!]
   fear(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fear!]
@@ -2913,6 +6086,7 @@ type ResentmentConnection {
 }
 
 input ResentmentCreateInput {
+  id: ID
   anger: AngerCreateManyInput
   selfPity: SelfPityCreateManyInput
   fear: FearCreateManyInput
@@ -2921,6 +6095,7 @@ input ResentmentCreateInput {
 
 input ResentmentCreateManyInput {
   create: [ResentmentCreateInput!]
+  connect: [ResentmentWhereUniqueInput!]
 }
 
 type ResentmentEdge {
@@ -2937,10 +6112,35 @@ enum ResentmentOrderByInput {
   updatedAt_DESC
 }
 
+type ResentmentPreviousValues {
+  id: ID!
+}
+
+input ResentmentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [ResentmentScalarWhereInput!]
+  OR: [ResentmentScalarWhereInput!]
+  NOT: [ResentmentScalarWhereInput!]
+}
+
 type ResentmentSubscriptionPayload {
   mutation: MutationType!
   node: Resentment
   updatedFields: [String!]
+  previousValues: ResentmentPreviousValues
 }
 
 input ResentmentSubscriptionWhereInput {
@@ -2954,11 +6154,57 @@ input ResentmentSubscriptionWhereInput {
   NOT: [ResentmentSubscriptionWhereInput!]
 }
 
+input ResentmentUpdateDataInput {
+  anger: AngerUpdateManyInput
+  selfPity: SelfPityUpdateManyInput
+  fear: FearUpdateManyInput
+  pride: PrideUpdateManyInput
+}
+
+input ResentmentUpdateInput {
+  anger: AngerUpdateManyInput
+  selfPity: SelfPityUpdateManyInput
+  fear: FearUpdateManyInput
+  pride: PrideUpdateManyInput
+}
+
 input ResentmentUpdateManyInput {
   create: [ResentmentCreateInput!]
+  update: [ResentmentUpdateWithWhereUniqueNestedInput!]
+  upsert: [ResentmentUpsertWithWhereUniqueNestedInput!]
+  delete: [ResentmentWhereUniqueInput!]
+  connect: [ResentmentWhereUniqueInput!]
+  set: [ResentmentWhereUniqueInput!]
+  disconnect: [ResentmentWhereUniqueInput!]
+  deleteMany: [ResentmentScalarWhereInput!]
+}
+
+input ResentmentUpdateWithWhereUniqueNestedInput {
+  where: ResentmentWhereUniqueInput!
+  data: ResentmentUpdateDataInput!
+}
+
+input ResentmentUpsertWithWhereUniqueNestedInput {
+  where: ResentmentWhereUniqueInput!
+  update: ResentmentUpdateDataInput!
+  create: ResentmentCreateInput!
 }
 
 input ResentmentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   anger_every: AngerWhereInput
   anger_some: AngerWhereInput
   anger_none: AngerWhereInput
@@ -2976,10 +6222,16 @@ input ResentmentWhereInput {
   NOT: [ResentmentWhereInput!]
 }
 
+input ResentmentWhereUniqueInput {
+  id: ID
+}
+
 type Salvation {
   id: ID!
-  name: String!
-  description: String!
+  thought: String!
+  character: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2995,8 +6247,11 @@ type SalvationConnection {
 }
 
 input SalvationCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  thought: String!
+  character: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -3016,10 +6271,14 @@ type SalvationEdge {
 enum SalvationOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  thought_ASC
+  thought_DESC
+  character_ASC
+  character_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -3036,14 +6295,146 @@ enum SalvationOrderByInput {
 
 type SalvationPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  thought: String!
+  character: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SalvationScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [SalvationScalarWhereInput!]
+  OR: [SalvationScalarWhereInput!]
+  NOT: [SalvationScalarWhereInput!]
 }
 
 type SalvationSubscriptionPayload {
@@ -3064,22 +6455,76 @@ input SalvationSubscriptionWhereInput {
   NOT: [SalvationSubscriptionWhereInput!]
 }
 
-input SalvationUpdateInput {
-  name: String
-  description: String
+input SalvationUpdateDataInput {
+  thought: String
+  character: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input SalvationUpdateManyMutationInput {
-  name: String
-  description: String
+input SalvationUpdateInput {
+  thought: String
+  character: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SalvationUpdateManyDataInput {
+  thought: String
+  character: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SalvationUpdateManyInput {
+  create: [SalvationCreateInput!]
+  update: [SalvationUpdateWithWhereUniqueNestedInput!]
+  upsert: [SalvationUpsertWithWhereUniqueNestedInput!]
+  delete: [SalvationWhereUniqueInput!]
+  connect: [SalvationWhereUniqueInput!]
+  set: [SalvationWhereUniqueInput!]
+  disconnect: [SalvationWhereUniqueInput!]
+  deleteMany: [SalvationScalarWhereInput!]
+  updateMany: [SalvationUpdateManyWithWhereNestedInput!]
+}
+
+input SalvationUpdateManyMutationInput {
+  thought: String
+  character: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SalvationUpdateManyWithWhereNestedInput {
+  where: SalvationScalarWhereInput!
+  data: SalvationUpdateManyDataInput!
+}
+
+input SalvationUpdateWithWhereUniqueNestedInput {
+  where: SalvationWhereUniqueInput!
+  data: SalvationUpdateDataInput!
+}
+
+input SalvationUpsertWithWhereUniqueNestedInput {
+  where: SalvationWhereUniqueInput!
+  update: SalvationUpdateDataInput!
+  create: SalvationCreateInput!
 }
 
 input SalvationWhereInput {
@@ -3097,34 +6542,62 @@ input SalvationWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -3190,8 +6663,10 @@ input SalvationWhereUniqueInput {
 
 type SelfPity {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -3207,8 +6682,11 @@ type SelfPityConnection {
 }
 
 input SelfPityCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -3228,10 +6706,14 @@ type SelfPityEdge {
 enum SelfPityOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -3248,14 +6730,146 @@ enum SelfPityOrderByInput {
 
 type SelfPityPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SelfPityScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [SelfPityScalarWhereInput!]
+  OR: [SelfPityScalarWhereInput!]
+  NOT: [SelfPityScalarWhereInput!]
 }
 
 type SelfPitySubscriptionPayload {
@@ -3276,22 +6890,76 @@ input SelfPitySubscriptionWhereInput {
   NOT: [SelfPitySubscriptionWhereInput!]
 }
 
-input SelfPityUpdateInput {
-  name: String
-  description: String
+input SelfPityUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input SelfPityUpdateManyMutationInput {
-  name: String
-  description: String
+input SelfPityUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SelfPityUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SelfPityUpdateManyInput {
+  create: [SelfPityCreateInput!]
+  update: [SelfPityUpdateWithWhereUniqueNestedInput!]
+  upsert: [SelfPityUpsertWithWhereUniqueNestedInput!]
+  delete: [SelfPityWhereUniqueInput!]
+  connect: [SelfPityWhereUniqueInput!]
+  set: [SelfPityWhereUniqueInput!]
+  disconnect: [SelfPityWhereUniqueInput!]
+  deleteMany: [SelfPityScalarWhereInput!]
+  updateMany: [SelfPityUpdateManyWithWhereNestedInput!]
+}
+
+input SelfPityUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SelfPityUpdateManyWithWhereNestedInput {
+  where: SelfPityScalarWhereInput!
+  data: SelfPityUpdateManyDataInput!
+}
+
+input SelfPityUpdateWithWhereUniqueNestedInput {
+  where: SelfPityWhereUniqueInput!
+  data: SelfPityUpdateDataInput!
+}
+
+input SelfPityUpsertWithWhereUniqueNestedInput {
+  where: SelfPityWhereUniqueInput!
+  update: SelfPityUpdateDataInput!
+  create: SelfPityCreateInput!
 }
 
 input SelfPityWhereInput {
@@ -3309,34 +6977,62 @@ input SelfPityWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -3401,6 +7097,7 @@ input SelfPityWhereUniqueInput {
 }
 
 type Strength {
+  id: ID!
   armor(where: ArmorWhereInput, orderBy: ArmorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Armor!]
   boundary(where: BoundaryWhereInput, orderBy: BoundaryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Boundary!]
   loyalty(where: LoyaltyWhereInput, orderBy: LoyaltyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Loyalty!]
@@ -3414,6 +7111,7 @@ type StrengthConnection {
 }
 
 input StrengthCreateInput {
+  id: ID
   armor: ArmorCreateManyInput
   boundary: BoundaryCreateManyInput
   loyalty: LoyaltyCreateManyInput
@@ -3422,6 +7120,7 @@ input StrengthCreateInput {
 
 input StrengthCreateManyInput {
   create: [StrengthCreateInput!]
+  connect: [StrengthWhereUniqueInput!]
 }
 
 type StrengthEdge {
@@ -3438,10 +7137,35 @@ enum StrengthOrderByInput {
   updatedAt_DESC
 }
 
+type StrengthPreviousValues {
+  id: ID!
+}
+
+input StrengthScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [StrengthScalarWhereInput!]
+  OR: [StrengthScalarWhereInput!]
+  NOT: [StrengthScalarWhereInput!]
+}
+
 type StrengthSubscriptionPayload {
   mutation: MutationType!
   node: Strength
   updatedFields: [String!]
+  previousValues: StrengthPreviousValues
 }
 
 input StrengthSubscriptionWhereInput {
@@ -3455,11 +7179,57 @@ input StrengthSubscriptionWhereInput {
   NOT: [StrengthSubscriptionWhereInput!]
 }
 
+input StrengthUpdateDataInput {
+  armor: ArmorUpdateManyInput
+  boundary: BoundaryUpdateManyInput
+  loyalty: LoyaltyUpdateManyInput
+  honor: HonorUpdateManyInput
+}
+
+input StrengthUpdateInput {
+  armor: ArmorUpdateManyInput
+  boundary: BoundaryUpdateManyInput
+  loyalty: LoyaltyUpdateManyInput
+  honor: HonorUpdateManyInput
+}
+
 input StrengthUpdateManyInput {
   create: [StrengthCreateInput!]
+  update: [StrengthUpdateWithWhereUniqueNestedInput!]
+  upsert: [StrengthUpsertWithWhereUniqueNestedInput!]
+  delete: [StrengthWhereUniqueInput!]
+  connect: [StrengthWhereUniqueInput!]
+  set: [StrengthWhereUniqueInput!]
+  disconnect: [StrengthWhereUniqueInput!]
+  deleteMany: [StrengthScalarWhereInput!]
+}
+
+input StrengthUpdateWithWhereUniqueNestedInput {
+  where: StrengthWhereUniqueInput!
+  data: StrengthUpdateDataInput!
+}
+
+input StrengthUpsertWithWhereUniqueNestedInput {
+  where: StrengthWhereUniqueInput!
+  update: StrengthUpdateDataInput!
+  create: StrengthCreateInput!
 }
 
 input StrengthWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   armor_every: ArmorWhereInput
   armor_some: ArmorWhereInput
   armor_none: ArmorWhereInput
@@ -3477,6 +7247,10 @@ input StrengthWhereInput {
   NOT: [StrengthWhereInput!]
 }
 
+input StrengthWhereUniqueInput {
+  id: ID
+}
+
 type Subscription {
   acceptance(where: AcceptanceSubscriptionWhereInput): AcceptanceSubscriptionPayload
   anger(where: AngerSubscriptionWhereInput): AngerSubscriptionPayload
@@ -3487,6 +7261,8 @@ type Subscription {
   defect(where: DefectSubscriptionWhereInput): DefectSubscriptionPayload
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   fear(where: FearSubscriptionWhereInput): FearSubscriptionPayload
+  gratitude(where: GratitudeSubscriptionWhereInput): GratitudeSubscriptionPayload
+  has(where: HasSubscriptionWhereInput): HasSubscriptionPayload
   higherPower(where: HigherPowerSubscriptionWhereInput): HigherPowerSubscriptionPayload
   honor(where: HonorSubscriptionWhereInput): HonorSubscriptionPayload
   hope(where: HopeSubscriptionWhereInput): HopeSubscriptionPayload
@@ -3506,8 +7282,10 @@ type Subscription {
 
 type Suffering {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -3523,8 +7301,11 @@ type SufferingConnection {
 }
 
 input SufferingCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -3544,10 +7325,14 @@ type SufferingEdge {
 enum SufferingOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -3564,14 +7349,146 @@ enum SufferingOrderByInput {
 
 type SufferingPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SufferingScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [SufferingScalarWhereInput!]
+  OR: [SufferingScalarWhereInput!]
+  NOT: [SufferingScalarWhereInput!]
 }
 
 type SufferingSubscriptionPayload {
@@ -3592,22 +7509,76 @@ input SufferingSubscriptionWhereInput {
   NOT: [SufferingSubscriptionWhereInput!]
 }
 
-input SufferingUpdateInput {
-  name: String
-  description: String
+input SufferingUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input SufferingUpdateManyMutationInput {
-  name: String
-  description: String
+input SufferingUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input SufferingUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SufferingUpdateManyInput {
+  create: [SufferingCreateInput!]
+  update: [SufferingUpdateWithWhereUniqueNestedInput!]
+  upsert: [SufferingUpsertWithWhereUniqueNestedInput!]
+  delete: [SufferingWhereUniqueInput!]
+  connect: [SufferingWhereUniqueInput!]
+  set: [SufferingWhereUniqueInput!]
+  disconnect: [SufferingWhereUniqueInput!]
+  deleteMany: [SufferingScalarWhereInput!]
+  updateMany: [SufferingUpdateManyWithWhereNestedInput!]
+}
+
+input SufferingUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input SufferingUpdateManyWithWhereNestedInput {
+  where: SufferingScalarWhereInput!
+  data: SufferingUpdateManyDataInput!
+}
+
+input SufferingUpdateWithWhereUniqueNestedInput {
+  where: SufferingWhereUniqueInput!
+  data: SufferingUpdateDataInput!
+}
+
+input SufferingUpsertWithWhereUniqueNestedInput {
+  where: SufferingWhereUniqueInput!
+  update: SufferingUpdateDataInput!
+  create: SufferingCreateInput!
 }
 
 input SufferingWhereInput {
@@ -3625,34 +7596,62 @@ input SufferingWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -3718,8 +7717,10 @@ input SufferingWhereUniqueInput {
 
 type Toxicity {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -3735,8 +7736,11 @@ type ToxicityConnection {
 }
 
 input ToxicityCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -3756,10 +7760,14 @@ type ToxicityEdge {
 enum ToxicityOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -3776,14 +7784,146 @@ enum ToxicityOrderByInput {
 
 type ToxicityPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input ToxicityScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [ToxicityScalarWhereInput!]
+  OR: [ToxicityScalarWhereInput!]
+  NOT: [ToxicityScalarWhereInput!]
 }
 
 type ToxicitySubscriptionPayload {
@@ -3804,22 +7944,76 @@ input ToxicitySubscriptionWhereInput {
   NOT: [ToxicitySubscriptionWhereInput!]
 }
 
-input ToxicityUpdateInput {
-  name: String
-  description: String
+input ToxicityUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input ToxicityUpdateManyMutationInput {
-  name: String
-  description: String
+input ToxicityUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input ToxicityUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input ToxicityUpdateManyInput {
+  create: [ToxicityCreateInput!]
+  update: [ToxicityUpdateWithWhereUniqueNestedInput!]
+  upsert: [ToxicityUpsertWithWhereUniqueNestedInput!]
+  delete: [ToxicityWhereUniqueInput!]
+  connect: [ToxicityWhereUniqueInput!]
+  set: [ToxicityWhereUniqueInput!]
+  disconnect: [ToxicityWhereUniqueInput!]
+  deleteMany: [ToxicityScalarWhereInput!]
+  updateMany: [ToxicityUpdateManyWithWhereNestedInput!]
+}
+
+input ToxicityUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input ToxicityUpdateManyWithWhereNestedInput {
+  where: ToxicityScalarWhereInput!
+  data: ToxicityUpdateManyDataInput!
+}
+
+input ToxicityUpdateWithWhereUniqueNestedInput {
+  where: ToxicityWhereUniqueInput!
+  data: ToxicityUpdateDataInput!
+}
+
+input ToxicityUpsertWithWhereUniqueNestedInput {
+  where: ToxicityWhereUniqueInput!
+  update: ToxicityUpdateDataInput!
+  create: ToxicityCreateInput!
 }
 
 input ToxicityWhereInput {
@@ -3837,34 +8031,62 @@ input ToxicityWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -3930,8 +8152,10 @@ input ToxicityWhereUniqueInput {
 
 type Trauma {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -3947,8 +8171,11 @@ type TraumaConnection {
 }
 
 input TraumaCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -3968,10 +8195,14 @@ type TraumaEdge {
 enum TraumaOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -3988,14 +8219,146 @@ enum TraumaOrderByInput {
 
 type TraumaPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input TraumaScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [TraumaScalarWhereInput!]
+  OR: [TraumaScalarWhereInput!]
+  NOT: [TraumaScalarWhereInput!]
 }
 
 type TraumaSubscriptionPayload {
@@ -4016,22 +8379,76 @@ input TraumaSubscriptionWhereInput {
   NOT: [TraumaSubscriptionWhereInput!]
 }
 
-input TraumaUpdateInput {
-  name: String
-  description: String
+input TraumaUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input TraumaUpdateManyMutationInput {
-  name: String
-  description: String
+input TraumaUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input TraumaUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input TraumaUpdateManyInput {
+  create: [TraumaCreateInput!]
+  update: [TraumaUpdateWithWhereUniqueNestedInput!]
+  upsert: [TraumaUpsertWithWhereUniqueNestedInput!]
+  delete: [TraumaWhereUniqueInput!]
+  connect: [TraumaWhereUniqueInput!]
+  set: [TraumaWhereUniqueInput!]
+  disconnect: [TraumaWhereUniqueInput!]
+  deleteMany: [TraumaScalarWhereInput!]
+  updateMany: [TraumaUpdateManyWithWhereNestedInput!]
+}
+
+input TraumaUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input TraumaUpdateManyWithWhereNestedInput {
+  where: TraumaScalarWhereInput!
+  data: TraumaUpdateManyDataInput!
+}
+
+input TraumaUpdateWithWhereUniqueNestedInput {
+  where: TraumaWhereUniqueInput!
+  data: TraumaUpdateDataInput!
+}
+
+input TraumaUpsertWithWhereUniqueNestedInput {
+  where: TraumaWhereUniqueInput!
+  update: TraumaUpdateDataInput!
+  create: TraumaCreateInput!
 }
 
 input TraumaWhereInput {
@@ -4049,34 +8466,62 @@ input TraumaWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]
@@ -4142,8 +8587,10 @@ input TraumaWhereUniqueInput {
 
 type Vulnerability {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -4159,8 +8606,11 @@ type VulnerabilityConnection {
 }
 
 input VulnerabilityCreateInput {
-  name: String!
-  description: String!
+  id: ID
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   sharedAt: DateTime
   amendedAt: DateTime
@@ -4180,10 +8630,14 @@ type VulnerabilityEdge {
 enum VulnerabilityOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  location_ASC
+  location_DESC
+  process_ASC
+  process_DESC
   attribute_ASC
   attribute_DESC
   createdAt_ASC
@@ -4200,14 +8654,146 @@ enum VulnerabilityOrderByInput {
 
 type VulnerabilityPreviousValues {
   id: ID!
-  name: String!
-  description: String!
+  character: String!
+  thought: String!
+  location: String!
+  process: String!
   attribute: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input VulnerabilityScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  attribute: String
+  attribute_not: String
+  attribute_in: [String!]
+  attribute_not_in: [String!]
+  attribute_lt: String
+  attribute_lte: String
+  attribute_gt: String
+  attribute_gte: String
+  attribute_contains: String
+  attribute_not_contains: String
+  attribute_starts_with: String
+  attribute_not_starts_with: String
+  attribute_ends_with: String
+  attribute_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [VulnerabilityScalarWhereInput!]
+  OR: [VulnerabilityScalarWhereInput!]
+  NOT: [VulnerabilityScalarWhereInput!]
 }
 
 type VulnerabilitySubscriptionPayload {
@@ -4228,22 +8814,76 @@ input VulnerabilitySubscriptionWhereInput {
   NOT: [VulnerabilitySubscriptionWhereInput!]
 }
 
-input VulnerabilityUpdateInput {
-  name: String
-  description: String
+input VulnerabilityUpdateDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
 }
 
-input VulnerabilityUpdateManyMutationInput {
-  name: String
-  description: String
+input VulnerabilityUpdateInput {
+  character: String
+  thought: String
+  location: String
+  process: String
   attribute: String
   sharedAt: DateTime
   amendedAt: DateTime
   resolvedAt: DateTime
+}
+
+input VulnerabilityUpdateManyDataInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input VulnerabilityUpdateManyInput {
+  create: [VulnerabilityCreateInput!]
+  update: [VulnerabilityUpdateWithWhereUniqueNestedInput!]
+  upsert: [VulnerabilityUpsertWithWhereUniqueNestedInput!]
+  delete: [VulnerabilityWhereUniqueInput!]
+  connect: [VulnerabilityWhereUniqueInput!]
+  set: [VulnerabilityWhereUniqueInput!]
+  disconnect: [VulnerabilityWhereUniqueInput!]
+  deleteMany: [VulnerabilityScalarWhereInput!]
+  updateMany: [VulnerabilityUpdateManyWithWhereNestedInput!]
+}
+
+input VulnerabilityUpdateManyMutationInput {
+  character: String
+  thought: String
+  location: String
+  process: String
+  attribute: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input VulnerabilityUpdateManyWithWhereNestedInput {
+  where: VulnerabilityScalarWhereInput!
+  data: VulnerabilityUpdateManyDataInput!
+}
+
+input VulnerabilityUpdateWithWhereUniqueNestedInput {
+  where: VulnerabilityWhereUniqueInput!
+  data: VulnerabilityUpdateDataInput!
+}
+
+input VulnerabilityUpsertWithWhereUniqueNestedInput {
+  where: VulnerabilityWhereUniqueInput!
+  update: VulnerabilityUpdateDataInput!
+  create: VulnerabilityCreateInput!
 }
 
 input VulnerabilityWhereInput {
@@ -4261,34 +8901,62 @@ input VulnerabilityWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   attribute: String
   attribute_not: String
   attribute_in: [String!]

@@ -1,16 +1,93 @@
+# import Has from "./types.graphql"
+# import HasInput from "./inputs.graphql"
 # import Inventory from "./types.graphql";
 # import Resentment from "./types.graphql";
+
+# import Acceptance from "./types.graphql"
+# import AcceptanceInput from "./inputs.graphql"
 # import Anger from "./types.graphql"
 # import AngerInput from "./inputs.graphql"
+# import Aromr from "./types.graphql"
+# import ArmorInput from "./inputs.graphql"
+# import Boundaryy from "./types.graphql"
+# import BoundaryInput from "./inputs.graphql"
+# import Compassion from "./types.graphql"
+# import CompassionInput from "./inputs.graphql"
+# import Courage from "./types.graphql"
+# import CourageInput from "./inputs.graphql"
+# import Fear from "./types.graphql"
+# import FearInput from "./inputs.graphql"
+# import Gratitude from "./types.graphql"
+# import GratitudeInput from "./inputs.graphql"
+# import Pride from "./types.graphql"
+# import PrideInput from "./inputs.graphql"
+# import Selavation from "./types.graphql"
+# import SalvationInput from "./inputs.graphql"
+# import SelfPity from "./types.graphql"
+# import SelfPityInput from "./inputs.graphql"
+# import Suffering from "./types.graphql"
+# import SufferingInput from "./inputs.graphql"
+# import Toxicity from "./types.graphql"
+# import ToxicityInput from "./inputs.graphql"
+# import Trauma from "./types.graphql"
+# import TraumaInput from "./inputs.graphql"
+# import Vulnerability from "./types.graphql"
+# import VulnerabilisyInput from "./inputs.graphql"
 
 
 type Query {
+    has: Has
     inventory: Inventory
     resentment: Resentment
+
+    acceptances: [Acceptance]
+    acceptance(id: ID!): Acceptance
     angers: [Anger]
     anger(id: ID!): Anger
+    armors: [Armor]
+    armor(id: ID!): Armor
+    boundarys: [Boundary]
+    boundary(id: ID!): Boundary
+    compassions: [Compassion]
+    compassion(id: ID!): Compassion
+    courages: [Courage]
+    courage(id: ID!): Courage
+    fears: [Fear]
+    fear(id: ID!): Fear
+    gratitudes: [Gratitude]
+    gratitude(id: ID!): Gratitude
+    prides: [Pride]
+    pride(id: ID!): Pride
+    salvations: [Salvation]
+    salvation(id: ID!): Salvation
+    selfPitys: [SelfPity]
+    selfPity(id: ID!): SelfPity
+    sufferings: [Suffering]
+    suffering(id: ID!): Suffering
+    toxicities: [Toxicity]
+    toxicity(id: ID!): Toxicity
+    traumas: [Trauma]
+    trauma(id: ID!): Trauma
+    vulnerabilities: [Vulnerability]
+    vulnerability(id: ID!): Vulnerability
 }
 
 type Mutation {
-    mutateAnger(data:AngerInput): Anger!
+    has(data:HasInput): Has!
+
+    mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
+    mutateAnger(id:String,data:AngerInput): Anger!
+    mutateArmor(id:String,data:ArmorInput): Armor!
+    mutateBoundary(id:String,data:BoundaryInput): Boundary!
+    mutateCompassion(id:String,data:CompassionInput): Compassion!
+    mutateCourage(id:String,data:CourageInput): Courage!
+    mutateFear(id:String,data:FearInput): Fear!
+    mutateGratitude(id:String,data:GratitudeInput): Gratitude!
+    mutatePride(id:String,data:PrideInput): Pride!
+    mutateSalvation(id:String,data:SalvationInput): Salvation!
+    mutateSelfPity(id:String,data:SelfPityInput): SelfPity!
+    mutateSuffering(id:String,data:SufferingInput): Suffering!
+    mutateToxicity(id:String,data:ToxicityInput): Toxicity!
+    mutateTrauma(id:String,data:TraumaInput): Trauma!
+    mutateVulnerability(id:String,data:VulnerabilityInput): Vulnerability!
 }

@@ -1,7 +1,7 @@
 mutation {
     INVENTORE: createInventory( inventory: {
         name: "Inventory",
-        description: "The Inventory.",
+        thought: "The Inventory.",
         orderIndex: 0,
     } ) { id }
 }
