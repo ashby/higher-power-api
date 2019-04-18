@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateToxicity: async ( parent, { id, data } ) => {
         if ( !id ) {
             const toxicity = await prisma.createToxicity( data );
-            await handleHas( 'toxicity' );
+            await handleHas( 'toxicity', data.attribute );
             return toxicity
         }
         const toxicity = {

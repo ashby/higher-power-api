@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateBoundary: async ( parent, { id, data } ) => {
         if ( !id ) {
             const boundary = prisma.createBoundary( data );
-            await handleHas( 'boundary' );
+            await handleHas( 'boundary', data.attribute );
             return boundary;
         }
         const boundary = {

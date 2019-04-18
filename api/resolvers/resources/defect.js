@@ -1,18 +1,8 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { handleHas } = require( '../utils' );
+const { handleHas, getDefect } = require( '../utils' );
 
 module.exports = ( register ) => register( {
-    defect: async () => {
-        const trauma = await prisma.traumas();
-        const toxicity = await prisma.toxicities();
-        const suffering = await prisma.sufferings();
-        const defect = {
-            trauma,
-            toxicity,
-            suffering
-        };
-        return defect;
-    }
+    defect: async () => getDefect()
 }, {
     mutateDefect: async ( parent, { data } ) => {
         let defect;

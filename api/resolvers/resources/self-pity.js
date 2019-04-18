@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateSelfPity: async ( parent, { id, data } ) => {
         if ( !id ) {
             const selfPity = await prisma.createSelfPity( data );
-            await handleHas( 'selfPity' );
+            await handleHas( 'selfPity', data.attribute );
             return selfPity;
         }
         const selfPity = {

@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateFear: async ( parent, { id, data } ) => {
         if ( !id ) {
             const fear = await prisma.createFear( data );
-            await handleHas( 'fear' );
+            await handleHas( 'fear', data.attribute );
             return fear;
         }
         const fear = {

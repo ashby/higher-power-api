@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateArmor: async ( parent, { id, data } ) => {
         if ( !id ) {
             const armor = await prisma.createArmor( data );
-            await handleHas( 'armor' );
+            await handleHas( 'armor', data.attribute );
             return armor;
         }
         const armor = {

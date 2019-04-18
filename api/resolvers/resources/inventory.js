@@ -1,35 +1,37 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const {
+    getDefect,
+    getResentment,
+    getObsession,
+    getExperience,
+    getStrength,
+    getHope
+} = require( '../utils' );
 
 module.exports = ( register ) => register( {
-    inventory: async ( _, data ) => {
+    inventory: async ( _, data, ctx ) => {
         let has, defect, resentment, obsession, experience, strength, hope;
         has = await prisma.has( { id: 'has' }  );
         if ( !has ) {
             has = await prisma.createHas( { id: 'has' } );
         }
-        defect = await prisma.defect( { id: 'defect' } );
-        if ( !defect ) {
-            defect = await prisma.createDefect( { id: 'defect' } );
+        if ( has.defect ) {
+            defect = await getDefect();
         }
-        resentment = await prisma.resentment( { id: 'resentment' } );
-        if ( !resentment ) {
-            resentment = await prisma.createResentment( { id: 'resentment' } );
+        if ( has.resentment ) {
+            resentment = await getResentment();
         }
-        obsession = await prisma.obsession( { id: 'obsession' } );
-        if ( !obsession ) {
-            obsession = await prisma.createObsession( { id: 'obsession' } );
+        if ( has.obsession ) {
+            obsession = await getObsession();
         }
-        experience = await prisma.experience( { id: 'experience' } );
-        if ( !experience ) {
-            experience = await prisma.createExperience( { id: 'experience' } );
+        if ( has.experience ) {
+            experience = await getExperience();
         }
-        strength = await prisma.strength( { id: 'strength' } );
-        if ( !strength ) {
-            strength = await prisma.createStrength( { id: 'strength' } );
+        if ( has.strength ) {
+            strength = await getStrength();
         }
-        hope = await prisma.hope( { id: 'hope' } );
-        if ( !hope ) {
-            hope = await prisma.createHope( { id: 'hope' } );
+        if ( has.hope ) {
+            hope = await getHope()
         }
         return {
             has,

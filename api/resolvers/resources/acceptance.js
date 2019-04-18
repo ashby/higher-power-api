@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateAcceptance: async ( parent, { id, data } ) => {
         if ( !id ) {
             const acceptance = await prisma.createAcceptance( data );
-            await handleHas( 'acceptance' );
+            await handleHas( 'acceptance', data.attribute );
             return acceptance;
         }
         const acceptance = {

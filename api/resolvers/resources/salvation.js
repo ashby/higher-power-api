@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutateSalvation: async ( parent, { id, data } ) => {
         if ( !id ) {
             const salvation = await prisma.createSalvation( data );
-            await handleHas( 'salvation' );
+            await handleHas( 'salvation', data.attribute );
             return salvation;
         }
         const salvation = {

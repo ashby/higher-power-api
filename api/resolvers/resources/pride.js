@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
     mutatePride: async ( parent, { id, data } ) => {
         if ( !id ) {
             const pride = await prisma.createPride( data );
-            await handleHas( 'pride' );
+            await handleHas( 'pride', data.attribute );
             return pride;
         }
         const pride = {
