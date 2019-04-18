@@ -78,7 +78,7 @@ type Query {
     pride(id: ID!): Pride
     salvations: [Salvation]
     salvation(id: ID!): Salvation
-    selfPitys: [SelfPity]
+    selfPities: [SelfPity]
     selfPity(id: ID!): SelfPity
     sufferings: [Suffering]
     suffering(id: ID!): Suffering

@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
-    selfPitys: () => prisma.selfPitys(),
+    selfPities: () => prisma.selfPities(),
     selfPity: ( _, { id } ) => prisma.selfPity( { id } )
 }, {
     mutateSelfPity: async ( parent, { id, data } ) => {
