@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     sufferings: () => prisma.sufferings(),
@@ -6,7 +7,9 @@ module.exports = ( register ) => register( {
 }, {
     mutateSuffering: async ( parent, { id, data } ) => {
         if ( !id ) {
-            return prisma.createSuffering( data );
+            const suffering = await prisma.createSuffering( data );
+            await handleHas( 'suffering' );
+            return suffering;
         }
         const suffering = {
             ...data

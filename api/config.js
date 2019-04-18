@@ -1,7 +1,8 @@
 const cfg =  {
     SERVER_PORT: 3200,
     ROOT_URL: '/higher-power',
-    ENVIRONMENT: 'dev'
+    ENVIRONMENT: 'dev',
+    ENABLE_HAS: true
 };
 
 switch ( process.env.NODE_ENV ) {

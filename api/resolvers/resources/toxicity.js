@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     toxicities: () => prisma.toxicities(),
@@ -6,7 +7,9 @@ module.exports = ( register ) => register( {
 }, {
     mutateToxicity: async ( parent, { id, data } ) => {
         if ( !id ) {
-            return prisma.createToxicity( data );
+            const toxicity = await prisma.createToxicity( data );
+            await handleHas( 'toxicity' );
+            return toxicity
         }
         const toxicity = {
             ...data

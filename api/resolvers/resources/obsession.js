@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     obsession: async () => {
@@ -19,10 +20,12 @@ module.exports = ( register ) => register( {
         let obsession;
         if ( !data.id ) {
             obsession.id = 'obsession';
-            return prisma.createObsession( obsession );
+            obsession = await prisma.createObsession( obsession );
+            await handleHas( 'obsession' );
+            return obsession;
         }
         return prisma.updateObsession( {
-            data: obs,
+            data: obsession,
             where: { id: data.id }
         } );
     }

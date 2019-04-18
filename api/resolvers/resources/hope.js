@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     hope: async () => {
@@ -13,7 +14,9 @@ module.exports = ( register ) => register( {
         let hope;
         if ( !data.id ) {
             hope.id = 'hope';
-            return prisma.createHope( hope );
+            hope = await prisma.createHope( hope );;
+            await handleHas( 'hope' );
+            return hope;
         }
         return prisma.updateHope( {
             data: hope,

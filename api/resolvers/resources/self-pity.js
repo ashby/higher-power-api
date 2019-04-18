@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     selfPitys: () => prisma.selfPitys(),
@@ -6,7 +7,9 @@ module.exports = ( register ) => register( {
 }, {
     mutateSelfPity: async ( parent, { id, data } ) => {
         if ( !id ) {
-            return prisma.createSelfPity( data );
+            const selfPity = await prisma.createSelfPity( data );
+            await handleHas( 'selfPity' );
+            return selfPity;
         }
         const selfPity = {
             ...data

@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     strength: async () => {
@@ -23,7 +24,9 @@ module.exports = ( register ) => register( {
         let strength;
         if ( !data.id ) {
             strength.id = 'strength';
-            return prisma.createStrength( strength );
+            strength = await prisma.createStrength( strength );
+            await handleHas( 'strength' );
+            return strength;
         }
         return prisma.updateStrength( {
             data: strength,

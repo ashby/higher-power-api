@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     experience: async () => {
@@ -23,7 +24,9 @@ module.exports = ( register ) => register( {
         let experience;
         if ( !data.id ) {
             experience.id = 'experience';
-            return prisma.createExperience( experience );
+            experience = prisma.createExperience( experience );
+            await handleHas( 'experience' );
+            return experience;
         }
         return prisma.updateExperience( {
             data: experience,

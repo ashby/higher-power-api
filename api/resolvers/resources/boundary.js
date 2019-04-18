@@ -1,4 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas } = require( '../utils' );
 
 module.exports = ( register ) => register( {
     boundarys: () => prisma.boundarys(),
@@ -6,7 +7,9 @@ module.exports = ( register ) => register( {
 }, {
     mutateBoundary: async ( parent, { id, data } ) => {
         if ( !id ) {
-            return prisma.createBoundary( data );
+            const boundary = prisma.createBoundary( data );
+            await handleHas( 'boundary' );
+            return boundary;
         }
         const boundary = {
             ...data
