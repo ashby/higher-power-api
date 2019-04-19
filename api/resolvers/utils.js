@@ -179,6 +179,5 @@ module.exports = {
     getObsession,
     getExperience,
     getStrength,
-    getHope,
-    
-}
+    getHope
+};
