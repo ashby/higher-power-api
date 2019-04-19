@@ -47,55 +47,49 @@ const handleHas =  async ( key, attribute ) => {
     }
 };
 
-const getValues = async ( has, queries = [] ) => {
+const getSubAttributes = async ( has, subAttributes = [] ) => {
     if ( !has ) {
         has = await prisma.has( { id: 'has' } );
     }
     const values = {};
-    const queryPromises = queries.map( async ( query ) => {
+    const subAttributePromises = subAttributes.map( async ( subAttribute ) => {
         let key, queries;
-        if ( typeof query === 'object' ) {
-            key = query.singular;
-            queries = query.plural;
+        if ( typeof subAttribute === 'object' ) {
+            key = subAttribute.singular;
+            queries = subAttribute.plural;
         } else {
-            key = query;
-            queries = `${query}s`;
+            key = subAttribute;
+            queries = `${subAttribute}s`;
         }
         if ( has[ key ] ) {
             const value = await prisma[ queries ]();
             values[ key ] = value;
         }
     } );
-    await Promise.all( queryPromises );
+    await Promise.all( subAttributePromises );
     return values;
 };
 
-const getDefect = async ( has = false ) => {
-    const values = await getValues( has, [
-        'trauma', 
-        { singular: 'toxicity', plural: 'toxicities' },
-        'suffering'
-    ] );
-    const defect = {
-        ...values
-    };
-    return values;
-};
-const getResentment = async ( has = false ) => await getValues( has, [
+const getDefect = async ( has = false ) => await getSubAttributes( has, [
+    'trauma', 
+    { singular: 'toxicity', plural: 'toxicities' },
+    'suffering'
+] );
+const getResentment = async ( has = false ) => await getSubAttributes( has, [
     'anger', 
     { singular: 'selfPity', plural: 'selfPities' },
     'fear',
     'pride'
 ] );
 
-const getObsession = async ( has = false ) => await getValues( has, [
+const getObsession = async ( has = false ) => await getSubAttributes( has, [
     'suffering', 
     { singular: 'loyalty', plural: 'loyalties' },
     'honor',
     { singular: 'vulnerability', plural: 'vulnerabilities' }
 ] );
 
-const getExperience = async ( has = false ) => await getValues( has, [
+const getExperience = async ( has = false ) => await getSubAttributes( has, [
     'compassion', 
     'courage', 
     'acceptance',
@@ -104,7 +98,7 @@ const getExperience = async ( has = false ) => await getValues( has, [
     'suffering'
 ] );
 
-const getStrength = async ( has = false ) => await getValues( has, [
+const getStrength = async ( has = false ) => await getSubAttributes( has, [
     'armor', 
     { singular: 'boundary', plural: 'boundaries' },
     { singular: 'loyalty', plural: 'loyalties' },
@@ -113,7 +107,7 @@ const getStrength = async ( has = false ) => await getValues( has, [
     'courage'
 ] );
 
-const getHope = async ( has = false ) => await getValues( has, [
+const getHope = async ( has = false ) => await getSubAttributes( has, [
     'salvation'
 ] );
 
