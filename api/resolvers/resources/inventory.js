@@ -1,5 +1,6 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const {
+    getAttributes,
     getDefect,
     getResentment,
     getObsession,
@@ -10,37 +11,30 @@ const {
 
 module.exports = ( register ) => register( {
     inventory: async ( _, data, ctx ) => {
-        let has, defect, resentment, obsession, experience, strength, hope;
+        let has;
         has = await prisma.has( { id: 'has' }  );
         if ( !has ) {
             has = await prisma.createHas( { id: 'has' } );
-        }
-        if ( has.defect ) {
-            defect = await getDefect();
-        }
-        if ( has.resentment ) {
-            resentment = await getResentment();
-        }
-        if ( has.obsession ) {
-            obsession = await getObsession();
-        }
-        if ( has.experience ) {
-            experience = await getExperience();
-        }
-        if ( has.strength ) {
-            strength = await getStrength();
-        }
-        if ( has.hope ) {
-            hope = await getHope()
-        }
+        };
+        const attributes = {};
+        const inventoryPromises = [
+            'defect',
+            'resentment',
+            'obsession',
+            'experience',
+            'strength',
+            'hope'
+        ].map( async ( item ) => {
+            if ( has[ item ] ) {
+                const name = item.charAt( 0 ).toUpperCase() + item.slice( 1 );
+                const attribute = await getAttributes[ `get${name}` ]( has );
+                attributes[ item ] = attribute
+            }
+        } );
+        await Promise.all( inventoryPromises );
         return {
             has,
-            defect,
-            resentment,
-            obsession,
-            experience,
-            strength,
-            hope
+            ...attributes
         }
     }
 } );
