@@ -48,6 +48,9 @@ const handleHas =  async ( key, attribute ) => {
 };
 
 const getValues = async ( has, queries = [] ) => {
+    if ( !has ) {
+        has = await prisma.has( { id: 'has' } );
+    }
     const values = {};
     const queryPromises = queries.map( async ( query ) => {
         let key, queries;
@@ -68,9 +71,6 @@ const getValues = async ( has, queries = [] ) => {
 };
 
 const getDefect = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
     const values = await getValues( has, [
         'trauma', 
         { singular: 'toxicity', plural: 'toxicities' },
@@ -79,87 +79,43 @@ const getDefect = async ( has = false ) => {
     const defect = {
         ...values
     };
-    return defect;
+    return values;
 };
-const getResentment = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
-    const values = await getValues( has, [
-        'anger', 
-        { singular: 'selfPity', plural: 'selfPities' },
-        'fear',
-        'pride'
-    ] );
-    const resentment = {
-        ...values
-    };
-    return resentment;
-};
-const getObsession = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
-    const values = await getValues( has, [
-        'suffering', 
-        { singular: 'loyalty', plural: 'loyalties' },
-        'honor',
-        { singular: 'vulnerability', plural: 'vulnerabilities' }
-    ] );
-    const obsession = {
-        ...values
-    };
-    return obsession;
-};
-const getExperience = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
-    const values = await getValues( has, [
-        'compassion', 
-        'courage', 
-        'acceptance',
-        { singular: 'vulnerability', plural: 'vulnerabilities' },
-        'gratitude',
-        'suffering'
-    ] );
-    const experience = {
-        ...values
-    };
-    return experience;
-};
-const getStrength = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
-    const values = await getValues( has, [
-        'armor', 
-        { singular: 'boundary', plural: 'boundaries' },
-        { singular: 'loyalty', plural: 'loyalties' },
-        'honor',
-        'anger',
-        'courage'
-    ] );
-    const strengths = {
-        ...values
-    };
-    return strengths;
-};
-const getHope = async ( has = false ) => {
-    if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
-    }
-    if ( has.salvation ) {
-        salvation = await prisma.salvations();
-    }
-    const values = await getValues( has, [
-        'salvation'
-    ] );
-    const hope = {
-        ...values
-    };
-    return hope;
-};
+const getResentment = async ( has = false ) => await getValues( has, [
+    'anger', 
+    { singular: 'selfPity', plural: 'selfPities' },
+    'fear',
+    'pride'
+] );
+
+const getObsession = async ( has = false ) => await getValues( has, [
+    'suffering', 
+    { singular: 'loyalty', plural: 'loyalties' },
+    'honor',
+    { singular: 'vulnerability', plural: 'vulnerabilities' }
+] );
+
+const getExperience = async ( has = false ) => await getValues( has, [
+    'compassion', 
+    'courage', 
+    'acceptance',
+    { singular: 'vulnerability', plural: 'vulnerabilities' },
+    'gratitude',
+    'suffering'
+] );
+
+const getStrength = async ( has = false ) => await getValues( has, [
+    'armor', 
+    { singular: 'boundary', plural: 'boundaries' },
+    { singular: 'loyalty', plural: 'loyalties' },
+    'honor',
+    'anger',
+    'courage'
+] );
+
+const getHope = async ( has = false ) => await getValues( has, [
+    'salvation'
+] );
 
 const getAttributes = {
     getDefect,
