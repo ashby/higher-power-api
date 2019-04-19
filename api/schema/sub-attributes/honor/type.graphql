@@ -1,0 +1,16 @@
+scalar DateTime
+
+type Honor {
+    id: ID!
+    character: String!
+    thought: String!
+    location: String!
+    process: String!
+    attribute: String!
+    inventory: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}

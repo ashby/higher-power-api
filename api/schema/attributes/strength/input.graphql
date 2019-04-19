@@ -1,0 +1,16 @@
+#import ArmorInput from '../../sub-attributes/armor/input.graphql';
+#import BoundaryInput from '../../sub-attributes/boundary/input.graphql';
+#import LoyaltyInput from '../../sub-attributes/loyalty/input.graphql';
+#import HonorInput from '../../sub-attributes/honor/input.graphql';
+#import AngerInput from '../../sub-attributes/anger/input.graphql';
+#import CourageInput from '../../sub-attributes/courage/input.graphql';
+
+input StrengthInput {
+    id: ID
+    armor: [ArmorInput]
+    boundary: [BoundaryInput]
+    loyalty: [LoyaltyInput]
+    honor: [HonorInput]
+    anger: [AngerInput]
+    courage: [CourageInput]
+}

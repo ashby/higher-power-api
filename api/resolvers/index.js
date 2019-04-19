@@ -9,28 +9,28 @@ function registerResolvers( queries = {}, mutations = {} ) {
 require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
 
-require( './resources/defect' )( registerResolvers );
-require( './resources/resentment' )( registerResolvers );
-require( './resources/obsession' )( registerResolvers );
-require( './resources/experience' )( registerResolvers );
-require( './resources/strength' )( registerResolvers );
-require( './resources/hope' )( registerResolvers );
+require( './resources/attributes/defect' )( registerResolvers );
+require( './resources/attributes/resentment' )( registerResolvers );
+require( './resources/attributes/obsession' )( registerResolvers );
+require( './resources/attributes/experience' )( registerResolvers );
+require( './resources/attributes/strength' )( registerResolvers );
+require( './resources/attributes/hope' )( registerResolvers );
 
-require( './resources/acceptance' )( registerResolvers );
-require( './resources/anger' )( registerResolvers );
-require( './resources/armor' )( registerResolvers );
-require( './resources/boundary' )( registerResolvers );
-require( './resources/compassion' )( registerResolvers );
-require( './resources/courage' )( registerResolvers );
-require( './resources/fear' )( registerResolvers );
-require( './resources/gratitude' )( registerResolvers );
-require( './resources/pride' )( registerResolvers );
-require( './resources/salvation' )( registerResolvers );
-require( './resources/self-pity' )( registerResolvers );
-require( './resources/suffering' )( registerResolvers );
-require( './resources/toxicity' )( registerResolvers );
-require( './resources/trauma' )( registerResolvers );
-require( './resources/vulnerability' )( registerResolvers );
+require( './resources/sub-attributes/acceptance' )( registerResolvers );
+require( './resources/sub-attributes/anger' )( registerResolvers );
+require( './resources/sub-attributes/armor' )( registerResolvers );
+require( './resources/sub-attributes/boundary' )( registerResolvers );
+require( './resources/sub-attributes/compassion' )( registerResolvers );
+require( './resources/sub-attributes/courage' )( registerResolvers );
+require( './resources/sub-attributes/fear' )( registerResolvers );
+require( './resources/sub-attributes/gratitude' )( registerResolvers );
+require( './resources/sub-attributes/pride' )( registerResolvers );
+require( './resources/sub-attributes/salvation' )( registerResolvers );
+require( './resources/sub-attributes/self-pity' )( registerResolvers );
+require( './resources/sub-attributes/suffering' )( registerResolvers );
+require( './resources/sub-attributes/toxicity' )( registerResolvers );
+require( './resources/sub-attributes/trauma' )( registerResolvers );
+require( './resources/sub-attributes/vulnerability' )( registerResolvers );
 
 module.exports = {
     Query,

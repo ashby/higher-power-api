@@ -1,0 +1,10 @@
+#import Trauma from '../../sub-attributes/trauma/type.graphql';
+#import Toxicity from '../../sub-attributes/toxicity/type.graphql';
+#import Suffering from '../../sub-attributes/suffering/type.graphql';
+
+type Defect {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+    suffering: [Suffering]
+}

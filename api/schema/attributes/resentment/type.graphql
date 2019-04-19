@@ -1,0 +1,12 @@
+#import Anger from '../../sub-attributes/anger/type.graphql';
+#import SelfPity from '../../sub-attributes/self-pity/type.graphql';
+#import Fear from '../../sub-attributes/fear/type.graphql';
+#import Pride from '../../sub-attributes/pride/type.graphql';
+
+type Resentment {
+    id: ID!
+    anger: [Anger]
+    selfPity: [SelfPity]
+    fear: [Fear]
+    pride: [Pride]
+}

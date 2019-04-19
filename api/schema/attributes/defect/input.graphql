@@ -1,0 +1,10 @@
+#import TraumaInput from '../../sub-attributes/trauma/input.graphql';
+#import ToxicityInput from '../../sub-attributes/toxicity/input.graphql';
+#import SufferingInput from '../../sub-attributes/suffering/input.graphql';
+
+input DefectInput {
+    id: ID
+    trauma: [TraumaInput]
+    toxicity: [ToxicityInput]
+    suffering: [SufferingInput]
+}

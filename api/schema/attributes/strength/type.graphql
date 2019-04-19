@@ -1,0 +1,16 @@
+#import Armor from '../../sub-attributes/armor/type.graphql';
+#import Boundary from '../../sub-attributes/boundary/type.graphql';
+#import Loyalty from '../../sub-attributes/loyalty/type.graphql';
+#import Honor from '../../sub-attributes/honor/type.graphql';
+#import Anger from '../../sub-attributes/anger/type.graphql';
+#import Courage from '../../sub-attributes/courage/type.graphql';
+
+type Strength {
+    id: ID!
+    armor: [Armor]
+    boundary: [Boundary]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    anger: [Anger]
+    courage: [Courage]
+}

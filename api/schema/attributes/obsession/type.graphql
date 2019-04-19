@@ -1,0 +1,12 @@
+#import Suffering from '../../sub-attributes/suffering/type.graphql';
+#import Loyalty from '../../sub-attributes/loyalty/type.graphql';
+#import Honor from '../../sub-attributes/honor/type.graphql';
+#import Vulnerability from '../../sub-attributes/vulnerability/type.graphql';
+
+type Obsession {
+    id: ID!
+    suffering: [Suffering]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    vulnerability: [Vulnerability]
+}

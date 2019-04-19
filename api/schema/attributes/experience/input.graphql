@@ -1,0 +1,16 @@
+#import CompassionInput from '../../sub-attributes/compassion/input.graphql';
+#import CourageInput from '../../sub-attributes/courage/input.graphql';
+#import AcceptanceInput from '../../sub-attributes/acceptance/input.graphql';
+#import VulnerabilityInput from '../../sub-attributes/vulnerability/input.graphql';
+#import GratitudeInput from '../../sub-attributes/gratitude/input.graphql';
+#import SufferingInput from '../../sub-attributes/suffering/input.graphql';
+
+input ExperienceInput {
+    id: ID
+    compassion: [CompassionInput]
+    courage: [CourageInput]
+    acceptance: [AcceptanceInput]
+    vulnerability: [VulnerabilityInput]
+    gratitude: [GratitudeInput]
+    suffering: [SufferingInput]
+}
