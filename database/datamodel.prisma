@@ -27,7 +27,7 @@ type Trauma {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -40,7 +40,7 @@ type Toxicity {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -53,7 +53,7 @@ type Suffering {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -74,7 +74,7 @@ type Anger {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -87,7 +87,7 @@ type SelfPity {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -100,7 +100,7 @@ type Fear {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -113,7 +113,7 @@ type Pride {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -143,7 +143,7 @@ type Compassion {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -156,7 +156,7 @@ type Courage {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -169,7 +169,7 @@ type Acceptance {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -182,7 +182,7 @@ type Vulnerability {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -196,7 +196,7 @@ type Gratitude {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -220,7 +220,7 @@ type Armor {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -233,7 +233,7 @@ type Boundary {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -246,7 +246,7 @@ type Loyalty {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -259,7 +259,7 @@ type Honor {
     id: ID! @id
     character: String!
     thought: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
@@ -281,7 +281,7 @@ type Salvation {
     id: ID! @id
     thought: String!
     character: String!
-    location: String!
+    source: String!
     process: String!
     attribute: String!
     createdAt: DateTime! @createdAt
