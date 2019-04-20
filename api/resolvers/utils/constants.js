@@ -1,5 +1,4 @@
 
-const HAS = require( '../constants/has' );
 const FEELINGS = require( '../constants/feelings' );
 const {
     PATHS,
@@ -27,7 +26,6 @@ const {
 const SOURCES = require( '../constants/sources' );
 
 module.exports = { 
-    HAS,
     FEELINGS,
     PATHS,
     DEFECT,

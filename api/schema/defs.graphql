@@ -1,5 +1,3 @@
-#import Has from "./has/type.graphql";
-# import HasInput from "./has/input.graphql";
 # import Self from "./types.graphql";
 # import Inventory from "./types.graphql";
 # import Characters from "./types.graphql";
@@ -173,7 +171,6 @@
 # import WallInput from "./sources/wall/input.graphql";
 
 type Query {
-    has(id: ID!): Has
     higherPower: HigherPower
     inventory: Inventory
     path: Path
@@ -318,8 +315,6 @@ type Query {
 }
 
 type Mutation {
-    mutateHas(data:HasInput): Has!
-
     mutateDefect(data:DefectInput): Defect!
     mutateDiscontent(data:DiscontentInput): Discontent!
     mutateResentment(data:ResentmentInput): Resentment!
