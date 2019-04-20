@@ -1,4 +1,4 @@
 input WallInput {
     id: ID
-    boundary: [boundary]
+    boundary: [ID]
 }

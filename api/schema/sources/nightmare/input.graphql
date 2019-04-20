@@ -1,5 +1,5 @@
 input NightmareInput {
     id: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID]
+    toxicity: [ID]
 }

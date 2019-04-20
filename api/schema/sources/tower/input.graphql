@@ -1,4 +1,4 @@
 input TowerInput {
     id: ID
-    boundary: [Bounday]
+    boundary: [ID]
 }

@@ -1,4 +1,4 @@
 input GateInput {
     id: ID
-    boundary: [Bounday]
+    boundary: [ID]
 }

@@ -1,0 +1,4 @@
+input SmithInput {
+    id: ID
+    shield: [Shield]
+}

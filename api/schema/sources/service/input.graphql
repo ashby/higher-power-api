@@ -1,5 +1,5 @@
 input ServiceInput {
     id: ID
-    courage: [Courage]
-    compassion: [Compassion]
+    courage: [ID]
+    compassion: [ID]
 }

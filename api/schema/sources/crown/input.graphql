@@ -1,0 +1,4 @@
+input CrownInput {
+    id: ID
+    suffering: [ID]
+}

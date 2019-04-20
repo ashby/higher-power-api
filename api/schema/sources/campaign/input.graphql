@@ -1,5 +1,5 @@
 input CampaignInput {
     id: ID
-    loyalty: [Loyalty]
-    honor: [Honor]
+    loyalty: [ID]
+    honor: [ID]
 }

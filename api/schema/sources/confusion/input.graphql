@@ -1,4 +1,4 @@
 input ConfusionInput {
     id: ID
-    armor: [Armor]
+    armor: [ID]
 }

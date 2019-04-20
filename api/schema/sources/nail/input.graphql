@@ -1,0 +1,4 @@
+input NailInput {
+    id: ID
+    suffering: [ID]
+}

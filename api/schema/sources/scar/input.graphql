@@ -1,5 +1,5 @@
 input ScarInput {
     id: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID]
+    toxicity: [ID]
 }

@@ -1,4 +1,4 @@
 input SarcasmInput {
     id: ID
-    armor: [Armor]
+    armor: [ID]
 }

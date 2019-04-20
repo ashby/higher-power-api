@@ -1,5 +1,5 @@
 input MindInput {
     id: ID
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
+    vulnerability: [ID]
+    acceptance: [ID]
 }
