@@ -1,6 +1,7 @@
 # import Has from "./types.graphql"
 # import HasInput from "./inputs.graphql";
 # import Inventory from "./types.graphql";
+# import Characters from "./types.graphql";
 
 # import Defect from "./paths/defect/type.graphql";
 # import DefectInput from "./paths/defect/input.graphql";

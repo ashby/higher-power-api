@@ -23,13 +23,55 @@ type Has {
     vulnerability: Boolean! @default(value: false)
 }
 
+type Defect {
+    id: ID! @id
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+    suffering: [Suffering]
+}
+type Resentment {
+    id: ID! @id
+    anger: [Anger]
+    selfPity: [SelfPity]
+    fear: [Fear]
+    pride: [Pride]
+}
+type Obsession {
+    id: ID! @id
+    suffering: [Suffering]
+    loyalty: [Loyalty]
+    honor: [Honor]
+    vulnerability: [Vulnerability]
+}
+type Experience {
+    id: ID! @id
+    compassion: [Compassion]
+    courage: [Courage]
+    acceptance: [Acceptance]
+    vulnerability: [Vulnerability]
+    gratitude: [Gratitude]
+    suffering: [Suffering]
+}
+type Strength {
+    id: ID! @id
+    armor: [Armor]
+    boundary: [Boundary]
+    loyalty: [Loyalty]
+    honor: [Honor]
+}
+type Hope {
+    id: ID! @id
+    salvation: [Salvation]
+}
+
 type Trauma {
     id: ID! @id
     character: String!
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -42,7 +84,8 @@ type Toxicity {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -55,28 +98,22 @@ type Suffering {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
-
-type Defect {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-    suffering: [Suffering]
-}
-
 type Anger {
     id: ID! @id
     character: String!
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -89,7 +126,8 @@ type SelfPity {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -102,7 +140,8 @@ type Fear {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -115,37 +154,22 @@ type Pride {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
-
-type Resentment {
-    id: ID! @id
-    anger: [Anger]
-    selfPity: [SelfPity]
-    fear: [Fear]
-    pride: [Pride]
-}
-
-type Obsession {
-    id: ID! @id
-    suffering: [Suffering]
-    loyalty: [Loyalty]
-    honor: [Honor]
-    vulnerability: [Vulnerability]
-}
-
 type Compassion {
     id: ID! @id
     character: String!
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -158,7 +182,8 @@ type Courage {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -171,7 +196,8 @@ type Acceptance {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -184,45 +210,36 @@ type Vulnerability {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
-
 type Gratitude {
     id: ID! @id
     character: String!
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
-
-type Experience {
-    id: ID! @id
-    compassion: [Compassion]
-    courage: [Courage]
-    acceptance: [Acceptance]
-    vulnerability: [Vulnerability]
-    gratitude: [Gratitude]
-    suffering: [Suffering]
-}
-
 type Armor {
     id: ID! @id
     character: String!
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -235,7 +252,8 @@ type Boundary {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -248,7 +266,8 @@ type Loyalty {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -261,39 +280,27 @@ type Honor {
     thought: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
 }
-
-type Strength {
-    id: ID! @id
-    armor: [Armor]
-    boundary: [Boundary]
-    loyalty: [Loyalty]
-    honor: [Honor]
-}
-
 type Salvation {
     id: ID! @id
     thought: String!
     character: String!
     source: String!
     process: String!
-    attribute: String!
+    path: String!
+    feeling: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
-}
-
-type Hope {
-    id: ID! @id
-    salvation: [Salvation]
 }
 
 type Inventory {
@@ -309,4 +316,5 @@ type Inventory {
 type HigherPower {
     id: ID! @id
     inventory: Inventory
+    characters: Characters
 }

@@ -7,7 +7,7 @@ type Loyalty {
     source: String!
     process: String!
     path: String!
-    inventory: String!
+    feeling: String!
     createdAt: DateTime
     updatedAt: DateTime
     sharedAt: DateTime
