@@ -1,0 +1,5 @@
+input ScarInput {
+    id: ID
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

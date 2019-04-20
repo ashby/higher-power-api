@@ -1,0 +1,5 @@
+type Nightmare {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

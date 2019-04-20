@@ -1,0 +1,4 @@
+input CrossInput {
+    id: ID
+    suffering: [Suffering]
+}

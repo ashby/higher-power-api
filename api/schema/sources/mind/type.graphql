@@ -1,0 +1,5 @@
+type Mind {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}

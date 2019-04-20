@@ -1,4 +1,4 @@
-type GuardianInput {
+input GuardianInput {
     id: ID
     construct: [Construct]
 }

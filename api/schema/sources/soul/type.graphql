@@ -1,0 +1,5 @@
+type Soul {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}

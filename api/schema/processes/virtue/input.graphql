@@ -1,0 +1,6 @@
+input VirtueInput {
+    id: ID
+    soul: [Soul]
+    love: [Love]
+    mind: [Mind]
+}

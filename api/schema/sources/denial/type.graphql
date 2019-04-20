@@ -1,0 +1,4 @@
+type Denial {
+    id: ID!
+    armor: [Armor]
+}

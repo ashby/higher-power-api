@@ -1,0 +1,5 @@
+input CrusadeInput {
+    id: ID
+    loyalty: [Loyalty]
+    honor: [Honor]
+}

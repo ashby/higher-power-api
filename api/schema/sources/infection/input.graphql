@@ -1,0 +1,5 @@
+input InfectionInput {
+    id: ID
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

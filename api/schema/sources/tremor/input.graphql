@@ -1,0 +1,5 @@
+input TremorInput {
+    id: ID
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

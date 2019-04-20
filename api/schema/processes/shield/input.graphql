@@ -1,0 +1,7 @@
+input ShieldInput {
+    id: ID
+    silence: [Silence]
+    sarcasm: [Sarcasm]
+    denial: [Denial]
+    confusion: [Confusion]
+}

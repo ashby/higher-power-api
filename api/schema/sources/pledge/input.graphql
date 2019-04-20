@@ -1,0 +1,5 @@
+input PledgeInput {
+    id: ID
+    loyalty: [Loyalty]
+    honor: [Honor]
+}

@@ -1,0 +1,4 @@
+type Nail {
+    id: ID!
+    suffering: [Suffering]
+}

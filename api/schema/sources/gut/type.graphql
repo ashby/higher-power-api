@@ -1,0 +1,7 @@
+type Gut {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}

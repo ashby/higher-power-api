@@ -1,0 +1,6 @@
+type Virtue {
+    id: ID!
+    soul: [Soul]
+    love: [Love]
+    mind: [Mind]
+}

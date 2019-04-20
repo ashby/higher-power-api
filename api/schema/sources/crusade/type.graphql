@@ -1,0 +1,5 @@
+type Crusade {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}

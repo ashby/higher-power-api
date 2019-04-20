@@ -1,0 +1,7 @@
+type Brain {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}

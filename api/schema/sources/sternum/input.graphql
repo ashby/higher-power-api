@@ -1,0 +1,7 @@
+input SternumInput {
+    id: ID
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}

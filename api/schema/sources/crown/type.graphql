@@ -1,0 +1,4 @@
+type Crown {
+    id: ID!
+    suffering: [Suffering]
+}

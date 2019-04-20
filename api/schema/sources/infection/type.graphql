@@ -1,0 +1,5 @@
+type Infection {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

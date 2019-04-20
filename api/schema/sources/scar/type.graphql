@@ -1,0 +1,5 @@
+type Scar {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

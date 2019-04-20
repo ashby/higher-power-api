@@ -1,0 +1,4 @@
+type Cross {
+    id: ID!
+    suffering: [Suffering]
+}

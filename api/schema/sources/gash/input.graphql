@@ -1,0 +1,5 @@
+input GashInput {
+    id: ID
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

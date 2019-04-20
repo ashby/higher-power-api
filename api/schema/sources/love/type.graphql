@@ -1,0 +1,5 @@
+type Love {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}

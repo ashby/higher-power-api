@@ -1,0 +1,5 @@
+type Sacrifice {
+    id: ID!
+    courage: [Courage]
+    compassion: [Compassion]
+}

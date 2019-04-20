@@ -1,0 +1,5 @@
+type Pledge {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}

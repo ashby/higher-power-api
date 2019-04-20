@@ -1,0 +1,5 @@
+type Gash {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

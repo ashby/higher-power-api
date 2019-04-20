@@ -1,0 +1,5 @@
+type Campaign {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}

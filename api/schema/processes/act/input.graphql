@@ -1,0 +1,6 @@
+input ActInput {
+    id: ID
+    service: [Service]
+    support: [Support]
+    sacrifice: [Sacrifice]
+}

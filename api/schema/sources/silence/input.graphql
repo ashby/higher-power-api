@@ -1,0 +1,4 @@
+input SilenceInput {
+    id: ID
+    armor: [Armor]
+}

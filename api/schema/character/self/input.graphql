@@ -1,4 +1,4 @@
-type SelfInput {
+input SelfInput {
     id: ID
     body: [Body]
 }

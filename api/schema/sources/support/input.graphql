@@ -1,0 +1,5 @@
+input SupportInput {
+    id: ID
+    courage: [Courage]
+    compassion: [Compassion]
+}

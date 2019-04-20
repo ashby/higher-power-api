@@ -1,4 +1,4 @@
-type SeekerInput {
+input SeekerInput {
     id: ID
     virtue: [Virtue]
 }

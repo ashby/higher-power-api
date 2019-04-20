@@ -1,0 +1,10 @@
+input Body {
+    id: ID!
+    brain: [Brain]
+    face: [Face]
+    mouth: [Mouth]
+    soul: [Soul]
+    heart: [Heart]
+    sternum: [Sternum]
+    gut: [Gut]
+}

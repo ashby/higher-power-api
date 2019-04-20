@@ -1,0 +1,6 @@
+type Construct {
+    id: ID!
+    gate: [Gate]
+    tower: [Tower]
+    wall: [Wall]
+}

@@ -1,0 +1,5 @@
+type Tremor {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}

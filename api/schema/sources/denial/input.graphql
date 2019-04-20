@@ -1,0 +1,4 @@
+input DenialInput {
+    id: ID
+    armor: [Armor]
+}

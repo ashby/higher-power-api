@@ -1,0 +1,4 @@
+type Tower {
+    id: ID!
+    boundary: [Bounday]
+}

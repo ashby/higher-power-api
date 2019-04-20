@@ -1,0 +1,6 @@
+input OathInput {
+    id: ID
+    pledge: [Pledge]
+    campaign: [Campaign]
+    crusade: [Crusade]
+}
