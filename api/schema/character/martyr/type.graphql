@@ -1,4 +1,0 @@
-type Martyr {
-    id: ID!
-    stigmata: [Stigmata]
-}

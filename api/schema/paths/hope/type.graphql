@@ -1,0 +1,6 @@
+#import Salvation from '../../feelings/salvation/type.graphql';
+
+type Hope {
+    id: ID!
+    salvation: [Salvation]
+}

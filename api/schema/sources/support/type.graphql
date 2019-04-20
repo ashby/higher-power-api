@@ -1,7 +1,8 @@
-type Sternum {
+#import Courage from '../../feelings/courage/type.graphql';
+#import Compassion from '../../feelings/compassion/type.graphql';
+
+type Support {
     id: ID!
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    courage: [Courage]
+    compassion: [Compassion]
 }

@@ -1,0 +1,6 @@
+#import Affliction from '../../processes/affliction/type.graphql';
+
+input VictimInput {
+    id: ID
+    affliction: [Affliction]
+}

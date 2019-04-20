@@ -1,3 +1,5 @@
+#import Suffering from '../../feelings/suffering/type.graphql';
+
 type Crown {
     id: ID!
     suffering: [Suffering]

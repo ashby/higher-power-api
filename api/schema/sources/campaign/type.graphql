@@ -1,3 +1,6 @@
+#import Loyalty from '../../feelings/loyaty/type.graphql';
+#import Honor from '../../feelings/honor/type.graphql';
+
 type Campaign {
     id: ID!
     loyalty: [Loyalty]

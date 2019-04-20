@@ -25,14 +25,14 @@ const HAS = {
     vulnerability: false,
 };
 
-const handleHas =  async ( key, attribute ) => {
+const handleHas =  async ( key, path ) => {
     if ( config.ENABLE_HAS ) {
         let has;
         has = await prisma.has( { id: 'has' } );
-        const shouldUpdateHas = !!has && has.id && ( !has[ key ] || !has[ attribute ] );
+        const shouldUpdateHas = !!has && has.id && ( !has[ key ] || !has[ path ] );
         if ( shouldUpdateHas ) {
             has[ key ] = true;
-            if ( attribute ) {  has[ attribute ] = true; }
+            if ( path ) {  has[ path ] = true; }
             const { id, ...data } = has;
             await prisma.updateHas( {
                 data,
@@ -41,7 +41,7 @@ const handleHas =  async ( key, attribute ) => {
         } else if ( !has ) {
             HAS.id = 'has';
             HAS[ key ] = true;
-            if ( attribute ) {  HAS[ attribute ] = true; }
+            if ( path ) {  HAS[ path ] = true; }
             await prisma.createHas( HAS );
         }
     }

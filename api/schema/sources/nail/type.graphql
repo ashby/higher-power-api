@@ -1,3 +1,5 @@
+#import Sufffering from '../../feelings/suffering/type.graphql';
+
 type Nail {
     id: ID!
     suffering: [Suffering]

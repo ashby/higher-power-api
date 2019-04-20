@@ -1,0 +1,6 @@
+#import Stigmata from '../../processes/stigmata/type.graphql';
+
+type MartyrInput {
+    id: ID
+    stigmata: [Stigmata]
+}

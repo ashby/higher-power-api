@@ -1,4 +1,0 @@
-type Seeker {
-    id: ID!
-    virtue: [Virtue]
-}

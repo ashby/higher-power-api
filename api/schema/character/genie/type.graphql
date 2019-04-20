@@ -1,4 +1,0 @@
-type Genie {
-    id: ID!
-    wish: [Wish]
-}

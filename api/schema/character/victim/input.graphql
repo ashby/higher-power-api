@@ -1,4 +1,0 @@
-input VictimInput {
-    id: ID
-    affliction: [Affliction]
-}

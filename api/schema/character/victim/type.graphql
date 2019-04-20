@@ -1,4 +1,0 @@
-type Victim {
-    id: ID!
-    affliction: [Affliction]
-}

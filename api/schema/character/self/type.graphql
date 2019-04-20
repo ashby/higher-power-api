@@ -1,4 +1,0 @@
-type Self {
-    id: ID!
-    body: [Body]
-}

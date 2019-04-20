@@ -1,4 +1,0 @@
-input PaladinInput {
-    id: ID
-    oath: [Oath]
-}

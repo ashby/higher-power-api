@@ -1,3 +1,8 @@
+#import Silence from '../../sources/silence/type.graphql';
+#import Sarcasm from '../../sources/sarcasm/type.graphql';
+#import Denial from '../../sources/denial/type.graphql';
+#import Confusion from '../../sources/confusion/type.graphql';
+
 type Shield {
     id: ID!
     silence: [Silence]

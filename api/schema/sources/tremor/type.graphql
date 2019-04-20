@@ -1,3 +1,6 @@
+#import Trauma from '../../feelings/trauma/type.graphql';
+#import Toxicity from '../../feelings/toxicity/type.graphql';
+
 type Tremor {
     id: ID!
     trauma: [Trauma]

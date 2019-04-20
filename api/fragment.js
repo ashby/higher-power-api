@@ -6,7 +6,7 @@ const HigherPowerFragment = `
                     id
                     name
                     thought
-                    attribute
+                    path
                     createdAt
                     updatedAt
                     sharedAt

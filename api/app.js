@@ -53,7 +53,7 @@ module.exports = () => {
         next();
     } );
 
-    // const templateString = fs.readFileSync( attribute.join( VIEWS, 'higher-power.hbs' ) ).toString();
+    // const templateString = fs.readFileSync( path.join( VIEWS, 'higher-power.hbs' ) ).toString();
     // const HigherPowerTemplate = Handlebars.compile( templateString );
     // Handlebars.registerHelper( 'intl', ( code, locals, options ) => {
     //     const text = englishBundle[ code ];

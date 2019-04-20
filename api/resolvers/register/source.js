@@ -3,16 +3,16 @@ const { upperCase } = require( '../../utils' );
 
 const mutateSource = async ( source, data ) => {
     const sourceName = upperCase( source );
-    const subattribute = await prisma[ data.subattribute.name ]( data.subattribute.id );
+    const subpath = await prisma[ data.subpath.name ]( data.subpath.id );
     if ( !data.id ) {
         sourceData = {
             id: source,
-            subattributes: [ subattribute ]
+            subpaths: [ subpath ]
         }
         return await prisma[ `create${sourceName}` ]( brain );
     }
     return prisma[ `update${sourceName}` ]( {
-        data: data.subattributes.push( subattribute ),
+        data: data.subpaths.push( subpath ),
         where: { id }
     } );
 };

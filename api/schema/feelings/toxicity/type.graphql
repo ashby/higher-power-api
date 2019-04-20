@@ -1,0 +1,15 @@
+scalar DateTime
+
+type Toxicity {
+    id: ID!
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}

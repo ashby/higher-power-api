@@ -1,5 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { getAttributes } = require( '../utils/attribute' );
+const { getPaths } = require( '../utils/path' );
 
 module.exports = ( register ) => register( {
     inventory: async ( _, data, ctx ) => {
@@ -8,7 +8,7 @@ module.exports = ( register ) => register( {
         if ( !has ) {
             has = await prisma.createHas( { id: 'has' } );
         };
-        const attributes = {};
+        const paths = {};
         const inventoryPromises = [
             'defect',
             'resentment',
@@ -19,14 +19,14 @@ module.exports = ( register ) => register( {
         ].map( async ( item ) => {
             if ( has[ item ] ) {
                 const name = item.charAt( 0 ).toUpperCase() + item.slice( 1 );
-                const attribute = await getAttributes[ `get${name}` ]( has );
-                attributes[ item ] = attribute
+                const path = await getPaths[ `get${name}` ]( has );
+                paths[ item ] = path
             }
         } );
         await Promise.all( inventoryPromises );
         return {
             has,
-            ...attributes
+            ...paths
         }
     }
 } );

@@ -1,4 +1,0 @@
-type MartyrInput {
-    id: ID
-    stigmata: [Stigmata]
-}

@@ -1,3 +1,5 @@
+#import Tower from '../../feelings/tower/type.graphql';
+
 type Tower {
     id: ID!
     boundary: [Bounday]

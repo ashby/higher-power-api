@@ -1,6 +1,0 @@
-#import SalvationInput from '../../sub-attributes/salvation/input.graphql';
-
-input HopeInput {
-    id: ID
-    salvation: [SalvationInput]
-}

@@ -1,0 +1,4 @@
+input DreamInput {
+    id: ID
+    salvation: [ID]
+}

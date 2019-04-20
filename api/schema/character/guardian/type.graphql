@@ -1,4 +1,0 @@
-type Guardian {
-    id: ID!
-    construct: [Construct]
-}

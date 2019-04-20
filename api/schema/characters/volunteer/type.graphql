@@ -1,0 +1,6 @@
+#import Act from '../../processes/act/type.graphql';
+
+type Volunteer {
+    id: ID!
+    act: [Act]
+}

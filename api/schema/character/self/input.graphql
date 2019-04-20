@@ -1,4 +1,0 @@
-input SelfInput {
-    id: ID
-    body: [Body]
-}

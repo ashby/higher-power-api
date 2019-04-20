@@ -1,0 +1,16 @@
+#import Compassion from '../../feelings/compassion/type.graphql';
+#import Courage from '../../feelings/courage/type.graphql';
+#import Acceptance from '../../feelings/acceptance/type.graphql';
+#import Vulnerability from '../../feelings/vulnerability/type.graphql';
+#import Gratitude from '../../feelings/gratitude/type.graphql';
+#import Suffering from '../../feelings/suffering/type.graphql';
+
+type Experience {
+    id: ID!
+    compassion: [Compassion]
+    courage: [Courage]
+    acceptance: [Acceptance]
+    vulnerability: [Vulnerability]
+    gratitude: [Gratitude]
+    suffering: [Suffering]
+}

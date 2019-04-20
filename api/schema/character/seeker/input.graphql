@@ -1,4 +1,0 @@
-input SeekerInput {
-    id: ID
-    virtue: [Virtue]
-}

@@ -1,3 +1,6 @@
+#import Vulnerability from '../../feelings/vulnerability/type.graphql';
+#import Acceptance from '../../feelings/acceptance/type.graphql';
+
 type Mind {
     id: ID!
     vulnerability: [Vulnerability]

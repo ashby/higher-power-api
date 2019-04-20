@@ -1,0 +1,6 @@
+#import Oath from '../../processes/oath/type.graphql';
+
+input PaladinInput {
+    id: ID
+    oath: [Oath]
+}

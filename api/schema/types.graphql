@@ -1,9 +1,9 @@
-# import Defect from "./attributes/defect/type.graphql";
-# import Resentment from "./attributes/resentment/type.graphql";
-# import Obsession from "./attributes/obsession/type.graphql";
-# import Experience from "./attributes/experience/type.graphql";
-# import Strength from "./attributes/strength/type.graphql";
-# import Hope from "./attributes/hope/type.graphql";
+# import Defect from "./paths/defect/type.graphql";
+# import Resentment from "./paths/resentment/type.graphql";
+# import Obsession from "./paths/obsession/type.graphql";
+# import Experience from "./paths/experience/type.graphql";
+# import Strength from "./paths/strength/type.graphql";
+# import Hope from "./paths/hope/type.graphql";
 
 # import Congregant from "./characters/congregant/type.graphql";
 # import Genie from "./characters/genie/type.graphql";

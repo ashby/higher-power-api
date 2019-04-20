@@ -1,0 +1,6 @@
+#import SalvationInput from '../../feelings/salvation/input.graphql';
+
+input HopeInput {
+    id: ID
+    salvation: [SalvationInput]
+}

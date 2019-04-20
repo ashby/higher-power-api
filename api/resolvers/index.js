@@ -1,5 +1,5 @@
-const { registerAttribute } = require( './register/attribute' );
-const { registerSubattribute } = require( './register/sub-attribute' );
+const { registerPath } = require( './register/path' );
+const { registerFeeling } = require( './register/feeling' );
 
 const Mutation = {};
 const Query = {};
@@ -12,28 +12,28 @@ function registerResolvers( queries = {}, mutations = {} ) {
 require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
 
-registerAttribute( 'defect', registerResolvers );
-registerAttribute( 'obsession', registerResolvers );
-registerAttribute( 'experience', registerResolvers );
-registerAttribute( 'strength', registerResolvers );
-registerAttribute( 'hope', registerResolvers );
-registerAttribute( 'resentment', registerResolvers );
+registerPath( 'defect', registerResolvers );
+registerPath( 'obsession', registerResolvers );
+registerPath( 'experience', registerResolvers );
+registerPath( 'strength', registerResolvers );
+registerPath( 'hope', registerResolvers );
+registerPath( 'resentment', registerResolvers );
 
-registerSubattribute( 'acceptance', 'acceptances', registerResolvers );
-registerSubattribute( 'anger', 'angers', registerResolvers );
-registerSubattribute( 'armor', 'armors', registerResolvers );
-registerSubattribute( 'boundary', 'boundaries', registerResolvers );
-registerSubattribute( 'compassion', 'compassions', registerResolvers );
-registerSubattribute( 'courage', 'courages', registerResolvers );
-registerSubattribute( 'fear', 'fears', registerResolvers );
-registerSubattribute( 'gratitude', 'gratitudes', registerResolvers );
-registerSubattribute( 'pride', 'prides', registerResolvers );
-registerSubattribute( 'salvation', 'salvations', registerResolvers );
-registerSubattribute( 'selfPity', 'selfPitys', registerResolvers );
-registerSubattribute( 'suffering', 'sufferings', registerResolvers );
-registerSubattribute( 'toxicity', 'toxicities', registerResolvers );
-registerSubattribute( 'trauma', 'traumas', registerResolvers );
-registerSubattribute( 'vulnerability', 'vulnerabilities', registerResolvers );
+registerFeeling( 'acceptance', 'acceptances', registerResolvers );
+registerFeeling( 'anger', 'angers', registerResolvers );
+registerFeeling( 'armor', 'armors', registerResolvers );
+registerFeeling( 'boundary', 'boundaries', registerResolvers );
+registerFeeling( 'compassion', 'compassions', registerResolvers );
+registerFeeling( 'courage', 'courages', registerResolvers );
+registerFeeling( 'fear', 'fears', registerResolvers );
+registerFeeling( 'gratitude', 'gratitudes', registerResolvers );
+registerFeeling( 'pride', 'prides', registerResolvers );
+registerFeeling( 'salvation', 'salvations', registerResolvers );
+registerFeeling( 'selfPity', 'selfPitys', registerResolvers );
+registerFeeling( 'suffering', 'sufferings', registerResolvers );
+registerFeeling( 'toxicity', 'toxicities', registerResolvers );
+registerFeeling( 'trauma', 'traumas', registerResolvers );
+registerFeeling( 'vulnerability', 'vulnerabilities', registerResolvers );
 
 module.exports = {
     Query,

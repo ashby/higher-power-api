@@ -1,0 +1,6 @@
+#import Act from '../../processes/act/type.graphql';
+
+input VolunteerInput {
+    id: ID
+    act: [Act]
+}

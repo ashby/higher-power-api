@@ -1,3 +1,10 @@
+#import Scar from '../../sources/scar/type.graphql';
+#import Gash from '../../sources/gash/type.graphql';
+#import Infection from '../../sources/infection/type.graphql';
+#import Tremor from '../../sources/tremor/type.graphql';
+#import Nightmare from '../../sources/nightmare/type.graphql';
+#import Delirium from '../../sources/delirium/type.graphql';
+
 type Affliction {
     id: ID!
     scar: [Scar]

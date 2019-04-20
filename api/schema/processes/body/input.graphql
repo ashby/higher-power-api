@@ -1,3 +1,11 @@
+#import Brain from '../../sources/brain/type.graphql';
+#import Face from '../../sources/face/type.graphql';
+#import Mouth from '../../sources/mouth/type.graphql';
+#import Soul from '../../sources/soul/type.graphql';
+#import Heart from '../../sources/heart/type.graphql';
+#import Sternum from '../../sources/sternum/type.graphql';
+#import Gut from '../../sources/gut/type.graphql';
+
 input BodyInput {
     id: ID
     brain: [Brain]

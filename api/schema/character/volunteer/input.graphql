@@ -1,4 +1,0 @@
-input VolunteerInput {
-    id: ID
-    act: [Act]
-}

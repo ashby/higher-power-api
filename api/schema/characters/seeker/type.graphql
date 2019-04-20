@@ -1,0 +1,6 @@
+#import Virtue from '../../processes/virtue/type.graphql';
+
+type Seeker {
+    id: ID!
+    virtue: [Virtue]
+}

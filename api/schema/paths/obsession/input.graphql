@@ -1,0 +1,12 @@
+#import SufferingInput from '../../feelings/suffering/input.graphql';
+#import LoyaltyInput from '../../feelings/loyalty/input.graphql';
+#import HonorInput from '../../feelings/honor/input.graphql';
+#import VulnerabilityInput from '../../feelings/vulnerability/input.graphql';
+
+input ObsessionInput {
+    id: ID
+    suffering: [SufferingInput]
+    loyalty: [LoyaltyInput]
+    honor: [HonorInput]
+    vulnerability: [VulnerabilityInput]
+}

@@ -1,3 +1,5 @@
+#import Armor from '../../feelings/armor/type.graphql';
+
 type Confusion {
     id: ID!
     armor: [Armor]
