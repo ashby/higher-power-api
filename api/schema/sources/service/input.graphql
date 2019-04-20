@@ -1,5 +1,7 @@
 input ServiceInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     courage: [ID]
     compassion: [ID]
 }

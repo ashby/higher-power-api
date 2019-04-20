@@ -1,4 +1,6 @@
 input DreamInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     salvation: [ID]
 }

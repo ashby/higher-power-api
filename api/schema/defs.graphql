@@ -2,6 +2,7 @@
 # import HasInput from "./inputs.graphql";
 # import Inventory from "./types.graphql";
 # import Characters from "./types.graphql";
+# import HigherPower from "./types.graphql";
 
 # import Defect from "./paths/defect/type.graphql";
 # import DefectInput from "./paths/defect/input.graphql";
@@ -15,6 +16,15 @@
 # import StrengthInput from "./paths/strength/input.graphql";
 # import Hope from "./paths/hope/type.graphql";
 # import HopeInput from "./paths/hope/input.graphql";
+
+#import Self from "./characters/self/type.graphql";
+#import SelfInput from "./characters/self/input.graphql";
+
+#import Body from "./processes/body/type.graphql";
+#import BodyInput from "./processes/body/input.graphql";
+
+#import Brain from "./sources/brain/type.graphql";
+#import BrainInput from "./sources/brain/input.graphql";
 
 # import Acceptance from "./feelings/acceptance/type.graphql";
 # import AcceptanceInput from "./feelings/acceptance/input.graphql";
@@ -50,7 +60,9 @@
 
 type Query {
     has(id: ID!): Has
+    higherPower: HigherPower
     inventory: Inventory
+    characters: Characters
 
     defect(id: ID!): Defect
     resentment(id: ID!): Resentment
@@ -58,6 +70,12 @@ type Query {
     experience(id: ID!): Experience
     strength(id: ID!): Strength
     hope(id: ID!): Hope
+
+    self(id: ID!): Self
+
+    body(id: ID!): Body
+
+    brain(id: ID!): Brain
 
     acceptances: [Acceptance]
     acceptance(id: ID!): Acceptance
@@ -100,6 +118,12 @@ type Mutation {
     mutateExperience(data:ExperienceInput): Experience!
     mutateStrength(data:StrengthInput): Strength!
     mutateHope(data:HopeInput): Hope!
+
+    mutateSelf(data:SelfInput): Self!
+
+    mutateBody(data:BodyInput): Body!
+
+    mutateBrain(data:BrainInput): Brain!
 
     mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
     mutateAnger(id:String,data:AngerInput): Anger!

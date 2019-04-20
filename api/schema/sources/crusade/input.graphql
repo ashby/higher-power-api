@@ -1,5 +1,7 @@
 input CrusadeInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     loyalty: [ID]
     honor: [ID]
 }

@@ -1,4 +1,6 @@
 input CrossInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     suffering: [ID]
 }

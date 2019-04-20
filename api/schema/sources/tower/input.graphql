@@ -1,4 +1,6 @@
 input TowerInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     boundary: [ID]
 }

@@ -1,5 +1,7 @@
 input MindInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     vulnerability: [ID]
     acceptance: [ID]
 }

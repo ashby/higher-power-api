@@ -1,5 +1,7 @@
 input SoulInput {
     id: ID
+    feeling: String!
+    feelingId: ID!
     vulnerability: [ID]
     acceptance: [ID]
 }
