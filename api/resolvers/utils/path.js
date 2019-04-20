@@ -28,6 +28,11 @@ const getDefect = async ( has = false ) => await getFeelings( has, [
     { singular: 'toxicity', plural: 'toxicities' },
     'suffering'
 ] );
+const getDiscontent = async ( has = false ) => await getFeelings( has, [
+    { singular: 'irritability', plural: 'irritabilities' },
+    'impatience',
+    'joy'
+] );
 const getResentment = async ( has = false ) => await getFeelings( has, [
     'anger', 
     { singular: 'selfPity', plural: 'selfPities' },
@@ -64,6 +69,7 @@ const getHope = async ( has = false ) => await getFeelings( has, [
 
 const getPaths = {
     getDefect,
+    getDiscontent,
     getResentment,
     getObsession,
     getExperience,

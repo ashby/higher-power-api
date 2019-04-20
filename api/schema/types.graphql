@@ -1,3 +1,4 @@
+# import Discontent from "./paths/discontent/type.graphql";
 # import Defect from "./paths/defect/type.graphql";
 # import Resentment from "./paths/resentment/type.graphql";
 # import Obsession from "./paths/obsession/type.graphql";
@@ -20,6 +21,7 @@
 type Has {
     id: ID!
     defect: Boolean!
+    discontent: Boolean!
     resentment: Boolean!
     obsession: Boolean!
     experience: Boolean!
@@ -33,6 +35,8 @@ type Has {
     courage: Boolean!
     fear: Boolean!
     fun: Boolean!
+    impatience: Boolean!
+    irritability: Boolean!
     gratitude: Boolean!
     joy: Boolean!
     pride: Boolean!
@@ -47,6 +51,7 @@ type Has {
 type Inventory {
     has: Has
     defect: Defect
+    discontent: Discontent
     resentment: Resentment
     obsession: Obsession
     experience: Experience

@@ -3,6 +3,7 @@ const config = require( '../../config' );
 
 const HAS = {
     defect: false,
+    discontent: false,
     resentment: false,
     obsession: false,
     experience: false,
@@ -17,6 +18,8 @@ const HAS = {
     fear: false,
     fun: false,
     gratitude: false,
+    irritability: false,
+    impatience: false,
     joy: false,
     pride: false,
     salvaltion: false,

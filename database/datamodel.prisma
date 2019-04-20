@@ -1,6 +1,7 @@
 type Has {
     id: ID! @id
     defect: Boolean! @default(value: false)
+    discontent: Boolean! @default(value: false)
     resentment: Boolean! @default(value: false)
     obsession: Boolean! @default(value: false)
     experience: Boolean! @default(value: false)
@@ -15,6 +16,8 @@ type Has {
     fear: Boolean! @default(value: false)
     fun: Boolean! @default(value: false)
     gratitude: Boolean! @default(value: false)
+    irritability: Boolean! @default(value: false)
+    impatience: Boolean! @default(value: false)
     joy: Boolean! @default(value: false)
     pride: Boolean! @default(value: false)
     salvaltion: Boolean! @default(value: false)
@@ -319,6 +322,11 @@ type Defect {
     toxicity: [Toxicity]
     suffering: [Suffering]
 }
+type Discontent {
+    id: ID! @id
+    irritability: [Irritability]
+    impatience: [Impatience]
+}
 type Resentment {
     id: ID! @id
     anger: [Anger]
@@ -622,10 +630,39 @@ type Joy {
     amendedAt: DateTime
     resolveAt: DateTime
 }
+type Irritability {
+    id: ID! @id
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Impatience {
+    id: ID! @id
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
 
 type Inventory {
     id: ID! @id
     defect: [Defect]
+    discontent: [Discontent]
     resentment: [Resentment]
     obsession: [Obsession]
     experience: [Experience]

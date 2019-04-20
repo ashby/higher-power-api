@@ -229,6 +229,10 @@ var models = [
     embedded: false
   },
   {
+    name: "Discontent",
+    embedded: false
+  },
+  {
     name: "Resentment",
     embedded: false
   },
@@ -322,6 +326,14 @@ var models = [
   },
   {
     name: "Joy",
+    embedded: false
+  },
+  {
+    name: "Irritability",
+    embedded: false
+  },
+  {
+    name: "Impatience",
     embedded: false
   },
   {

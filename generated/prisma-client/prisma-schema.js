@@ -876,6 +876,10 @@ type AggregateDenial {
   count: Int!
 }
 
+type AggregateDiscontent {
+  count: Int!
+}
+
 type AggregateDream {
   count: Int!
 }
@@ -940,11 +944,19 @@ type AggregateHope {
   count: Int!
 }
 
+type AggregateImpatience {
+  count: Int!
+}
+
 type AggregateInfection {
   count: Int!
 }
 
 type AggregateInventory {
+  count: Int!
+}
+
+type AggregateIrritability {
   count: Int!
 }
 
@@ -5312,6 +5324,147 @@ input DenialWhereUniqueInput {
   id: ID
 }
 
+type Discontent {
+  id: ID!
+  irritability(where: IrritabilityWhereInput, orderBy: IrritabilityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Irritability!]
+  impatience(where: ImpatienceWhereInput, orderBy: ImpatienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Impatience!]
+}
+
+type DiscontentConnection {
+  pageInfo: PageInfo!
+  edges: [DiscontentEdge]!
+  aggregate: AggregateDiscontent!
+}
+
+input DiscontentCreateInput {
+  id: ID
+  irritability: IrritabilityCreateManyInput
+  impatience: ImpatienceCreateManyInput
+}
+
+input DiscontentCreateManyInput {
+  create: [DiscontentCreateInput!]
+  connect: [DiscontentWhereUniqueInput!]
+}
+
+type DiscontentEdge {
+  node: Discontent!
+  cursor: String!
+}
+
+enum DiscontentOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type DiscontentPreviousValues {
+  id: ID!
+}
+
+input DiscontentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [DiscontentScalarWhereInput!]
+  OR: [DiscontentScalarWhereInput!]
+  NOT: [DiscontentScalarWhereInput!]
+}
+
+type DiscontentSubscriptionPayload {
+  mutation: MutationType!
+  node: Discontent
+  updatedFields: [String!]
+  previousValues: DiscontentPreviousValues
+}
+
+input DiscontentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DiscontentWhereInput
+  AND: [DiscontentSubscriptionWhereInput!]
+  OR: [DiscontentSubscriptionWhereInput!]
+  NOT: [DiscontentSubscriptionWhereInput!]
+}
+
+input DiscontentUpdateDataInput {
+  irritability: IrritabilityUpdateManyInput
+  impatience: ImpatienceUpdateManyInput
+}
+
+input DiscontentUpdateInput {
+  irritability: IrritabilityUpdateManyInput
+  impatience: ImpatienceUpdateManyInput
+}
+
+input DiscontentUpdateManyInput {
+  create: [DiscontentCreateInput!]
+  update: [DiscontentUpdateWithWhereUniqueNestedInput!]
+  upsert: [DiscontentUpsertWithWhereUniqueNestedInput!]
+  delete: [DiscontentWhereUniqueInput!]
+  connect: [DiscontentWhereUniqueInput!]
+  set: [DiscontentWhereUniqueInput!]
+  disconnect: [DiscontentWhereUniqueInput!]
+  deleteMany: [DiscontentScalarWhereInput!]
+}
+
+input DiscontentUpdateWithWhereUniqueNestedInput {
+  where: DiscontentWhereUniqueInput!
+  data: DiscontentUpdateDataInput!
+}
+
+input DiscontentUpsertWithWhereUniqueNestedInput {
+  where: DiscontentWhereUniqueInput!
+  update: DiscontentUpdateDataInput!
+  create: DiscontentCreateInput!
+}
+
+input DiscontentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  irritability_every: IrritabilityWhereInput
+  irritability_some: IrritabilityWhereInput
+  irritability_none: IrritabilityWhereInput
+  impatience_every: ImpatienceWhereInput
+  impatience_some: ImpatienceWhereInput
+  impatience_none: ImpatienceWhereInput
+  AND: [DiscontentWhereInput!]
+  OR: [DiscontentWhereInput!]
+  NOT: [DiscontentWhereInput!]
+}
+
+input DiscontentWhereUniqueInput {
+  id: ID
+}
+
 type Dream {
   id: ID!
   salvation(where: SalvationWhereInput, orderBy: SalvationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Salvation!]
@@ -7831,6 +7984,7 @@ input GutWhereUniqueInput {
 type Has {
   id: ID!
   defect: Boolean!
+  discontent: Boolean!
   resentment: Boolean!
   obsession: Boolean!
   experience: Boolean!
@@ -7845,6 +7999,8 @@ type Has {
   fear: Boolean!
   fun: Boolean!
   gratitude: Boolean!
+  irritability: Boolean!
+  impatience: Boolean!
   joy: Boolean!
   pride: Boolean!
   salvaltion: Boolean!
@@ -7864,6 +8020,7 @@ type HasConnection {
 input HasCreateInput {
   id: ID
   defect: Boolean
+  discontent: Boolean
   resentment: Boolean
   obsession: Boolean
   experience: Boolean
@@ -7878,6 +8035,8 @@ input HasCreateInput {
   fear: Boolean
   fun: Boolean
   gratitude: Boolean
+  irritability: Boolean
+  impatience: Boolean
   joy: Boolean
   pride: Boolean
   salvaltion: Boolean
@@ -7898,6 +8057,8 @@ enum HasOrderByInput {
   id_DESC
   defect_ASC
   defect_DESC
+  discontent_ASC
+  discontent_DESC
   resentment_ASC
   resentment_DESC
   obsession_ASC
@@ -7926,6 +8087,10 @@ enum HasOrderByInput {
   fun_DESC
   gratitude_ASC
   gratitude_DESC
+  irritability_ASC
+  irritability_DESC
+  impatience_ASC
+  impatience_DESC
   joy_ASC
   joy_DESC
   pride_ASC
@@ -7951,6 +8116,7 @@ enum HasOrderByInput {
 type HasPreviousValues {
   id: ID!
   defect: Boolean!
+  discontent: Boolean!
   resentment: Boolean!
   obsession: Boolean!
   experience: Boolean!
@@ -7965,6 +8131,8 @@ type HasPreviousValues {
   fear: Boolean!
   fun: Boolean!
   gratitude: Boolean!
+  irritability: Boolean!
+  impatience: Boolean!
   joy: Boolean!
   pride: Boolean!
   salvaltion: Boolean!
@@ -7995,6 +8163,7 @@ input HasSubscriptionWhereInput {
 
 input HasUpdateInput {
   defect: Boolean
+  discontent: Boolean
   resentment: Boolean
   obsession: Boolean
   experience: Boolean
@@ -8009,6 +8178,8 @@ input HasUpdateInput {
   fear: Boolean
   fun: Boolean
   gratitude: Boolean
+  irritability: Boolean
+  impatience: Boolean
   joy: Boolean
   pride: Boolean
   salvaltion: Boolean
@@ -8021,6 +8192,7 @@ input HasUpdateInput {
 
 input HasUpdateManyMutationInput {
   defect: Boolean
+  discontent: Boolean
   resentment: Boolean
   obsession: Boolean
   experience: Boolean
@@ -8035,6 +8207,8 @@ input HasUpdateManyMutationInput {
   fear: Boolean
   fun: Boolean
   gratitude: Boolean
+  irritability: Boolean
+  impatience: Boolean
   joy: Boolean
   pride: Boolean
   salvaltion: Boolean
@@ -8062,6 +8236,8 @@ input HasWhereInput {
   id_not_ends_with: ID
   defect: Boolean
   defect_not: Boolean
+  discontent: Boolean
+  discontent_not: Boolean
   resentment: Boolean
   resentment_not: Boolean
   obsession: Boolean
@@ -8090,6 +8266,10 @@ input HasWhereInput {
   fun_not: Boolean
   gratitude: Boolean
   gratitude_not: Boolean
+  irritability: Boolean
+  irritability_not: Boolean
+  impatience: Boolean
+  impatience_not: Boolean
   joy: Boolean
   joy_not: Boolean
   pride: Boolean
@@ -8975,6 +9155,478 @@ input HopeWhereUniqueInput {
   id: ID
 }
 
+type Impatience {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+type ImpatienceConnection {
+  pageInfo: PageInfo!
+  edges: [ImpatienceEdge]!
+  aggregate: AggregateImpatience!
+}
+
+input ImpatienceCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceCreateManyInput {
+  create: [ImpatienceCreateInput!]
+  connect: [ImpatienceWhereUniqueInput!]
+}
+
+type ImpatienceEdge {
+  node: Impatience!
+  cursor: String!
+}
+
+enum ImpatienceOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  source_ASC
+  source_DESC
+  process_ASC
+  process_DESC
+  path_ASC
+  path_DESC
+  feeling_ASC
+  feeling_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolveAt_ASC
+  resolveAt_DESC
+}
+
+type ImpatiencePreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [ImpatienceScalarWhereInput!]
+  OR: [ImpatienceScalarWhereInput!]
+  NOT: [ImpatienceScalarWhereInput!]
+}
+
+type ImpatienceSubscriptionPayload {
+  mutation: MutationType!
+  node: Impatience
+  updatedFields: [String!]
+  previousValues: ImpatiencePreviousValues
+}
+
+input ImpatienceSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ImpatienceWhereInput
+  AND: [ImpatienceSubscriptionWhereInput!]
+  OR: [ImpatienceSubscriptionWhereInput!]
+  NOT: [ImpatienceSubscriptionWhereInput!]
+}
+
+input ImpatienceUpdateDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceUpdateInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceUpdateManyDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceUpdateManyInput {
+  create: [ImpatienceCreateInput!]
+  update: [ImpatienceUpdateWithWhereUniqueNestedInput!]
+  upsert: [ImpatienceUpsertWithWhereUniqueNestedInput!]
+  delete: [ImpatienceWhereUniqueInput!]
+  connect: [ImpatienceWhereUniqueInput!]
+  set: [ImpatienceWhereUniqueInput!]
+  disconnect: [ImpatienceWhereUniqueInput!]
+  deleteMany: [ImpatienceScalarWhereInput!]
+  updateMany: [ImpatienceUpdateManyWithWhereNestedInput!]
+}
+
+input ImpatienceUpdateManyMutationInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input ImpatienceUpdateManyWithWhereNestedInput {
+  where: ImpatienceScalarWhereInput!
+  data: ImpatienceUpdateManyDataInput!
+}
+
+input ImpatienceUpdateWithWhereUniqueNestedInput {
+  where: ImpatienceWhereUniqueInput!
+  data: ImpatienceUpdateDataInput!
+}
+
+input ImpatienceUpsertWithWhereUniqueNestedInput {
+  where: ImpatienceWhereUniqueInput!
+  update: ImpatienceUpdateDataInput!
+  create: ImpatienceCreateInput!
+}
+
+input ImpatienceWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [ImpatienceWhereInput!]
+  OR: [ImpatienceWhereInput!]
+  NOT: [ImpatienceWhereInput!]
+}
+
+input ImpatienceWhereUniqueInput {
+  id: ID
+}
+
 type Infection {
   id: ID!
   trauma(where: TraumaWhereInput, orderBy: TraumaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Trauma!]
@@ -9119,6 +9771,7 @@ input InfectionWhereUniqueInput {
 type Inventory {
   id: ID!
   defect(where: DefectWhereInput, orderBy: DefectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Defect!]
+  discontent(where: DiscontentWhereInput, orderBy: DiscontentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Discontent!]
   resentment(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Resentment!]
   obsession(where: ObsessionWhereInput, orderBy: ObsessionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Obsession!]
   experience(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience!]
@@ -9135,6 +9788,7 @@ type InventoryConnection {
 input InventoryCreateInput {
   id: ID
   defect: DefectCreateManyInput
+  discontent: DiscontentCreateManyInput
   resentment: ResentmentCreateManyInput
   obsession: ObsessionCreateManyInput
   experience: ExperienceCreateManyInput
@@ -9185,6 +9839,7 @@ input InventorySubscriptionWhereInput {
 
 input InventoryUpdateDataInput {
   defect: DefectUpdateManyInput
+  discontent: DiscontentUpdateManyInput
   resentment: ResentmentUpdateManyInput
   obsession: ObsessionUpdateManyInput
   experience: ExperienceUpdateManyInput
@@ -9194,6 +9849,7 @@ input InventoryUpdateDataInput {
 
 input InventoryUpdateInput {
   defect: DefectUpdateManyInput
+  discontent: DiscontentUpdateManyInput
   resentment: ResentmentUpdateManyInput
   obsession: ObsessionUpdateManyInput
   experience: ExperienceUpdateManyInput
@@ -9233,6 +9889,9 @@ input InventoryWhereInput {
   defect_every: DefectWhereInput
   defect_some: DefectWhereInput
   defect_none: DefectWhereInput
+  discontent_every: DiscontentWhereInput
+  discontent_some: DiscontentWhereInput
+  discontent_none: DiscontentWhereInput
   resentment_every: ResentmentWhereInput
   resentment_some: ResentmentWhereInput
   resentment_none: ResentmentWhereInput
@@ -9254,6 +9913,478 @@ input InventoryWhereInput {
 }
 
 input InventoryWhereUniqueInput {
+  id: ID
+}
+
+type Irritability {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+type IrritabilityConnection {
+  pageInfo: PageInfo!
+  edges: [IrritabilityEdge]!
+  aggregate: AggregateIrritability!
+}
+
+input IrritabilityCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityCreateManyInput {
+  create: [IrritabilityCreateInput!]
+  connect: [IrritabilityWhereUniqueInput!]
+}
+
+type IrritabilityEdge {
+  node: Irritability!
+  cursor: String!
+}
+
+enum IrritabilityOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  source_ASC
+  source_DESC
+  process_ASC
+  process_DESC
+  path_ASC
+  path_DESC
+  feeling_ASC
+  feeling_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolveAt_ASC
+  resolveAt_DESC
+}
+
+type IrritabilityPreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [IrritabilityScalarWhereInput!]
+  OR: [IrritabilityScalarWhereInput!]
+  NOT: [IrritabilityScalarWhereInput!]
+}
+
+type IrritabilitySubscriptionPayload {
+  mutation: MutationType!
+  node: Irritability
+  updatedFields: [String!]
+  previousValues: IrritabilityPreviousValues
+}
+
+input IrritabilitySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: IrritabilityWhereInput
+  AND: [IrritabilitySubscriptionWhereInput!]
+  OR: [IrritabilitySubscriptionWhereInput!]
+  NOT: [IrritabilitySubscriptionWhereInput!]
+}
+
+input IrritabilityUpdateDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityUpdateInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityUpdateManyDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityUpdateManyInput {
+  create: [IrritabilityCreateInput!]
+  update: [IrritabilityUpdateWithWhereUniqueNestedInput!]
+  upsert: [IrritabilityUpsertWithWhereUniqueNestedInput!]
+  delete: [IrritabilityWhereUniqueInput!]
+  connect: [IrritabilityWhereUniqueInput!]
+  set: [IrritabilityWhereUniqueInput!]
+  disconnect: [IrritabilityWhereUniqueInput!]
+  deleteMany: [IrritabilityScalarWhereInput!]
+  updateMany: [IrritabilityUpdateManyWithWhereNestedInput!]
+}
+
+input IrritabilityUpdateManyMutationInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input IrritabilityUpdateManyWithWhereNestedInput {
+  where: IrritabilityScalarWhereInput!
+  data: IrritabilityUpdateManyDataInput!
+}
+
+input IrritabilityUpdateWithWhereUniqueNestedInput {
+  where: IrritabilityWhereUniqueInput!
+  data: IrritabilityUpdateDataInput!
+}
+
+input IrritabilityUpsertWithWhereUniqueNestedInput {
+  where: IrritabilityWhereUniqueInput!
+  update: IrritabilityUpdateDataInput!
+  create: IrritabilityCreateInput!
+}
+
+input IrritabilityWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [IrritabilityWhereInput!]
+  OR: [IrritabilityWhereInput!]
+  NOT: [IrritabilityWhereInput!]
+}
+
+input IrritabilityWhereUniqueInput {
   id: ID
 }
 
@@ -10752,6 +11883,11 @@ type Mutation {
   upsertDenial(where: DenialWhereUniqueInput!, create: DenialCreateInput!, update: DenialUpdateInput!): Denial!
   deleteDenial(where: DenialWhereUniqueInput!): Denial
   deleteManyDenials(where: DenialWhereInput): BatchPayload!
+  createDiscontent(data: DiscontentCreateInput!): Discontent!
+  updateDiscontent(data: DiscontentUpdateInput!, where: DiscontentWhereUniqueInput!): Discontent
+  upsertDiscontent(where: DiscontentWhereUniqueInput!, create: DiscontentCreateInput!, update: DiscontentUpdateInput!): Discontent!
+  deleteDiscontent(where: DiscontentWhereUniqueInput!): Discontent
+  deleteManyDiscontents(where: DiscontentWhereInput): BatchPayload!
   createDream(data: DreamCreateInput!): Dream!
   updateDream(data: DreamUpdateInput!, where: DreamWhereUniqueInput!): Dream
   upsertDream(where: DreamWhereUniqueInput!, create: DreamCreateInput!, update: DreamUpdateInput!): Dream!
@@ -10837,6 +11973,12 @@ type Mutation {
   upsertHope(where: HopeWhereUniqueInput!, create: HopeCreateInput!, update: HopeUpdateInput!): Hope!
   deleteHope(where: HopeWhereUniqueInput!): Hope
   deleteManyHopes(where: HopeWhereInput): BatchPayload!
+  createImpatience(data: ImpatienceCreateInput!): Impatience!
+  updateImpatience(data: ImpatienceUpdateInput!, where: ImpatienceWhereUniqueInput!): Impatience
+  updateManyImpatiences(data: ImpatienceUpdateManyMutationInput!, where: ImpatienceWhereInput): BatchPayload!
+  upsertImpatience(where: ImpatienceWhereUniqueInput!, create: ImpatienceCreateInput!, update: ImpatienceUpdateInput!): Impatience!
+  deleteImpatience(where: ImpatienceWhereUniqueInput!): Impatience
+  deleteManyImpatiences(where: ImpatienceWhereInput): BatchPayload!
   createInfection(data: InfectionCreateInput!): Infection!
   updateInfection(data: InfectionUpdateInput!, where: InfectionWhereUniqueInput!): Infection
   upsertInfection(where: InfectionWhereUniqueInput!, create: InfectionCreateInput!, update: InfectionUpdateInput!): Infection!
@@ -10847,6 +11989,12 @@ type Mutation {
   upsertInventory(where: InventoryWhereUniqueInput!, create: InventoryCreateInput!, update: InventoryUpdateInput!): Inventory!
   deleteInventory(where: InventoryWhereUniqueInput!): Inventory
   deleteManyInventories(where: InventoryWhereInput): BatchPayload!
+  createIrritability(data: IrritabilityCreateInput!): Irritability!
+  updateIrritability(data: IrritabilityUpdateInput!, where: IrritabilityWhereUniqueInput!): Irritability
+  updateManyIrritabilities(data: IrritabilityUpdateManyMutationInput!, where: IrritabilityWhereInput): BatchPayload!
+  upsertIrritability(where: IrritabilityWhereUniqueInput!, create: IrritabilityCreateInput!, update: IrritabilityUpdateInput!): Irritability!
+  deleteIrritability(where: IrritabilityWhereUniqueInput!): Irritability
+  deleteManyIrritabilities(where: IrritabilityWhereInput): BatchPayload!
   createJoy(data: JoyCreateInput!): Joy!
   updateJoy(data: JoyUpdateInput!, where: JoyWhereUniqueInput!): Joy
   updateManyJoys(data: JoyUpdateManyMutationInput!, where: JoyWhereInput): BatchPayload!
@@ -12449,6 +13597,9 @@ type Query {
   denial(where: DenialWhereUniqueInput!): Denial
   denials(where: DenialWhereInput, orderBy: DenialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Denial]!
   denialsConnection(where: DenialWhereInput, orderBy: DenialOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DenialConnection!
+  discontent(where: DiscontentWhereUniqueInput!): Discontent
+  discontents(where: DiscontentWhereInput, orderBy: DiscontentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Discontent]!
+  discontentsConnection(where: DiscontentWhereInput, orderBy: DiscontentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DiscontentConnection!
   dream(where: DreamWhereUniqueInput!): Dream
   dreams(where: DreamWhereInput, orderBy: DreamOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Dream]!
   dreamsConnection(where: DreamWhereInput, orderBy: DreamOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DreamConnection!
@@ -12497,12 +13648,18 @@ type Query {
   hope(where: HopeWhereUniqueInput!): Hope
   hopes(where: HopeWhereInput, orderBy: HopeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Hope]!
   hopesConnection(where: HopeWhereInput, orderBy: HopeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HopeConnection!
+  impatience(where: ImpatienceWhereUniqueInput!): Impatience
+  impatiences(where: ImpatienceWhereInput, orderBy: ImpatienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Impatience]!
+  impatiencesConnection(where: ImpatienceWhereInput, orderBy: ImpatienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ImpatienceConnection!
   infection(where: InfectionWhereUniqueInput!): Infection
   infections(where: InfectionWhereInput, orderBy: InfectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Infection]!
   infectionsConnection(where: InfectionWhereInput, orderBy: InfectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InfectionConnection!
   inventory(where: InventoryWhereUniqueInput!): Inventory
   inventories(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventory]!
   inventoriesConnection(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InventoryConnection!
+  irritability(where: IrritabilityWhereUniqueInput!): Irritability
+  irritabilities(where: IrritabilityWhereInput, orderBy: IrritabilityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Irritability]!
+  irritabilitiesConnection(where: IrritabilityWhereInput, orderBy: IrritabilityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IrritabilityConnection!
   joy(where: JoyWhereUniqueInput!): Joy
   joys(where: JoyWhereInput, orderBy: JoyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Joy]!
   joysConnection(where: JoyWhereInput, orderBy: JoyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): JoyConnection!
@@ -15620,6 +16777,7 @@ type Subscription {
   defect(where: DefectSubscriptionWhereInput): DefectSubscriptionPayload
   delirium(where: DeliriumSubscriptionWhereInput): DeliriumSubscriptionPayload
   denial(where: DenialSubscriptionWhereInput): DenialSubscriptionPayload
+  discontent(where: DiscontentSubscriptionWhereInput): DiscontentSubscriptionPayload
   dream(where: DreamSubscriptionWhereInput): DreamSubscriptionPayload
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   face(where: FaceSubscriptionWhereInput): FaceSubscriptionPayload
@@ -15636,8 +16794,10 @@ type Subscription {
   higherPower(where: HigherPowerSubscriptionWhereInput): HigherPowerSubscriptionPayload
   honor(where: HonorSubscriptionWhereInput): HonorSubscriptionPayload
   hope(where: HopeSubscriptionWhereInput): HopeSubscriptionPayload
+  impatience(where: ImpatienceSubscriptionWhereInput): ImpatienceSubscriptionPayload
   infection(where: InfectionSubscriptionWhereInput): InfectionSubscriptionPayload
   inventory(where: InventorySubscriptionWhereInput): InventorySubscriptionPayload
+  irritability(where: IrritabilitySubscriptionWhereInput): IrritabilitySubscriptionPayload
   joy(where: JoySubscriptionWhereInput): JoySubscriptionPayload
   love(where: LoveSubscriptionWhereInput): LoveSubscriptionPayload
   loyalty(where: LoyaltySubscriptionWhereInput): LoyaltySubscriptionPayload

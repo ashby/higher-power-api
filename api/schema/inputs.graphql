@@ -3,6 +3,7 @@ input HasInput {
     id: ID
     has: String!
     defect: Boolean
+    discontent: Boolean
     resentment: Boolean
     obsession: Boolean
     experience: Boolean
@@ -15,7 +16,11 @@ input HasInput {
     compassion: Boolean
     courage: Boolean
     fear: Boolean
+    fun: Boolean
+    impatience: Boolean
+    irritability: Boolean
     gratitude: Boolean
+    joy: Boolean
     pride: Boolean
     salvaltion: Boolean
     selfPity: Boolean

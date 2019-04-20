@@ -6,6 +6,8 @@
 
 # import Defect from "./paths/defect/type.graphql";
 # import DefectInput from "./paths/defect/input.graphql";
+# import Discontent from "./paths/discontent/type.graphql";
+# import DiscontentInput from "./paths/discontent/input.graphql";
 # import Resentment from "./paths/resentment/type.graphql";
 # import ResentmentInput from "./paths/resentment/input.graphql";
 # import Obsession from "./paths/obsession/type.graphql";
@@ -42,6 +44,10 @@
 # import FearInput from "./feelings/fear/input.graphql";
 # import Fun from "./feelings/fun/type.graphql";
 # import FunInput from "./feelings/fun/input.graphql";
+# import Irritability from "./feelings/irritability/type.graphql";
+# import IrritabilityInput from "./feelings/irritability/input.graphql";
+# import Impatience from "./feelings/impatience/type.graphql";
+# import ImpatienceInput from "./feelings/impatience/input.graphql";
 # import Gratitude from "./feelings/gratitude/type.graphql";
 # import GratitudeInput from "./feelings/gratitude/input.graphql";
 # import Joy from "./feelings/joy/type.graphql";
@@ -69,6 +75,7 @@ type Query {
     characters: Characters
 
     defect(id: ID!): Defect
+    discontent(id: ID!): Discontent
     resentment(id: ID!): Resentment
     obsession(id: ID!): Obsession
     experience(id: ID!): Experience
@@ -97,6 +104,10 @@ type Query {
     fear(id: ID!): Fear
     funs: [Fun]
     fun(id: ID!): [Fun]
+    impatiences: [Impatience]
+    impatience(id: ID!): [Impatience]
+    irritabilities: [Irritability]
+    irritability(id: ID!): [Irritability]
     gratitudes: [Gratitude]
     gratitude(id: ID!): Gratitude
     joys: [Joy]
@@ -121,6 +132,7 @@ type Mutation {
     mutateHas(data:HasInput): Has!
 
     mutateDefect(data:DefectInput): Defect!
+    mutateDiscontent(data:DiscontentInput): Discontent!
     mutateResentment(data:ResentmentInput): Resentment!
     mutateObsession(data:ObsessionInput): Obsession!
     mutateExperience(data:ExperienceInput): Experience!
@@ -142,6 +154,8 @@ type Mutation {
     mutateFear(id:String,data:FearInput): Fear!
     mutateFun(id:String,data:FunInput): Fun!
     mutateGratitude(id:String,data:GratitudeInput): Gratitude!
+    mutateIrritability(id:String,data:IrritabilityInput): Irritability!
+    mutateImpatience(id:String,data:ImpatienceInput): Impatience!
     mutateJoy(id:String,data:JoyInput): Joy!
     mutatePride(id:String,data:PrideInput): Pride!
     mutateSalvation(id:String,data:SalvationInput): Salvation!

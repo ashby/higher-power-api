@@ -13,6 +13,7 @@ require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
 
 registerPath( 'defect', registerResolvers );
+registerPath( 'discontent', registerResolvers );
 registerPath( 'obsession', registerResolvers );
 registerPath( 'experience', registerResolvers );
 registerPath( 'strength', registerResolvers );
@@ -28,6 +29,8 @@ registerFeeling( 'courage', 'courages', registerResolvers );
 registerFeeling( 'fear', 'fears', registerResolvers );
 registerFeeling( 'fun', 'funs', registerResolvers );
 registerFeeling( 'gratitude', 'gratitudes', registerResolvers );
+registerFeeling( 'impatience', 'impatiences', registerResolvers );
+registerFeeling( 'irritability', 'irritabilities', registerResolvers );
 registerFeeling( 'joy', 'joys', registerResolvers );
 registerFeeling( 'pride', 'prides', registerResolvers );
 registerFeeling( 'salvation', 'salvations', registerResolvers );
