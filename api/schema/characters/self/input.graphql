@@ -1,6 +1,6 @@
-#import Body from '../../processes/body/type.graphql';
+#import BodyInput from '../../processes/body/input.graphql';
 
 input SelfInput {
     id: ID
-    body: [Body]
+    body: [BodyInput]
 }

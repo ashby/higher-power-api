@@ -1,18 +1,18 @@
-#import Brain from '../../sources/brain/type.graphql';
-#import Face from '../../sources/face/type.graphql';
-#import Mouth from '../../sources/mouth/type.graphql';
-#import Soul from '../../sources/soul/type.graphql';
-#import Heart from '../../sources/heart/type.graphql';
-#import Sternum from '../../sources/sternum/type.graphql';
-#import Gut from '../../sources/gut/type.graphql';
+#import BrainInput from '../../sources/brain/input.graphql';
+#import FaceInput from '../../sources/face/input.graphql';
+#import MouthInput from '../../sources/mouth/input.graphql';
+#import SoulInput from '../../sources/soul/input.graphql';
+#import HeartInput from '../../sources/heart/input.graphql';
+#import SternumInput from '../../sources/sternum/input.graphql';
+#import GutInput from '../../sources/gut/input.graphql';
 
 input BodyInput {
     id: ID
-    brain: [Brain]
-    face: [Face]
-    mouth: [Mouth]
-    soul: [Soul]
-    heart: [Heart]
-    sternum: [Sternum]
-    gut: [Gut]
+    brain: [BrainInput]
+    face: [FaceInput]
+    mouth: [MouthInput]
+    soul: [SoulInput]
+    heart: [HeartInput]
+    sternum: [SternumInput]
+    gut: [GutInput]
 }
