@@ -30,14 +30,14 @@
 # import ActInput from "./processes/act/input.graphql";
 # import Affliction from "./processes/affliction/type.graphql";
 # import AfflictionInput from "./processes/affliction/input.graphql";
-# import Body from "./processes/body/body/type.graphql";
-# import BodyInput from "./processes/body/body/input.graphql";
+# import Body from "./processes/body/type.graphql";
+# import BodyInput from "./processes/body/input.graphql";
 # import Construct from "./processes/construct/type.graphql";
 # import ConstructInput from "./processes/construct/input.graphql";
-# import Oath from "./processes/oath/oath/type.graphql";
-# import OathInput from "./processes/oath/oath/input.graphql";
-# import Shield from "./processes/shield/shield/type.graphql";
-# import ShieldInput from "./processes/shield/shield/input.graphql";
+# import Oath from "./processes/oath/type.graphql";
+# import OathInput from "./processes/oath/input.graphql";
+# import Shield from "./processes/shield/type.graphql";
+# import ShieldInput from "./processes/shield/input.graphql";
 # import Stigmata from "./processes/stigmata/type.graphql";
 # import StigmataInput from "./processes/stigmata/input.graphql";
 # import Virtue from "./processes/virtue/type.graphql";
@@ -210,8 +210,6 @@ type Query {
     virtue(id: ID!): Virtue
     wish(id: ID!): Wish
 
-    brain(id: ID!): Brain
-
     acceptances: [Acceptance]
     acceptance(id: ID!): Acceptance
     angers: [Anger]
@@ -252,71 +250,70 @@ type Query {
     vulnerability(id: ID!): Vulnerability
 
     brain(id: ID!): Brain
-    campaign(id: ID!): Campaign
-    confusion(id: ID!): Confusion
-    cross(id: ID!): Cross
-    crown(id: ID!): Crown
-    crusade(id: ID!): Crusade
-    delirium(id: ID!): Delirium
-    denial(id: ID!): Denial
-    dream(id: ID!): Dream
-    face(id: ID!): Face
-    gash(id: ID!): Gash
-    gate(id: ID!): Gate
-    gut(id: ID!): Gut
-    heart(id: ID!): Heart
-    infection(id: ID!): Infection
-    love(id: ID!): Love
-    mind(id: ID!): Mind
-    mouth(id: ID!): Mouth
-    nail(id: ID!): Nail
-    nightmare(id: ID!): Nightmare
-    pledge(id: ID!): Pledge
-    sacrifice(id: ID!): Sacrifice
-    sarcasm(id: ID!): Sarcasm
-    scar(id: ID!): Scar
-    service(id: ID!): Service
-    silence(id: ID!): Silence
-    skin(id: ID!): Skin
-    soul(id: ID!): Soul
-    sternum(id: ID!): Sternum
-    support(id: ID!): Support
-    tower(id: ID!): Tower
-    tremor(id: ID!): Tremor
-    wall(id: ID!): Wall
-
     brains: [Brain]
+    campaign(id: ID!): Campaign
     campaigns: [Campaign]
+    confusion(id: ID!): Confusion
     confusions: [Confusion]
+    cross(id: ID!): Cross
     crosss: [Cross]
+    crown(id: ID!): Crown
     crowns: [Crown]
+    crusade(id: ID!): Crusade
     crusades: [Crusade]
+    delirium(id: ID!): Delirium
     deliriums: [Delirium]
+    denial(id: ID!): Denial
     denials: [Denial]
+    dream(id: ID!): Dream
     dreams: [Dream]
+    face(id: ID!): Face
     faces: [Face]
+    gash(id: ID!): Gash
     gashs: [Gash]
+    gate(id: ID!): Gate
     gates: [Gate]
+    gut(id: ID!): Gut
     guts: [Gut]
+    heart(id: ID!): Heart
     hearts: [Heart]
+    infection(id: ID!): Infection
     infections: [Infection]
+    love(id: ID!): Love
     loves: [Love]
+    mind(id: ID!): Mind
     minds: [Mind]
+    mouth(id: ID!): Mouth
     mouths: [Mouth]
+    nail(id: ID!): Nail
     nails: [Nail]
+    nightmare(id: ID!): Nightmare
     nightmares: [Nightmare]
+    pledge(id: ID!): Pledge
     pledges: [Pledge]
+    sacrifice(id: ID!): Sacrifice
     sacrifices: [Sacrifice]
+    sarcasm(id: ID!): Sarcasm
     sarcasms: [Sarcasm]
+    scar(id: ID!): Scar
     scars: [Scar]
+    service(id: ID!): Service
     services: [Service]
+    silence(id: ID!): Silence
     silences: [Silence]
+    skin(id: ID!): Skin
     skins: [Skin]
+    soul(id: ID!): Soul
     souls: [Soul]
+    sternum(id: ID!): Sternum
     sternums: [Sternum]
+    support(id: ID!): Support
     supports: [Support]
+    tower(id: ID!): Tower
     towers: [Tower]
+    tremor(id: ID!): Tremor
     tremors: [Tremor]
+    wall(id: ID!): Wall    
     walls: [Wall]
 }
 
@@ -342,17 +339,15 @@ type Mutation {
     mutateVictim(data:VictimInput): Victim!
     mutateVolunteer(data:VolunteerInput): Volunteer!
 
-    Act(data:ActInput): Act!
-    Affliction(data:AfflictionInput): Affliction!
-    Body(data:BodyInput): Body!
-    Construct(data:ConstructInput): Construct!
-    Oath(data:OathInput): Oath!
-    Shield(data:ShieldInput): Shield!
-    Stigmata(data:StigmateInput): Stigmata!
-    Virtue(data:VirtueInput): Virtue!
-    Wish(data:WishInput): Wish!
-
-    mutateBrain(data:BrainInput): Brain!
+    mutateAct(data:ActInput): Act!
+    mutateAffliction(data:AfflictionInput): Affliction!
+    mutateBody(data:BodyInput): Body!
+    mutateConstruct(data:ConstructInput): Construct!
+    mutateOath(data:OathInput): Oath!
+    mutateShield(data:ShieldInput): Shield!
+    mutateStigmata(data:StigmataInput): Stigmata!
+    mutateVirtue(data:VirtueInput): Virtue!
+    mutateWish(data:WishInput): Wish!
 
     mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
     mutateAnger(id:String,data:AngerInput): Anger!

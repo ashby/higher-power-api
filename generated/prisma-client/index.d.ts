@@ -4059,6 +4059,110 @@ export type HasOrderByInput =
   | "trauma_DESC"
   | "vulnerability_ASC"
   | "vulnerability_DESC"
+  | "congregant_ASC"
+  | "congregant_DESC"
+  | "genie_ASC"
+  | "genie_DESC"
+  | "guardian_ASC"
+  | "guardian_DESC"
+  | "martyr_ASC"
+  | "martyr_DESC"
+  | "paladin_ASC"
+  | "paladin_DESC"
+  | "seeker_ASC"
+  | "seeker_DESC"
+  | "smith_ASC"
+  | "smith_DESC"
+  | "summoner_ASC"
+  | "summoner_DESC"
+  | "victim_ASC"
+  | "victim_DESC"
+  | "volunteer_ASC"
+  | "volunteer_DESC"
+  | "act_ASC"
+  | "act_DESC"
+  | "affliction_ASC"
+  | "affliction_DESC"
+  | "body_ASC"
+  | "body_DESC"
+  | "construct_ASC"
+  | "construct_DESC"
+  | "oath_ASC"
+  | "oath_DESC"
+  | "shield_ASC"
+  | "shield_DESC"
+  | "stigmata_ASC"
+  | "stigmata_DESC"
+  | "virtue_ASC"
+  | "virtue_DESC"
+  | "wish_ASC"
+  | "wish_DESC"
+  | "brain_ASC"
+  | "brain_DESC"
+  | "campaign_ASC"
+  | "campaign_DESC"
+  | "confusion_ASC"
+  | "confusion_DESC"
+  | "cross_ASC"
+  | "cross_DESC"
+  | "crown_ASC"
+  | "crown_DESC"
+  | "crusade_ASC"
+  | "crusade_DESC"
+  | "delirium_ASC"
+  | "delirium_DESC"
+  | "denial_ASC"
+  | "denial_DESC"
+  | "dream_ASC"
+  | "dream_DESC"
+  | "face_ASC"
+  | "face_DESC"
+  | "gash_ASC"
+  | "gash_DESC"
+  | "gate_ASC"
+  | "gate_DESC"
+  | "gut_ASC"
+  | "gut_DESC"
+  | "heart_ASC"
+  | "heart_DESC"
+  | "infection_ASC"
+  | "infection_DESC"
+  | "love_ASC"
+  | "love_DESC"
+  | "mind_ASC"
+  | "mind_DESC"
+  | "mouth_ASC"
+  | "mouth_DESC"
+  | "nail_ASC"
+  | "nail_DESC"
+  | "nightmare_ASC"
+  | "nightmare_DESC"
+  | "pledge_ASC"
+  | "pledge_DESC"
+  | "sacrifice_ASC"
+  | "sacrifice_DESC"
+  | "sarcasm_ASC"
+  | "sarcasm_DESC"
+  | "scar_ASC"
+  | "scar_DESC"
+  | "service_ASC"
+  | "service_DESC"
+  | "silence_ASC"
+  | "silence_DESC"
+  | "skin_ASC"
+  | "skin_DESC"
+  | "soul_ASC"
+  | "soul_DESC"
+  | "sternum_ASC"
+  | "sternum_DESC"
+  | "support_ASC"
+  | "support_DESC"
+  | "tower_ASC"
+  | "tower_DESC"
+  | "tremor_ASC"
+  | "tremor_DESC"
+  | "wall_ASC"
+  | "wall_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -9454,6 +9558,110 @@ export interface HasWhereInput {
   trauma_not?: Boolean;
   vulnerability?: Boolean;
   vulnerability_not?: Boolean;
+  congregant?: Boolean;
+  congregant_not?: Boolean;
+  genie?: Boolean;
+  genie_not?: Boolean;
+  guardian?: Boolean;
+  guardian_not?: Boolean;
+  martyr?: Boolean;
+  martyr_not?: Boolean;
+  paladin?: Boolean;
+  paladin_not?: Boolean;
+  seeker?: Boolean;
+  seeker_not?: Boolean;
+  smith?: Boolean;
+  smith_not?: Boolean;
+  summoner?: Boolean;
+  summoner_not?: Boolean;
+  victim?: Boolean;
+  victim_not?: Boolean;
+  volunteer?: Boolean;
+  volunteer_not?: Boolean;
+  act?: Boolean;
+  act_not?: Boolean;
+  affliction?: Boolean;
+  affliction_not?: Boolean;
+  body?: Boolean;
+  body_not?: Boolean;
+  construct?: Boolean;
+  construct_not?: Boolean;
+  oath?: Boolean;
+  oath_not?: Boolean;
+  shield?: Boolean;
+  shield_not?: Boolean;
+  stigmata?: Boolean;
+  stigmata_not?: Boolean;
+  virtue?: Boolean;
+  virtue_not?: Boolean;
+  wish?: Boolean;
+  wish_not?: Boolean;
+  brain?: Boolean;
+  brain_not?: Boolean;
+  campaign?: Boolean;
+  campaign_not?: Boolean;
+  confusion?: Boolean;
+  confusion_not?: Boolean;
+  cross?: Boolean;
+  cross_not?: Boolean;
+  crown?: Boolean;
+  crown_not?: Boolean;
+  crusade?: Boolean;
+  crusade_not?: Boolean;
+  delirium?: Boolean;
+  delirium_not?: Boolean;
+  denial?: Boolean;
+  denial_not?: Boolean;
+  dream?: Boolean;
+  dream_not?: Boolean;
+  face?: Boolean;
+  face_not?: Boolean;
+  gash?: Boolean;
+  gash_not?: Boolean;
+  gate?: Boolean;
+  gate_not?: Boolean;
+  gut?: Boolean;
+  gut_not?: Boolean;
+  heart?: Boolean;
+  heart_not?: Boolean;
+  infection?: Boolean;
+  infection_not?: Boolean;
+  love?: Boolean;
+  love_not?: Boolean;
+  mind?: Boolean;
+  mind_not?: Boolean;
+  mouth?: Boolean;
+  mouth_not?: Boolean;
+  nail?: Boolean;
+  nail_not?: Boolean;
+  nightmare?: Boolean;
+  nightmare_not?: Boolean;
+  pledge?: Boolean;
+  pledge_not?: Boolean;
+  sacrifice?: Boolean;
+  sacrifice_not?: Boolean;
+  sarcasm?: Boolean;
+  sarcasm_not?: Boolean;
+  scar?: Boolean;
+  scar_not?: Boolean;
+  service?: Boolean;
+  service_not?: Boolean;
+  silence?: Boolean;
+  silence_not?: Boolean;
+  skin?: Boolean;
+  skin_not?: Boolean;
+  soul?: Boolean;
+  soul_not?: Boolean;
+  sternum?: Boolean;
+  sternum_not?: Boolean;
+  support?: Boolean;
+  support_not?: Boolean;
+  tower?: Boolean;
+  tower_not?: Boolean;
+  tremor?: Boolean;
+  tremor_not?: Boolean;
+  wall?: Boolean;
+  wall_not?: Boolean;
   AND?: HasWhereInput[] | HasWhereInput;
   OR?: HasWhereInput[] | HasWhereInput;
   NOT?: HasWhereInput[] | HasWhereInput;
@@ -12339,6 +12547,58 @@ export interface HasUpdateInput {
   toxicity?: Boolean;
   trauma?: Boolean;
   vulnerability?: Boolean;
+  congregant?: Boolean;
+  genie?: Boolean;
+  guardian?: Boolean;
+  martyr?: Boolean;
+  paladin?: Boolean;
+  seeker?: Boolean;
+  smith?: Boolean;
+  summoner?: Boolean;
+  victim?: Boolean;
+  volunteer?: Boolean;
+  act?: Boolean;
+  affliction?: Boolean;
+  body?: Boolean;
+  construct?: Boolean;
+  oath?: Boolean;
+  shield?: Boolean;
+  stigmata?: Boolean;
+  virtue?: Boolean;
+  wish?: Boolean;
+  brain?: Boolean;
+  campaign?: Boolean;
+  confusion?: Boolean;
+  cross?: Boolean;
+  crown?: Boolean;
+  crusade?: Boolean;
+  delirium?: Boolean;
+  denial?: Boolean;
+  dream?: Boolean;
+  face?: Boolean;
+  gash?: Boolean;
+  gate?: Boolean;
+  gut?: Boolean;
+  heart?: Boolean;
+  infection?: Boolean;
+  love?: Boolean;
+  mind?: Boolean;
+  mouth?: Boolean;
+  nail?: Boolean;
+  nightmare?: Boolean;
+  pledge?: Boolean;
+  sacrifice?: Boolean;
+  sarcasm?: Boolean;
+  scar?: Boolean;
+  service?: Boolean;
+  silence?: Boolean;
+  skin?: Boolean;
+  soul?: Boolean;
+  sternum?: Boolean;
+  support?: Boolean;
+  tower?: Boolean;
+  tremor?: Boolean;
+  wall?: Boolean;
 }
 
 export interface AcceptanceUpdateManyWithWhereNestedInput {
@@ -12374,6 +12634,58 @@ export interface HasCreateInput {
   toxicity?: Boolean;
   trauma?: Boolean;
   vulnerability?: Boolean;
+  congregant?: Boolean;
+  genie?: Boolean;
+  guardian?: Boolean;
+  martyr?: Boolean;
+  paladin?: Boolean;
+  seeker?: Boolean;
+  smith?: Boolean;
+  summoner?: Boolean;
+  victim?: Boolean;
+  volunteer?: Boolean;
+  act?: Boolean;
+  affliction?: Boolean;
+  body?: Boolean;
+  construct?: Boolean;
+  oath?: Boolean;
+  shield?: Boolean;
+  stigmata?: Boolean;
+  virtue?: Boolean;
+  wish?: Boolean;
+  brain?: Boolean;
+  campaign?: Boolean;
+  confusion?: Boolean;
+  cross?: Boolean;
+  crown?: Boolean;
+  crusade?: Boolean;
+  delirium?: Boolean;
+  denial?: Boolean;
+  dream?: Boolean;
+  face?: Boolean;
+  gash?: Boolean;
+  gate?: Boolean;
+  gut?: Boolean;
+  heart?: Boolean;
+  infection?: Boolean;
+  love?: Boolean;
+  mind?: Boolean;
+  mouth?: Boolean;
+  nail?: Boolean;
+  nightmare?: Boolean;
+  pledge?: Boolean;
+  sacrifice?: Boolean;
+  sarcasm?: Boolean;
+  scar?: Boolean;
+  service?: Boolean;
+  silence?: Boolean;
+  skin?: Boolean;
+  soul?: Boolean;
+  sternum?: Boolean;
+  support?: Boolean;
+  tower?: Boolean;
+  tremor?: Boolean;
+  wall?: Boolean;
 }
 
 export interface AcceptanceUpdateManyDataInput {
@@ -18379,6 +18691,58 @@ export interface HasUpdateManyMutationInput {
   toxicity?: Boolean;
   trauma?: Boolean;
   vulnerability?: Boolean;
+  congregant?: Boolean;
+  genie?: Boolean;
+  guardian?: Boolean;
+  martyr?: Boolean;
+  paladin?: Boolean;
+  seeker?: Boolean;
+  smith?: Boolean;
+  summoner?: Boolean;
+  victim?: Boolean;
+  volunteer?: Boolean;
+  act?: Boolean;
+  affliction?: Boolean;
+  body?: Boolean;
+  construct?: Boolean;
+  oath?: Boolean;
+  shield?: Boolean;
+  stigmata?: Boolean;
+  virtue?: Boolean;
+  wish?: Boolean;
+  brain?: Boolean;
+  campaign?: Boolean;
+  confusion?: Boolean;
+  cross?: Boolean;
+  crown?: Boolean;
+  crusade?: Boolean;
+  delirium?: Boolean;
+  denial?: Boolean;
+  dream?: Boolean;
+  face?: Boolean;
+  gash?: Boolean;
+  gate?: Boolean;
+  gut?: Boolean;
+  heart?: Boolean;
+  infection?: Boolean;
+  love?: Boolean;
+  mind?: Boolean;
+  mouth?: Boolean;
+  nail?: Boolean;
+  nightmare?: Boolean;
+  pledge?: Boolean;
+  sacrifice?: Boolean;
+  sarcasm?: Boolean;
+  scar?: Boolean;
+  service?: Boolean;
+  silence?: Boolean;
+  skin?: Boolean;
+  soul?: Boolean;
+  sternum?: Boolean;
+  support?: Boolean;
+  tower?: Boolean;
+  tremor?: Boolean;
+  wall?: Boolean;
 }
 
 export interface CrusadeUpsertWithWhereUniqueNestedInput {
@@ -26773,6 +27137,58 @@ export interface HasPreviousValues {
   toxicity: Boolean;
   trauma: Boolean;
   vulnerability: Boolean;
+  congregant: Boolean;
+  genie: Boolean;
+  guardian: Boolean;
+  martyr: Boolean;
+  paladin: Boolean;
+  seeker: Boolean;
+  smith: Boolean;
+  summoner: Boolean;
+  victim: Boolean;
+  volunteer: Boolean;
+  act: Boolean;
+  affliction: Boolean;
+  body: Boolean;
+  construct: Boolean;
+  oath: Boolean;
+  shield: Boolean;
+  stigmata: Boolean;
+  virtue: Boolean;
+  wish: Boolean;
+  brain: Boolean;
+  campaign: Boolean;
+  confusion: Boolean;
+  cross: Boolean;
+  crown: Boolean;
+  crusade: Boolean;
+  delirium: Boolean;
+  denial: Boolean;
+  dream: Boolean;
+  face: Boolean;
+  gash: Boolean;
+  gate: Boolean;
+  gut: Boolean;
+  heart: Boolean;
+  infection: Boolean;
+  love: Boolean;
+  mind: Boolean;
+  mouth: Boolean;
+  nail: Boolean;
+  nightmare: Boolean;
+  pledge: Boolean;
+  sacrifice: Boolean;
+  sarcasm: Boolean;
+  scar: Boolean;
+  service: Boolean;
+  silence: Boolean;
+  skin: Boolean;
+  soul: Boolean;
+  sternum: Boolean;
+  support: Boolean;
+  tower: Boolean;
+  tremor: Boolean;
+  wall: Boolean;
 }
 
 export interface HasPreviousValuesPromise
@@ -26805,6 +27221,58 @@ export interface HasPreviousValuesPromise
   toxicity: () => Promise<Boolean>;
   trauma: () => Promise<Boolean>;
   vulnerability: () => Promise<Boolean>;
+  congregant: () => Promise<Boolean>;
+  genie: () => Promise<Boolean>;
+  guardian: () => Promise<Boolean>;
+  martyr: () => Promise<Boolean>;
+  paladin: () => Promise<Boolean>;
+  seeker: () => Promise<Boolean>;
+  smith: () => Promise<Boolean>;
+  summoner: () => Promise<Boolean>;
+  victim: () => Promise<Boolean>;
+  volunteer: () => Promise<Boolean>;
+  act: () => Promise<Boolean>;
+  affliction: () => Promise<Boolean>;
+  body: () => Promise<Boolean>;
+  construct: () => Promise<Boolean>;
+  oath: () => Promise<Boolean>;
+  shield: () => Promise<Boolean>;
+  stigmata: () => Promise<Boolean>;
+  virtue: () => Promise<Boolean>;
+  wish: () => Promise<Boolean>;
+  brain: () => Promise<Boolean>;
+  campaign: () => Promise<Boolean>;
+  confusion: () => Promise<Boolean>;
+  cross: () => Promise<Boolean>;
+  crown: () => Promise<Boolean>;
+  crusade: () => Promise<Boolean>;
+  delirium: () => Promise<Boolean>;
+  denial: () => Promise<Boolean>;
+  dream: () => Promise<Boolean>;
+  face: () => Promise<Boolean>;
+  gash: () => Promise<Boolean>;
+  gate: () => Promise<Boolean>;
+  gut: () => Promise<Boolean>;
+  heart: () => Promise<Boolean>;
+  infection: () => Promise<Boolean>;
+  love: () => Promise<Boolean>;
+  mind: () => Promise<Boolean>;
+  mouth: () => Promise<Boolean>;
+  nail: () => Promise<Boolean>;
+  nightmare: () => Promise<Boolean>;
+  pledge: () => Promise<Boolean>;
+  sacrifice: () => Promise<Boolean>;
+  sarcasm: () => Promise<Boolean>;
+  scar: () => Promise<Boolean>;
+  service: () => Promise<Boolean>;
+  silence: () => Promise<Boolean>;
+  skin: () => Promise<Boolean>;
+  soul: () => Promise<Boolean>;
+  sternum: () => Promise<Boolean>;
+  support: () => Promise<Boolean>;
+  tower: () => Promise<Boolean>;
+  tremor: () => Promise<Boolean>;
+  wall: () => Promise<Boolean>;
 }
 
 export interface HasPreviousValuesSubscription
@@ -26837,6 +27305,58 @@ export interface HasPreviousValuesSubscription
   toxicity: () => Promise<AsyncIterator<Boolean>>;
   trauma: () => Promise<AsyncIterator<Boolean>>;
   vulnerability: () => Promise<AsyncIterator<Boolean>>;
+  congregant: () => Promise<AsyncIterator<Boolean>>;
+  genie: () => Promise<AsyncIterator<Boolean>>;
+  guardian: () => Promise<AsyncIterator<Boolean>>;
+  martyr: () => Promise<AsyncIterator<Boolean>>;
+  paladin: () => Promise<AsyncIterator<Boolean>>;
+  seeker: () => Promise<AsyncIterator<Boolean>>;
+  smith: () => Promise<AsyncIterator<Boolean>>;
+  summoner: () => Promise<AsyncIterator<Boolean>>;
+  victim: () => Promise<AsyncIterator<Boolean>>;
+  volunteer: () => Promise<AsyncIterator<Boolean>>;
+  act: () => Promise<AsyncIterator<Boolean>>;
+  affliction: () => Promise<AsyncIterator<Boolean>>;
+  body: () => Promise<AsyncIterator<Boolean>>;
+  construct: () => Promise<AsyncIterator<Boolean>>;
+  oath: () => Promise<AsyncIterator<Boolean>>;
+  shield: () => Promise<AsyncIterator<Boolean>>;
+  stigmata: () => Promise<AsyncIterator<Boolean>>;
+  virtue: () => Promise<AsyncIterator<Boolean>>;
+  wish: () => Promise<AsyncIterator<Boolean>>;
+  brain: () => Promise<AsyncIterator<Boolean>>;
+  campaign: () => Promise<AsyncIterator<Boolean>>;
+  confusion: () => Promise<AsyncIterator<Boolean>>;
+  cross: () => Promise<AsyncIterator<Boolean>>;
+  crown: () => Promise<AsyncIterator<Boolean>>;
+  crusade: () => Promise<AsyncIterator<Boolean>>;
+  delirium: () => Promise<AsyncIterator<Boolean>>;
+  denial: () => Promise<AsyncIterator<Boolean>>;
+  dream: () => Promise<AsyncIterator<Boolean>>;
+  face: () => Promise<AsyncIterator<Boolean>>;
+  gash: () => Promise<AsyncIterator<Boolean>>;
+  gate: () => Promise<AsyncIterator<Boolean>>;
+  gut: () => Promise<AsyncIterator<Boolean>>;
+  heart: () => Promise<AsyncIterator<Boolean>>;
+  infection: () => Promise<AsyncIterator<Boolean>>;
+  love: () => Promise<AsyncIterator<Boolean>>;
+  mind: () => Promise<AsyncIterator<Boolean>>;
+  mouth: () => Promise<AsyncIterator<Boolean>>;
+  nail: () => Promise<AsyncIterator<Boolean>>;
+  nightmare: () => Promise<AsyncIterator<Boolean>>;
+  pledge: () => Promise<AsyncIterator<Boolean>>;
+  sacrifice: () => Promise<AsyncIterator<Boolean>>;
+  sarcasm: () => Promise<AsyncIterator<Boolean>>;
+  scar: () => Promise<AsyncIterator<Boolean>>;
+  service: () => Promise<AsyncIterator<Boolean>>;
+  silence: () => Promise<AsyncIterator<Boolean>>;
+  skin: () => Promise<AsyncIterator<Boolean>>;
+  soul: () => Promise<AsyncIterator<Boolean>>;
+  sternum: () => Promise<AsyncIterator<Boolean>>;
+  support: () => Promise<AsyncIterator<Boolean>>;
+  tower: () => Promise<AsyncIterator<Boolean>>;
+  tremor: () => Promise<AsyncIterator<Boolean>>;
+  wall: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface DreamEdge {
@@ -30806,6 +31326,58 @@ export interface Has {
   toxicity: Boolean;
   trauma: Boolean;
   vulnerability: Boolean;
+  congregant: Boolean;
+  genie: Boolean;
+  guardian: Boolean;
+  martyr: Boolean;
+  paladin: Boolean;
+  seeker: Boolean;
+  smith: Boolean;
+  summoner: Boolean;
+  victim: Boolean;
+  volunteer: Boolean;
+  act: Boolean;
+  affliction: Boolean;
+  body: Boolean;
+  construct: Boolean;
+  oath: Boolean;
+  shield: Boolean;
+  stigmata: Boolean;
+  virtue: Boolean;
+  wish: Boolean;
+  brain: Boolean;
+  campaign: Boolean;
+  confusion: Boolean;
+  cross: Boolean;
+  crown: Boolean;
+  crusade: Boolean;
+  delirium: Boolean;
+  denial: Boolean;
+  dream: Boolean;
+  face: Boolean;
+  gash: Boolean;
+  gate: Boolean;
+  gut: Boolean;
+  heart: Boolean;
+  infection: Boolean;
+  love: Boolean;
+  mind: Boolean;
+  mouth: Boolean;
+  nail: Boolean;
+  nightmare: Boolean;
+  pledge: Boolean;
+  sacrifice: Boolean;
+  sarcasm: Boolean;
+  scar: Boolean;
+  service: Boolean;
+  silence: Boolean;
+  skin: Boolean;
+  soul: Boolean;
+  sternum: Boolean;
+  support: Boolean;
+  tower: Boolean;
+  tremor: Boolean;
+  wall: Boolean;
 }
 
 export interface HasPromise extends Promise<Has>, Fragmentable {
@@ -30836,6 +31408,58 @@ export interface HasPromise extends Promise<Has>, Fragmentable {
   toxicity: () => Promise<Boolean>;
   trauma: () => Promise<Boolean>;
   vulnerability: () => Promise<Boolean>;
+  congregant: () => Promise<Boolean>;
+  genie: () => Promise<Boolean>;
+  guardian: () => Promise<Boolean>;
+  martyr: () => Promise<Boolean>;
+  paladin: () => Promise<Boolean>;
+  seeker: () => Promise<Boolean>;
+  smith: () => Promise<Boolean>;
+  summoner: () => Promise<Boolean>;
+  victim: () => Promise<Boolean>;
+  volunteer: () => Promise<Boolean>;
+  act: () => Promise<Boolean>;
+  affliction: () => Promise<Boolean>;
+  body: () => Promise<Boolean>;
+  construct: () => Promise<Boolean>;
+  oath: () => Promise<Boolean>;
+  shield: () => Promise<Boolean>;
+  stigmata: () => Promise<Boolean>;
+  virtue: () => Promise<Boolean>;
+  wish: () => Promise<Boolean>;
+  brain: () => Promise<Boolean>;
+  campaign: () => Promise<Boolean>;
+  confusion: () => Promise<Boolean>;
+  cross: () => Promise<Boolean>;
+  crown: () => Promise<Boolean>;
+  crusade: () => Promise<Boolean>;
+  delirium: () => Promise<Boolean>;
+  denial: () => Promise<Boolean>;
+  dream: () => Promise<Boolean>;
+  face: () => Promise<Boolean>;
+  gash: () => Promise<Boolean>;
+  gate: () => Promise<Boolean>;
+  gut: () => Promise<Boolean>;
+  heart: () => Promise<Boolean>;
+  infection: () => Promise<Boolean>;
+  love: () => Promise<Boolean>;
+  mind: () => Promise<Boolean>;
+  mouth: () => Promise<Boolean>;
+  nail: () => Promise<Boolean>;
+  nightmare: () => Promise<Boolean>;
+  pledge: () => Promise<Boolean>;
+  sacrifice: () => Promise<Boolean>;
+  sarcasm: () => Promise<Boolean>;
+  scar: () => Promise<Boolean>;
+  service: () => Promise<Boolean>;
+  silence: () => Promise<Boolean>;
+  skin: () => Promise<Boolean>;
+  soul: () => Promise<Boolean>;
+  sternum: () => Promise<Boolean>;
+  support: () => Promise<Boolean>;
+  tower: () => Promise<Boolean>;
+  tremor: () => Promise<Boolean>;
+  wall: () => Promise<Boolean>;
 }
 
 export interface HasSubscription
@@ -30868,6 +31492,58 @@ export interface HasSubscription
   toxicity: () => Promise<AsyncIterator<Boolean>>;
   trauma: () => Promise<AsyncIterator<Boolean>>;
   vulnerability: () => Promise<AsyncIterator<Boolean>>;
+  congregant: () => Promise<AsyncIterator<Boolean>>;
+  genie: () => Promise<AsyncIterator<Boolean>>;
+  guardian: () => Promise<AsyncIterator<Boolean>>;
+  martyr: () => Promise<AsyncIterator<Boolean>>;
+  paladin: () => Promise<AsyncIterator<Boolean>>;
+  seeker: () => Promise<AsyncIterator<Boolean>>;
+  smith: () => Promise<AsyncIterator<Boolean>>;
+  summoner: () => Promise<AsyncIterator<Boolean>>;
+  victim: () => Promise<AsyncIterator<Boolean>>;
+  volunteer: () => Promise<AsyncIterator<Boolean>>;
+  act: () => Promise<AsyncIterator<Boolean>>;
+  affliction: () => Promise<AsyncIterator<Boolean>>;
+  body: () => Promise<AsyncIterator<Boolean>>;
+  construct: () => Promise<AsyncIterator<Boolean>>;
+  oath: () => Promise<AsyncIterator<Boolean>>;
+  shield: () => Promise<AsyncIterator<Boolean>>;
+  stigmata: () => Promise<AsyncIterator<Boolean>>;
+  virtue: () => Promise<AsyncIterator<Boolean>>;
+  wish: () => Promise<AsyncIterator<Boolean>>;
+  brain: () => Promise<AsyncIterator<Boolean>>;
+  campaign: () => Promise<AsyncIterator<Boolean>>;
+  confusion: () => Promise<AsyncIterator<Boolean>>;
+  cross: () => Promise<AsyncIterator<Boolean>>;
+  crown: () => Promise<AsyncIterator<Boolean>>;
+  crusade: () => Promise<AsyncIterator<Boolean>>;
+  delirium: () => Promise<AsyncIterator<Boolean>>;
+  denial: () => Promise<AsyncIterator<Boolean>>;
+  dream: () => Promise<AsyncIterator<Boolean>>;
+  face: () => Promise<AsyncIterator<Boolean>>;
+  gash: () => Promise<AsyncIterator<Boolean>>;
+  gate: () => Promise<AsyncIterator<Boolean>>;
+  gut: () => Promise<AsyncIterator<Boolean>>;
+  heart: () => Promise<AsyncIterator<Boolean>>;
+  infection: () => Promise<AsyncIterator<Boolean>>;
+  love: () => Promise<AsyncIterator<Boolean>>;
+  mind: () => Promise<AsyncIterator<Boolean>>;
+  mouth: () => Promise<AsyncIterator<Boolean>>;
+  nail: () => Promise<AsyncIterator<Boolean>>;
+  nightmare: () => Promise<AsyncIterator<Boolean>>;
+  pledge: () => Promise<AsyncIterator<Boolean>>;
+  sacrifice: () => Promise<AsyncIterator<Boolean>>;
+  sarcasm: () => Promise<AsyncIterator<Boolean>>;
+  scar: () => Promise<AsyncIterator<Boolean>>;
+  service: () => Promise<AsyncIterator<Boolean>>;
+  silence: () => Promise<AsyncIterator<Boolean>>;
+  skin: () => Promise<AsyncIterator<Boolean>>;
+  soul: () => Promise<AsyncIterator<Boolean>>;
+  sternum: () => Promise<AsyncIterator<Boolean>>;
+  support: () => Promise<AsyncIterator<Boolean>>;
+  tower: () => Promise<AsyncIterator<Boolean>>;
+  tremor: () => Promise<AsyncIterator<Boolean>>;
+  wall: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface Anger {

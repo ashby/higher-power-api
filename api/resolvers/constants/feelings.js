@@ -12,7 +12,7 @@ const FEELINGS = [
     { singular: 'impatience', plural: 'impatiences' },
     { singular: 'joy', plural: 'joys' },
     { singular: 'pride', plural: 'prides' },
-    { singular: 'salvaltion', plural: 'salvations' },
+    { singular: 'salvation', plural: 'salvations' },
     { singular: 'selfPity', plural: 'selfPities' },
     { singular: 'suffering', plural: 'sufferings' },
     { singular: 'toxicity', plural: 'toxicities' },
