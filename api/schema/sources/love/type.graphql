@@ -1,8 +1,0 @@
-#import Vulnerability from '../../feelings/vulnerability/type.graphql';
-#import Acceptance from '../../feelings/acceptance/type.graphql';
-
-type Love {
-    id: ID!
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
-}

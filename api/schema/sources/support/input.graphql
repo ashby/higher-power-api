@@ -1,7 +1,0 @@
-input SupportInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    courage: [ID]
-    compassion: [ID]
-}

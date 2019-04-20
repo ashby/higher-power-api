@@ -1,6 +1,0 @@
-input DenialInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    armor: [ID]
-}

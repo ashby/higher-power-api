@@ -1,6 +1,0 @@
-#import Stigmata from '../../processes/stigmata/type.graphql';
-
-type Martyr {
-    id: ID!
-    stigmata: [Stigmata]
-}

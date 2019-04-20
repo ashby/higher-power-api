@@ -1,6 +1,0 @@
-input NailInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    suffering: [ID]
-}

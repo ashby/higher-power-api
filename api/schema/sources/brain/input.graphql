@@ -1,9 +1,0 @@
-input BrainInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    anger: [ID]
-    fear: [ID]
-    pride: [ID]
-    selfPity: [ID]
-}

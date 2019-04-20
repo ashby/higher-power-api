@@ -1,8 +1,0 @@
-#import Loyaly from '../../feelings/loyalty/type.graphql';
-#import Honor from '../../feelings/honor/type.graphql';
-
-type Crusade {
-    id: ID!
-    loyalty: [Loyalty]
-    honor: [Honor]
-}

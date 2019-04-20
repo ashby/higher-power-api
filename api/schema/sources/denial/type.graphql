@@ -1,6 +1,0 @@
-#import Armor from '../../feelings/armor/type.graphql';
-
-type Denial {
-    id: ID!
-    armor: [Armor]
-}

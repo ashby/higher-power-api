@@ -1,6 +1,0 @@
-#import Oath from '../../processes/oath/type.graphql';
-
-type Paladin {
-    id: ID!
-    oath: [Oath]
-}

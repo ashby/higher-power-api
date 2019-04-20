@@ -1,167 +1,52 @@
-# import Has from "./types.graphql"
-# import HasInput from "./inputs.graphql";
+
+
+# import Character from "./types.graphql";
+# import Process from "./types.graphql";
+# import Source from "./types.graphql";
+# import Path from "./types.graphql";
+# import Feeling from "./types.graphql";
+# import Thought from "./types.graphql";
+
 # import Inventory from "./types.graphql";
-# import Characters from "./types.graphql";
+# import Cast from "./types.graphql";
 # import HigherPower from "./types.graphql";
 
-# import Defect from "./paths/defect/type.graphql";
-# import DefectInput from "./paths/defect/input.graphql";
-# import Discontent from "./paths/discontent/type.graphql";
-# import DiscontentInput from "./paths/discontent/input.graphql";
-# import Resentment from "./paths/resentment/type.graphql";
-# import ResentmentInput from "./paths/resentment/input.graphql";
-# import Obsession from "./paths/obsession/type.graphql";
-# import ObsessionInput from "./paths/obsession/input.graphql";
-# import Experience from "./paths/experience/type.graphql";
-# import ExperienceInput from "./paths/experience/input.graphql";
-# import Strength from "./paths/strength/type.graphql";
-# import StrengthInput from "./paths/strength/input.graphql";
-# import Hope from "./paths/hope/type.graphql";
-# import HopeInput from "./paths/hope/input.graphql";
-
-#import Self from "./characters/self/type.graphql";
-#import SelfInput from "./characters/self/input.graphql";
-
-#import Body from "./processes/body/type.graphql";
-#import BodyInput from "./processes/body/input.graphql";
-
-#import Brain from "./sources/brain/type.graphql";
-#import BrainInput from "./sources/brain/input.graphql";
-
-# import Acceptance from "./feelings/acceptance/type.graphql";
-# import AcceptanceInput from "./feelings/acceptance/input.graphql";
-# import Anger from "./feelings/anger/type.graphql";
-# import AngerInput from "./feelings/anger/input.graphql";
-# import Aromr from "./feelings/armor/type.graphql";
-# import ArmorInput from "./feelings/armor/input.graphql";
-# import Boundary from "./feelings/boundary/type.graphql";
-# import BoundaryInput from "./feelings/boundary/input.graphql";
-# import Compassion from "./feelings/compassion/type.graphql";
-# import CompassionInput from "./feelings/compassion/input.graphql";
-# import Courage from "./feelings/courage/type.graphql";
-# import CourageInput from "./feelings/courage/input.graphql";
-# import Fear from "./feelings/fear/type.graphql";
-# import FearInput from "./feelings/fear/input.graphql";
-# import Fun from "./feelings/fun/type.graphql";
-# import FunInput from "./feelings/fun/input.graphql";
-# import Irritability from "./feelings/irritability/type.graphql";
-# import IrritabilityInput from "./feelings/irritability/input.graphql";
-# import Impatience from "./feelings/impatience/type.graphql";
-# import ImpatienceInput from "./feelings/impatience/input.graphql";
-# import Gratitude from "./feelings/gratitude/type.graphql";
-# import GratitudeInput from "./feelings/gratitude/input.graphql";
-# import Joy from "./feelings/joy/type.graphql";
-# import JoyInput from "./feelings/joy/input.graphql";
-# import Pride from "./feelings/pride/type.graphql";
-# import PrideInput from "./feelings/pride/input.graphql";
-# import Salavation from "./feelings/salvation/type.graphql";
-# import SalvationInput from "./feelings/salvation/input.graphql";
-# import SelfPity from "./feelings/self-pity/type.graphql";
-# import SelfPityInput from "./feelings/self-pity/input.graphql";
-# import Suffering from "./feelings/suffering/type.graphql";
-# import SufferingInput from "./feelings/suffering/input.graphql";
-# import Toxicity from "./feelings/toxicity/type.graphql";
-# import ToxicityInput from "./feelings/toxicity/input.graphql";
-# import Trauma from "./feelings/trauma/type.graphql";
-# import TraumaInput from "./feelings/trauma/input.graphql";
-# import Vulnerability from "./feelings/vulnerability/type.graphql";
-# import VulnerabilityInput from "./feelings/vulnerability/input.graphql";
-
+# import CharacterInput from "./inputs.graphql";
+# import ProcessInput from "./inputs.graphql";
+# import SourceInput from "./inputs.graphql";
+# import PathInput from "./inputs.graphql";
+# import FeelingInput from "./inputs.graphql";
+# import ThoughtInput from "./inputs.graphql";
 
 type Query {
-    has(id: ID!): Has
     higherPower: HigherPower
     inventory: Inventory
-    characters: Characters
+    cast: Cast
 
-    defect(id: ID!): Defect
-    discontent(id: ID!): Discontent
-    resentment(id: ID!): Resentment
-    obsession(id: ID!): Obsession
-    experience(id: ID!): Experience
-    strength(id: ID!): Strength
-    hope(id: ID!): Hope
+    character(id: ID!): Character
+    characters: [Character]
 
-    self(id: ID!): Self
+    process(id: ID!): Process
+    processes: [Process]
 
-    body(id: ID!): Body
+    source(id: ID!): Source
+    sources: [Source]
 
-    brain(id: ID!): Brain
+    path(id: ID!): Path
+    paths: [Path]
 
-    acceptances: [Acceptance]
-    acceptance(id: ID!): Acceptance
-    angers: [Anger]
-    anger(id: ID!): Anger
-    armors: [Armor]
-    armor(id: ID!): Armor
-    boundarys: [Boundary]
-    boundary(id: ID!): Boundary
-    compassions: [Compassion]
-    compassion(id: ID!): Compassion
-    courages: [Courage]
-    courage(id: ID!): Courage
-    fears: [Fear]
-    fear(id: ID!): Fear
-    funs: [Fun]
-    fun(id: ID!): [Fun]
-    impatiences: [Impatience]
-    impatience(id: ID!): [Impatience]
-    irritabilities: [Irritability]
-    irritability(id: ID!): [Irritability]
-    gratitudes: [Gratitude]
-    gratitude(id: ID!): Gratitude
-    joys: [Joy]
-    joy(id: ID!): [Joy]
-    prides: [Pride]
-    pride(id: ID!): Pride
-    salvations: [Salvation]
-    salvation(id: ID!): Salvation
-    selfPities: [SelfPity]
-    selfPity(id: ID!): SelfPity
-    sufferings: [Suffering]
-    suffering(id: ID!): Suffering
-    toxicities: [Toxicity]
-    toxicity(id: ID!): Toxicity
-    traumas: [Trauma]
-    trauma(id: ID!): Trauma
-    vulnerabilities: [Vulnerability]
-    vulnerability(id: ID!): Vulnerability
+    feeling(id: ID!): Feeling
+    feelings: [Feeling]
+
+    thought(id: ID!): Thought
+    thoughts: [Thought]
 }
 
 type Mutation {
-    mutateHas(data:HasInput): Has!
-
-    mutateDefect(data:DefectInput): Defect!
-    mutateDiscontent(data:DiscontentInput): Discontent!
-    mutateResentment(data:ResentmentInput): Resentment!
-    mutateObsession(data:ObsessionInput): Obsession!
-    mutateExperience(data:ExperienceInput): Experience!
-    mutateStrength(data:StrengthInput): Strength!
-    mutateHope(data:HopeInput): Hope!
-
-    mutateSelf(data:SelfInput): Self!
-
-    mutateBody(data:BodyInput): Body!
-
-    mutateBrain(data:BrainInput): Brain!
-
-    mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
-    mutateAnger(id:String,data:AngerInput): Anger!
-    mutateArmor(id:String,data:ArmorInput): Armor!
-    mutateBoundary(id:String,data:BoundaryInput): Boundary!
-    mutateCompassion(id:String,data:CompassionInput): Compassion!
-    mutateCourage(id:String,data:CourageInput): Courage!
-    mutateFear(id:String,data:FearInput): Fear!
-    mutateFun(id:String,data:FunInput): Fun!
-    mutateGratitude(id:String,data:GratitudeInput): Gratitude!
-    mutateIrritability(id:String,data:IrritabilityInput): Irritability!
-    mutateImpatience(id:String,data:ImpatienceInput): Impatience!
-    mutateJoy(id:String,data:JoyInput): Joy!
-    mutatePride(id:String,data:PrideInput): Pride!
-    mutateSalvation(id:String,data:SalvationInput): Salvation!
-    mutateSelfPity(id:String,data:SelfPityInput): SelfPity!
-    mutateSuffering(id:String,data:SufferingInput): Suffering!
-    mutateToxicity(id:String,data:ToxicityInput): Toxicity!
-    mutateTrauma(id:String,data:TraumaInput): Trauma!
-    mutateVulnerability(id:String,data:VulnerabilityInput): Vulnerability!
+    mutateThought(data:ThoughtInput): Thought!
+    mutateFeeling(data:FeelingInput): Feeling!
+    mutatePath(data:PathInput): Path!
+    mutateProcess(data:ProcessInput): Process!
+    mutateSource(data:SourceInput): Source!
+    mutateCharacter(data:CharacterInput): Character!
 }

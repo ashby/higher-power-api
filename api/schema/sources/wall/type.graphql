@@ -1,6 +1,0 @@
-#import Boundary from '../../feelings/boundary/type.graphql';
-
-type Wall {
-    id: ID!
-    boundary: [Boundary]
-}
