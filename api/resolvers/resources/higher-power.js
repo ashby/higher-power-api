@@ -7,6 +7,7 @@ module.exports = ( register ) => register( {
         //const prayers = await getPrayers();
         //const character = await getCharacter();
         const inventory = await getInventory( has );
+        console.log( inventory );
         return {
             has,
             inventory

@@ -11,6 +11,7 @@ function registerResolvers( queries = {}, mutations = {} ) {
 
 require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
+require( './resources/higher-power' )( registerResolvers );
 
 registerPath( 'defect', registerResolvers );
 registerPath( 'discontent', registerResolvers );
