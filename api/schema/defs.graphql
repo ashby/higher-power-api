@@ -40,8 +40,12 @@
 # import CourageInput from "./feelings/courage/input.graphql";
 # import Fear from "./feelings/fear/type.graphql";
 # import FearInput from "./feelings/fear/input.graphql";
+# import Fun from "./feelings/fun/type.graphql";
+# import FunInput from "./feelings/fun/input.graphql";
 # import Gratitude from "./feelings/gratitude/type.graphql";
 # import GratitudeInput from "./feelings/gratitude/input.graphql";
+# import Joy from "./feelings/joy/type.graphql";
+# import JoyInput from "./feelings/joy/input.graphql";
 # import Pride from "./feelings/pride/type.graphql";
 # import PrideInput from "./feelings/pride/input.graphql";
 # import Salavation from "./feelings/salvation/type.graphql";
@@ -91,8 +95,12 @@ type Query {
     courage(id: ID!): Courage
     fears: [Fear]
     fear(id: ID!): Fear
+    funs: [Fun]
+    fun(id: ID!): [Fun]
     gratitudes: [Gratitude]
     gratitude(id: ID!): Gratitude
+    joys: [Joy]
+    joy(id: ID!): [Joy]
     prides: [Pride]
     pride(id: ID!): Pride
     salvations: [Salvation]
@@ -132,7 +140,9 @@ type Mutation {
     mutateCompassion(id:String,data:CompassionInput): Compassion!
     mutateCourage(id:String,data:CourageInput): Courage!
     mutateFear(id:String,data:FearInput): Fear!
+    mutateFun(id:String,data:FunInput): Fun!
     mutateGratitude(id:String,data:GratitudeInput): Gratitude!
+    mutateJoy(id:String,data:JoyInput): Joy!
     mutatePride(id:String,data:PrideInput): Pride!
     mutateSalvation(id:String,data:SalvationInput): Salvation!
     mutateSelfPity(id:String,data:SelfPityInput): SelfPity!

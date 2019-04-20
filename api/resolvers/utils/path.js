@@ -57,7 +57,9 @@ const getStrength = async ( has = false ) => await getFeelings( has, [
     'courage'
 ] );
 const getHope = async ( has = false ) => await getFeelings( has, [
-    'salvation'
+    'salvation',
+    'fun',
+    'joy'
 ] );
 
 const getPaths = {

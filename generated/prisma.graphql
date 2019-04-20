@@ -887,6 +887,10 @@ type AggregateFear {
   count: Int!
 }
 
+type AggregateFun {
+  count: Int!
+}
+
 type AggregateGash {
   count: Int!
 }
@@ -936,6 +940,10 @@ type AggregateInfection {
 }
 
 type AggregateInventory {
+  count: Int!
+}
+
+type AggregateJoy {
   count: Int!
 }
 
@@ -6229,6 +6237,478 @@ input FearWhereUniqueInput {
   id: ID
 }
 
+type Fun {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+type FunConnection {
+  pageInfo: PageInfo!
+  edges: [FunEdge]!
+  aggregate: AggregateFun!
+}
+
+input FunCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunCreateManyInput {
+  create: [FunCreateInput!]
+  connect: [FunWhereUniqueInput!]
+}
+
+type FunEdge {
+  node: Fun!
+  cursor: String!
+}
+
+enum FunOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  source_ASC
+  source_DESC
+  process_ASC
+  process_DESC
+  path_ASC
+  path_DESC
+  feeling_ASC
+  feeling_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolveAt_ASC
+  resolveAt_DESC
+}
+
+type FunPreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [FunScalarWhereInput!]
+  OR: [FunScalarWhereInput!]
+  NOT: [FunScalarWhereInput!]
+}
+
+type FunSubscriptionPayload {
+  mutation: MutationType!
+  node: Fun
+  updatedFields: [String!]
+  previousValues: FunPreviousValues
+}
+
+input FunSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FunWhereInput
+  AND: [FunSubscriptionWhereInput!]
+  OR: [FunSubscriptionWhereInput!]
+  NOT: [FunSubscriptionWhereInput!]
+}
+
+input FunUpdateDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunUpdateInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunUpdateManyDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunUpdateManyInput {
+  create: [FunCreateInput!]
+  update: [FunUpdateWithWhereUniqueNestedInput!]
+  upsert: [FunUpsertWithWhereUniqueNestedInput!]
+  delete: [FunWhereUniqueInput!]
+  connect: [FunWhereUniqueInput!]
+  set: [FunWhereUniqueInput!]
+  disconnect: [FunWhereUniqueInput!]
+  deleteMany: [FunScalarWhereInput!]
+  updateMany: [FunUpdateManyWithWhereNestedInput!]
+}
+
+input FunUpdateManyMutationInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input FunUpdateManyWithWhereNestedInput {
+  where: FunScalarWhereInput!
+  data: FunUpdateManyDataInput!
+}
+
+input FunUpdateWithWhereUniqueNestedInput {
+  where: FunWhereUniqueInput!
+  data: FunUpdateDataInput!
+}
+
+input FunUpsertWithWhereUniqueNestedInput {
+  where: FunWhereUniqueInput!
+  update: FunUpdateDataInput!
+  create: FunCreateInput!
+}
+
+input FunWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [FunWhereInput!]
+  OR: [FunWhereInput!]
+  NOT: [FunWhereInput!]
+}
+
+input FunWhereUniqueInput {
+  id: ID
+}
+
 type Gash {
   id: ID!
   trauma(where: TraumaWhereInput, orderBy: TraumaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Trauma!]
@@ -7358,7 +7838,9 @@ type Has {
   compassion: Boolean!
   courage: Boolean!
   fear: Boolean!
+  fun: Boolean!
   gratitude: Boolean!
+  joy: Boolean!
   pride: Boolean!
   salvaltion: Boolean!
   selfPity: Boolean!
@@ -7389,7 +7871,9 @@ input HasCreateInput {
   compassion: Boolean
   courage: Boolean
   fear: Boolean
+  fun: Boolean
   gratitude: Boolean
+  joy: Boolean
   pride: Boolean
   salvaltion: Boolean
   selfPity: Boolean
@@ -7433,8 +7917,12 @@ enum HasOrderByInput {
   courage_DESC
   fear_ASC
   fear_DESC
+  fun_ASC
+  fun_DESC
   gratitude_ASC
   gratitude_DESC
+  joy_ASC
+  joy_DESC
   pride_ASC
   pride_DESC
   salvaltion_ASC
@@ -7470,7 +7958,9 @@ type HasPreviousValues {
   compassion: Boolean!
   courage: Boolean!
   fear: Boolean!
+  fun: Boolean!
   gratitude: Boolean!
+  joy: Boolean!
   pride: Boolean!
   salvaltion: Boolean!
   selfPity: Boolean!
@@ -7512,7 +8002,9 @@ input HasUpdateInput {
   compassion: Boolean
   courage: Boolean
   fear: Boolean
+  fun: Boolean
   gratitude: Boolean
+  joy: Boolean
   pride: Boolean
   salvaltion: Boolean
   selfPity: Boolean
@@ -7536,7 +8028,9 @@ input HasUpdateManyMutationInput {
   compassion: Boolean
   courage: Boolean
   fear: Boolean
+  fun: Boolean
   gratitude: Boolean
+  joy: Boolean
   pride: Boolean
   salvaltion: Boolean
   selfPity: Boolean
@@ -7587,8 +8081,12 @@ input HasWhereInput {
   courage_not: Boolean
   fear: Boolean
   fear_not: Boolean
+  fun: Boolean
+  fun_not: Boolean
   gratitude: Boolean
   gratitude_not: Boolean
+  joy: Boolean
+  joy_not: Boolean
   pride: Boolean
   pride_not: Boolean
   salvaltion: Boolean
@@ -8327,6 +8825,8 @@ input HonorWhereUniqueInput {
 type Hope {
   id: ID!
   salvation(where: SalvationWhereInput, orderBy: SalvationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Salvation!]
+  fun(where: FunWhereInput, orderBy: FunOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fun!]
+  joy(where: JoyWhereInput, orderBy: JoyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Joy!]
 }
 
 type HopeConnection {
@@ -8338,6 +8838,8 @@ type HopeConnection {
 input HopeCreateInput {
   id: ID
   salvation: SalvationCreateManyInput
+  fun: FunCreateManyInput
+  joy: JoyCreateManyInput
 }
 
 input HopeCreateManyInput {
@@ -8403,10 +8905,14 @@ input HopeSubscriptionWhereInput {
 
 input HopeUpdateDataInput {
   salvation: SalvationUpdateManyInput
+  fun: FunUpdateManyInput
+  joy: JoyUpdateManyInput
 }
 
 input HopeUpdateInput {
   salvation: SalvationUpdateManyInput
+  fun: FunUpdateManyInput
+  joy: JoyUpdateManyInput
 }
 
 input HopeUpdateManyInput {
@@ -8449,6 +8955,12 @@ input HopeWhereInput {
   salvation_every: SalvationWhereInput
   salvation_some: SalvationWhereInput
   salvation_none: SalvationWhereInput
+  fun_every: FunWhereInput
+  fun_some: FunWhereInput
+  fun_none: FunWhereInput
+  joy_every: JoyWhereInput
+  joy_some: JoyWhereInput
+  joy_none: JoyWhereInput
   AND: [HopeWhereInput!]
   OR: [HopeWhereInput!]
   NOT: [HopeWhereInput!]
@@ -8737,6 +9249,478 @@ input InventoryWhereInput {
 }
 
 input InventoryWhereUniqueInput {
+  id: ID
+}
+
+type Joy {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+type JoyConnection {
+  pageInfo: PageInfo!
+  edges: [JoyEdge]!
+  aggregate: AggregateJoy!
+}
+
+input JoyCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyCreateManyInput {
+  create: [JoyCreateInput!]
+  connect: [JoyWhereUniqueInput!]
+}
+
+type JoyEdge {
+  node: Joy!
+  cursor: String!
+}
+
+enum JoyOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  source_ASC
+  source_DESC
+  process_ASC
+  process_DESC
+  path_ASC
+  path_DESC
+  feeling_ASC
+  feeling_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolveAt_ASC
+  resolveAt_DESC
+}
+
+type JoyPreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [JoyScalarWhereInput!]
+  OR: [JoyScalarWhereInput!]
+  NOT: [JoyScalarWhereInput!]
+}
+
+type JoySubscriptionPayload {
+  mutation: MutationType!
+  node: Joy
+  updatedFields: [String!]
+  previousValues: JoyPreviousValues
+}
+
+input JoySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: JoyWhereInput
+  AND: [JoySubscriptionWhereInput!]
+  OR: [JoySubscriptionWhereInput!]
+  NOT: [JoySubscriptionWhereInput!]
+}
+
+input JoyUpdateDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyUpdateInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyUpdateManyDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyUpdateManyInput {
+  create: [JoyCreateInput!]
+  update: [JoyUpdateWithWhereUniqueNestedInput!]
+  upsert: [JoyUpsertWithWhereUniqueNestedInput!]
+  delete: [JoyWhereUniqueInput!]
+  connect: [JoyWhereUniqueInput!]
+  set: [JoyWhereUniqueInput!]
+  disconnect: [JoyWhereUniqueInput!]
+  deleteMany: [JoyScalarWhereInput!]
+  updateMany: [JoyUpdateManyWithWhereNestedInput!]
+}
+
+input JoyUpdateManyMutationInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolveAt: DateTime
+}
+
+input JoyUpdateManyWithWhereNestedInput {
+  where: JoyScalarWhereInput!
+  data: JoyUpdateManyDataInput!
+}
+
+input JoyUpdateWithWhereUniqueNestedInput {
+  where: JoyWhereUniqueInput!
+  data: JoyUpdateDataInput!
+}
+
+input JoyUpsertWithWhereUniqueNestedInput {
+  where: JoyWhereUniqueInput!
+  update: JoyUpdateDataInput!
+  create: JoyCreateInput!
+}
+
+input JoyWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolveAt: DateTime
+  resolveAt_not: DateTime
+  resolveAt_in: [DateTime!]
+  resolveAt_not_in: [DateTime!]
+  resolveAt_lt: DateTime
+  resolveAt_lte: DateTime
+  resolveAt_gt: DateTime
+  resolveAt_gte: DateTime
+  AND: [JoyWhereInput!]
+  OR: [JoyWhereInput!]
+  NOT: [JoyWhereInput!]
+}
+
+input JoyWhereUniqueInput {
   id: ID
 }
 
@@ -9784,6 +10768,12 @@ type Mutation {
   upsertFear(where: FearWhereUniqueInput!, create: FearCreateInput!, update: FearUpdateInput!): Fear!
   deleteFear(where: FearWhereUniqueInput!): Fear
   deleteManyFears(where: FearWhereInput): BatchPayload!
+  createFun(data: FunCreateInput!): Fun!
+  updateFun(data: FunUpdateInput!, where: FunWhereUniqueInput!): Fun
+  updateManyFuns(data: FunUpdateManyMutationInput!, where: FunWhereInput): BatchPayload!
+  upsertFun(where: FunWhereUniqueInput!, create: FunCreateInput!, update: FunUpdateInput!): Fun!
+  deleteFun(where: FunWhereUniqueInput!): Fun
+  deleteManyFuns(where: FunWhereInput): BatchPayload!
   createGash(data: GashCreateInput!): Gash!
   updateGash(data: GashUpdateInput!, where: GashWhereUniqueInput!): Gash
   upsertGash(where: GashWhereUniqueInput!, create: GashCreateInput!, update: GashUpdateInput!): Gash!
@@ -9852,6 +10842,12 @@ type Mutation {
   upsertInventory(where: InventoryWhereUniqueInput!, create: InventoryCreateInput!, update: InventoryUpdateInput!): Inventory!
   deleteInventory(where: InventoryWhereUniqueInput!): Inventory
   deleteManyInventories(where: InventoryWhereInput): BatchPayload!
+  createJoy(data: JoyCreateInput!): Joy!
+  updateJoy(data: JoyUpdateInput!, where: JoyWhereUniqueInput!): Joy
+  updateManyJoys(data: JoyUpdateManyMutationInput!, where: JoyWhereInput): BatchPayload!
+  upsertJoy(where: JoyWhereUniqueInput!, create: JoyCreateInput!, update: JoyUpdateInput!): Joy!
+  deleteJoy(where: JoyWhereUniqueInput!): Joy
+  deleteManyJoys(where: JoyWhereInput): BatchPayload!
   createLove(data: LoveCreateInput!): Love!
   updateLove(data: LoveUpdateInput!, where: LoveWhereUniqueInput!): Love
   upsertLove(where: LoveWhereUniqueInput!, create: LoveCreateInput!, update: LoveUpdateInput!): Love!
@@ -11460,6 +12456,9 @@ type Query {
   fear(where: FearWhereUniqueInput!): Fear
   fears(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fear]!
   fearsConnection(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FearConnection!
+  fun(where: FunWhereUniqueInput!): Fun
+  funs(where: FunWhereInput, orderBy: FunOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fun]!
+  funsConnection(where: FunWhereInput, orderBy: FunOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FunConnection!
   gash(where: GashWhereUniqueInput!): Gash
   gashes(where: GashWhereInput, orderBy: GashOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Gash]!
   gashesConnection(where: GashWhereInput, orderBy: GashOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GashConnection!
@@ -11499,6 +12498,9 @@ type Query {
   inventory(where: InventoryWhereUniqueInput!): Inventory
   inventories(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventory]!
   inventoriesConnection(where: InventoryWhereInput, orderBy: InventoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InventoryConnection!
+  joy(where: JoyWhereUniqueInput!): Joy
+  joys(where: JoyWhereInput, orderBy: JoyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Joy]!
+  joysConnection(where: JoyWhereInput, orderBy: JoyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): JoyConnection!
   love(where: LoveWhereUniqueInput!): Love
   loves(where: LoveWhereInput, orderBy: LoveOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Love]!
   lovesConnection(where: LoveWhereInput, orderBy: LoveOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LoveConnection!
@@ -14617,6 +15619,7 @@ type Subscription {
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   face(where: FaceSubscriptionWhereInput): FaceSubscriptionPayload
   fear(where: FearSubscriptionWhereInput): FearSubscriptionPayload
+  fun(where: FunSubscriptionWhereInput): FunSubscriptionPayload
   gash(where: GashSubscriptionWhereInput): GashSubscriptionPayload
   gate(where: GateSubscriptionWhereInput): GateSubscriptionPayload
   genie(where: GenieSubscriptionWhereInput): GenieSubscriptionPayload
@@ -14630,6 +15633,7 @@ type Subscription {
   hope(where: HopeSubscriptionWhereInput): HopeSubscriptionPayload
   infection(where: InfectionSubscriptionWhereInput): InfectionSubscriptionPayload
   inventory(where: InventorySubscriptionWhereInput): InventorySubscriptionPayload
+  joy(where: JoySubscriptionWhereInput): JoySubscriptionPayload
   love(where: LoveSubscriptionWhereInput): LoveSubscriptionPayload
   loyalty(where: LoyaltySubscriptionWhereInput): LoyaltySubscriptionPayload
   martyr(where: MartyrSubscriptionWhereInput): MartyrSubscriptionPayload

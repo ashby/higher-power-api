@@ -317,6 +317,14 @@ var models = [
     embedded: false
   },
   {
+    name: "Fun",
+    embedded: false
+  },
+  {
+    name: "Joy",
+    embedded: false
+  },
+  {
     name: "Inventory",
     embedded: false
   },

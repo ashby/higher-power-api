@@ -13,7 +13,9 @@ type Has {
     compassion: Boolean! @default(value: false)
     courage: Boolean! @default(value: false)
     fear: Boolean! @default(value: false)
+    fun: Boolean! @default(value: false)
     gratitude: Boolean! @default(value: false)
+    joy: Boolean! @default(value: false)
     pride: Boolean! @default(value: false)
     salvaltion: Boolean! @default(value: false)
     selfPity: Boolean! @default(value: false)
@@ -350,6 +352,8 @@ type Strength {
 type Hope {
     id: ID! @id
     salvation: [Salvation]
+    fun: [Fun]
+    joy: [Joy]
 }
 
 type Trauma {
@@ -589,6 +593,34 @@ type Salvation {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+}
+type Fun {
+    id: ID! @id
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
+}
+type Joy {
+    id: ID! @id
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolveAt: DateTime
 }
 
 type Inventory {

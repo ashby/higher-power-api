@@ -32,7 +32,9 @@ type Has {
     compassion: Boolean!
     courage: Boolean!
     fear: Boolean!
+    fun: Boolean!
     gratitude: Boolean!
+    joy: Boolean!
     pride: Boolean!
     salvaltion: Boolean!
     selfPity: Boolean!

@@ -1,6 +1,10 @@
 #import Salvation from '../../feelings/salvation/type.graphql';
+#import Joy from '../../feelings/joy/type.graphql';
+#import Fun from '../../feelings/fun/type.graphql';
 
 type Hope {
     id: ID!
+    fun: [Fun]
+    joy: [Joy]
     salvation: [Salvation]
 }
