@@ -19,7 +19,6 @@ function registerResolvers( queries = {}, mutations = {} ) {
     Object.assign( Mutation, mutations );
 }
 
-require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
 require( './resources/higher-power' )( registerResolvers );
 

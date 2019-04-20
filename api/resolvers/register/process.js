@@ -1,6 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const { upperCase } = require( '../utils' );
-const { handleHas } = require( '../utils/has' );
 const { getSource } = require( '../utils/source' );
 
 const mutateProcess = async ( source, data ) => {
@@ -9,7 +8,6 @@ const mutateProcess = async ( source, data ) => {
     if ( !data.id ) {
         response.id = source;
         response = await prisma[ `create${name}` ]( source );
-        await handleHas( feeling );
         return response;
     }
     return prisma[ `update${name}` ]( {

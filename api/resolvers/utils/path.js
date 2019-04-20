@@ -9,13 +9,13 @@ const {
     HOPE
 } = require( './constants' );
 
-const getDefect = async ( has = false ) => await getFeelings( has, DEFECT );
-const getDiscontent = async ( has = false ) => await getFeelings( has, DISCONTENT );
-const getResentment = async ( has = false ) => await getFeelings( has, RESENTMENT );
-const getObsession = async ( has = false ) => await getFeelings( has, OBSESSION );
-const getExperience = async ( has = false ) => await getFeelings( has, EXPERIENCE );
-const getStrength = async ( has = false ) => await getFeelings( has, STRENGTH );
-const getHope = async ( has = false ) => await getFeelings( has, HOPE );
+const getDefect = async () => await getFeelings( DEFECT );
+const getDiscontent = async () => await getFeelings( DISCONTENT );
+const getResentment = async () => await getFeelings( RESENTMENT );
+const getObsession = async () => await getFeelings( OBSESSION );
+const getExperience = async () => await getFeelings( EXPERIENCE );
+const getStrength = async () => await getFeelings( STRENGTH );
+const getHope = async () => await getFeelings( HOPE );
 
 module.exports = { 
     getDefect,

@@ -1,6 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const { upperCase } = require( '../utils' );
-const { handleHas } = require( '../utils/has' );
 
 const query = async ( singular, plural ) => ( {
     [ plural ]: () => prisma[ plural ](),
@@ -8,10 +7,9 @@ const query = async ( singular, plural ) => ( {
 } );
 
 const mutateSource = async ( subpath, id, data ) => {
-    const name = subpath.charAt( 0 ).toUpperCase() + subpath.slice( 1 );
+    const name = upperCase( subpath );
     if ( !id ) {
         const response = await prisma[ `create${name}` ]( data );
-        await handleHas( subpath, data.path );
         return response;
     }
     return prisma[ `update${name}` ]( {

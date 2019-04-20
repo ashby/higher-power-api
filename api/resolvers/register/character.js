@@ -1,6 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const { upperCase } = require( '../utils' );
-const { handleHas } = require( '../utils/has' );
 const { getProcess } = require( '../utils/source' );
 
 const mutateCharacter = async ( character, data ) => {
@@ -9,7 +8,6 @@ const mutateCharacter = async ( character, data ) => {
     if ( !data.id ) {
         response.id = character;
         response = await prisma[ `create${name}` ]( character );
-        await handleHas( character );
         return response;
     }
     return prisma[ `update${name}` ]( {
