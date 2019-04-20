@@ -1,5 +1,4 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { handleHas, upperCase } = require( '../utils' );
 
 const getSubAttributes = async ( has, subAttributes = [] ) => {
     if ( !has ) {
@@ -61,21 +60,6 @@ const getHope = async ( has = false ) => await getSubAttributes( has, [
     'salvation'
 ] );
 
-const mutateAttribute = async ( attribute, data ) => {
-    let response;
-    const name = upperCase( attribute );
-    if ( !data.id ) {
-        response.id = attribute;
-        response = await prisma[ `create${name}` ]( attribute );
-        await handleHas( attribute );
-        return response;
-    }
-    return prisma[ `update${name}` ]( {
-        data,
-        where: { id: data.id }
-    } );
-};
-
 const getAttributes = {
     getDefect,
     getResentment,
@@ -85,14 +69,4 @@ const getAttributes = {
     getHope,
 };
 
-const handleAttribute = ( singular, register ) => register( {
-    [ singular ]: async () => getAttributes[ `get${upperCase(singular)}` ]()
-}, {
-    [ `mutate${upperCase(singular)}` ]: async ( parent, { data } ) => 
-        await mutateAttribute( singular, data )
-} );
-
-module.exports = {
-    getAttributes,
-    handleAttribute
-};
+module.exports = { getAttributes };

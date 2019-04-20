@@ -1,5 +1,5 @@
-const { prisma } = require( '../../generated/prisma-client' );
-const config = require( '../config' );
+const { prisma } = require( '../../../generated/prisma-client' );
+const config = require( '../../config' );
 
 const HAS = {
     defect: false,
@@ -25,8 +25,6 @@ const HAS = {
     vulnerability: false,
 };
 
-const upperCase = string => string.charAt( 0 ).toUpperCase() + string.slice( 1 );
-
 const handleHas =  async ( key, attribute ) => {
     if ( config.ENABLE_HAS ) {
         let has;
@@ -50,7 +48,6 @@ const handleHas =  async ( key, attribute ) => {
 };
 
 module.exports = {
-    upperCase,
     HAS,
     handleHas
 };

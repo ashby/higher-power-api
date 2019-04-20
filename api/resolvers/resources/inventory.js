@@ -1,5 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { getAttributes } = require( './attributes/utils' );
+const { getAttributes } = require( '../utils/attribute' );
 
 module.exports = ( register ) => register( {
     inventory: async ( _, data, ctx ) => {

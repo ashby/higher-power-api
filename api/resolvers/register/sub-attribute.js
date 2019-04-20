@@ -1,5 +1,6 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { upperCase, handleHas } = require( '../utils' );
+const { upperCase } = require( '../utils' );
+const { handleHas } = require( '../utils/has' );
 
 const query = async ( singular, plural ) => ( {
     [ plural ]: () => prisma[ plural ](),
@@ -24,11 +25,11 @@ const mutate = ( singular ) => ( {
         await mutateSubattribute( singular, id, data )
 } );
 
-const handleSubattribute = ( singular, plural, register ) => register( 
+const registerSubattribute = ( singular, plural, register ) => register( 
     query( singular, plural ), 
     mutate( singular )
 );
 
 module.exports = {
-    handleSubattribute
+    registerSubattribute
 };

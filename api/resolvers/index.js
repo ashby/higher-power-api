@@ -1,5 +1,5 @@
-const { handleAttribute } = require( './resources/attribute' );
-const { handleSubattribute } = require( './resources/sub-attribute' );
+const { registerAttribute } = require( './register/attribute' );
+const { registerSubattribute } = require( './register/sub-attribute' );
 
 const Mutation = {};
 const Query = {};
@@ -12,28 +12,28 @@ function registerResolvers( queries = {}, mutations = {} ) {
 require( './resources/has' )( registerResolvers );
 require( './resources/inventory' )( registerResolvers );
 
-handleAttribute( 'defect', registerResolvers );
-handleAttribute( 'obsession', registerResolvers );
-handleAttribute( 'experience', registerResolvers );
-handleAttribute( 'strength', registerResolvers );
-handleAttribute( 'hope', registerResolvers );
-handleAttribute( 'resentment', registerResolvers );
+registerAttribute( 'defect', registerResolvers );
+registerAttribute( 'obsession', registerResolvers );
+registerAttribute( 'experience', registerResolvers );
+registerAttribute( 'strength', registerResolvers );
+registerAttribute( 'hope', registerResolvers );
+registerAttribute( 'resentment', registerResolvers );
 
-handleSubattribute( 'acceptance', 'acceptances', registerResolvers );
-handleSubattribute( 'anger', 'angers', registerResolvers );
-handleSubattribute( 'armor', 'armors', registerResolvers );
-handleSubattribute( 'boundary', 'boundaries', registerResolvers );
-handleSubattribute( 'compassion', 'compassions', registerResolvers );
-handleSubattribute( 'courage', 'courages', registerResolvers );
-handleSubattribute( 'fear', 'fears', registerResolvers );
-handleSubattribute( 'gratitude', 'gratitudes', registerResolvers );
-handleSubattribute( 'pride', 'prides', registerResolvers );
-handleSubattribute( 'salvation', 'salvations', registerResolvers );
-handleSubattribute( 'selfPity', 'selfPitys', registerResolvers );
-handleSubattribute( 'suffering', 'sufferings', registerResolvers );
-handleSubattribute( 'toxicity', 'toxicities', registerResolvers );
-handleSubattribute( 'trauma', 'traumas', registerResolvers );
-handleSubattribute( 'vulnerability', 'vulnerabilities', registerResolvers );
+registerSubattribute( 'acceptance', 'acceptances', registerResolvers );
+registerSubattribute( 'anger', 'angers', registerResolvers );
+registerSubattribute( 'armor', 'armors', registerResolvers );
+registerSubattribute( 'boundary', 'boundaries', registerResolvers );
+registerSubattribute( 'compassion', 'compassions', registerResolvers );
+registerSubattribute( 'courage', 'courages', registerResolvers );
+registerSubattribute( 'fear', 'fears', registerResolvers );
+registerSubattribute( 'gratitude', 'gratitudes', registerResolvers );
+registerSubattribute( 'pride', 'prides', registerResolvers );
+registerSubattribute( 'salvation', 'salvations', registerResolvers );
+registerSubattribute( 'selfPity', 'selfPitys', registerResolvers );
+registerSubattribute( 'suffering', 'sufferings', registerResolvers );
+registerSubattribute( 'toxicity', 'toxicities', registerResolvers );
+registerSubattribute( 'trauma', 'traumas', registerResolvers );
+registerSubattribute( 'vulnerability', 'vulnerabilities', registerResolvers );
 
 module.exports = {
     Query,
