@@ -23,6 +23,21 @@ type Has {
     vulnerability: Boolean! @default(value: false)
 }
 
+type Characters {
+    id: ID! @id
+    congregant: Congregant
+    genie: Genie
+    guardian: Guardian
+    martyr: Martyr
+    paladin: Paladin
+    seeker: Seeker
+    self: Self
+    smith: Smith
+    summoner: Summoner
+    victim: Victim
+    volunteer: Volunteer
+}
+
 type Congregant {
     id: ID! @id
 }
@@ -67,13 +82,13 @@ type Volunteer {
 }
 
 type Act {
-    id: ID!
+    id: ID! @id
     service: [Service]
     support: [Support]
     sacrifice: [Sacrifice]
 }
 type Affliction {
-    id: ID!
+    id: ID! @id
     scar: [Scar]
     gash: [Gash]
     infection: [Infection]
@@ -81,214 +96,219 @@ type Affliction {
     nightmare: [Nightmare]
     delirium: [Delirium]
 }
-type Affliction {
-    id: ID!
-    scar: [Scar]
-    gash: [Gash]
-    infection: [Infection]
-    tremor: [Tremor]
-    nightmare: [Nightmare]
-    delirium: [Delirium]
+type Body {
+    id: ID! @id
+    brain: [Brain]
+    face: [Face]
+    mouth: [Mouth]
+    soul: [Soul]
+    heart: [Heart]
+    sternum: [Sternum]
+    gut: [Gut]
 }
 type Construct {
-    id: ID!
+    id: ID! @id
     gate: [Gate]
     tower: [Tower]
     wall: [Wall]
 }
 type Oath {
-    id: ID!
+    id: ID! @id
     pledge: [Pledge]
     campaign: [Campaign]
     crusade: [Crusade]
 }
 type Shield {
-    id: ID!
+    id: ID! @id
     silence: [Silence]
     sarcasm: [Sarcasm]
     denial: [Denial]
     confusion: [Confusion]
 }
 type Stigmata {
-    id: ID!
+    id: ID! @id
     nail: [Nail]
     crown: [Crown]
     cross: [Cross]
 }
-type Stigmata {
-    id: ID!
+type Virtue {
+    id: ID! @id
     nail: [Nail]
     crown: [Crown]
     cross: [Cross]
+}
+type Wish {
+    id: ID! @id
+    dream: [Dream]
 }
 
 type Brain {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Campaign {
-    id: ID!
+    id: ID! @id
     loyalty: [Loyalty]
     honor: [Honor]
 }
 type Confusion {
-    id: ID!
+    id: ID! @id
     armor: [Armor]
 }
 type Cross {
-    id: ID!
+    id: ID! @id
     suffering: [Suffering]
 }
 type Crown {
-    id: ID!
+    id: ID! @id
     suffering: [Suffering]
 }
 type Crusade {
-    id: ID!
+    id: ID! @id
     loyalty: [Loyalty]
     honor: [Honor]
 }
 type Delirium {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Denial {
-    id: ID!
+    id: ID! @id
     armor: [Armor]
 }
 type Dream {
-    id: ID!
+    id: ID! @id
     salvation: [Salvation]
 }
 type Face {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Gash {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Gate {
-    id: ID!
-    boundary: [Bounday]
+    id: ID! @id
+    boundary: [Boundary]
 }
 type Gut {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Heart {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Infection {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Love {
-    id: ID!
+    id: ID! @id
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
 }
 type Mind {
-    id: ID!
+    id: ID! @id
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
 }
 type Mouth {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Nail {
-    id: ID!
+    id: ID! @id
     suffering: [Suffering]
 }
 type Nightmare {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Pledge {
-    id: ID!
+    id: ID! @id
     loyalty: [Loyalty]
     honor: [Honor]
 }
 type Sacrifice {
-    id: ID!
+    id: ID! @id
     courage: [Courage]
     compassion: [Compassion]
 }
 type Sarcasm {
-    id: ID!
+    id: ID! @id
     armor: [Armor]
 }
 type Scar {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Service {
-    id: ID!
+    id: ID! @id
     courage: [Courage]
     compassion: [Compassion]
 }
 type Silence {
-    id: ID!
+    id: ID! @id
     armor: [Armor]
 }
 type Skin {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Soul {
-    id: ID!
+    id: ID! @id
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
 }
 type Sternum {
-    id: ID!
+    id: ID! @id
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
 }
 type Support {
-    id: ID!
+    id: ID! @id
     courage: [Courage]
     compassion: [Compassion]
 }
 type Tower {
-    id: ID!
-    boundary: [Bounday]
+    id: ID! @id
+    boundary: [Boundary]
 }
 type Tremor {
-    id: ID!
+    id: ID! @id
     trauma: [Trauma]
     toxicity: [Toxicity]
 }
 type Wall {
-    id: ID!
-    boundary: [boundary]
+    id: ID! @id
+    boundary: [Boundary]
 }
 
 type Defect {

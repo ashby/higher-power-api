@@ -2,5 +2,5 @@
 
 type Gate {
     id: ID!
-    boundary: [Bounday]
+    boundary: [Boundary]
 }

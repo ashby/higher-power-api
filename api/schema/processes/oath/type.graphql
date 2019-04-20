@@ -1,5 +1,5 @@
 #import Pledge from '../../sources/pledge/type.graphql';
-#import Campaign from '../../sources/campain/type.graphql';
+#import Campaign from '../../sources/campaign/type.graphql';
 #import Crusade from '../../sources/crusade/type.graphql';
 
 type Oath {

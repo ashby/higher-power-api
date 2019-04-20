@@ -12,7 +12,7 @@
 # import Paladin from "./characters/paladin/type.graphql";
 # import Seeker from "./characters/seeker/type.graphql";
 # import Self from "./characters/self/type.graphql";
-# import Smith from "./characters/self/type.graphql";
+# import Smith from "./characters/smith/type.graphql";
 # import Summoner from "./characters/summoner/type.graphql";
 # import Victim from "./characters/victim/type.graphql";
 # import Volunteer from "./characters/volunteer/type.graphql";

@@ -2,5 +2,5 @@
 
 type Wall {
     id: ID!
-    boundary: [boundary]
+    boundary: [Boundary]
 }

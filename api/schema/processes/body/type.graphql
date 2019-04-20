@@ -6,12 +6,13 @@
 #import Sternum from '../../sources/sternum/type.graphql';
 #import Gut from '../../sources/gut/type.graphql';
 
-type Affliction {
+type Body {
     id: ID!
-    scar: [Scar]
-    gash: [Gash]
-    infection: [Infection]
-    tremor: [Tremor]
-    nightmare: [Nightmare]
-    delirium: [Delirium]
+    brain: [Brain]
+    face: [Face]
+    mouth: [Mouth]
+    soul: [Soul]
+    heart: [Heart]
+    sternum: [Sternum]
+    gut: [Gut]
 }
