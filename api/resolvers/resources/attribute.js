@@ -1,5 +1,5 @@
-const { prisma } = require( '../../../../generated/prisma-client' );
-const { handleHas } = require( '../../utils' );
+const { prisma } = require( '../../../generated/prisma-client' );
+const { handleHas, upperCase } = require( '../utils' );
 
 const getSubAttributes = async ( has, subAttributes = [] ) => {
     if ( !has ) {
@@ -35,14 +35,12 @@ const getResentment = async ( has = false ) => await getSubAttributes( has, [
     'fear',
     'pride'
 ] );
-
 const getObsession = async ( has = false ) => await getSubAttributes( has, [
     'suffering', 
     { singular: 'loyalty', plural: 'loyalties' },
     'honor',
     { singular: 'vulnerability', plural: 'vulnerabilities' }
 ] );
-
 const getExperience = async ( has = false ) => await getSubAttributes( has, [
     'compassion', 
     'courage', 
@@ -51,7 +49,6 @@ const getExperience = async ( has = false ) => await getSubAttributes( has, [
     'gratitude',
     'suffering'
 ] );
-
 const getStrength = async ( has = false ) => await getSubAttributes( has, [
     'armor', 
     { singular: 'boundary', plural: 'boundaries' },
@@ -60,14 +57,13 @@ const getStrength = async ( has = false ) => await getSubAttributes( has, [
     'anger',
     'courage'
 ] );
-
 const getHope = async ( has = false ) => await getSubAttributes( has, [
     'salvation'
 ] );
 
 const mutateAttribute = async ( attribute, data ) => {
     let response;
-    const name = attribute.charAt( 0 ).toUpperCase() + attribute.slice( 1 );
+    const name = upperCase( attribute );
     if ( !data.id ) {
         response.id = attribute;
         response = await prisma[ `create${name}` ]( attribute );
@@ -78,7 +74,7 @@ const mutateAttribute = async ( attribute, data ) => {
         data,
         where: { id: data.id }
     } );
-}
+};
 
 const getAttributes = {
     getDefect,
@@ -89,13 +85,14 @@ const getAttributes = {
     getHope,
 };
 
+const handleAttribute = ( singular, register ) => register( {
+    [ singular ]: async () => getAttributes[ `get${upperCase(singular)}` ]()
+}, {
+    [ `mutate${upperCase(singular)}` ]: async ( parent, { data } ) => 
+        await mutateAttribute( singular, data )
+} );
+
 module.exports = {
     getAttributes,
-    getDefect,
-    getResentment,
-    getObsession,
-    getExperience,
-    getStrength,
-    getHope,
-    mutateAttribute
+    handleAttribute
 };
