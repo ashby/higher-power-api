@@ -1,34 +1,6 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const config = require( '../../config' );
-
-const HAS = {
-    defect: false,
-    discontent: false,
-    resentment: false,
-    obsession: false,
-    experience: false,
-    strength: false,
-    hope: false,
-    acceptance: false,
-    anger: false,
-    armor: false,
-    boundary: false,
-    compassion: false,
-    courage: false,
-    fear: false,
-    fun: false,
-    gratitude: false,
-    irritability: false,
-    impatience: false,
-    joy: false,
-    pride: false,
-    salvaltion: false,
-    selfPity: false,
-    suffering: false,
-    toxicity: false,
-    trauma: false,
-    vulnerability: false,
-};
+const { HAS } = require( './constants' );
 
 const handleHas =  async ( key, path ) => {
     if ( config.ENABLE_HAS ) {
@@ -52,7 +24,17 @@ const handleHas =  async ( key, path ) => {
     }
 };
 
+const getHas = async () => {
+    let has;
+    has = await prisma.has( { id: 'has' }  );
+    if ( !has ) {
+        has = await prisma.createHas( { id: 'has' } );
+    };
+    return has;
+}
+
 module.exports = {
     HAS,
-    handleHas
+    handleHas,
+    getHas
 };

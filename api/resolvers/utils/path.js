@@ -1,8 +1,9 @@
 const { prisma } = require( '../../../generated/prisma-client' );
+const { getHas } = require( './has' );
 
 const getFeelings = async ( has, feelings = [] ) => {
     if ( !has ) {
-        has = await prisma.has( { id: 'has' } );
+        has = await getHas();
     }
     const values = {};
     const feelingPromises = feelings.map( async ( feeling ) => {

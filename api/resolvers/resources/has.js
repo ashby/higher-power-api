@@ -1,5 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { HAS } = require( '../utils' );
+const { HAS } = require( '../utils/constants' );
 
 module.exports = ( register ) => register( {
     has: ( _, { id } ) => prisma.has( { id } )

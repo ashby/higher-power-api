@@ -1,30 +1,19 @@
-const { prisma } = require( '../../../generated/prisma-client' );
 const { getPaths } = require( '../utils/path' );
+const { getHas } = require( '../utils/has' );
+const { upperCase } = require( '../utils' );
+const { PATHS } = require( '../utils/constants' );
 
 module.exports = ( register ) => register( {
-    inventory: async ( _, data, ctx ) => {
-        let has;
-        has = await prisma.has( { id: 'has' }  );
-        if ( !has ) {
-            has = await prisma.createHas( { id: 'has' } );
-        };
+    inventory: async ( _, data ) => {
+        const has = await getHas();
         const paths = {};
-        const inventoryPromises = [
-            'defect',
-            'discontent',
-            'resentment',
-            'obsession',
-            'experience',
-            'strength',
-            'hope'
-        ].map( async ( item ) => {
-            if ( has[ item ] ) {
-                const name = item.charAt( 0 ).toUpperCase() + item.slice( 1 );
-                const path = await getPaths[ `get${name}` ]( has );
-                paths[ item ] = path
+        const pathPromises = PATHS.map( async ( path ) => {
+            if ( has[ path ] ) {
+                const name = upperCase( path );
+                paths[ path ] = await getPaths[ `get${name}` ]( has );
             }
         } );
-        await Promise.all( inventoryPromises );
+        await Promise.all( pathPromises );
         return {
             has,
             ...paths

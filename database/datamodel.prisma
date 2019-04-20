@@ -28,21 +28,6 @@ type Has {
     vulnerability: Boolean! @default(value: false)
 }
 
-type Characters {
-    id: ID! @id
-    congregant: Congregant
-    genie: Genie
-    guardian: Guardian
-    martyr: Martyr
-    paladin: Paladin
-    seeker: Seeker
-    self: Self
-    smith: Smith
-    summoner: Summoner
-    victim: Victim
-    volunteer: Volunteer
-}
-
 type Congregant {
     id: ID! @id
 }
@@ -659,6 +644,66 @@ type Impatience {
     resolveAt: DateTime
 }
 
+type Feeling {
+    id: ID! @id
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+
+type Path {
+    id: ID! @id
+    defect: Defect
+    discontent: Discontent
+    resentment: Resentment
+    obsession: Obsession
+    experience: Experience
+    strength: Strength
+    hope: Hope
+}
+
+type Process {
+    id: ID! @id
+    act: Act
+    affliction: Affliction
+    body: Body
+    construct: Construct
+    oath: Oath
+    shield: Shield
+    stigmata: Stigmata
+    virtue: Virtue
+    wish: Wish
+}
+
+type Prayer {
+    id: ID! @id
+    process: Process
+    path: Path
+}
+
+type Characters {
+    id: ID! @id
+    congregant: Congregant
+    genie: Genie
+    guardian: Guardian
+    martyr: Martyr
+    paladin: Paladin
+    seeker: Seeker
+    self: Self
+    smith: Smith
+    summoner: Summoner
+    victim: Victim
+    volunteer: Volunteer
+}
+
 type Inventory {
     id: ID! @id
     defect: [Defect]
@@ -672,6 +717,7 @@ type Inventory {
 
 type HigherPower {
     id: ID! @id
-    inventory: Inventory
-    characters: Characters
+    prayer: Prayer
+    inventory: [Feeling]
+    character: Characters
 }

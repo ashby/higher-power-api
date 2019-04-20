@@ -1,5 +1,6 @@
 # import Has from "./types.graphql"
 # import HasInput from "./inputs.graphql";
+# import Self from "./types.graphql";
 # import Inventory from "./types.graphql";
 # import Characters from "./types.graphql";
 # import HigherPower from "./types.graphql";
@@ -19,14 +20,11 @@
 # import Hope from "./paths/hope/type.graphql";
 # import HopeInput from "./paths/hope/input.graphql";
 
-#import Self from "./characters/self/type.graphql";
-#import SelfInput from "./characters/self/input.graphql";
+# import Body from "./processes/body/type.graphql";
+# import BodyInput from "./processes/body/input.graphql";
 
-#import Body from "./processes/body/type.graphql";
-#import BodyInput from "./processes/body/input.graphql";
-
-#import Brain from "./sources/brain/type.graphql";
-#import BrainInput from "./sources/brain/input.graphql";
+# import Brain from "./sources/brain/type.graphql";
+# import BrainInput from "./sources/brain/input.graphql";
 
 # import Acceptance from "./feelings/acceptance/type.graphql";
 # import AcceptanceInput from "./feelings/acceptance/input.graphql";
@@ -67,11 +65,13 @@
 # import Vulnerability from "./feelings/vulnerability/type.graphql";
 # import VulnerabilityInput from "./feelings/vulnerability/input.graphql";
 
-
 type Query {
     has(id: ID!): Has
     higherPower: HigherPower
     inventory: Inventory
+    path: Path
+    process: Process
+    prayer: Prayer
     characters: Characters
 
     defect(id: ID!): Defect
@@ -81,8 +81,6 @@ type Query {
     experience(id: ID!): Experience
     strength(id: ID!): Strength
     hope(id: ID!): Hope
-
-    self(id: ID!): Self
 
     body(id: ID!): Body
 
@@ -138,8 +136,6 @@ type Mutation {
     mutateExperience(data:ExperienceInput): Experience!
     mutateStrength(data:StrengthInput): Strength!
     mutateHope(data:HopeInput): Hope!
-
-    mutateSelf(data:SelfInput): Self!
 
     mutateBody(data:BodyInput): Body!
 

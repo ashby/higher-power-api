@@ -500,6 +500,11 @@ input ActCreateManyInput {
   connect: [ActWhereUniqueInput!]
 }
 
+input ActCreateOneInput {
+  create: ActCreateInput
+  connect: ActWhereUniqueInput
+}
+
 type ActEdge {
   node: Act!
   cursor: String!
@@ -579,9 +584,23 @@ input ActUpdateManyInput {
   deleteMany: [ActScalarWhereInput!]
 }
 
+input ActUpdateOneInput {
+  create: ActCreateInput
+  update: ActUpdateDataInput
+  upsert: ActUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ActWhereUniqueInput
+}
+
 input ActUpdateWithWhereUniqueNestedInput {
   where: ActWhereUniqueInput!
   data: ActUpdateDataInput!
+}
+
+input ActUpsertNestedInput {
+  update: ActUpdateDataInput!
+  create: ActCreateInput!
 }
 
 input ActUpsertWithWhereUniqueNestedInput {
@@ -652,6 +671,11 @@ input AfflictionCreateInput {
 input AfflictionCreateManyInput {
   create: [AfflictionCreateInput!]
   connect: [AfflictionWhereUniqueInput!]
+}
+
+input AfflictionCreateOneInput {
+  create: AfflictionCreateInput
+  connect: AfflictionWhereUniqueInput
 }
 
 type AfflictionEdge {
@@ -739,9 +763,23 @@ input AfflictionUpdateManyInput {
   deleteMany: [AfflictionScalarWhereInput!]
 }
 
+input AfflictionUpdateOneInput {
+  create: AfflictionCreateInput
+  update: AfflictionUpdateDataInput
+  upsert: AfflictionUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: AfflictionWhereUniqueInput
+}
+
 input AfflictionUpdateWithWhereUniqueNestedInput {
   where: AfflictionWhereUniqueInput!
   data: AfflictionUpdateDataInput!
+}
+
+input AfflictionUpsertNestedInput {
+  update: AfflictionUpdateDataInput!
+  create: AfflictionCreateInput!
 }
 
 input AfflictionUpsertWithWhereUniqueNestedInput {
@@ -896,6 +934,10 @@ type AggregateFear {
   count: Int!
 }
 
+type AggregateFeeling {
+  count: Int!
+}
+
 type AggregateFun {
   count: Int!
 }
@@ -1004,11 +1046,23 @@ type AggregatePaladin {
   count: Int!
 }
 
+type AggregatePath {
+  count: Int!
+}
+
 type AggregatePledge {
   count: Int!
 }
 
+type AggregatePrayer {
+  count: Int!
+}
+
 type AggregatePride {
+  count: Int!
+}
+
+type AggregateProcess {
   count: Int!
 }
 
@@ -2113,6 +2167,11 @@ input BodyCreateManyInput {
   connect: [BodyWhereUniqueInput!]
 }
 
+input BodyCreateOneInput {
+  create: BodyCreateInput
+  connect: BodyWhereUniqueInput
+}
+
 type BodyEdge {
   node: Body!
   cursor: String!
@@ -2200,9 +2259,23 @@ input BodyUpdateManyInput {
   deleteMany: [BodyScalarWhereInput!]
 }
 
+input BodyUpdateOneInput {
+  create: BodyCreateInput
+  update: BodyUpdateDataInput
+  upsert: BodyUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: BodyWhereUniqueInput
+}
+
 input BodyUpdateWithWhereUniqueNestedInput {
   where: BodyWhereUniqueInput!
   data: BodyUpdateDataInput!
+}
+
+input BodyUpsertNestedInput {
+  update: BodyUpdateDataInput!
+  create: BodyCreateInput!
 }
 
 input BodyUpsertWithWhereUniqueNestedInput {
@@ -3895,6 +3968,11 @@ input ConstructCreateManyInput {
   connect: [ConstructWhereUniqueInput!]
 }
 
+input ConstructCreateOneInput {
+  create: ConstructCreateInput
+  connect: ConstructWhereUniqueInput
+}
+
 type ConstructEdge {
   node: Construct!
   cursor: String!
@@ -3974,9 +4052,23 @@ input ConstructUpdateManyInput {
   deleteMany: [ConstructScalarWhereInput!]
 }
 
+input ConstructUpdateOneInput {
+  create: ConstructCreateInput
+  update: ConstructUpdateDataInput
+  upsert: ConstructUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ConstructWhereUniqueInput
+}
+
 input ConstructUpdateWithWhereUniqueNestedInput {
   where: ConstructWhereUniqueInput!
   data: ConstructUpdateDataInput!
+}
+
+input ConstructUpsertNestedInput {
+  update: ConstructUpdateDataInput!
+  create: ConstructCreateInput!
 }
 
 input ConstructUpsertWithWhereUniqueNestedInput {
@@ -4926,6 +5018,11 @@ input DefectCreateManyInput {
   connect: [DefectWhereUniqueInput!]
 }
 
+input DefectCreateOneInput {
+  create: DefectCreateInput
+  connect: DefectWhereUniqueInput
+}
+
 type DefectEdge {
   node: Defect!
   cursor: String!
@@ -5005,9 +5102,23 @@ input DefectUpdateManyInput {
   deleteMany: [DefectScalarWhereInput!]
 }
 
+input DefectUpdateOneInput {
+  create: DefectCreateInput
+  update: DefectUpdateDataInput
+  upsert: DefectUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: DefectWhereUniqueInput
+}
+
 input DefectUpdateWithWhereUniqueNestedInput {
   where: DefectWhereUniqueInput!
   data: DefectUpdateDataInput!
+}
+
+input DefectUpsertNestedInput {
+  update: DefectUpdateDataInput!
+  create: DefectCreateInput!
 }
 
 input DefectUpsertWithWhereUniqueNestedInput {
@@ -5347,6 +5458,11 @@ input DiscontentCreateManyInput {
   connect: [DiscontentWhereUniqueInput!]
 }
 
+input DiscontentCreateOneInput {
+  create: DiscontentCreateInput
+  connect: DiscontentWhereUniqueInput
+}
+
 type DiscontentEdge {
   node: Discontent!
   cursor: String!
@@ -5424,9 +5540,23 @@ input DiscontentUpdateManyInput {
   deleteMany: [DiscontentScalarWhereInput!]
 }
 
+input DiscontentUpdateOneInput {
+  create: DiscontentCreateInput
+  update: DiscontentUpdateDataInput
+  upsert: DiscontentUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: DiscontentWhereUniqueInput
+}
+
 input DiscontentUpdateWithWhereUniqueNestedInput {
   where: DiscontentWhereUniqueInput!
   data: DiscontentUpdateDataInput!
+}
+
+input DiscontentUpsertNestedInput {
+  update: DiscontentUpdateDataInput!
+  create: DiscontentCreateInput!
 }
 
 input DiscontentUpsertWithWhereUniqueNestedInput {
@@ -5630,6 +5760,11 @@ input ExperienceCreateManyInput {
   connect: [ExperienceWhereUniqueInput!]
 }
 
+input ExperienceCreateOneInput {
+  create: ExperienceCreateInput
+  connect: ExperienceWhereUniqueInput
+}
+
 type ExperienceEdge {
   node: Experience!
   cursor: String!
@@ -5715,9 +5850,23 @@ input ExperienceUpdateManyInput {
   deleteMany: [ExperienceScalarWhereInput!]
 }
 
+input ExperienceUpdateOneInput {
+  create: ExperienceCreateInput
+  update: ExperienceUpdateDataInput
+  upsert: ExperienceUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ExperienceWhereUniqueInput
+}
+
 input ExperienceUpdateWithWhereUniqueNestedInput {
   where: ExperienceWhereUniqueInput!
   data: ExperienceUpdateDataInput!
+}
+
+input ExperienceUpsertNestedInput {
+  update: ExperienceUpdateDataInput!
+  create: ExperienceCreateInput!
 }
 
 input ExperienceUpsertWithWhereUniqueNestedInput {
@@ -6392,6 +6541,478 @@ input FearWhereInput {
 }
 
 input FearWhereUniqueInput {
+  id: ID
+}
+
+type Feeling {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+type FeelingConnection {
+  pageInfo: PageInfo!
+  edges: [FeelingEdge]!
+  aggregate: AggregateFeeling!
+}
+
+input FeelingCreateInput {
+  id: ID
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingCreateManyInput {
+  create: [FeelingCreateInput!]
+  connect: [FeelingWhereUniqueInput!]
+}
+
+type FeelingEdge {
+  node: Feeling!
+  cursor: String!
+}
+
+enum FeelingOrderByInput {
+  id_ASC
+  id_DESC
+  character_ASC
+  character_DESC
+  thought_ASC
+  thought_DESC
+  source_ASC
+  source_DESC
+  process_ASC
+  process_DESC
+  path_ASC
+  path_DESC
+  feeling_ASC
+  feeling_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  sharedAt_ASC
+  sharedAt_DESC
+  amendedAt_ASC
+  amendedAt_DESC
+  resolvedAt_ASC
+  resolvedAt_DESC
+}
+
+type FeelingPreviousValues {
+  id: ID!
+  character: String!
+  thought: String!
+  source: String!
+  process: String!
+  path: String!
+  feeling: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [FeelingScalarWhereInput!]
+  OR: [FeelingScalarWhereInput!]
+  NOT: [FeelingScalarWhereInput!]
+}
+
+type FeelingSubscriptionPayload {
+  mutation: MutationType!
+  node: Feeling
+  updatedFields: [String!]
+  previousValues: FeelingPreviousValues
+}
+
+input FeelingSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FeelingWhereInput
+  AND: [FeelingSubscriptionWhereInput!]
+  OR: [FeelingSubscriptionWhereInput!]
+  NOT: [FeelingSubscriptionWhereInput!]
+}
+
+input FeelingUpdateDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingUpdateInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingUpdateManyDataInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingUpdateManyInput {
+  create: [FeelingCreateInput!]
+  update: [FeelingUpdateWithWhereUniqueNestedInput!]
+  upsert: [FeelingUpsertWithWhereUniqueNestedInput!]
+  delete: [FeelingWhereUniqueInput!]
+  connect: [FeelingWhereUniqueInput!]
+  set: [FeelingWhereUniqueInput!]
+  disconnect: [FeelingWhereUniqueInput!]
+  deleteMany: [FeelingScalarWhereInput!]
+  updateMany: [FeelingUpdateManyWithWhereNestedInput!]
+}
+
+input FeelingUpdateManyMutationInput {
+  character: String
+  thought: String
+  source: String
+  process: String
+  path: String
+  feeling: String
+  sharedAt: DateTime
+  amendedAt: DateTime
+  resolvedAt: DateTime
+}
+
+input FeelingUpdateManyWithWhereNestedInput {
+  where: FeelingScalarWhereInput!
+  data: FeelingUpdateManyDataInput!
+}
+
+input FeelingUpdateWithWhereUniqueNestedInput {
+  where: FeelingWhereUniqueInput!
+  data: FeelingUpdateDataInput!
+}
+
+input FeelingUpsertWithWhereUniqueNestedInput {
+  where: FeelingWhereUniqueInput!
+  update: FeelingUpdateDataInput!
+  create: FeelingCreateInput!
+}
+
+input FeelingWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  character: String
+  character_not: String
+  character_in: [String!]
+  character_not_in: [String!]
+  character_lt: String
+  character_lte: String
+  character_gt: String
+  character_gte: String
+  character_contains: String
+  character_not_contains: String
+  character_starts_with: String
+  character_not_starts_with: String
+  character_ends_with: String
+  character_not_ends_with: String
+  thought: String
+  thought_not: String
+  thought_in: [String!]
+  thought_not_in: [String!]
+  thought_lt: String
+  thought_lte: String
+  thought_gt: String
+  thought_gte: String
+  thought_contains: String
+  thought_not_contains: String
+  thought_starts_with: String
+  thought_not_starts_with: String
+  thought_ends_with: String
+  thought_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
+  path: String
+  path_not: String
+  path_in: [String!]
+  path_not_in: [String!]
+  path_lt: String
+  path_lte: String
+  path_gt: String
+  path_gte: String
+  path_contains: String
+  path_not_contains: String
+  path_starts_with: String
+  path_not_starts_with: String
+  path_ends_with: String
+  path_not_ends_with: String
+  feeling: String
+  feeling_not: String
+  feeling_in: [String!]
+  feeling_not_in: [String!]
+  feeling_lt: String
+  feeling_lte: String
+  feeling_gt: String
+  feeling_gte: String
+  feeling_contains: String
+  feeling_not_contains: String
+  feeling_starts_with: String
+  feeling_not_starts_with: String
+  feeling_ends_with: String
+  feeling_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  sharedAt: DateTime
+  sharedAt_not: DateTime
+  sharedAt_in: [DateTime!]
+  sharedAt_not_in: [DateTime!]
+  sharedAt_lt: DateTime
+  sharedAt_lte: DateTime
+  sharedAt_gt: DateTime
+  sharedAt_gte: DateTime
+  amendedAt: DateTime
+  amendedAt_not: DateTime
+  amendedAt_in: [DateTime!]
+  amendedAt_not_in: [DateTime!]
+  amendedAt_lt: DateTime
+  amendedAt_lte: DateTime
+  amendedAt_gt: DateTime
+  amendedAt_gte: DateTime
+  resolvedAt: DateTime
+  resolvedAt_not: DateTime
+  resolvedAt_in: [DateTime!]
+  resolvedAt_not_in: [DateTime!]
+  resolvedAt_lt: DateTime
+  resolvedAt_lte: DateTime
+  resolvedAt_gt: DateTime
+  resolvedAt_gte: DateTime
+  AND: [FeelingWhereInput!]
+  OR: [FeelingWhereInput!]
+  NOT: [FeelingWhereInput!]
+}
+
+input FeelingWhereUniqueInput {
   id: ID
 }
 
@@ -8452,8 +9073,9 @@ input HeartWhereUniqueInput {
 
 type HigherPower {
   id: ID!
-  inventory: Inventory
-  characters: Characters
+  prayer: Prayer
+  inventory(where: FeelingWhereInput, orderBy: FeelingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Feeling!]
+  character: Characters
 }
 
 type HigherPowerConnection {
@@ -8464,8 +9086,9 @@ type HigherPowerConnection {
 
 input HigherPowerCreateInput {
   id: ID
-  inventory: InventoryCreateOneInput
-  characters: CharactersCreateOneInput
+  prayer: PrayerCreateOneInput
+  inventory: FeelingCreateManyInput
+  character: CharactersCreateOneInput
 }
 
 type HigherPowerEdge {
@@ -8505,8 +9128,9 @@ input HigherPowerSubscriptionWhereInput {
 }
 
 input HigherPowerUpdateInput {
-  inventory: InventoryUpdateOneInput
-  characters: CharactersUpdateOneInput
+  prayer: PrayerUpdateOneInput
+  inventory: FeelingUpdateManyInput
+  character: CharactersUpdateOneInput
 }
 
 input HigherPowerWhereInput {
@@ -8524,8 +9148,11 @@ input HigherPowerWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  inventory: InventoryWhereInput
-  characters: CharactersWhereInput
+  prayer: PrayerWhereInput
+  inventory_every: FeelingWhereInput
+  inventory_some: FeelingWhereInput
+  inventory_none: FeelingWhereInput
+  character: CharactersWhereInput
   AND: [HigherPowerWhereInput!]
   OR: [HigherPowerWhereInput!]
   NOT: [HigherPowerWhereInput!]
@@ -9032,6 +9659,11 @@ input HopeCreateManyInput {
   connect: [HopeWhereUniqueInput!]
 }
 
+input HopeCreateOneInput {
+  create: HopeCreateInput
+  connect: HopeWhereUniqueInput
+}
+
 type HopeEdge {
   node: Hope!
   cursor: String!
@@ -9111,9 +9743,23 @@ input HopeUpdateManyInput {
   deleteMany: [HopeScalarWhereInput!]
 }
 
+input HopeUpdateOneInput {
+  create: HopeCreateInput
+  update: HopeUpdateDataInput
+  upsert: HopeUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: HopeWhereUniqueInput
+}
+
 input HopeUpdateWithWhereUniqueNestedInput {
   where: HopeWhereUniqueInput!
   data: HopeUpdateDataInput!
+}
+
+input HopeUpsertNestedInput {
+  update: HopeUpdateDataInput!
+  create: HopeCreateInput!
 }
 
 input HopeUpsertWithWhereUniqueNestedInput {
@@ -9796,11 +10442,6 @@ input InventoryCreateInput {
   hope: HopeCreateManyInput
 }
 
-input InventoryCreateOneInput {
-  create: InventoryCreateInput
-  connect: InventoryWhereUniqueInput
-}
-
 type InventoryEdge {
   node: Inventory!
   cursor: String!
@@ -9837,16 +10478,6 @@ input InventorySubscriptionWhereInput {
   NOT: [InventorySubscriptionWhereInput!]
 }
 
-input InventoryUpdateDataInput {
-  defect: DefectUpdateManyInput
-  discontent: DiscontentUpdateManyInput
-  resentment: ResentmentUpdateManyInput
-  obsession: ObsessionUpdateManyInput
-  experience: ExperienceUpdateManyInput
-  strength: StrengthUpdateManyInput
-  hope: HopeUpdateManyInput
-}
-
 input InventoryUpdateInput {
   defect: DefectUpdateManyInput
   discontent: DiscontentUpdateManyInput
@@ -9855,20 +10486,6 @@ input InventoryUpdateInput {
   experience: ExperienceUpdateManyInput
   strength: StrengthUpdateManyInput
   hope: HopeUpdateManyInput
-}
-
-input InventoryUpdateOneInput {
-  create: InventoryCreateInput
-  update: InventoryUpdateDataInput
-  upsert: InventoryUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: InventoryWhereUniqueInput
-}
-
-input InventoryUpsertNestedInput {
-  update: InventoryUpdateDataInput!
-  create: InventoryCreateInput!
 }
 
 input InventoryWhereInput {
@@ -11909,6 +12526,12 @@ type Mutation {
   upsertFear(where: FearWhereUniqueInput!, create: FearCreateInput!, update: FearUpdateInput!): Fear!
   deleteFear(where: FearWhereUniqueInput!): Fear
   deleteManyFears(where: FearWhereInput): BatchPayload!
+  createFeeling(data: FeelingCreateInput!): Feeling!
+  updateFeeling(data: FeelingUpdateInput!, where: FeelingWhereUniqueInput!): Feeling
+  updateManyFeelings(data: FeelingUpdateManyMutationInput!, where: FeelingWhereInput): BatchPayload!
+  upsertFeeling(where: FeelingWhereUniqueInput!, create: FeelingCreateInput!, update: FeelingUpdateInput!): Feeling!
+  deleteFeeling(where: FeelingWhereUniqueInput!): Feeling
+  deleteManyFeelings(where: FeelingWhereInput): BatchPayload!
   createFun(data: FunCreateInput!): Fun!
   updateFun(data: FunUpdateInput!, where: FunWhereUniqueInput!): Fun
   updateManyFuns(data: FunUpdateManyMutationInput!, where: FunWhereInput): BatchPayload!
@@ -12052,17 +12675,32 @@ type Mutation {
   upsertPaladin(where: PaladinWhereUniqueInput!, create: PaladinCreateInput!, update: PaladinUpdateInput!): Paladin!
   deletePaladin(where: PaladinWhereUniqueInput!): Paladin
   deleteManyPaladins(where: PaladinWhereInput): BatchPayload!
+  createPath(data: PathCreateInput!): Path!
+  updatePath(data: PathUpdateInput!, where: PathWhereUniqueInput!): Path
+  upsertPath(where: PathWhereUniqueInput!, create: PathCreateInput!, update: PathUpdateInput!): Path!
+  deletePath(where: PathWhereUniqueInput!): Path
+  deleteManyPaths(where: PathWhereInput): BatchPayload!
   createPledge(data: PledgeCreateInput!): Pledge!
   updatePledge(data: PledgeUpdateInput!, where: PledgeWhereUniqueInput!): Pledge
   upsertPledge(where: PledgeWhereUniqueInput!, create: PledgeCreateInput!, update: PledgeUpdateInput!): Pledge!
   deletePledge(where: PledgeWhereUniqueInput!): Pledge
   deleteManyPledges(where: PledgeWhereInput): BatchPayload!
+  createPrayer(data: PrayerCreateInput!): Prayer!
+  updatePrayer(data: PrayerUpdateInput!, where: PrayerWhereUniqueInput!): Prayer
+  upsertPrayer(where: PrayerWhereUniqueInput!, create: PrayerCreateInput!, update: PrayerUpdateInput!): Prayer!
+  deletePrayer(where: PrayerWhereUniqueInput!): Prayer
+  deleteManyPrayers(where: PrayerWhereInput): BatchPayload!
   createPride(data: PrideCreateInput!): Pride!
   updatePride(data: PrideUpdateInput!, where: PrideWhereUniqueInput!): Pride
   updateManyPrides(data: PrideUpdateManyMutationInput!, where: PrideWhereInput): BatchPayload!
   upsertPride(where: PrideWhereUniqueInput!, create: PrideCreateInput!, update: PrideUpdateInput!): Pride!
   deletePride(where: PrideWhereUniqueInput!): Pride
   deleteManyPrides(where: PrideWhereInput): BatchPayload!
+  createProcess(data: ProcessCreateInput!): Process!
+  updateProcess(data: ProcessUpdateInput!, where: ProcessWhereUniqueInput!): Process
+  upsertProcess(where: ProcessWhereUniqueInput!, create: ProcessCreateInput!, update: ProcessUpdateInput!): Process!
+  deleteProcess(where: ProcessWhereUniqueInput!): Process
+  deleteManyProcesses(where: ProcessWhereInput): BatchPayload!
   createResentment(data: ResentmentCreateInput!): Resentment!
   updateResentment(data: ResentmentUpdateInput!, where: ResentmentWhereUniqueInput!): Resentment
   upsertResentment(where: ResentmentWhereUniqueInput!, create: ResentmentCreateInput!, update: ResentmentUpdateInput!): Resentment!
@@ -12529,6 +13167,11 @@ input OathCreateManyInput {
   connect: [OathWhereUniqueInput!]
 }
 
+input OathCreateOneInput {
+  create: OathCreateInput
+  connect: OathWhereUniqueInput
+}
+
 type OathEdge {
   node: Oath!
   cursor: String!
@@ -12608,9 +13251,23 @@ input OathUpdateManyInput {
   deleteMany: [OathScalarWhereInput!]
 }
 
+input OathUpdateOneInput {
+  create: OathCreateInput
+  update: OathUpdateDataInput
+  upsert: OathUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: OathWhereUniqueInput
+}
+
 input OathUpdateWithWhereUniqueNestedInput {
   where: OathWhereUniqueInput!
   data: OathUpdateDataInput!
+}
+
+input OathUpsertNestedInput {
+  update: OathUpdateDataInput!
+  create: OathCreateInput!
 }
 
 input OathUpsertWithWhereUniqueNestedInput {
@@ -12677,6 +13334,11 @@ input ObsessionCreateInput {
 input ObsessionCreateManyInput {
   create: [ObsessionCreateInput!]
   connect: [ObsessionWhereUniqueInput!]
+}
+
+input ObsessionCreateOneInput {
+  create: ObsessionCreateInput
+  connect: ObsessionWhereUniqueInput
 }
 
 type ObsessionEdge {
@@ -12760,9 +13422,23 @@ input ObsessionUpdateManyInput {
   deleteMany: [ObsessionScalarWhereInput!]
 }
 
+input ObsessionUpdateOneInput {
+  create: ObsessionCreateInput
+  update: ObsessionUpdateDataInput
+  upsert: ObsessionUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ObsessionWhereUniqueInput
+}
+
 input ObsessionUpdateWithWhereUniqueNestedInput {
   where: ObsessionWhereUniqueInput!
   data: ObsessionUpdateDataInput!
+}
+
+input ObsessionUpsertNestedInput {
+  update: ObsessionUpdateDataInput!
+  create: ObsessionCreateInput!
 }
 
 input ObsessionUpsertWithWhereUniqueNestedInput {
@@ -12920,6 +13596,140 @@ input PaladinWhereUniqueInput {
   id: ID
 }
 
+type Path {
+  id: ID!
+  defect: Defect
+  discontent: Discontent
+  resentment: Resentment
+  obsession: Obsession
+  experience: Experience
+  strength: Strength
+  hope: Hope
+}
+
+type PathConnection {
+  pageInfo: PageInfo!
+  edges: [PathEdge]!
+  aggregate: AggregatePath!
+}
+
+input PathCreateInput {
+  id: ID
+  defect: DefectCreateOneInput
+  discontent: DiscontentCreateOneInput
+  resentment: ResentmentCreateOneInput
+  obsession: ObsessionCreateOneInput
+  experience: ExperienceCreateOneInput
+  strength: StrengthCreateOneInput
+  hope: HopeCreateOneInput
+}
+
+input PathCreateOneInput {
+  create: PathCreateInput
+  connect: PathWhereUniqueInput
+}
+
+type PathEdge {
+  node: Path!
+  cursor: String!
+}
+
+enum PathOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type PathPreviousValues {
+  id: ID!
+}
+
+type PathSubscriptionPayload {
+  mutation: MutationType!
+  node: Path
+  updatedFields: [String!]
+  previousValues: PathPreviousValues
+}
+
+input PathSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PathWhereInput
+  AND: [PathSubscriptionWhereInput!]
+  OR: [PathSubscriptionWhereInput!]
+  NOT: [PathSubscriptionWhereInput!]
+}
+
+input PathUpdateDataInput {
+  defect: DefectUpdateOneInput
+  discontent: DiscontentUpdateOneInput
+  resentment: ResentmentUpdateOneInput
+  obsession: ObsessionUpdateOneInput
+  experience: ExperienceUpdateOneInput
+  strength: StrengthUpdateOneInput
+  hope: HopeUpdateOneInput
+}
+
+input PathUpdateInput {
+  defect: DefectUpdateOneInput
+  discontent: DiscontentUpdateOneInput
+  resentment: ResentmentUpdateOneInput
+  obsession: ObsessionUpdateOneInput
+  experience: ExperienceUpdateOneInput
+  strength: StrengthUpdateOneInput
+  hope: HopeUpdateOneInput
+}
+
+input PathUpdateOneInput {
+  create: PathCreateInput
+  update: PathUpdateDataInput
+  upsert: PathUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: PathWhereUniqueInput
+}
+
+input PathUpsertNestedInput {
+  update: PathUpdateDataInput!
+  create: PathCreateInput!
+}
+
+input PathWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  defect: DefectWhereInput
+  discontent: DiscontentWhereInput
+  resentment: ResentmentWhereInput
+  obsession: ObsessionWhereInput
+  experience: ExperienceWhereInput
+  strength: StrengthWhereInput
+  hope: HopeWhereInput
+  AND: [PathWhereInput!]
+  OR: [PathWhereInput!]
+  NOT: [PathWhereInput!]
+}
+
+input PathWhereUniqueInput {
+  id: ID
+}
+
 type Pledge {
   id: ID!
   loyalty(where: LoyaltyWhereInput, orderBy: LoyaltyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Loyalty!]
@@ -13058,6 +13868,115 @@ input PledgeWhereInput {
 }
 
 input PledgeWhereUniqueInput {
+  id: ID
+}
+
+type Prayer {
+  id: ID!
+  process: Process
+  path: Path
+}
+
+type PrayerConnection {
+  pageInfo: PageInfo!
+  edges: [PrayerEdge]!
+  aggregate: AggregatePrayer!
+}
+
+input PrayerCreateInput {
+  id: ID
+  process: ProcessCreateOneInput
+  path: PathCreateOneInput
+}
+
+input PrayerCreateOneInput {
+  create: PrayerCreateInput
+  connect: PrayerWhereUniqueInput
+}
+
+type PrayerEdge {
+  node: Prayer!
+  cursor: String!
+}
+
+enum PrayerOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type PrayerPreviousValues {
+  id: ID!
+}
+
+type PrayerSubscriptionPayload {
+  mutation: MutationType!
+  node: Prayer
+  updatedFields: [String!]
+  previousValues: PrayerPreviousValues
+}
+
+input PrayerSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PrayerWhereInput
+  AND: [PrayerSubscriptionWhereInput!]
+  OR: [PrayerSubscriptionWhereInput!]
+  NOT: [PrayerSubscriptionWhereInput!]
+}
+
+input PrayerUpdateDataInput {
+  process: ProcessUpdateOneInput
+  path: PathUpdateOneInput
+}
+
+input PrayerUpdateInput {
+  process: ProcessUpdateOneInput
+  path: PathUpdateOneInput
+}
+
+input PrayerUpdateOneInput {
+  create: PrayerCreateInput
+  update: PrayerUpdateDataInput
+  upsert: PrayerUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: PrayerWhereUniqueInput
+}
+
+input PrayerUpsertNestedInput {
+  update: PrayerUpdateDataInput!
+  create: PrayerCreateInput!
+}
+
+input PrayerWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  process: ProcessWhereInput
+  path: PathWhereInput
+  AND: [PrayerWhereInput!]
+  OR: [PrayerWhereInput!]
+  NOT: [PrayerWhereInput!]
+}
+
+input PrayerWhereUniqueInput {
   id: ID
 }
 
@@ -13533,6 +14452,150 @@ input PrideWhereUniqueInput {
   id: ID
 }
 
+type Process {
+  id: ID!
+  act: Act
+  affliction: Affliction
+  body: Body
+  construct: Construct
+  oath: Oath
+  shield: Shield
+  stigmata: Stigmata
+  virtue: Virtue
+  wish: Wish
+}
+
+type ProcessConnection {
+  pageInfo: PageInfo!
+  edges: [ProcessEdge]!
+  aggregate: AggregateProcess!
+}
+
+input ProcessCreateInput {
+  id: ID
+  act: ActCreateOneInput
+  affliction: AfflictionCreateOneInput
+  body: BodyCreateOneInput
+  construct: ConstructCreateOneInput
+  oath: OathCreateOneInput
+  shield: ShieldCreateOneInput
+  stigmata: StigmataCreateOneInput
+  virtue: VirtueCreateOneInput
+  wish: WishCreateOneInput
+}
+
+input ProcessCreateOneInput {
+  create: ProcessCreateInput
+  connect: ProcessWhereUniqueInput
+}
+
+type ProcessEdge {
+  node: Process!
+  cursor: String!
+}
+
+enum ProcessOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ProcessPreviousValues {
+  id: ID!
+}
+
+type ProcessSubscriptionPayload {
+  mutation: MutationType!
+  node: Process
+  updatedFields: [String!]
+  previousValues: ProcessPreviousValues
+}
+
+input ProcessSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProcessWhereInput
+  AND: [ProcessSubscriptionWhereInput!]
+  OR: [ProcessSubscriptionWhereInput!]
+  NOT: [ProcessSubscriptionWhereInput!]
+}
+
+input ProcessUpdateDataInput {
+  act: ActUpdateOneInput
+  affliction: AfflictionUpdateOneInput
+  body: BodyUpdateOneInput
+  construct: ConstructUpdateOneInput
+  oath: OathUpdateOneInput
+  shield: ShieldUpdateOneInput
+  stigmata: StigmataUpdateOneInput
+  virtue: VirtueUpdateOneInput
+  wish: WishUpdateOneInput
+}
+
+input ProcessUpdateInput {
+  act: ActUpdateOneInput
+  affliction: AfflictionUpdateOneInput
+  body: BodyUpdateOneInput
+  construct: ConstructUpdateOneInput
+  oath: OathUpdateOneInput
+  shield: ShieldUpdateOneInput
+  stigmata: StigmataUpdateOneInput
+  virtue: VirtueUpdateOneInput
+  wish: WishUpdateOneInput
+}
+
+input ProcessUpdateOneInput {
+  create: ProcessCreateInput
+  update: ProcessUpdateDataInput
+  upsert: ProcessUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ProcessWhereUniqueInput
+}
+
+input ProcessUpsertNestedInput {
+  update: ProcessUpdateDataInput!
+  create: ProcessCreateInput!
+}
+
+input ProcessWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  act: ActWhereInput
+  affliction: AfflictionWhereInput
+  body: BodyWhereInput
+  construct: ConstructWhereInput
+  oath: OathWhereInput
+  shield: ShieldWhereInput
+  stigmata: StigmataWhereInput
+  virtue: VirtueWhereInput
+  wish: WishWhereInput
+  AND: [ProcessWhereInput!]
+  OR: [ProcessWhereInput!]
+  NOT: [ProcessWhereInput!]
+}
+
+input ProcessWhereUniqueInput {
+  id: ID
+}
+
 type Query {
   acceptance(where: AcceptanceWhereUniqueInput!): Acceptance
   acceptances(where: AcceptanceWhereInput, orderBy: AcceptanceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Acceptance]!
@@ -13612,6 +14675,9 @@ type Query {
   fear(where: FearWhereUniqueInput!): Fear
   fears(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fear]!
   fearsConnection(where: FearWhereInput, orderBy: FearOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FearConnection!
+  feeling(where: FeelingWhereUniqueInput!): Feeling
+  feelings(where: FeelingWhereInput, orderBy: FeelingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Feeling]!
+  feelingsConnection(where: FeelingWhereInput, orderBy: FeelingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FeelingConnection!
   fun(where: FunWhereUniqueInput!): Fun
   funs(where: FunWhereInput, orderBy: FunOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Fun]!
   funsConnection(where: FunWhereInput, orderBy: FunOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FunConnection!
@@ -13693,12 +14759,21 @@ type Query {
   paladin(where: PaladinWhereUniqueInput!): Paladin
   paladins(where: PaladinWhereInput, orderBy: PaladinOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Paladin]!
   paladinsConnection(where: PaladinWhereInput, orderBy: PaladinOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PaladinConnection!
+  path(where: PathWhereUniqueInput!): Path
+  paths(where: PathWhereInput, orderBy: PathOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Path]!
+  pathsConnection(where: PathWhereInput, orderBy: PathOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PathConnection!
   pledge(where: PledgeWhereUniqueInput!): Pledge
   pledges(where: PledgeWhereInput, orderBy: PledgeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pledge]!
   pledgesConnection(where: PledgeWhereInput, orderBy: PledgeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PledgeConnection!
+  prayer(where: PrayerWhereUniqueInput!): Prayer
+  prayers(where: PrayerWhereInput, orderBy: PrayerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Prayer]!
+  prayersConnection(where: PrayerWhereInput, orderBy: PrayerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PrayerConnection!
   pride(where: PrideWhereUniqueInput!): Pride
   prides(where: PrideWhereInput, orderBy: PrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pride]!
   pridesConnection(where: PrideWhereInput, orderBy: PrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PrideConnection!
+  process(where: ProcessWhereUniqueInput!): Process
+  processes(where: ProcessWhereInput, orderBy: ProcessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Process]!
+  processesConnection(where: ProcessWhereInput, orderBy: ProcessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProcessConnection!
   resentment(where: ResentmentWhereUniqueInput!): Resentment
   resentments(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Resentment]!
   resentmentsConnection(where: ResentmentWhereInput, orderBy: ResentmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ResentmentConnection!
@@ -13819,6 +14894,11 @@ input ResentmentCreateManyInput {
   connect: [ResentmentWhereUniqueInput!]
 }
 
+input ResentmentCreateOneInput {
+  create: ResentmentCreateInput
+  connect: ResentmentWhereUniqueInput
+}
+
 type ResentmentEdge {
   node: Resentment!
   cursor: String!
@@ -13900,9 +14980,23 @@ input ResentmentUpdateManyInput {
   deleteMany: [ResentmentScalarWhereInput!]
 }
 
+input ResentmentUpdateOneInput {
+  create: ResentmentCreateInput
+  update: ResentmentUpdateDataInput
+  upsert: ResentmentUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ResentmentWhereUniqueInput
+}
+
 input ResentmentUpdateWithWhereUniqueNestedInput {
   where: ResentmentWhereUniqueInput!
   data: ResentmentUpdateDataInput!
+}
+
+input ResentmentUpsertNestedInput {
+  update: ResentmentUpdateDataInput!
+  create: ResentmentCreateInput!
 }
 
 input ResentmentUpsertWithWhereUniqueNestedInput {
@@ -15687,6 +16781,11 @@ input ShieldCreateManyInput {
   connect: [ShieldWhereUniqueInput!]
 }
 
+input ShieldCreateOneInput {
+  create: ShieldCreateInput
+  connect: ShieldWhereUniqueInput
+}
+
 type ShieldEdge {
   node: Shield!
   cursor: String!
@@ -15768,9 +16867,23 @@ input ShieldUpdateManyInput {
   deleteMany: [ShieldScalarWhereInput!]
 }
 
+input ShieldUpdateOneInput {
+  create: ShieldCreateInput
+  update: ShieldUpdateDataInput
+  upsert: ShieldUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ShieldWhereUniqueInput
+}
+
 input ShieldUpdateWithWhereUniqueNestedInput {
   where: ShieldWhereUniqueInput!
   data: ShieldUpdateDataInput!
+}
+
+input ShieldUpsertNestedInput {
+  update: ShieldUpdateDataInput!
+  create: ShieldCreateInput!
 }
 
 input ShieldUpsertWithWhereUniqueNestedInput {
@@ -16477,6 +17590,11 @@ input StigmataCreateManyInput {
   connect: [StigmataWhereUniqueInput!]
 }
 
+input StigmataCreateOneInput {
+  create: StigmataCreateInput
+  connect: StigmataWhereUniqueInput
+}
+
 type StigmataEdge {
   node: Stigmata!
   cursor: String!
@@ -16556,9 +17674,23 @@ input StigmataUpdateManyInput {
   deleteMany: [StigmataScalarWhereInput!]
 }
 
+input StigmataUpdateOneInput {
+  create: StigmataCreateInput
+  update: StigmataUpdateDataInput
+  upsert: StigmataUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: StigmataWhereUniqueInput
+}
+
 input StigmataUpdateWithWhereUniqueNestedInput {
   where: StigmataWhereUniqueInput!
   data: StigmataUpdateDataInput!
+}
+
+input StigmataUpsertNestedInput {
+  update: StigmataUpdateDataInput!
+  create: StigmataCreateInput!
 }
 
 input StigmataUpsertWithWhereUniqueNestedInput {
@@ -16625,6 +17757,11 @@ input StrengthCreateInput {
 input StrengthCreateManyInput {
   create: [StrengthCreateInput!]
   connect: [StrengthWhereUniqueInput!]
+}
+
+input StrengthCreateOneInput {
+  create: StrengthCreateInput
+  connect: StrengthWhereUniqueInput
 }
 
 type StrengthEdge {
@@ -16708,9 +17845,23 @@ input StrengthUpdateManyInput {
   deleteMany: [StrengthScalarWhereInput!]
 }
 
+input StrengthUpdateOneInput {
+  create: StrengthCreateInput
+  update: StrengthUpdateDataInput
+  upsert: StrengthUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: StrengthWhereUniqueInput
+}
+
 input StrengthUpdateWithWhereUniqueNestedInput {
   where: StrengthWhereUniqueInput!
   data: StrengthUpdateDataInput!
+}
+
+input StrengthUpsertNestedInput {
+  update: StrengthUpdateDataInput!
+  create: StrengthCreateInput!
 }
 
 input StrengthUpsertWithWhereUniqueNestedInput {
@@ -16782,6 +17933,7 @@ type Subscription {
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   face(where: FaceSubscriptionWhereInput): FaceSubscriptionPayload
   fear(where: FearSubscriptionWhereInput): FearSubscriptionPayload
+  feeling(where: FeelingSubscriptionWhereInput): FeelingSubscriptionPayload
   fun(where: FunSubscriptionWhereInput): FunSubscriptionPayload
   gash(where: GashSubscriptionWhereInput): GashSubscriptionPayload
   gate(where: GateSubscriptionWhereInput): GateSubscriptionPayload
@@ -16809,8 +17961,11 @@ type Subscription {
   oath(where: OathSubscriptionWhereInput): OathSubscriptionPayload
   obsession(where: ObsessionSubscriptionWhereInput): ObsessionSubscriptionPayload
   paladin(where: PaladinSubscriptionWhereInput): PaladinSubscriptionPayload
+  path(where: PathSubscriptionWhereInput): PathSubscriptionPayload
   pledge(where: PledgeSubscriptionWhereInput): PledgeSubscriptionPayload
+  prayer(where: PrayerSubscriptionWhereInput): PrayerSubscriptionPayload
   pride(where: PrideSubscriptionWhereInput): PrideSubscriptionPayload
+  process(where: ProcessSubscriptionWhereInput): ProcessSubscriptionPayload
   resentment(where: ResentmentSubscriptionWhereInput): ResentmentSubscriptionPayload
   sacrifice(where: SacrificeSubscriptionWhereInput): SacrificeSubscriptionPayload
   salvation(where: SalvationSubscriptionWhereInput): SalvationSubscriptionPayload
@@ -18892,6 +20047,11 @@ input VirtueCreateManyInput {
   connect: [VirtueWhereUniqueInput!]
 }
 
+input VirtueCreateOneInput {
+  create: VirtueCreateInput
+  connect: VirtueWhereUniqueInput
+}
+
 type VirtueEdge {
   node: Virtue!
   cursor: String!
@@ -18971,9 +20131,23 @@ input VirtueUpdateManyInput {
   deleteMany: [VirtueScalarWhereInput!]
 }
 
+input VirtueUpdateOneInput {
+  create: VirtueCreateInput
+  update: VirtueUpdateDataInput
+  upsert: VirtueUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: VirtueWhereUniqueInput
+}
+
 input VirtueUpdateWithWhereUniqueNestedInput {
   where: VirtueWhereUniqueInput!
   data: VirtueUpdateDataInput!
+}
+
+input VirtueUpsertNestedInput {
+  update: VirtueUpdateDataInput!
+  create: VirtueCreateInput!
 }
 
 input VirtueUpsertWithWhereUniqueNestedInput {
@@ -19748,6 +20922,11 @@ input WishCreateManyInput {
   connect: [WishWhereUniqueInput!]
 }
 
+input WishCreateOneInput {
+  create: WishCreateInput
+  connect: WishWhereUniqueInput
+}
+
 type WishEdge {
   node: Wish!
   cursor: String!
@@ -19823,9 +21002,23 @@ input WishUpdateManyInput {
   deleteMany: [WishScalarWhereInput!]
 }
 
+input WishUpdateOneInput {
+  create: WishCreateInput
+  update: WishUpdateDataInput
+  upsert: WishUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: WishWhereUniqueInput
+}
+
 input WishUpdateWithWhereUniqueNestedInput {
   where: WishWhereUniqueInput!
   data: WishUpdateDataInput!
+}
+
+input WishUpsertNestedInput {
+  update: WishUpdateDataInput!
+  create: WishCreateInput!
 }
 
 input WishUpsertWithWhereUniqueNestedInput {

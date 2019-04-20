@@ -30,3 +30,7 @@ input HasInput {
     vulnerability: Boolean
 }
 
+input SelfInput {
+    id: ID
+}
+

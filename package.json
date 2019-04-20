@@ -1,6 +1,6 @@
 {
     "name": "higher-power-api",
-    "version": "1.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "Higher Power API",
     "scripts": {
       "start": "prisma deploy && NODE_ENV=production node ./api/server.js",

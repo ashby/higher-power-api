@@ -1,6 +1,0 @@
-#import Body from '../../processes/body/type.graphql';
-
-type Self {
-    id: ID!
-    body: [Body]
-}

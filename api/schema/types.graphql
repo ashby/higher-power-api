@@ -12,11 +12,20 @@
 # import Martyr from "./characters/martyr/type.graphql";
 # import Paladin from "./characters/paladin/type.graphql";
 # import Seeker from "./characters/seeker/type.graphql";
-# import Self from "./characters/self/type.graphql";
 # import Smith from "./characters/smith/type.graphql";
 # import Summoner from "./characters/summoner/type.graphql";
 # import Victim from "./characters/victim/type.graphql";
 # import Volunteer from "./characters/volunteer/type.graphql";
+
+# import Act from "./processes/body/type.graphql";
+# import Affliction from "./processes/body/type.graphql";
+# import Body from "./processes/body/type.graphql";
+# import Construct from "./processes/body/type.graphql";
+# import Oath from "./processes/body/type.graphql";
+# import Shield from "./processes/body/type.graphql";
+# import Stigmata from "./processes/body/type.graphql";
+# import Virtue from "./processes/body/type.graphql";
+# import Wish from "./processes/body/type.graphql";
 
 type Has {
     id: ID!
@@ -48,6 +57,61 @@ type Has {
     vulnerability: Boolean!
 }
 
+type Feeling {
+    character: String!
+    thought: String!
+    source: String!
+    process: String!
+    path: String!
+    feeling: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}
+
+type Path {
+    defect: Defect
+    discontent: Discontent
+    resentment: Resentment
+    obsession: Obsession
+    experience: Experience
+    strength: Strength
+    hope: Hope
+}
+
+type Process {
+    act: Act
+    affliction: Affliction
+    body: Body
+    construct: Construct
+    oath: Oath
+    shield: Shield
+    stigmata: Stigmata
+    virtue: Virtue
+    wish: Wish
+}
+
+type Prayer {
+    id: ID!
+    process: Process
+    path: Path
+}
+
+type Characters {
+    congregant: Congregant
+    genie: Genie
+    guardian: Guardian
+    martyr: Martyr
+    paladin: Paladin
+    seeker: Seeker
+    smith: Smith
+    summoner: Summoner
+    victim: Victim
+    volunteer: Volunteer
+}
+
 type Inventory {
     has: Has
     defect: Defect
@@ -59,21 +123,9 @@ type Inventory {
     hope: Hope
 }
 
-type Characters {
-    congregant: Congregant
-    genie: Genie
-    guardian: Guardian
-    martyr: Martyr
-    paladin: Paladin
-    seeker: Seeker
-    self: Self
-    smith: Smith
-    summoner: Summoner
-    victim: Victim
-    volunteer: Volunteer
-}
-
 type HigherPower {
-    inventory: Inventory
-    chracters: Characters
+    has: Has
+    prayer: Prayer
+    inventory: [Feeling]
+    character: Characters
 }

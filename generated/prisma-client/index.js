@@ -9,10 +9,6 @@ var models = [
     embedded: false
   },
   {
-    name: "Characters",
-    embedded: false
-  },
-  {
     name: "Congregant",
     embedded: false
   },
@@ -334,6 +330,26 @@ var models = [
   },
   {
     name: "Impatience",
+    embedded: false
+  },
+  {
+    name: "Feeling",
+    embedded: false
+  },
+  {
+    name: "Path",
+    embedded: false
+  },
+  {
+    name: "Process",
+    embedded: false
+  },
+  {
+    name: "Prayer",
+    embedded: false
+  },
+  {
+    name: "Characters",
     embedded: false
   },
   {
