@@ -11,6 +11,7 @@ module.exports = ( register ) => register( {
         const paths = {};
         const inventoryPromises = [
             'defect',
+            'discontent',
             'resentment',
             'obsession',
             'experience',
