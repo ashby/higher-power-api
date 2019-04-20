@@ -1,6 +1,7 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const { upperCase } = require( '../utils' );
 const { handleHas } = require( '../utils/has' );
+const { getAttributes } = require( '../utils/attribute' );
 
 const mutateAttribute = async ( attribute, data ) => {
     let response;

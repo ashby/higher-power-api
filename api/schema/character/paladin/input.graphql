@@ -1,0 +1,4 @@
+type PaladinInput {
+    id: ID
+    oath: [Oath]
+}

@@ -1,0 +1,4 @@
+type SelfInput {
+    id: ID
+    body: [Body]
+}

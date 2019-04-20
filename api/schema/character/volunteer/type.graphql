@@ -1,0 +1,4 @@
+type Volunteer {
+    id: ID!
+    act: [Act]
+}

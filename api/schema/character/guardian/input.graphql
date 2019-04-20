@@ -1,0 +1,4 @@
+type GuardianInput {
+    id: ID
+    construct: [Construct]
+}

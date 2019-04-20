@@ -1,0 +1,4 @@
+type Paladin {
+    id: ID!
+    oath: [Oath]
+}

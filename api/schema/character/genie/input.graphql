@@ -1,0 +1,3 @@
+type GenieInput {
+    id: ID
+}

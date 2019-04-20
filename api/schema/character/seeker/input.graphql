@@ -1,0 +1,4 @@
+type SeekerInput {
+    id: ID
+    virtue: [Virtue]
+}

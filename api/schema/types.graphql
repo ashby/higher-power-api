@@ -5,6 +5,17 @@
 # import Strength from "./attributes/strength/type.graphql";
 # import Hope from "./attributes/hope/type.graphql";
 
+# import Congregant from "./characters/congregant/type.graphql";
+# import Genie from "./characters/genie/type.graphql";
+# import Guardian from "./characters/guardian/type.graphql";
+# import Martyr from "./characters/martyr/type.graphql";
+# import Paladin from "./characters/paladin/type.graphql";
+# import Seeker from "./characters/seeker/type.graphql";
+# import Self from "./characters/self/type.graphql";
+# import Summoner from "./characters/summoner/type.graphql";
+# import Victim from "./characters/victim/type.graphql";
+# import Volunteer from "./characters/volunteer/type.graphql";
+
 type Has {
     id: ID!
     defect: Boolean!
@@ -37,6 +48,19 @@ type Inventory {
     obsession: Obsession
     experience: Experience
     strength: Strength
+}
+
+type Characters {
+    congregant: Congregant
+    genie: Genie
+    guardian: Guardian
+    martyr: Martyr
+    paladin: Paladin
+    seeker: Seeker
+    self: Self
+    summoner: Summoner
+    victim: Victim
+    volunteer: Volunteer
 }
 
 type HigherPower {
