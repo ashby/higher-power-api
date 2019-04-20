@@ -1,8 +1,3 @@
 #import Courage from '../../feelings/courage/type.graphql';
 #import Compassion from '../../feelings/compassion/type.graphql';
 
-type Service {
-    id: ID!
-    courage: [Courage]
-    compassion: [Compassion]
-}

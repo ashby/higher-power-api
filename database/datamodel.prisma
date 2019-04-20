@@ -23,6 +23,274 @@ type Has {
     vulnerability: Boolean! @default(value: false)
 }
 
+type Congregant {
+    id: ID! @id
+}
+type Genie {
+    id: ID! @id
+    wish: [Wish]
+}
+type Guardian {
+    id: ID! @id
+    construct: [Construct]
+}
+type Martyr {
+    id: ID! @id
+    stigmata: [Stigmata]
+}
+type Paladin {
+    id: ID! @id
+    oath: [Oath]
+}
+type Seeker {
+    id: ID! @id
+    virtue: [Virtue]
+}
+type Self {
+    id: ID! @id
+    body: [Body]
+}
+type Smith {
+    id: ID! @id
+    shield: [Shield]
+}
+type Summoner {
+    id: ID! @id
+}
+type Victim {
+    id: ID! @id
+    affliction: [Affliction]
+}
+type Volunteer {
+    id: ID! @id
+    act: [Act]
+}
+
+type Act {
+    id: ID!
+    service: [Service]
+    support: [Support]
+    sacrifice: [Sacrifice]
+}
+type Affliction {
+    id: ID!
+    scar: [Scar]
+    gash: [Gash]
+    infection: [Infection]
+    tremor: [Tremor]
+    nightmare: [Nightmare]
+    delirium: [Delirium]
+}
+type Affliction {
+    id: ID!
+    scar: [Scar]
+    gash: [Gash]
+    infection: [Infection]
+    tremor: [Tremor]
+    nightmare: [Nightmare]
+    delirium: [Delirium]
+}
+type Construct {
+    id: ID!
+    gate: [Gate]
+    tower: [Tower]
+    wall: [Wall]
+}
+type Oath {
+    id: ID!
+    pledge: [Pledge]
+    campaign: [Campaign]
+    crusade: [Crusade]
+}
+type Shield {
+    id: ID!
+    silence: [Silence]
+    sarcasm: [Sarcasm]
+    denial: [Denial]
+    confusion: [Confusion]
+}
+type Stigmata {
+    id: ID!
+    nail: [Nail]
+    crown: [Crown]
+    cross: [Cross]
+}
+type Stigmata {
+    id: ID!
+    nail: [Nail]
+    crown: [Crown]
+    cross: [Cross]
+}
+
+type Brain {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Campaign {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}
+type Confusion {
+    id: ID!
+    armor: [Armor]
+}
+type Cross {
+    id: ID!
+    suffering: [Suffering]
+}
+type Crown {
+    id: ID!
+    suffering: [Suffering]
+}
+type Crusade {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}
+type Delirium {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Denial {
+    id: ID!
+    armor: [Armor]
+}
+type Dream {
+    id: ID!
+    salvation: [Salvation]
+}
+type Face {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Gash {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Gate {
+    id: ID!
+    boundary: [Bounday]
+}
+type Gut {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Heart {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Infection {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Love {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}
+type Mind {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}
+type Mouth {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Nail {
+    id: ID!
+    suffering: [Suffering]
+}
+type Nightmare {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Pledge {
+    id: ID!
+    loyalty: [Loyalty]
+    honor: [Honor]
+}
+type Sacrifice {
+    id: ID!
+    courage: [Courage]
+    compassion: [Compassion]
+}
+type Sarcasm {
+    id: ID!
+    armor: [Armor]
+}
+type Scar {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Service {
+    id: ID!
+    courage: [Courage]
+    compassion: [Compassion]
+}
+type Silence {
+    id: ID!
+    armor: [Armor]
+}
+type Skin {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Soul {
+    id: ID!
+    vulnerability: [Vulnerability]
+    acceptance: [Acceptance]
+}
+type Sternum {
+    id: ID!
+    anger: [Anger]
+    fear: [Fear]
+    pride: [Pride]
+    selfPity: [SelfPity]
+}
+type Support {
+    id: ID!
+    courage: [Courage]
+    compassion: [Compassion]
+}
+type Tower {
+    id: ID!
+    boundary: [Bounday]
+}
+type Tremor {
+    id: ID!
+    trauma: [Trauma]
+    toxicity: [Toxicity]
+}
+type Wall {
+    id: ID!
+    boundary: [boundary]
+}
+
 type Defect {
     id: ID! @id
     trauma: [Trauma]

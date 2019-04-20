@@ -1,3 +1,6 @@
+#import Dream from '../../sources/dream/type.graphql';
+
 type Wish {
     id: ID!
+    dream: [Dream]
 }

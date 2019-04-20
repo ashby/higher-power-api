@@ -1,8 +1,3 @@
 #import Trauma from '../../feelings/trauma/type.graphql';
 #import Toxicity from '../../feelings/toxicity/type.graphql';
 
-type Infection {
-    id: ID!
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}

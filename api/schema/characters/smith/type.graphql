@@ -1,6 +1,6 @@
 #import Shield from '../../processes/shield/type.graphql';
 
-input SmithInput {
+type Smith {
     id: ID!
     shield: [Shield]
 }

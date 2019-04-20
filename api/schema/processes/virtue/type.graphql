@@ -2,9 +2,9 @@
 #import Love from '../../sources/love/type.graphql';
 #import Mind from '../../sources/mind/type.graphql';
 
-type Virtue {
+type Stigmata {
     id: ID!
-    soul: [Soul]
-    love: [Love]
-    mind: [Mind]
+    nail: [Nail]
+    crown: [Crown]
+    cross: [Cross]
 }
