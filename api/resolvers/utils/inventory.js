@@ -1,15 +1,12 @@
 const getPaths = require( '../utils/path' );
 const { upperCase } = require( './' );
 const { PATHS } = require( './constants' );
-const { getHas } = require( 'has' );
+const { getHas } = require( './has' );
 
 const getInventory = async ( has ) => {
-    if ( !has ) {
-        has = await getHas();
-    }
     const pathPromises = PATHS.map( async ( path ) => {
-        if ( has[ path ] ) {
-            const name = upperCase( path );
+        if ( has[ path.singular ] ) {
+            const name = upperCase( path.singular );
             const feelings = await getPaths[ `get${name}` ]( has );
             return feelings;
         }

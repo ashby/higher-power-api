@@ -1,6 +1,6 @@
-#import Stigmata from '../../processes/stigmata/type.graphql';
+#import StigmataInput from '../../processes/stigmata/input.graphql';
 
-type MartyrInput {
+input MartyrInput {
     id: ID
-    stigmata: [Stigmata]
+    stigmata: [StigmataInput]
 }

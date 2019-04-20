@@ -1,4 +1,4 @@
-type SacrificeInput {
+input SacrificeInput {
     id: ID
     feeling: String!
     feelingId: ID!

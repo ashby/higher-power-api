@@ -1,6 +1,6 @@
-#import Shield from '../../processes/shield/type.graphql';
+#import ShieldInput from '../../processes/shield/input.graphql';
 
 input SmithInput {
     id: ID
-    shield: [Shield]
+    shield: [ShieldInput]
 }

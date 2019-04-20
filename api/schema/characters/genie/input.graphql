@@ -1,6 +1,6 @@
-#import Wish from '../../processes/wish/type.graphql';
+#import WishInput from '../../processes/wish/input.graphql';
 
 input GenieInput {
     id: ID
-    wish: [Wish]
+    wish: [WishInput]
 }

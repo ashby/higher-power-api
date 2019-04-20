@@ -1,6 +1,6 @@
-#import Construct from '../../processes/construct/type.graphql';
+#import ConstructInput from '../../processes/construct/input.graphql';
 
 input GuardianInput {
     id: ID
-    construct: [Construct]
+    construct: [ConstructInput]
 }

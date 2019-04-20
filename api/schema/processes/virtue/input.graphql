@@ -1,10 +1,10 @@
-#import Soul from '../../sources/soul/type.graphql';
-#import Love from '../../sources/love/type.graphql';
-#import Mind from '../../sources/mind/type.graphql';
+#import SoulInput from '../../sources/soul/input.graphql';
+#import LoveInput from '../../sources/love/input.graphql';
+#import MindInput from '../../sources/mind/input.graphql';
 
 input VirtueInput {
     id: ID
-    soul: [Soul]
-    love: [Love]
-    mind: [Mind]
+    soul: [SoulInput]
+    love: [LoveInput]
+    mind: [MindInput]
 }

@@ -1,10 +1,10 @@
-#import Service from '../../sources/service/type.graphql';
-#import Support from '../../sources/support/type.graphql';
-#import Sacrifice from '../../sources/sacrifice/type.graphql';
+#import ServiceInput from '../../sources/service/input.graphql';
+#import SupportInput from '../../sources/support/input.graphql';
+#import SacrificeInput from '../../sources/sacrifice/input.graphql';
 
 input ActInput {
     id: ID
-    service: [Service]
-    support: [Support]
-    sacrifice: [Sacrifice]
+    service: [ServiceInput]
+    support: [SupportInput]
+    sacrifice: [SacrificeInput]
 }

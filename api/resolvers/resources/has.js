@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 const { HAS } = require( '../utils/constants' );
 
 module.exports = ( register ) => register( {
-    has: ( _, { id } ) => prisma.has( { id } )
+    has: async ( _, { id } ) => await prisma.has( { id } )
 }, {
     mutateHas: async ( parent, { data } ) => {
         if ( data.has ) {

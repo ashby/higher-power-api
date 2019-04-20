@@ -1,6 +1,6 @@
-#import Dream from '../../sources/dream/type.graphql';
+#import DreamInput from '../../sources/dream/input.graphql';
 
 input WishInput {
     id: ID
-    dream: [Dream]
+    dream: [DreamInput]
 }

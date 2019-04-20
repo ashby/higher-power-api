@@ -1,10 +1,10 @@
-#import Nail from '../../sources/nail/type.graphql';
-#import Crown from '../../sources/crown/type.graphql';
-#import Cross from '../../sources/cross/type.graphql';
+#import NailInput from '../../sources/nail/input.graphql';
+#import CrownInput from '../../sources/crown/input.graphql';
+#import CrossInput from '../../sources/cross/input.graphql';
 
 input StigmataInput {
     id: ID
-    nail: [Nail]
-    crown: [Crown]
-    cross: [Cross]
+    nail: [NailInput]
+    crown: [CrownInput]
+    cross: [CrossInput]
 }

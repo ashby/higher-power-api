@@ -1,6 +1,6 @@
-#import Act from '../../processes/act/type.graphql';
+#import Act from '../../processes/act/input.graphql';
 
 input VolunteerInput {
     id: ID
-    act: [Act]
+    act: [ActInput]
 }

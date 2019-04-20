@@ -5,7 +5,7 @@ const { HAS } = require( './constants' );
 const handleHas =  async ( key, path ) => {
     if ( config.ENABLE_HAS ) {
         let has;
-        has = await prisma.has( { id: 'has' } );
+        has = prisma.has();
         const shouldUpdateHas = !!has && has.id && ( !has[ key ] || !has[ path ] );
         if ( shouldUpdateHas ) {
             has[ key ] = true;
@@ -26,7 +26,7 @@ const handleHas =  async ( key, path ) => {
 
 const getHas = async () => {
     let has;
-    has = await prisma.has( { id: 'has' }  );
+    has = await prisma.has( { id: 'has' } );
     if ( !has ) {
         has = await prisma.createHas( { id: 'has' } );
     };

@@ -22,7 +22,7 @@ const mutateSource = async ( subpath, id, data ) => {
 
 const mutate = ( singular ) => ( { 
     [ `mutate${upperCase( singular )}` ]: async ( parent, { id, data } ) => 
-        await mutateFeeling( singular, id, data )
+        await mutateSource( singular, id, data )
 } );
 
 const registerSource = ( singular, plural, register ) => register( 
