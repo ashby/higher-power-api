@@ -1,9 +1,49 @@
-# import Has from "./types.graphql"
-# import HasInput from "./inputs.graphql";
+#import Has from "./has/type.graphql";
+# import HasInput from "./has/input.graphql";
 # import Self from "./types.graphql";
 # import Inventory from "./types.graphql";
 # import Characters from "./types.graphql";
 # import HigherPower from "./types.graphql";
+
+# import Congregant from "./characters/congregant/type.graphql";
+# import CongregantInput from "./characters/congregant/input.graphql";
+# import Genie from "./characters/genie/type.graphql";
+# import GenieInput from "./characters/genie/input.graphql";
+# import Guardian from "./characters/guardian/type.graphql";
+# import GuardianInput from "./characters/guardian/input.graphql";
+# import Martyr from "./characters/martyr/type.graphql";
+# import MartyrInput from "./characters/martyr/input.graphql";
+# import Paladin from "./characters/paladin/type.graphql";
+# import PaladinInput from "./characters/paladin/input.graphql";
+# import Seeker from "./characters/seeker/type.graphql";
+# import SeekerInput from "./characters/seeker/input.graphql";
+# import Smith from "./characters/smith/type.graphql";
+# import SmithInput from "./characters/smith/input.graphql";
+# import Summoner from "./characters/summoner/type.graphql";
+# import SummonerInput from "./characters/summoner/input.graphql";
+# import Victim from "./characters/victim/type.graphql";
+# import VictimInput from "./characters/victim/input.graphql";
+# import Volunteer from "./characters/volunteer/type.graphql";
+# import VolunteerInput from "./characters/volunteer/input.graphql";
+
+# import Act from "./processes/act/type.graphql";
+# import ActInput from "./processes/act/input.graphql";
+# import Affliction from "./processes/affliction/type.graphql";
+# import AfflictionInput from "./processes/affliction/input.graphql";
+# import Body from "./processes/body/body/type.graphql";
+# import BodyInput from "./processes/body/body/input.graphql";
+# import Construct from "./processes/construct/type.graphql";
+# import ConstructInput from "./processes/construct/input.graphql";
+# import Oath from "./processes/oath/oath/type.graphql";
+# import OathInput from "./processes/oath/oath/input.graphql";
+# import Shield from "./processes/shield/shield/type.graphql";
+# import ShieldInput from "./processes/shield/shield/input.graphql";
+# import Stigmata from "./processes/stigmata/type.graphql";
+# import StigmataInput from "./processes/stigmata/input.graphql";
+# import Virtue from "./processes/virtue/type.graphql";
+# import VirtueInput from "./processes/virtue/input.graphql";
+# import Wish from "./processes/wish/type.graphql";
+# import WishInput from "./processes/wish/input.graphql";
 
 # import Defect from "./paths/defect/type.graphql";
 # import DefectInput from "./paths/defect/input.graphql";
@@ -65,6 +105,73 @@
 # import Vulnerability from "./feelings/vulnerability/type.graphql";
 # import VulnerabilityInput from "./feelings/vulnerability/input.graphql";
 
+# import Brain from "./sources/brain/type.graphql";
+# import BrainInput from "./sources/brain/input.graphql";
+# import Campaign from "./sources/campaign/type.graphql";
+# import CampaignInput from "./sources/campaign/input.graphql";
+# import Confusion from "./sources/confusion/type.graphql";
+# import ConfusionInput from "./sources/confusion/input.graphql";
+# import Cross from "./sources/cross/type.graphql";
+# import CrossInput from "./sources/cross/input.graphql";
+# import Crown from "./sources/crown/type.graphql";
+# import CrownInput from "./sources/crown/input.graphql";
+# import Crusade from "./sources/crusade/type.graphql";
+# import CrusadeInput from "./sources/crusade/input.graphql";
+# import Delirium from "./sources/delirium/type.graphql";
+# import DeliriumInput from "./sources/delirium/input.graphql";
+# import Denial from "./sources/denial/type.graphql";
+# import DenialInput from "./sources/denial/input.graphql";
+# import Dream from "./sources/dream/type.graphql";
+# import DreamInput from "./sources/dream/input.graphql";
+# import Face from "./sources/face/type.graphql";
+# import FaceInput from "./sources/face/input.graphql";
+# import Gash from "./sources/gash/type.graphql";
+# import GashInput from "./sources/gash/input.graphql";
+# import Gate from "./sources/gate/type.graphql";
+# import GateInput from "./sources/gate/input.graphql";
+# import Gut from "./sources/gut/type.graphql";
+# import GutInput from "./sources/gut/input.graphql";
+# import Heart from "./sources/heart/type.graphql";
+# import HeartInput from "./sources/heart/input.graphql";
+# import Infection from "./sources/infection/type.graphql";
+# import InfectionInput from "./sources/infection/input.graphql";
+# import Love from "./sources/love/type.graphql";
+# import LoveInput from "./sources/love/input.graphql";
+# import Mind from "./sources/mind/type.graphql";
+# import MindInput from "./sources/mind/input.graphql";
+# import Mouth from "./sources/mouth/type.graphql";
+# import MouthInput from "./sources/mouth/input.graphql";
+# import Nail from "./sources/nail/type.graphql";
+# import NailInput from "./sources/nail/input.graphql";
+# import Nightmare from "./sources/nightmare/type.graphql";
+# import NightmareInput from "./sources/nightmare/input.graphql";
+# import Pledge from "./sources/pledge/type.graphql";
+# import PledgeInput from "./sources/pledge/input.graphql";
+# import Sacrifice from "./sources/sacrifice/type.graphql";
+# import SacrificeInput from "./sources/sacrifice/input.graphql";
+# import Sarcasm from "./sources/sarcasm/type.graphql";
+# import SarcasmInput from "./sources/sarcasm/input.graphql";
+# import Scar from "./sources/scar/type.graphql";
+# import ScarInput from "./sources/scar/input.graphql";
+# import Service from "./sources/service/type.graphql";
+# import ServiceInput from "./sources/service/input.graphql";
+# import Silence from "./sources/silence/type.graphql";
+# import SilenceInput from "./sources/silence/input.graphql";
+# import Skin from "./sources/skin/type.graphql";
+# import SkinInput from "./sources/skin/input.graphql";
+# import Soul from "./sources/soul/type.graphql";
+# import SoulInput from "./sources/soul/input.graphql";
+# import Sternum from "./sources/sternum/type.graphql";
+# import SternumInput from "./sources/sternum/input.graphql";
+# import Support from "./sources/support/type.graphql";
+# import SupportInput from "./sources/support/input.graphql";
+# import Tower from "./sources/tower/type.graphql";
+# import TowerInput from "./sources/tower/input.graphql";
+# import Tremor from "./sources/tremor/type.graphql";
+# import TremorInput from "./sources/tremor/input.graphql";
+# import Wall from "./sources/wall/type.graphql";
+# import WallInput from "./sources/wall/input.graphql";
+
 type Query {
     has(id: ID!): Has
     higherPower: HigherPower
@@ -74,6 +181,17 @@ type Query {
     prayer: Prayer
     characters: Characters
 
+    congregant(id: ID!): Congregant
+    genie(id: ID!): Genie
+    guardian(id: ID!): Guardian
+    martyr(id: ID!): Martyr
+    paladin(id: ID!):Paladin
+    seeker(id: ID!): Seeker
+    smith(id: ID!): Smith
+    summoner(id: ID!): Summoner
+    victim(id: ID!): Victim
+    volunteer(id: ID!): Volunteer
+
     defect(id: ID!): Defect
     discontent(id: ID!): Discontent
     resentment(id: ID!): Resentment
@@ -82,7 +200,15 @@ type Query {
     strength(id: ID!): Strength
     hope(id: ID!): Hope
 
+    act(id: ID!): Act
+    affliction(id: ID!): Affliction
     body(id: ID!): Body
+    construct(id: ID!): Construct
+    oath(id: ID!): Oath
+    shield(id: ID!): Shield
+    stigmata(id: ID!): Stigmata
+    virtue(id: ID!): Virtue
+    wish(id: ID!): Wish
 
     brain(id: ID!): Brain
 
@@ -124,6 +250,74 @@ type Query {
     trauma(id: ID!): Trauma
     vulnerabilities: [Vulnerability]
     vulnerability(id: ID!): Vulnerability
+
+    brain(id: ID!): Brain
+    campaign(id: ID!): Campaign
+    confusion(id: ID!): Confusion
+    cross(id: ID!): Cross
+    crown(id: ID!): Crown
+    crusade(id: ID!): Crusade
+    delirium(id: ID!): Delirium
+    denial(id: ID!): Denial
+    dream(id: ID!): Dream
+    face(id: ID!): Face
+    gash(id: ID!): Gash
+    gate(id: ID!): Gate
+    gut(id: ID!): Gut
+    heart(id: ID!): Heart
+    infection(id: ID!): Infection
+    love(id: ID!): Love
+    mind(id: ID!): Mind
+    mouth(id: ID!): Mouth
+    nail(id: ID!): Nail
+    nightmare(id: ID!): Nightmare
+    pledge(id: ID!): Pledge
+    sacrifice(id: ID!): Sacrifice
+    sarcasm(id: ID!): Sarcasm
+    scar(id: ID!): Scar
+    service(id: ID!): Service
+    silence(id: ID!): Silence
+    skin(id: ID!): Skin
+    soul(id: ID!): Soul
+    sternum(id: ID!): Sternum
+    support(id: ID!): Support
+    tower(id: ID!): Tower
+    tremor(id: ID!): Tremor
+    wall(id: ID!): Wall
+
+    brains: [Brain]
+    campaigns: [Campaign]
+    confusions: [Confusion]
+    crosss: [Cross]
+    crowns: [Crown]
+    crusades: [Crusade]
+    deliriums: [Delirium]
+    denials: [Denial]
+    dreams: [Dream]
+    faces: [Face]
+    gashs: [Gash]
+    gates: [Gate]
+    guts: [Gut]
+    hearts: [Heart]
+    infections: [Infection]
+    loves: [Love]
+    minds: [Mind]
+    mouths: [Mouth]
+    nails: [Nail]
+    nightmares: [Nightmare]
+    pledges: [Pledge]
+    sacrifices: [Sacrifice]
+    sarcasms: [Sarcasm]
+    scars: [Scar]
+    services: [Service]
+    silences: [Silence]
+    skins: [Skin]
+    souls: [Soul]
+    sternums: [Sternum]
+    supports: [Support]
+    towers: [Tower]
+    tremors: [Tremor]
+    walls: [Wall]
 }
 
 type Mutation {
@@ -137,7 +331,26 @@ type Mutation {
     mutateStrength(data:StrengthInput): Strength!
     mutateHope(data:HopeInput): Hope!
 
-    mutateBody(data:BodyInput): Body!
+    mutateCongregant(data:CongregantInput): Congregant!
+    mutateGenie(data:GenieInput): Genie!
+    mutateGuardian(data:GuardianInput): Guardian!
+    mutateMartyr(data:MartyrInput): Martyr!
+    mutatePaladin(data:PaladinInput): Paladin!
+    mutateSeeker(data:SeekerInput): Seeker!
+    mutateSmith(data:SmithInput): Smith!
+    mutateSummoner(data:SummonerInput): Summoner!
+    mutateVictim(data:VictimInput): Victim!
+    mutateVolunteer(data:VolunteerInput): Volunteer!
+
+    Act(data:ActInput): Act!
+    Affliction(data:AfflictionInput): Affliction!
+    Body(data:BodyInput): Body!
+    Construct(data:ConstructInput): Construct!
+    Oath(data:OathInput): Oath!
+    Shield(data:ShieldInput): Shield!
+    Stigmata(data:StigmateInput): Stigmata!
+    Virtue(data:VirtueInput): Virtue!
+    Wish(data:WishInput): Wish!
 
     mutateBrain(data:BrainInput): Brain!
 
@@ -160,4 +373,38 @@ type Mutation {
     mutateToxicity(id:String,data:ToxicityInput): Toxicity!
     mutateTrauma(id:String,data:TraumaInput): Trauma!
     mutateVulnerability(id:String,data:VulnerabilityInput): Vulnerability!
+
+    mutateBrain(data:BrainInput): Brain!
+    mutateCampaign(data:CampaignInput): Campaign!
+    mutateConfusion(data:ConfusionInput): Confusion!
+    mutateCross(data:CrossInput): Cross!
+    mutateCrown(data:CrownInput): Crown!
+    mutateCrusade(data:CrusadeInput): Crusade!
+    mutateDelirium(data:DeliriumInput): Delirium!
+    mutateDenial(data:DenialInput): Denial!
+    mutateDream(data:DreamInput): Dream!
+    mutateFace(data:FaceInput): Face!
+    mutateGash(data:GashInput): Gash!
+    mutateGate(data:GateInput): Gate!
+    mutateGut(data:GutInput): Gut!
+    mutateHeart(data:HeartInput): Heart!
+    mutateInfection(data:InfectionInput): Infection!
+    mutateLove(data:LoveInput): Love!
+    mutateMind(data:MindInput): Mind!
+    mutateMouth(data:MouthInput): Mouth!
+    mutateNail(data:NailInput): Nail!
+    mutateNightmare(data:NightmareInput): Nightmare!
+    mutatePledge(data:PledgeInput): Pledge!
+    mutateSacrifice(data:SacrificeInput): Sacrifice!
+    mutateSarcasm(data:SarcasmInput): Sarcasm!
+    mutateScar(data:ScarInput): Scar!
+    mutateService(data:ServiceInput): Service!
+    mutateSilence(data:SilenceInput): Silence!
+    mutateSkin(data:SkinInput): Skin!
+    mutateSoul(data:SoulInput): Soul!
+    mutateSternum(data:SternumInput): Sternum!
+    mutateSupport(data:SupportInput): Support!
+    mutateTower(data:TowerInput): Tower!
+    mutateTremor(data:TremorInput): Tremor!
+    mutateWall(data:WallInput): Wall!
 }

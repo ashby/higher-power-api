@@ -1,3 +1,5 @@
+#import Has from "./has/type.graphql";
+
 # import Discontent from "./paths/discontent/type.graphql";
 # import Defect from "./paths/defect/type.graphql";
 # import Resentment from "./paths/resentment/type.graphql";
@@ -26,36 +28,6 @@
 # import Stigmata from "./processes/body/type.graphql";
 # import Virtue from "./processes/body/type.graphql";
 # import Wish from "./processes/body/type.graphql";
-
-type Has {
-    id: ID!
-    defect: Boolean!
-    discontent: Boolean!
-    resentment: Boolean!
-    obsession: Boolean!
-    experience: Boolean!
-    strength: Boolean!
-    hope: Boolean!
-    acceptance: Boolean!
-    anger: Boolean!
-    armor: Boolean!
-    boundary: Boolean!
-    compassion: Boolean!
-    courage: Boolean!
-    fear: Boolean!
-    fun: Boolean!
-    impatience: Boolean!
-    irritability: Boolean!
-    gratitude: Boolean!
-    joy: Boolean!
-    pride: Boolean!
-    salvaltion: Boolean!
-    selfPity: Boolean!
-    suffering: Boolean!
-    toxicity: Boolean!
-    trauma: Boolean!
-    vulnerability: Boolean!
-}
 
 type Feeling {
     character: String!

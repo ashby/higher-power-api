@@ -1,5 +1,5 @@
 const CHARACTERS = [
-    { singular: 'conregant', plural: 'congregants' },
+    { singular: 'congregant', plural: 'congregants' },
     { singular: 'genie', plural: 'genies' },
     { singular: 'guardian', plural: 'guardians' },
     { singular: 'martyr', plural: 'martyrs' },

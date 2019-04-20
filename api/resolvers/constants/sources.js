@@ -1,0 +1,38 @@
+
+const SOURCES = [
+    { singular: 'brain', plural: 'brains' },
+    { singular: 'campaign', plural: 'campaigns' },
+    { singular: 'confusion', plural: 'confusions' },
+    { singular: 'cross', plural: 'crosss' },
+    { singular: 'crown', plural: 'crowns' },
+    { singular: 'crusade', plural: 'crusades' },
+    { singular: 'delirium', plural: 'deliriums' },
+    { singular: 'denial', plural: 'denials' },
+    { singular: 'dream', plural: 'dreams' },
+    { singular: 'face', plural: 'faces' },
+    { singular: 'gash', plural: 'gashs' },
+    { singular: 'gate', plural: 'gates' },
+    { singular: 'gut', plural: 'guts' },
+    { singular: 'heart', plural: 'hearts' },
+    { singular: 'infection', plural: 'infections' },
+    { singular: 'love', plural: 'loves' },
+    { singular: 'mind', plural: 'minds' },
+    { singular: 'mouth', plural: 'mouths' },
+    { singular: 'nail', plural: 'nails' },
+    { singular: 'nightmare', plural: 'nightmares' },
+    { singular: 'pledge', plural: 'pledges' },
+    { singular: 'sacrifice', plural: 'sacrifices' },
+    { singular: 'sarcasm', plural: 'sarcasms' },
+    { singular: 'scar', plural: 'scars' },
+    { singular: 'service', plural: 'services' },
+    { singular: 'silence', plural: 'silences' },
+    { singular: 'skin', plural: 'skins' },
+    { singular: 'soul', plural: 'souls' },
+    { singular: 'sternum', plural: 'sternums' },
+    { singular: 'support', plural: 'supports' },
+    { singular: 'tower', plural: 'towers' },
+    { singular: 'tremor', plural: 'tremores' },
+    { singular: 'wall', plural: 'walls' }
+];
+
+module.exports = SOURCES;
