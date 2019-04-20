@@ -1,4 +1,4 @@
-const { getPaths } = require( '../utils/path' );
+const getPaths = require( '../utils/path' );
 const { getHas } = require( '../utils/has' );
 const { upperCase } = require( '../utils' );
 const { PATHS } = require( '../utils/constants' );

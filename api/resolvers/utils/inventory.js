@@ -1,4 +1,4 @@
-const { getPaths } = require( '../utils/path' );
+const getPaths = require( '../utils/path' );
 const { upperCase } = require( './' );
 const { PATHS } = require( './constants' );
 const { getHas } = require( 'has' );
@@ -27,4 +27,4 @@ const getInventory = async ( has ) => {
 
 module.exports = {
     getInventory
-}
+};
