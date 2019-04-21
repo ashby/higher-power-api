@@ -1,6 +1,6 @@
 # import Self from "./types.graphql";
 # import Inventory from "./types.graphql";
-# import Characters from "./types.graphql";
+# import Character from "./types.graphql";
 # import HigherPower from "./types.graphql";
 
 # import Congregant from "./characters/congregant/type.graphql";
@@ -176,7 +176,7 @@ type Query {
     path: Path
     process: Process
     prayer: Prayer
-    characters: Characters
+    character: Character
 
     congregant(id: ID!): Congregant
     genie(id: ID!): Genie
@@ -344,25 +344,25 @@ type Mutation {
     mutateVirtue(data:VirtueInput): Virtue!
     mutateWish(data:WishInput): Wish!
 
-    mutateAcceptance(id:String,data:AcceptanceInput): Acceptance!
-    mutateAnger(id:String,data:AngerInput): Anger!
-    mutateArmor(id:String,data:ArmorInput): Armor!
-    mutateBoundary(id:String,data:BoundaryInput): Boundary!
-    mutateCompassion(id:String,data:CompassionInput): Compassion!
-    mutateCourage(id:String,data:CourageInput): Courage!
-    mutateFear(id:String,data:FearInput): Fear!
-    mutateFun(id:String,data:FunInput): Fun!
-    mutateGratitude(id:String,data:GratitudeInput): Gratitude!
-    mutateIrritability(id:String,data:IrritabilityInput): Irritability!
-    mutateImpatience(id:String,data:ImpatienceInput): Impatience!
-    mutateJoy(id:String,data:JoyInput): Joy!
-    mutatePride(id:String,data:PrideInput): Pride!
-    mutateSalvation(id:String,data:SalvationInput): Salvation!
-    mutateSelfPity(id:String,data:SelfPityInput): SelfPity!
-    mutateSuffering(id:String,data:SufferingInput): Suffering!
-    mutateToxicity(id:String,data:ToxicityInput): Toxicity!
-    mutateTrauma(id:String,data:TraumaInput): Trauma!
-    mutateVulnerability(id:String,data:VulnerabilityInput): Vulnerability!
+    mutateAcceptance(data:AcceptanceInput): Acceptance!
+    mutateAnger(data:AngerInput): Anger!
+    mutateArmor(data:ArmorInput): Armor!
+    mutateBoundary(data:BoundaryInput): Boundary!
+    mutateCompassion(data:CompassionInput): Compassion!
+    mutateCourage(data:CourageInput): Courage!
+    mutateFear(data:FearInput): Fear!
+    mutateFun(data:FunInput): Fun!
+    mutateGratitude(data:GratitudeInput): Gratitude!
+    mutateIrritability(data:IrritabilityInput): Irritability!
+    mutateImpatience(data:ImpatienceInput): Impatience!
+    mutateJoy(data:JoyInput): Joy!
+    mutatePride(data:PrideInput): Pride!
+    mutateSalvation(data:SalvationInput): Salvation!
+    mutateSelfPity(data:SelfPityInput): SelfPity!
+    mutateSuffering(data:SufferingInput): Suffering!
+    mutateToxicity(data:ToxicityInput): Toxicity!
+    mutateTrauma(data:TraumaInput): Trauma!
+    mutateVulnerability(data:VulnerabilityInput): Vulnerability!
 
     mutateBrain(data:BrainInput): Brain!
     mutateCampaign(data:CampaignInput): Campaign!

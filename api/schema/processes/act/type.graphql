@@ -4,7 +4,7 @@
 
 type Act {
     id: ID!
-    service: [Service]
-    support: [Support]
-    sacrifice: [Sacrifice]
+    service: Service
+    support: Support
+    sacrifice: Sacrifice
 }

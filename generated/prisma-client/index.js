@@ -345,7 +345,7 @@ var models = [
     embedded: false
   },
   {
-    name: "Characters",
+    name: "Character",
     embedded: false
   },
   {

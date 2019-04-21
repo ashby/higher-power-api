@@ -7,7 +7,7 @@ const {
     EXPERIENCE,
     STRENGTH,
     HOPE
-} = require( './constants' );
+} = require( '../constants/paths' );
 
 const getDefect = async () => await getFeelings( DEFECT );
 const getDiscontent = async () => await getFeelings( DISCONTENT );

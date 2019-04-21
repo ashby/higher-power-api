@@ -2,5 +2,5 @@
 
 input GuardianInput {
     id: ID
-    construct: [ConstructInput]
+    construct: ConstructInput
 }

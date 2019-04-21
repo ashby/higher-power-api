@@ -3,6 +3,10 @@
 
 type Mind {
     id: ID!
+    feeling: String
+    feelingId: ID
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

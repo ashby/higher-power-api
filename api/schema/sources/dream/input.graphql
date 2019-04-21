@@ -1,6 +1,12 @@
+#import SalvationInput from '../../feelings/salvation/input.graphql';
+
+scalar DateTime
+
 input DreamInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    salvation: [ID]
+    feeling: String
+    feelingId: ID
+    salvation: [SalvationInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

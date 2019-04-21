@@ -5,8 +5,8 @@
 
 type Shield {
     id: ID!
-    silence: [Silence]
-    sarcasm: [Sarcasm]
-    denial: [Denial]
-    confusion: [Confusion]
+    silence: Silence
+    sarcasm: Sarcasm
+    denial: Denial
+    confusion: Confusion
 }

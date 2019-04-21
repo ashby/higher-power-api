@@ -1,6 +1,12 @@
+#import SuffferingInput from '../../feelings/suffering/input.graphql';
+
+scalar DateTime
+
 input NailInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    suffering: [ID]
+    feeling: String
+    feelingId: ID
+    suffering: [SufferingInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

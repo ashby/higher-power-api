@@ -1,8 +1,14 @@
 #import Trauma from '../../feelings/trauma/type.graphql';
 #import Toxicity from '../../feelings/toxicity/type.graphql';
 
+scalar DateTime
+
 type Gash {
     id: ID!
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

@@ -3,10 +3,16 @@
 #import Pride from '../../feelings/pride/type.graphql';
 #import SelfPity from '../../feelings/self-pity/type.graphql';
 
+scalar DateTime
+
 type Heart {
     id: ID!
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

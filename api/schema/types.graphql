@@ -33,7 +33,7 @@ type Feeling {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime
     updatedAt: DateTime
     sharedAt: DateTime
@@ -69,7 +69,7 @@ type Prayer {
     path: Path
 }
 
-type Characters {
+type Character {
     congregant: Congregant
     genie: Genie
     guardian: Guardian
@@ -95,5 +95,5 @@ type Inventory {
 type HigherPower {
     prayer: Prayer
     inventory: [Feeling]
-    character: Characters
+    character: Character
 }

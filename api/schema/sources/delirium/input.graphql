@@ -1,7 +1,15 @@
+#import TraumaInput from '../../feelings/trauma/input.graphql';
+#import ToxicityInput from '../../feelings/toxicity/input.graphql';
+
+scalar DateTime
+
 input DeliriumInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
+    feeling: String
+    feelingId: ID
     trauma: [ID]
-    toxicity: [ID]
+    trauma: [TraumaInput]
+    toxicity: [ToxicityInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

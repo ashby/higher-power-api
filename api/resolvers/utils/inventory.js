@@ -1,6 +1,6 @@
 const getPaths = require( '../utils/path' );
 const { upperCase } = require( './' );
-const { PATHS } = require( './constants' );
+const { PATHS } = require( '../constants/paths' );
 
 const getInventory = async () => {
     const pathPromises = PATHS.map( async ( path ) => {

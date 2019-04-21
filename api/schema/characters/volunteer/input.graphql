@@ -2,5 +2,5 @@
 
 input VolunteerInput {
     id: ID
-    act: [ActInput]
+    act: ActInput
 }

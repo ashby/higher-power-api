@@ -1,6 +1,12 @@
 #import Armor from '../../feelings/armor/type.graphql';
 
+scalar DateTime
+
 type Silence {
     id: ID!
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

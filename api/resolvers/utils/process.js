@@ -1,25 +1,17 @@
 const { getSources } = require( './source' );
 const {
-    ACT,
-    AFFLICTION,
-    BODY,
-    CONSTRUCT,
-    OATH,
-    SHIELD,
-    STIGMATA,
-    VIRTUE,
-    WISH
-} = require( './constants' );
+    PROCESS
+} = require( '../constants/processes' );
 
-const getAct = async (  ) => await getSources( ACT );
-const getAffliction = async (  ) => await getSources( AFFLICTION );
-const getBody = async (  ) => await getSources( BODY );
-const getConstruct = async (  ) => await getSources( CONSTRUCT );
-const getOath = async (  ) => await getSources( OATH );
-const getShield = async (  ) => await getSources( SHIELD );
-const getStigmata = async (  ) => await getSources( STIGMATA );
-const getVirtue = async (  ) => await getSources( VIRTUE );
-const getWish = async (  ) => await getSources( WISH );
+const getAct = async () => await getSources( PROCESS.act );
+const getAffliction = async () => await getSources( PROCESS.affliction );
+const getBody = async () => await getSources( PROCESS.body );
+const getConstruct = async () => await getSources( PROCESS.construct );
+const getOath = async () => await getSources( PROCESS.oath );
+const getShield = async () => await getSources( PROCESS.shield );
+const getStigmata = async () => await getSources( PROCESS.stigmata );
+const getVirtue = async () => await getSources( PROCESS.virtue );
+const getWish = async () => await getSources( PROCESS.wish );
 
 module.exports = {
     getAct,

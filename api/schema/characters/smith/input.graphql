@@ -2,5 +2,5 @@
 
 input SmithInput {
     id: ID
-    shield: [ShieldInput]
+    shield: ShieldInput
 }

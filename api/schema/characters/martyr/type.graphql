@@ -2,5 +2,5 @@
 
 type Martyr {
     id: ID!
-    stigmata: [Stigmata]
+    stigmata: Stigmata
 }

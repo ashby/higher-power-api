@@ -2,5 +2,5 @@
 
 input MartyrInput {
     id: ID
-    stigmata: [StigmataInput]
+    stigmata: StigmataInput
 }

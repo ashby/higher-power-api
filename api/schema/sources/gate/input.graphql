@@ -1,6 +1,12 @@
+#import BoundaryInput from '../../feelings/boundary/input.graphql';
+
+scalar DateTime
+
 input GateInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    boundary: [ID]
+    feeling: String
+    feelingId: ID
+    boundary: [BoundaryInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

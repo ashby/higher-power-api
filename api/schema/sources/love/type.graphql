@@ -1,8 +1,14 @@
 #import Vulnerability from '../../feelings/vulnerability/type.graphql';
 #import Acceptance from '../../feelings/acceptance/type.graphql';
 
+scalar DateTime
+
 type Love {
     id: ID!
+    feeling: String
+    feelingId: ID
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

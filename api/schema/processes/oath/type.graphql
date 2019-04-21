@@ -4,7 +4,7 @@
 
 type Oath {
     id: ID!
-    pledge: [Pledge]
-    campaign: [Campaign]
-    crusade: [Crusade]
+    pledge: Pledge
+    campaign: Campaign
+    crusade: Crusade
 }

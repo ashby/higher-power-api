@@ -7,7 +7,7 @@ type Trauma {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime
     updatedAt: DateTime
     sharedAt: DateTime

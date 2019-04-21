@@ -5,8 +5,8 @@
 
 input ShieldInput {
     id: ID
-    silence: [SilenceInput]
-    sarcasm: [SarcasmInput]
-    denial: [DenialInput]
-    confusion: [ConfusionInput]
+    silence: SilenceInput
+    sarcasm: SarcasmInput
+    denial: DenialInput
+    confusion: ConfusionInput
 }

@@ -1,9 +1,18 @@
+#import AngerInput from '../../feelings/anger/input.graphql';
+#import FearInput from '../../feelings/fear/input.graphql';
+#import PrideInput from '../../feelings/pride/input.graphql';
+#import SelfPityInput from '../../feelings/self-pity/input.graphql';
+
+scalar DateTime
+
 input HeartInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    anger: [ID]
-    fear: [ID]
-    pride: [ID]
-    selfPity: [ID]
+    feeling: String
+    feelingId: ID
+    anger: [AngerInput]
+    fear: [FearInput]
+    pride: [PrideInput]
+    selfPity: [SelfPityInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

@@ -1,6 +1,12 @@
 #import Boundary from '../../feelings/boundary/type.graphql';
 
+scalar DateTime
+
 type Gate {
     id: ID!
+    feeling: String
+    feelingId: ID
     boundary: [Boundary]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

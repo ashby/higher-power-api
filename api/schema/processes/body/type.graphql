@@ -5,14 +5,16 @@
 #import Heart from '../../sources/heart/type.graphql';
 #import Sternum from '../../sources/sternum/type.graphql';
 #import Gut from '../../sources/gut/type.graphql';
+#import Skin from '../../sources/gut/type.graphql';
 
 type Body {
     id: ID!
-    brain: [Brain]
-    face: [Face]
-    mouth: [Mouth]
-    soul: [Soul]
-    heart: [Heart]
-    sternum: [Sternum]
-    gut: [Gut]
+    brain: Brain
+    face: Face
+    mouth: Mouth
+    soul: Soul
+    heart: Heart
+    sternum: Sternum
+    gut: Gut
+    skin: Skin
 }

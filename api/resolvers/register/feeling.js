@@ -9,6 +9,7 @@ const query = async ( singular, plural ) => ( {
 const mutateFeeling = async ( subpath, id, data ) => {
     const name = upperCase( subpath );
     if ( !id ) {
+        //data = handleSource( data );
         const response = await prisma[ `create${name}` ]( data );
         return response;
     }
@@ -16,7 +17,11 @@ const mutateFeeling = async ( subpath, id, data ) => {
         data,
         where: { id }
     } );
-}
+};
+
+const handleSource = async data => {
+
+};
 
 const mutate = ( singular ) => ( { 
     [ `mutate${upperCase( singular )}` ]: async ( parent, { id, data } ) => 

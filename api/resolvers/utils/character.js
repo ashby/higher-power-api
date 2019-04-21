@@ -1,24 +1,22 @@
-const { getProcesses } = require( './process' );
+const { prisma } = require( '../../../generated/prisma-client' );
+const getProcesses = require( './process' );
+const { mutateProcess } = require( '../register/process' );
+const { mutateCharacter } = require( '../register/character' );
 const { upperCase } = require( './' );
-const { CHARACTERS } = require( './constants' );
+const { PROCESSES } = require( '../constants/processes' );
+const CHARACTERS = require( '../constants/characters' );
 
-const getCharacters = async () => {
-    const characterPromises = CHARACTERS.map( async ( character ) => {
-        const name = upperCase( character.singular );
-        const feelings = await getProcesses[ `get${name}` ]();
-        return feelings;
+const getCharacter = async () => {
+    const processPromises = PROCESSES.map( async ( process ) => {
+        data = await prisma[ process.singular ]( { id: process.singular } );
+        if ( !data ) {
+            return await mutateProcess( process.singular, { id: undefined } );
+        }
+        return data;
     } );
-    const characters = await Promise.all( characterPromises );
-    // const shelf = [];
-    // paths.map( path => path )
-    //     .filter( feelings => !!feelings )
-    //     .map( feelings => Object.keys( feelings )
-    //     .map( feeling => !!feeling && shelf.push( feelings[ feeling ] ) ) );
-    // const inventory = [];
-    // shelf.map( feelings => feelings.map( feeling => inventory.push( feeling ) ) );
-    // return inventory;
+    return await Promise.all( processPromises );
 };
 
 module.exports = {
-    getCharacters
+    getCharacter
 };

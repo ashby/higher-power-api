@@ -1,6 +1,12 @@
+#import ArmorInput from '../../feelings/armor/input.graphql';
+
+scalar DateTime
+
 input ConfusionInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    armor: [ID]
+    feeling: String
+    feelingId: ID
+    armor: [ArmorInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

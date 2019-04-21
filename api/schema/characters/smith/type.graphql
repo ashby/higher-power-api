@@ -2,5 +2,5 @@
 
 type Smith {
     id: ID!
-    shield: [Shield]
+    shield: Shield
 }

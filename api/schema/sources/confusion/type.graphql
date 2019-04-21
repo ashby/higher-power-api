@@ -1,6 +1,13 @@
 #import Armor from '../../feelings/armor/type.graphql';
 
+scalar DateTime
+
+
 type Confusion {
     id: ID!
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

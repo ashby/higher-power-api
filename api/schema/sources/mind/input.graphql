@@ -1,7 +1,12 @@
+#import VulnerabilityInput from '../../feelings/vulnerability/input.graphql';
+#import AcceptanceInput from '../../feelings/acceptance/input.graphql';
+
 input MindInput {
     id: ID
-    feeling: String!
-    feelingId: ID!
-    vulnerability: [ID]
-    acceptance: [ID]
+    feeling: String
+    feelingId: ID
+    vulnerability: [VulnerabilityInput]
+    acceptance: [AcceptanceInput]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

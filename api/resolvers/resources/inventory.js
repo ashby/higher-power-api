@@ -1,6 +1,6 @@
 const getPaths = require( '../utils/path' );
 const { upperCase } = require( '../utils' );
-const { PATHS } = require( '../utils/constants' );
+const { PATHS } = require( '../constants/paths' );
 
 module.exports = ( register ) => register( {
     inventory: async ( _, data ) => {

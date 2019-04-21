@@ -1,6 +1,12 @@
 #import Salvation from '../../feelings/salvation/type.graphql';
 
+scalar DateTime
+
 type Dream {
     id: ID!
+    feeling: String
+    feelingId: ID
     salvation: [Salvation]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

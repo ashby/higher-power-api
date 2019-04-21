@@ -1,6 +1,13 @@
 #import Suffering from '../../feelings/suffering/type.graphql';
 
+scalar DateTime
+
+
 type Cross {
     id: ID!
+    feeling: String
+    feelingId: ID
     suffering: [Suffering]
+    createdAt: DateTime
+    updatedAt: DateTime
 }

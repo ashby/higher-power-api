@@ -2,5 +2,5 @@
 
 input SeekerInput {
     id: ID
-    virtue: [VirtueInput]
+    virtue: VirtueInput
 }

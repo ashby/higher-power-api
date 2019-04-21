@@ -4,7 +4,7 @@
 
 input VirtueInput {
     id: ID
-    soul: [SoulInput]
-    love: [LoveInput]
-    mind: [MindInput]
+    soul: SoulInput
+    love: LoveInput
+    mind: MindInput
 }

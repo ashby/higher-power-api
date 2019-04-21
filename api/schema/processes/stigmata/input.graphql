@@ -4,7 +4,7 @@
 
 input StigmataInput {
     id: ID
-    nail: [NailInput]
-    crown: [CrownInput]
-    cross: [CrossInput]
+    nail: NailInput
+    crown: CrownInput
+    cross: CrossInput
 }

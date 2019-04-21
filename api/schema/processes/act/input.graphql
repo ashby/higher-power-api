@@ -4,7 +4,7 @@
 
 input ActInput {
     id: ID
-    service: [ServiceInput]
-    support: [SupportInput]
-    sacrifice: [SacrificeInput]
+    service: ServiceInput
+    support: SupportInput
+    sacrifice: SacrificeInput
 }

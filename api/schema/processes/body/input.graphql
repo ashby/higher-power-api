@@ -5,14 +5,16 @@
 #import HeartInput from '../../sources/heart/input.graphql';
 #import SternumInput from '../../sources/sternum/input.graphql';
 #import GutInput from '../../sources/gut/input.graphql';
+#import SkinInput from '../../sources/skin/input.graphql';
 
 input BodyInput {
     id: ID
-    brain: [BrainInput]
-    face: [FaceInput]
-    mouth: [MouthInput]
-    soul: [SoulInput]
-    heart: [HeartInput]
-    sternum: [SternumInput]
-    gut: [GutInput]
+    brain: BrainInput
+    face: FaceInput
+    mouth: MouthInput
+    soul: SoulInput
+    heart: HeartInput
+    sternum: SternumInput
+    gut: GutInput
+    skin: SkinInput
 }

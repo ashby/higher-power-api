@@ -3,191 +3,260 @@ type Congregant {
 }
 type Genie {
     id: ID! @id
-    wish: [Wish]
+    wish: Wish
 }
 type Guardian {
     id: ID! @id
-    construct: [Construct]
+    construct: Construct
 }
 type Martyr {
     id: ID! @id
-    stigmata: [Stigmata]
+    stigmata: Stigmata
 }
 type Paladin {
     id: ID! @id
-    oath: [Oath]
+    oath: Oath
 }
 type Seeker {
     id: ID! @id
-    virtue: [Virtue]
+    virtue: Virtue
 }
 type Self {
     id: ID! @id
-    body: [Body]
+    body: Body
 }
 type Smith {
     id: ID! @id
-    shield: [Shield]
+    shield: Shield
 }
 type Summoner {
     id: ID! @id
 }
 type Victim {
     id: ID! @id
-    affliction: [Affliction]
+    affliction: Affliction
 }
 type Volunteer {
     id: ID! @id
-    act: [Act]
+    act: Act
 }
 
 type Act {
     id: ID! @id
-    service: [Service]
-    support: [Support]
-    sacrifice: [Sacrifice]
+    service: Service
+    support: Support
+    sacrifice: Sacrifice
 }
 type Affliction {
     id: ID! @id
-    scar: [Scar]
-    gash: [Gash]
-    infection: [Infection]
-    tremor: [Tremor]
-    nightmare: [Nightmare]
-    delirium: [Delirium]
+    scar: Scar
+    gash: Gash
+    infection: Infection
+    tremor: Tremor
+    nightmare: Nightmare
+    delirium: Delirium
 }
 type Body {
     id: ID! @id
-    brain: [Brain]
-    face: [Face]
-    mouth: [Mouth]
-    soul: [Soul]
-    heart: [Heart]
-    sternum: [Sternum]
-    gut: [Gut]
+    brain: Brain
+    face: Face
+    mouth: Mouth
+    soul: Soul
+    heart: Heart
+    sternum: Sternum
+    gut: Gut
+    skin: Skin
 }
 type Construct {
     id: ID! @id
-    gate: [Gate]
-    tower: [Tower]
-    wall: [Wall]
+    gate: Gate
+    tower: Tower
+    wall: Wall
 }
 type Oath {
     id: ID! @id
-    pledge: [Pledge]
-    campaign: [Campaign]
-    crusade: [Crusade]
+    pledge: Pledge
+    campaign: Campaign
+    crusade: Crusade
 }
 type Shield {
     id: ID! @id
-    silence: [Silence]
-    sarcasm: [Sarcasm]
-    denial: [Denial]
-    confusion: [Confusion]
+    silence: Silence
+    sarcasm: Sarcasm
+    denial: Denial
+    confusion: Confusion
 }
 type Stigmata {
     id: ID! @id
-    nail: [Nail]
-    crown: [Crown]
-    cross: [Cross]
+    nail: Nail
+    crown: Crown
+    cross: Cross
 }
 type Virtue {
     id: ID! @id
-    nail: [Nail]
-    crown: [Crown]
-    cross: [Cross]
+    mind: Mind
+    soul: Soul
+    love: Love
 }
 type Wish {
     id: ID! @id
-    dream: [Dream]
+    dream: Dream
 }
 
 type Brain {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Campaign {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     loyalty: [Loyalty]
     honor: [Honor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Confusion {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Cross {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     suffering: [Suffering]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Crown {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     suffering: [Suffering]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Crusade {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     loyalty: [Loyalty]
     honor: [Honor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Delirium {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Denial {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Dream {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     salvation: [Salvation]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Face {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Gash {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Gate {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     boundary: [Boundary]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Gut {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Heart {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Infection {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Love {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Mind {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Mouth {
     id: ID! @id
@@ -195,80 +264,142 @@ type Mouth {
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Nail {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     suffering: [Suffering]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Nightmare {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Pledge {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     loyalty: [Loyalty]
     honor: [Honor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Sacrifice {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     courage: [Courage]
     compassion: [Compassion]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Sarcasm {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Scar {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Service {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     courage: [Courage]
     compassion: [Compassion]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Silence {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     armor: [Armor]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Skin {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Soul {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     vulnerability: [Vulnerability]
     acceptance: [Acceptance]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Sternum {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     anger: [Anger]
     fear: [Fear]
     pride: [Pride]
     selfPity: [SelfPity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Support {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     courage: [Courage]
     compassion: [Compassion]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Tower {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     boundary: [Boundary]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Tremor {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     trauma: [Trauma]
     toxicity: [Toxicity]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 type Wall {
     id: ID! @id
+    feeling: String
+    feelingId: ID
     boundary: [Boundary]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
 type Defect {
@@ -326,7 +457,7 @@ type Trauma {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -340,7 +471,7 @@ type Toxicity {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -354,7 +485,7 @@ type Suffering {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -368,7 +499,7 @@ type Anger {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -382,7 +513,7 @@ type SelfPity {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -396,7 +527,7 @@ type Fear {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -410,7 +541,7 @@ type Pride {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -424,7 +555,7 @@ type Compassion {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -438,7 +569,7 @@ type Courage {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -452,7 +583,7 @@ type Acceptance {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -466,7 +597,7 @@ type Vulnerability {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -480,7 +611,7 @@ type Gratitude {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -494,7 +625,7 @@ type Armor {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -508,7 +639,7 @@ type Boundary {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -522,7 +653,7 @@ type Loyalty {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -536,7 +667,7 @@ type Honor {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -550,7 +681,7 @@ type Salvation {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     sharedAt: DateTime
@@ -564,7 +695,7 @@ type Fun {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     sharedAt: DateTime
@@ -578,7 +709,7 @@ type Joy {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     sharedAt: DateTime
@@ -592,7 +723,7 @@ type Irritability {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     sharedAt: DateTime
@@ -606,7 +737,7 @@ type Impatience {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     sharedAt: DateTime
@@ -621,7 +752,7 @@ type Feeling {
     source: String!
     process: String!
     path: String!
-    feeling: String!
+    feeling: String
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     sharedAt: DateTime
@@ -659,7 +790,7 @@ type Prayer {
     path: Path
 }
 
-type Characters {
+type Character {
     id: ID! @id
     congregant: Congregant
     genie: Genie
@@ -689,5 +820,6 @@ type HigherPower {
     id: ID! @id
     prayer: Prayer
     inventory: [Feeling]
-    character: Characters
+    character: Character
 }
+

@@ -7,10 +7,10 @@
 
 input AfflictionInput {
     id: ID
-    scar: [ScarInput]
-    gash: [GashInput]
-    infection: [InfectionInput]
-    tremor: [TremorInput]
-    nightmare: [NightmareInput]
-    delirium: [DeliriumInput]
+    scar: ScarInput
+    gash: GashInput
+    infection: InfectionInput
+    tremor: TremorInput
+    nightmare: NightmareInput
+    delirium: DeliriumInput
 }

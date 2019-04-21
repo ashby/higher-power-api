@@ -2,5 +2,5 @@
 
 type Paladin {
     id: ID!
-    oath: [Oath]
+    oath: Oath
 }

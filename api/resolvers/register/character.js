@@ -1,6 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 const { upperCase } = require( '../utils' );
-const { getProcess } = require( '../utils/source' );
 
 const mutateCharacter = async ( character, data ) => {
     let response;
@@ -24,5 +23,6 @@ const registerCharacter = ( character, register ) => register( {
 } );
 
 module.exports = {
-    registerCharacter
+    registerCharacter,
+    mutateCharacter
 };

@@ -2,5 +2,5 @@
 
 input GenieInput {
     id: ID
-    wish: [WishInput]
+    wish: WishInput
 }

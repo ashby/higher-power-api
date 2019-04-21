@@ -1,6 +1,12 @@
 #import Sufffering from '../../feelings/suffering/type.graphql';
 
+scalar DateTime
+
 type Nail {
     id: ID!
+    feeling: String
+    feelingId: ID
     suffering: [Suffering]
+    createdAt: DateTime
+    updatedAt: DateTime
 }
