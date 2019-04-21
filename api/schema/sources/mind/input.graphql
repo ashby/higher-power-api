@@ -1,6 +1,8 @@
 #import VulnerabilityInput from '../../feelings/vulnerability/input.graphql';
 #import AcceptanceInput from '../../feelings/acceptance/input.graphql';
 
+scalar DateTime
+
 input MindInput {
     id: ID
     feeling: String
