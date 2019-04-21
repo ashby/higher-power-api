@@ -1,18 +1,16 @@
-#import Brain from '../../sources/brain/type.graphql';
-#import Face from '../../sources/face/type.graphql';
-#import Mouth from '../../sources/mouth/type.graphql';
-#import Soul from '../../sources/soul/type.graphql';
-#import Heart from '../../sources/heart/type.graphql';
-#import Sternum from '../../sources/sternum/type.graphql';
-#import Gut from '../../sources/gut/type.graphql';
-#import Skin from '../../sources/gut/type.graphql';
+#import Brain from '../../sources/body/brain/type.graphql';
+#import Face from '../../sources/body/face/type.graphql';
+#import Mouth from '../../sources/body/mouth/type.graphql';
+#import Heart from '../../sources/body/heart/type.graphql';
+#import Sternum from '../../sources/body/sternum/type.graphql';
+#import Gut from '../../sources/body/gut/type.graphql';
+#import Skin from '../../sources/body/gut/type.graphql';
 
 type Body {
     id: ID!
     brain: Brain
     face: Face
     mouth: Mouth
-    soul: Soul
     heart: Heart
     sternum: Sternum
     gut: Gut

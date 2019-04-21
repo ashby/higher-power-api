@@ -1,6 +1,6 @@
-#import Nail from '../../sources/nail/type.graphql';
-#import Crown from '../../sources/crown/type.graphql';
-#import Cross from '../../sources/cross/type.graphql';
+#import Nail from '../../sources/stigmata/nail/type.graphql';
+#import Crown from '../../sources/stigmata/crown/type.graphql';
+#import Cross from '../../sources/stigmata/cross/type.graphql';
 
 type Stigmata {
     id: ID!

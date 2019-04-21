@@ -1,6 +1,6 @@
-#import Service from '../../sources/service/type.graphql';
-#import Support from '../../sources/support/type.graphql';
-#import Sacrifice from '../../sources/sacrifice/type.graphql';
+#import Service from '../../sources/act/service/type.graphql';
+#import Support from '../../sources/act/support/type.graphql';
+#import Sacrifice from '../../sources/act/sacrifice/type.graphql';
 
 type Act {
     id: ID!

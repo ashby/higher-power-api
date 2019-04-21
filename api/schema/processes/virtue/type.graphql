@@ -1,6 +1,6 @@
-#import Soul from '../../sources/soul/type.graphql';
-#import Love from '../../sources/love/type.graphql';
-#import Mind from '../../sources/mind/type.graphql';
+#import Soul from '../../sources/virtue/soul/type.graphql';
+#import Love from '../../sources/virtue/love/type.graphql';
+#import Mind from '../../sources/virtue/mind/type.graphql';
 
 type Virtue {
     id: ID!

@@ -1,9 +1,9 @@
-#import ScarInput from '../../sources/scar/input.graphql';
-#import GashInput from '../../sources/gash/input.graphql';
-#import InfectionInput from '../../sources/infection/input.graphql';
-#import TremorInput from '../../sources/tremor/input.graphql';
-#import NightmareInput from '../../sources/nightmare/input.graphql';
-#import DeliriumInput from '../../sources/delirium/input.graphql';
+#import ScarInput from '../../sources/affliction/scar/input.graphql';
+#import GashInput from '../../sources/affliction/gash/input.graphql';
+#import InfectionInput from '../../sources/affliction/infection/input.graphql';
+#import TremorInput from '../../sources/affliction/tremor/input.graphql';
+#import NightmareInput from '../../sources/affliction/nightmare/input.graphql';
+#import DeliriumInput from '../../sources/affliction/delirium/input.graphql';
 
 input AfflictionInput {
     id: ID

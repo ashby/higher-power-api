@@ -1,6 +1,6 @@
-#import ServiceInput from '../../sources/service/input.graphql';
-#import SupportInput from '../../sources/support/input.graphql';
-#import SacrificeInput from '../../sources/sacrifice/input.graphql';
+#import ServiceInput from '../../sources/act/service/input.graphql';
+#import SupportInput from '../../sources/act/support/input.graphql';
+#import SacrificeInput from '../../sources/act/sacrifice/input.graphql';
 
 input ActInput {
     id: ID

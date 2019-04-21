@@ -1,6 +1,6 @@
-#import Pledge from '../../sources/pledge/type.graphql';
-#import Campaign from '../../sources/campaign/type.graphql';
-#import Crusade from '../../sources/crusade/type.graphql';
+#import Pledge from '../../sources/oath/pledge/type.graphql';
+#import Campaign from '../../sources/oath/campaign/type.graphql';
+#import Crusade from '../../sources/oath/crusade/type.graphql';
 
 type Oath {
     id: ID!

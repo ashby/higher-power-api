@@ -1,6 +1,6 @@
-#import Gate from '../../sources/gate/type.graphql';
-#import Tower from '../../sources/tower/type.graphql';
-#import Wall from '../../sources/wall/type.graphql';
+#import Gate from '../../sources/construct/gate/type.graphql';
+#import Tower from '../../sources/construct/tower/type.graphql';
+#import Wall from '../../sources/construct/wall/type.graphql';
 
 type Construct {
     id: ID!

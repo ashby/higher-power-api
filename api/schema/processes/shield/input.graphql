@@ -1,7 +1,7 @@
-#import SilenceInput from '../../sources/silence/input.graphql';
-#import SarcasmInput from '../../sources/sarcasm/input.graphql';
-#import DenialInput from '../../sources/denial/input.graphql';
-#import ConfusionInput from '../../sources/confusion/input.graphql';
+#import SilenceInput from '../../sources/shield/silence/input.graphql';
+#import SarcasmInput from '../../sources/shield/sarcasm/input.graphql';
+#import DenialInput from '../../sources/shield/denial/input.graphql';
+#import ConfusionInput from '../../sources/shield/confusion/input.graphql';
 
 input ShieldInput {
     id: ID

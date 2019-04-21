@@ -1,9 +1,9 @@
-#import Scar from '../../sources/scar/type.graphql';
-#import Gash from '../../sources/gash/type.graphql';
-#import Infection from '../../sources/infection/type.graphql';
-#import Tremor from '../../sources/tremor/type.graphql';
-#import Nightmare from '../../sources/nightmare/type.graphql';
-#import Delirium from '../../sources/delirium/type.graphql';
+#import Scar from '../../sources/affliction/scar/type.graphql';
+#import Gash from '../../sources/affliction/gash/type.graphql';
+#import Infection from '../../sources/affliction/infection/type.graphql';
+#import Tremor from '../../sources/affliction/tremor/type.graphql';
+#import Nightmare from '../../sources/affliction/nightmare/type.graphql';
+#import Delirium from '../../sources/affliction/delirium/type.graphql';
 
 type Affliction {
     id: ID!

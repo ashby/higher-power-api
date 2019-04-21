@@ -1,6 +1,6 @@
-#import PledgeInput from '../../sources/pledge/input.graphql';
-#import CampaignInput from '../../sources/campaign/input.graphql';
-#import CrusadeInput from '../../sources/crusade/input.graphql';
+#import PledgeInput from '../../sources/oath/pledge/input.graphql';
+#import CampaignInput from '../../sources/oath/campaign/input.graphql';
+#import CrusadeInput from '../../sources/oath/crusade/input.graphql';
 
 input OathInput {
     id: ID

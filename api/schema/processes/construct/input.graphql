@@ -1,6 +1,6 @@
-#import GateInput from '../../sources/gate/input.graphql';
-#import TowerInput from '../../sources/tower/input.graphql';
-#import WallInput from '../../sources/wall/input.graphql';
+#import GateInput from '../../sources/construct/gate/input.graphql';
+#import TowerInput from '../../sources/construct/tower/input.graphql';
+#import WallInput from '../../sources/construct/wall/input.graphql';
 
 input ConstructInput {
     id: ID

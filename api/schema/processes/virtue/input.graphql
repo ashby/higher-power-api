@@ -1,6 +1,6 @@
-#import SoulInput from '../../sources/soul/input.graphql';
-#import LoveInput from '../../sources/love/input.graphql';
-#import MindInput from '../../sources/mind/input.graphql';
+#import SoulInput from '../../sources/virtue/soul/input.graphql';
+#import LoveInput from '../../sources/virtue/love/input.graphql';
+#import MindInput from '../../sources/virtue/mind/input.graphql';
 
 input VirtueInput {
     id: ID
