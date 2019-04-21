@@ -3,7 +3,7 @@
 
 |Higher Power     |Type     | Def     |DB Schema     |Constants     |
 |---|---|---|---|---|
-|**Character**|[type](../../api/schema/characters/)||||
+|**Character**|[drag](../../api/schema/characters/)||||
 |**Process**|[type](../../api/schema/processes/)||||
 |**Source**|[type](../../api/schema/sources/)||||
 ||[type](../../api/schema/sources/)||||
