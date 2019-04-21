@@ -15,7 +15,8 @@ const getInventory = async () => {
         .map( feelings => Object.keys( feelings )
         .map( feeling => !!feeling && shelf.push( feelings[ feeling ] ) ) );
     const inventory = [];
-    shelf.map( feelings => feelings.map( feeling => inventory.push( feeling ) ) );
+    shelf.map( feelings => feelings.map( feeling => 
+        !inventory.find( f => f.id === feeling.id ) && inventory.push( feeling ) ) );
     return inventory;
 };
 

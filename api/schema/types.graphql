@@ -28,6 +28,7 @@
 # import Wish from "./processes/body/type.graphql";
 
 type Feeling {
+    id: ID
     character: String!
     thought: String!
     source: String!
