@@ -11,6 +11,6 @@
 |**Path**|[experience](../../api/schema/paths/experience)|:white_check_mark:|:white_check_mark:|:white_check_mark:|
 ||[strength](../../api/schema/paths/strength)|:white_check_mark:|:white_check_mark:|:white_check_mark:|
 |**Feelings**|[courage](../../api/schema/feelings/courage)|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-||[compassion](../../api/schema/feelings/)compassion|:white_check_mark:|:white_check_mark:|:white_check_mark:|
+||[compassion](../../api/schema/feelings/compassion)|:white_check_mark:|:white_check_mark:|:white_check_mark:|
 
 ***
