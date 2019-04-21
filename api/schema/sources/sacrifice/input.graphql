@@ -1,14 +1,11 @@
-#import CourageInput from '../../feelings/courage/input.graphql';
-#import CompassionInput from '../../feelings/compassion/input.graphql';
-
 scalar DateTime
 
 input SacrificeInput {
     id: ID
     feeling: String
     feelingId: ID
-    courage: [CourageInput]
-    compassion: [CompassionInput]
+    courage: [ID]
+    compassion: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

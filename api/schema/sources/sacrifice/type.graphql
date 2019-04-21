@@ -1,14 +1,11 @@
-#import Courage from '../../feelings/courage/type.graphql';
-#import Compassion from '../../feelings/compassion/type.graphql';
-
 scalar DateTime
 
 type Sacrifice {
     id: ID!
     feeling: String
     feelingId: ID
-    courage: [Courage]
-    compassion: [Compassion]
+    courage: [ID]
+    compassion: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

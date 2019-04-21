@@ -1,13 +1,10 @@
-#import Suffering from '../../feelings/suffering/type.graphql';
-
 scalar DateTime
-
 
 type Crown {
     id: ID!
     feeling: String
     feelingId: ID
-    suffering: [Suffering]
+    suffering: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

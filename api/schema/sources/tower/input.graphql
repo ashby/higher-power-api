@@ -1,12 +1,10 @@
-#import BoundaryInput from '../../feelings/boundary/input.graphql';
-
 scalar DateTime
 
 input TowerInput {
     id: ID
     feeling: String
     feelingId: ID
-    boundary: [BoundaryInput]
+    boundary: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

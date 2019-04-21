@@ -1,14 +1,11 @@
-#import LoyalyInput from '../../feelings/loyalty/input.graphql';
-#import HonorInput from '../../feelings/honor/input.graphql';
-
 scalar DateTime
 
 input CrusadeInput {
     id: ID
     feeling: String
     feelingId: ID
-    loyalty: [LoyaltyInput]
-    honor: [HonorInput]
+    loyalty: [ID]
+    honor: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

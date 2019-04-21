@@ -1,14 +1,11 @@
-#import TraumaInput from '../../feelings/trauma/input.graphql';
-#import ToxicityInput from '../../feelings/toxicity/input.graphql';
-
 scalar DateTime
 
 input InfectionInput {
     id: ID
     feeling: String
     feelingId: ID
-    trauma: [TraumaInput]
-    toxicity: [ToxicityInput]
+    trauma: [ID]
+    toxicity: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

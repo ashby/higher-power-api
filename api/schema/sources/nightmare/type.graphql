@@ -1,14 +1,11 @@
-#import Trauma from '../../feelings/trauma/type.graphql';
-#import Toxicity from '../../feelings/toxicity/type.graphql';
-
 scalar DateTime
 
 type Nightmare {
     id: ID!
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID]
+    toxicity: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

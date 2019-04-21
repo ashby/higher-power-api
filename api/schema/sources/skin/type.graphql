@@ -1,18 +1,13 @@
-#import Anger from '../../feelings/anger/type.graphql';
-#import Fear from '../../feelings/fear/type.graphql';
-#import Pride from '../../feelings/pride/type.graphql';
-#import SelfPity from '../../feelings/self-pity/type.graphql';
-
 scalar DateTime
 
 type Skin {
     id: ID!
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID]
+    fear: [ID]
+    pride: [ID]
+    selfPity: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

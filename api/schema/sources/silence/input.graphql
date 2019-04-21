@@ -1,12 +1,10 @@
-#import ArmorInput from '../../feelings/armor/input.graphql';
-
 scalar DateTime
 
 input SilenceInput {
     id: ID
     feeling: String
     feelingId: ID
-    armor: [ArmorInput]
+    armor: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

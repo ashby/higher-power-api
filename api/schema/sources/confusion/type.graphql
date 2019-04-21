@@ -1,13 +1,10 @@
-#import Armor from '../../feelings/armor/type.graphql';
-
 scalar DateTime
-
 
 type Confusion {
     id: ID!
     feeling: String
     feelingId: ID
-    armor: [Armor]
+    armor: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

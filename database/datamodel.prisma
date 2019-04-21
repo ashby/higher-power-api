@@ -107,10 +107,10 @@ type Brain {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -118,8 +118,8 @@ type Campaign {
     id: ID! @id
     feeling: String
     feelingId: ID
-    loyalty: [Loyalty]
-    honor: [Honor]
+    loyalty: [ID] @scalarList(strategy: RELATION)
+    honor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -127,7 +127,7 @@ type Confusion {
     id: ID! @id
     feeling: String
     feelingId: ID
-    armor: [Armor]
+    armor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -135,7 +135,7 @@ type Cross {
     id: ID! @id
     feeling: String
     feelingId: ID
-    suffering: [Suffering]
+    suffering: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -143,7 +143,7 @@ type Crown {
     id: ID! @id
     feeling: String
     feelingId: ID
-    suffering: [Suffering]
+    suffering: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -151,8 +151,8 @@ type Crusade {
     id: ID! @id
     feeling: String
     feelingId: ID
-    loyalty: [Loyalty]
-    honor: [Honor]
+    loyalty: [ID] @scalarList(strategy: RELATION)
+    honor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -160,8 +160,8 @@ type Delirium {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -169,7 +169,7 @@ type Denial {
     id: ID! @id
     feeling: String
     feelingId: ID
-    armor: [Armor]
+    armor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -177,7 +177,7 @@ type Dream {
     id: ID! @id
     feeling: String
     feelingId: ID
-    salvation: [Salvation]
+    salvation: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -185,10 +185,10 @@ type Face {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -196,8 +196,8 @@ type Gash {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -205,7 +205,7 @@ type Gate {
     id: ID! @id
     feeling: String
     feelingId: ID
-    boundary: [Boundary]
+    boundary: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -213,10 +213,10 @@ type Gut {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -224,10 +224,10 @@ type Heart {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -235,8 +235,8 @@ type Infection {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -244,8 +244,8 @@ type Love {
     id: ID! @id
     feeling: String
     feelingId: ID
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
+    vulnerability: [ID] @scalarList(strategy: RELATION)
+    acceptance: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -253,17 +253,19 @@ type Mind {
     id: ID! @id
     feeling: String
     feelingId: ID
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
+    vulnerability: [ID] @scalarList(strategy: RELATION)
+    acceptance: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
 type Mouth {
     id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    feeling: String
+    feelingId: ID
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -271,7 +273,7 @@ type Nail {
     id: ID! @id
     feeling: String
     feelingId: ID
-    suffering: [Suffering]
+    suffering: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -279,8 +281,8 @@ type Nightmare {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -288,8 +290,8 @@ type Pledge {
     id: ID! @id
     feeling: String
     feelingId: ID
-    loyalty: [Loyalty]
-    honor: [Honor]
+    loyalty: [ID] @scalarList(strategy: RELATION)
+    honor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -297,8 +299,8 @@ type Sacrifice {
     id: ID! @id
     feeling: String
     feelingId: ID
-    courage: [Courage]
-    compassion: [Compassion]
+    courage: [ID] @scalarList(strategy: RELATION)
+    compassion: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -306,7 +308,7 @@ type Sarcasm {
     id: ID! @id
     feeling: String
     feelingId: ID
-    armor: [Armor]
+    armor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -314,8 +316,8 @@ type Scar {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -323,8 +325,8 @@ type Service {
     id: ID! @id
     feeling: String
     feelingId: ID
-    courage: [Courage]
-    compassion: [Compassion]
+    courage: [ID] @scalarList(strategy: RELATION)
+    compassion: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -332,7 +334,7 @@ type Silence {
     id: ID! @id
     feeling: String
     feelingId: ID
-    armor: [Armor]
+    armor: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -340,10 +342,10 @@ type Skin {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -351,8 +353,8 @@ type Soul {
     id: ID! @id
     feeling: String
     feelingId: ID
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
+    vulnerability: [ID] @scalarList(strategy: RELATION)
+    acceptance: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -360,10 +362,10 @@ type Sternum {
     id: ID! @id
     feeling: String
     feelingId: ID
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
+    anger: [ID] @scalarList(strategy: RELATION)
+    fear: [ID] @scalarList(strategy: RELATION)
+    pride: [ID] @scalarList(strategy: RELATION)
+    selfPity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -371,8 +373,8 @@ type Support {
     id: ID! @id
     feeling: String
     feelingId: ID
-    courage: [Courage]
-    compassion: [Compassion]
+    courage: [ID] @scalarList(strategy: RELATION)
+    compassion: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -380,7 +382,7 @@ type Tower {
     id: ID! @id
     feeling: String
     feelingId: ID
-    boundary: [Boundary]
+    boundary: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -388,8 +390,8 @@ type Tremor {
     id: ID! @id
     feeling: String
     feelingId: ID
-    trauma: [Trauma]
-    toxicity: [Toxicity]
+    trauma: [ID] @scalarList(strategy: RELATION)
+    toxicity: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -397,7 +399,7 @@ type Wall {
     id: ID! @id
     feeling: String
     feelingId: ID
-    boundary: [Boundary]
+    boundary: [ID] @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }

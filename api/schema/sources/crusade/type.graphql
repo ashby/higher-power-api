@@ -1,15 +1,11 @@
-#import Loyaly from '../../feelings/loyalty/type.graphql';
-#import Honor from '../../feelings/honor/type.graphql';
-
 scalar DateTime
-
 
 type Crusade {
     id: ID!
     feeling: String
     feelingId: ID
-    loyalty: [Loyalty]
-    honor: [Honor]
+    loyalty: [ID]
+    honor: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

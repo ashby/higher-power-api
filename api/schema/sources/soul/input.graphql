@@ -1,14 +1,11 @@
-#import VulnerabilityInput from '../../feelings/vulnerability/input.graphql';
-#import AcceptanceInput from '../../feelings/acceptance/input.graphql';
-
 scalar DateTime
 
 input SoulInput {
     id: ID
     feeling: String
     feelingId: ID
-    vulnerability: [VulnerabilityInput]
-    acceptance: [AcceptanceInput]
+    vulnerability: [ID]
+    acceptance: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }
