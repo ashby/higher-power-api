@@ -1,11 +1,15 @@
 scalar DateTime
 
+input SetFeelingInput {
+    set: [ID]
+}
+
 input MindInput {
     id: ID
     feeling: String
     feelingId: ID
-    vulnerability: [ID]
-    acceptance: [ID]
+    vulnerability: SetFeelingInput
+    acceptance: SetFeelingInput
     createdAt: DateTime
     updatedAt: DateTime
 }
