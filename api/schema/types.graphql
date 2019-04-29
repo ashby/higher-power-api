@@ -1,79 +1,119 @@
-# import Discontent from "./paths/discontent/type.graphql";
-# import Defect from "./paths/defect/type.graphql";
-# import Resentment from "./paths/resentment/type.graphql";
-# import Obsession from "./paths/obsession/type.graphql";
-# import Experience from "./paths/experience/type.graphql";
-# import Strength from "./paths/strength/type.graphql";
-# import Hope from "./paths/hope/type.graphql";
+scalar DateTime
 
-# import Congregant from "./characters/congregant/type.graphql";
-# import Genie from "./characters/genie/type.graphql";
-# import Guardian from "./characters/guardian/type.graphql";
-# import Martyr from "./characters/martyr/type.graphql";
-# import Paladin from "./characters/paladin/type.graphql";
-# import Seeker from "./characters/seeker/type.graphql";
-# import Self from "./characters/self/type.graphql";
-# import Smith from "./characters/smith/type.graphql";
-# import Summoner from "./characters/summoner/type.graphql";
-# import Victim from "./characters/victim/type.graphql";
-# import Volunteer from "./characters/volunteer/type.graphql";
-
-type Has {
+type Character {
     id: ID!
-    defect: Boolean!
-    discontent: Boolean!
-    resentment: Boolean!
-    obsession: Boolean!
-    experience: Boolean!
-    strength: Boolean!
-    hope: Boolean!
-    acceptance: Boolean!
-    anger: Boolean!
-    armor: Boolean!
-    boundary: Boolean!
-    compassion: Boolean!
-    courage: Boolean!
-    fear: Boolean!
-    fun: Boolean!
-    impatience: Boolean!
-    irritability: Boolean!
-    gratitude: Boolean!
-    joy: Boolean!
-    pride: Boolean!
-    salvaltion: Boolean!
-    selfPity: Boolean!
-    suffering: Boolean!
-    toxicity: Boolean!
-    trauma: Boolean!
-    vulnerability: Boolean!
+    title: String!
+    description: String
+    process: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Process {
+    id: ID!
+    title: String!
+    sources: [ID]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Source {
+    id: ID!
+    title: String!
+    feelings: [ID]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Feeling {
+    id: ID!
+    title: String!
+    thoughts: [ID]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Path {
+    id: ID!
+    title: String!
+    feelings: [ID]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Thought {
+    id: ID!
+    character: ID
+    thought: String!
+    quality: Boolean
+    source: ID
+    process: ID
+    path: ID
+    feeling: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    prayedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
 }
 
 type Inventory {
-    has: Has
-    defect: Defect
-    discontent: Discontent
-    resentment: Resentment
-    obsession: Obsession
-    experience: Experience
-    strength: Strength
-    hope: Hope
+    id: ID!
+    paths: [InventoryPath]
+}
+type InventoryPath {
+    id: ID!
+    title: String!
+    feelings: [InventoryFeeling]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+type InventoryFeeling {
+    id: ID!
+    title: String!
+    thoughts: [Thought]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
 }
 
-type Characters {
-    congregant: Congregant
-    genie: Genie
-    guardian: Guardian
-    martyr: Martyr
-    paladin: Paladin
-    seeker: Seeker
-    self: Self
-    smith: Smith
-    summoner: Summoner
-    victim: Victim
-    volunteer: Volunteer
+type Cast {
+    id: ID!
+    characters: [CastCharacter]!
+}
+type CastCharacter{
+    id: ID!
+    title: String!
+    description: String
+    process: CastProcess!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+type CastProcess{
+    id: ID!
+    title: String!
+    sources: [CastSource]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+type CastSource{
+    id: ID!
+    title: String!
+    feelings: [CastFeeling]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+type CastFeeling {
+    id: ID!
+    title: String!
+    thoughts: [Thought]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
 }
 
 type HigherPower {
+    id: ID!
     inventory: Inventory
-    chracters: Characters
+    cast: Cast
 }
+

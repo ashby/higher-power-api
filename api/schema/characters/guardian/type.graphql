@@ -1,6 +1,0 @@
-#import Construct from '../../processes/construct/type.graphql';
-
-type Guardian {
-    id: ID!
-    construct: [Construct]
-}

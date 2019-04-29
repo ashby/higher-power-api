@@ -1,32 +1,63 @@
+scalar DateTime
 
-input HasInput {
-    id: ID
-    has: String!
-    defect: Boolean
-    discontent: Boolean
-    resentment: Boolean
-    obsession: Boolean
-    experience: Boolean
-    strength: Boolean
-    hope: Boolean
-    acceptance: Boolean
-    anger: Boolean
-    armor: Boolean
-    boundary: Boolean
-    compassion: Boolean
-    courage: Boolean
-    fear: Boolean
-    fun: Boolean
-    impatience: Boolean
-    irritability: Boolean
-    gratitude: Boolean
-    joy: Boolean
-    pride: Boolean
-    salvaltion: Boolean
-    selfPity: Boolean
-    suffering: Boolean
-    toxicity: Boolean
-    trauma: Boolean
-    vulnerability: Boolean
+input SetIDInput {
+    set: [ID]
 }
 
+input CharacterInput {
+    id: ID
+    title: String!
+    description: String
+    process: ID
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input ProcessInput {
+    id: ID
+    title: String!
+    sources: SetIDInput
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input SourceInput {
+    id: ID
+    title: String!
+    feelings: SetIDInput
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input PathInput {
+    id: ID
+    title: String!
+    feelings: SetIDInput
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input FeelingInput {
+    id: ID
+    title: String!
+    thoughts: SetIDInput
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input ThoughtInput {
+    id: ID
+    character: ID
+    thought: String!
+    quality: Boolean
+    source: ID
+    process: ID
+    path: ID
+    feeling: ID!
+    createdAt: DateTime
+    updatedAt: DateTime
+    prayedAt: DateTime
+    sharedAt: DateTime
+    amendedAt: DateTime
+    resolvedAt: DateTime
+}

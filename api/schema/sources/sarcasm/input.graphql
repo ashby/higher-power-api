@@ -1,6 +1,0 @@
-input SarcasmInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    armor: [ID]
-}

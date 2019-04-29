@@ -1,7 +1,0 @@
-input LoveInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    vulnerability: [ID]
-    acceptance: [ID]
-}

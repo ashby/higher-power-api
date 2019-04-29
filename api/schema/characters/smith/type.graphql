@@ -1,6 +1,0 @@
-#import Shield from '../../processes/shield/type.graphql';
-
-type Smith {
-    id: ID!
-    shield: [Shield]
-}

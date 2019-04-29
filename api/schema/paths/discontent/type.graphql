@@ -1,8 +1,0 @@
-#import Irritability from '../../feelings/irritability/input.graphql';
-#import Impatience from '../../feelings/impatience/input.graphql';
-
-type Discontent {
-    id: ID!
-    irritability: [Irritability]
-    impatience: [Impatience]
-}

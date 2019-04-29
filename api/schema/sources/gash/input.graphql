@@ -1,7 +1,0 @@
-input GashInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    trauma: [ID]
-    toxicity: [ID]
-}

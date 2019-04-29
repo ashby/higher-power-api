@@ -1,7 +1,0 @@
-input DeliriumInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    trauma: [ID]
-    toxicity: [ID]
-}

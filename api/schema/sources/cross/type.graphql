@@ -1,6 +1,0 @@
-#import Suffering from '../../feelings/suffering/type.graphql';
-
-type Cross {
-    id: ID!
-    suffering: [Suffering]
-}

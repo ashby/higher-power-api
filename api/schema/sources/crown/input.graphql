@@ -1,6 +1,0 @@
-input CrownInput {
-    id: ID
-    feeling: String!
-    feelingId: ID!
-    suffering: [ID]
-}

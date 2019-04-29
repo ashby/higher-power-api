@@ -1,677 +1,116 @@
-type Has {
+type Character {
     id: ID! @id
-    defect: Boolean! @default(value: false)
-    discontent: Boolean! @default(value: false)
-    resentment: Boolean! @default(value: false)
-    obsession: Boolean! @default(value: false)
-    experience: Boolean! @default(value: false)
-    strength: Boolean! @default(value: false)
-    hope: Boolean! @default(value: false)
-    acceptance: Boolean! @default(value: false)
-    anger: Boolean! @default(value: false)
-    armor: Boolean! @default(value: false)
-    boundary: Boolean! @default(value: false)
-    compassion: Boolean! @default(value: false)
-    courage: Boolean! @default(value: false)
-    fear: Boolean! @default(value: false)
-    fun: Boolean! @default(value: false)
-    gratitude: Boolean! @default(value: false)
-    irritability: Boolean! @default(value: false)
-    impatience: Boolean! @default(value: false)
-    joy: Boolean! @default(value: false)
-    pride: Boolean! @default(value: false)
-    salvaltion: Boolean! @default(value: false)
-    selfPity: Boolean! @default(value: false)
-    suffering: Boolean! @default(value: false)
-    toxicity: Boolean! @default(value: false)
-    trauma: Boolean! @default(value: false)
-    vulnerability: Boolean! @default(value: false)
+    title: String!
+    description: String
+    process: ID!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
-type Characters {
+type Process {
     id: ID! @id
-    congregant: Congregant
-    genie: Genie
-    guardian: Guardian
-    martyr: Martyr
-    paladin: Paladin
-    seeker: Seeker
-    self: Self
-    smith: Smith
-    summoner: Summoner
-    victim: Victim
-    volunteer: Volunteer
+    title: String!
+    sources: [ID]! @scalarList(strategy: RELATION)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
-type Congregant {
+type Source {
     id: ID! @id
-}
-type Genie {
-    id: ID! @id
-    wish: [Wish]
-}
-type Guardian {
-    id: ID! @id
-    construct: [Construct]
-}
-type Martyr {
-    id: ID! @id
-    stigmata: [Stigmata]
-}
-type Paladin {
-    id: ID! @id
-    oath: [Oath]
-}
-type Seeker {
-    id: ID! @id
-    virtue: [Virtue]
-}
-type Self {
-    id: ID! @id
-    body: [Body]
-}
-type Smith {
-    id: ID! @id
-    shield: [Shield]
-}
-type Summoner {
-    id: ID! @id
-}
-type Victim {
-    id: ID! @id
-    affliction: [Affliction]
-}
-type Volunteer {
-    id: ID! @id
-    act: [Act]
+    title: String!
+    feelings: [ID]! @scalarList(strategy: RELATION)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
-type Act {
+type Path {
     id: ID! @id
-    service: [Service]
-    support: [Support]
-    sacrifice: [Sacrifice]
-}
-type Affliction {
-    id: ID! @id
-    scar: [Scar]
-    gash: [Gash]
-    infection: [Infection]
-    tremor: [Tremor]
-    nightmare: [Nightmare]
-    delirium: [Delirium]
-}
-type Body {
-    id: ID! @id
-    brain: [Brain]
-    face: [Face]
-    mouth: [Mouth]
-    soul: [Soul]
-    heart: [Heart]
-    sternum: [Sternum]
-    gut: [Gut]
-}
-type Construct {
-    id: ID! @id
-    gate: [Gate]
-    tower: [Tower]
-    wall: [Wall]
-}
-type Oath {
-    id: ID! @id
-    pledge: [Pledge]
-    campaign: [Campaign]
-    crusade: [Crusade]
-}
-type Shield {
-    id: ID! @id
-    silence: [Silence]
-    sarcasm: [Sarcasm]
-    denial: [Denial]
-    confusion: [Confusion]
-}
-type Stigmata {
-    id: ID! @id
-    nail: [Nail]
-    crown: [Crown]
-    cross: [Cross]
-}
-type Virtue {
-    id: ID! @id
-    nail: [Nail]
-    crown: [Crown]
-    cross: [Cross]
-}
-type Wish {
-    id: ID! @id
-    dream: [Dream]
+    title: String!
+    feelings: [ID]! @scalarList(strategy: RELATION)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
-type Brain {
+type Feeling {
     id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Campaign {
-    id: ID! @id
-    loyalty: [Loyalty]
-    honor: [Honor]
-}
-type Confusion {
-    id: ID! @id
-    armor: [Armor]
-}
-type Cross {
-    id: ID! @id
-    suffering: [Suffering]
-}
-type Crown {
-    id: ID! @id
-    suffering: [Suffering]
-}
-type Crusade {
-    id: ID! @id
-    loyalty: [Loyalty]
-    honor: [Honor]
-}
-type Delirium {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Denial {
-    id: ID! @id
-    armor: [Armor]
-}
-type Dream {
-    id: ID! @id
-    salvation: [Salvation]
-}
-type Face {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Gash {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Gate {
-    id: ID! @id
-    boundary: [Boundary]
-}
-type Gut {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Heart {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Infection {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Love {
-    id: ID! @id
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
-}
-type Mind {
-    id: ID! @id
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
-}
-type Mouth {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Nail {
-    id: ID! @id
-    suffering: [Suffering]
-}
-type Nightmare {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Pledge {
-    id: ID! @id
-    loyalty: [Loyalty]
-    honor: [Honor]
-}
-type Sacrifice {
-    id: ID! @id
-    courage: [Courage]
-    compassion: [Compassion]
-}
-type Sarcasm {
-    id: ID! @id
-    armor: [Armor]
-}
-type Scar {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Service {
-    id: ID! @id
-    courage: [Courage]
-    compassion: [Compassion]
-}
-type Silence {
-    id: ID! @id
-    armor: [Armor]
-}
-type Skin {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Soul {
-    id: ID! @id
-    vulnerability: [Vulnerability]
-    acceptance: [Acceptance]
-}
-type Sternum {
-    id: ID! @id
-    anger: [Anger]
-    fear: [Fear]
-    pride: [Pride]
-    selfPity: [SelfPity]
-}
-type Support {
-    id: ID! @id
-    courage: [Courage]
-    compassion: [Compassion]
-}
-type Tower {
-    id: ID! @id
-    boundary: [Boundary]
-}
-type Tremor {
-    id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-}
-type Wall {
-    id: ID! @id
-    boundary: [Boundary]
+    title: String!
+    thoughts: [ID]! @scalarList(strategy: RELATION)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
 }
 
-type Defect {
+type Thought {
     id: ID! @id
-    trauma: [Trauma]
-    toxicity: [Toxicity]
-    suffering: [Suffering]
-}
-type Discontent {
-    id: ID! @id
-    irritability: [Irritability]
-    impatience: [Impatience]
-}
-type Resentment {
-    id: ID! @id
-    anger: [Anger]
-    selfPity: [SelfPity]
-    fear: [Fear]
-    pride: [Pride]
-}
-type Obsession {
-    id: ID! @id
-    suffering: [Suffering]
-    loyalty: [Loyalty]
-    honor: [Honor]
-    vulnerability: [Vulnerability]
-}
-type Experience {
-    id: ID! @id
-    compassion: [Compassion]
-    courage: [Courage]
-    acceptance: [Acceptance]
-    vulnerability: [Vulnerability]
-    gratitude: [Gratitude]
-    suffering: [Suffering]
-}
-type Strength {
-    id: ID! @id
-    armor: [Armor]
-    boundary: [Boundary]
-    loyalty: [Loyalty]
-    honor: [Honor]
-}
-type Hope {
-    id: ID! @id
-    salvation: [Salvation]
-    fun: [Fun]
-    joy: [Joy]
-}
-
-type Trauma {
-    id: ID! @id
-    character: String!
+    character: ID
     thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
+    quality: Boolean
+    source: ID
+    process: ID
+    path: ID
+    feeling: ID!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    prayedAt: DateTime
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
-}
-type Toxicity {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Suffering {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Anger {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type SelfPity {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Fear {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Pride {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Compassion {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Courage {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Acceptance {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Vulnerability {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Gratitude {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Armor {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Boundary {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Loyalty {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Honor {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Salvation {
-    id: ID! @id
-    thought: String!
-    character: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolvedAt: DateTime
-}
-type Fun {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolveAt: DateTime
-}
-type Joy {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolveAt: DateTime
-}
-type Irritability {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolveAt: DateTime
-}
-type Impatience {
-    id: ID! @id
-    character: String!
-    thought: String!
-    source: String!
-    process: String!
-    path: String!
-    feeling: String!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-    sharedAt: DateTime
-    amendedAt: DateTime
-    resolveAt: DateTime
 }
 
 type Inventory {
     id: ID! @id
-    defect: [Defect]
-    discontent: [Discontent]
-    resentment: [Resentment]
-    obsession: [Obsession]
-    experience: [Experience]
-    strength: [Strength]
-    hope: [Hope]
+    paths: [InventoryPath]
+}
+type InventoryPath {
+    id: ID! @id
+    title: String!
+    feelings: [PathFeeling]!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+}
+type PathFeeling {
+    id: ID! @id
+    title: String!
+    thoughts: [Thought]!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
+}
+
+type Cast {
+    id: ID! @id
+    characters: [CastCharacter]!
+}
+type CastCharacter{
+    id: ID! @id
+    title: String!
+    description: String
+    process: CharacterProcess!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+type CharacterProcess{
+    id: ID! @id
+    title: String!
+    sources: [ProcessSource]!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+type ProcessSource{
+    id: ID! @id
+    title: String!
+    feelings: [SourceFeeling]!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+type SourceFeeling {
+    id: ID! @id
+    title: String!
+    thoughts: [Thought]!
+    createdAt: DateTime @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type HigherPower {
     id: ID! @id
     inventory: Inventory
-    characters: Characters
+    cast: Cast
 }
