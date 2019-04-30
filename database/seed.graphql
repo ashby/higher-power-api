@@ -26,7 +26,7 @@ mutation {
         data: {
             id: "genie",
             title: "Genie",
-            description: "Processes the wish, handling thoughts of desire with dreams and gifts, along the path of hope",
+            description: "Processes the wish with dreams and gifts.",
             process: "wish"
         }
     ) { id }
@@ -34,13 +34,23 @@ mutation {
             data: {
                 id: "wish",
                 title: "Wish",
-                sources: { set: ["dream", "gift"] }
+                sources: { set: [
+                    "dream",
+                    "gift"
+                ] }
             }
         ) { id }
             DREAM: createSource(
                 data: {
                     id: "dream",
                     title: "Dream",
+                    feelings: { set: [] }
+                }
+            ){ id }
+            FAIRY_TALE: createSource(
+                data: {
+                    id: "fairyTale",
+                    title: "Fairy Tale",
                     feelings: { set: [] }
                 }
             ){ id }
@@ -56,7 +66,7 @@ mutation {
         data: {
             id: "grump",
             title: "Grump",
-            description: "Processes the mess, handling thoughts of irritability and impatience with attire and the floor, along the path of discontent",
+            description: "Processes the mess with attire and the floor.",
             process: "mess"
         }
     ) { id }
@@ -64,7 +74,10 @@ mutation {
             data: {
                 id: "mess",
                 title: "Mess",
-                sources: { set: ["attire","floor"] }
+                sources: { set: [
+                    "attire",
+                    "floor"
+                ] }
             }
         ) {id }
             ATTIRE: createSource(
@@ -86,7 +99,7 @@ mutation {
         data: {
             id: "guardian",
             title: "Guardian",
-            description: "Processes the construct, handling thoughts of boundaries with gates, walls and towers, along the path of strength",
+            description: "Processes the construct with gates, walls and towers.",
             process: "construct"
         }
     ) { id }
@@ -94,7 +107,11 @@ mutation {
             data: {
                 id: "construct",
                 title: "Construct", 
-                sources: { set: [ "gate", "tower", "wall"] }
+                sources: { set: [
+                    "gate",
+                    "tower",
+                    "wall"
+                ] }
             }
         ) { id }
             GATE: createSource(
@@ -123,15 +140,19 @@ mutation {
         data: {
             id: "martyr",
             title: "Martyr",
-            description: "Processes the stigmata, handling thoughts of suffering and salvation with nails, crown and cross, along the paths of defect and experience",
+            description: "Processes the stigma with nails, crown and cross.",
             process: "stigmata"
         }
     ) { id }
-        STIGMATA: createProcess(
+        STIGMA: createProcess(
             data: {
-                id: "stigmata",
-                title: "Stigmata",
-                sources: { set: ["cross","crown","nail"] }
+                id: "stigma",
+                title: "Stigma",
+                sources: { set: [
+                    "cross",
+                    "crown",
+                    "nail"
+                ] }
             }
         ) { id }
             CROSS: createSource(
@@ -160,7 +181,7 @@ mutation {
         data: {
             id: "paladin",
             title: "Paladin",
-            description: "Processes the oath, handling thoughts of loyalty and courage with campaigns, crusades and pleges, along the paths of strength, obsession and experience",
+            description: "Processes the oath with campaigns, crusades and pledges.",
             process: "oath"
         }
     ) { id }
@@ -168,7 +189,11 @@ mutation {
             data: {
                 id: "oath",
                 title: "Oath",
-                sources: { set: ["campaign","pledge","crusade"] }
+                sources: { set: [
+                    "campaign",
+                    "pledge",
+                    "crusade"
+                ] }
             }
         ) { id }
             CAMPAIGN: createSource(
@@ -197,7 +222,7 @@ mutation {
         data: {
             id: "player",
             title: "Player",
-            description: "Processes the game, handling thoughts of joy, fun and criticism with jokes, competition and theatre, along the path of hope and experience.",
+            description: "Processes the game with jokes, competition and theatre.",
             process: "game"
         }
     ) { id }
@@ -205,7 +230,11 @@ mutation {
             data: {
                 id: "game",
                 title: "Game",
-                sources: { set: ["joke","competition","theatre"] }
+                sources: { set: [
+                    "joke",
+                    "competition",
+                    "theatre"
+                ] }
             }
         ) { id }
             JOKE: createSource(
@@ -234,7 +263,7 @@ mutation {
         data: {
             id: "seeker",
             title: "Seeker",
-            description: "Processes the virute, handling thoughts of acceptance and vulnerability with mind, soul and love, along the path of experience",
+            description: "Processes the virtue, with mind, soul and love.",
             process: "virtue"
         }
     ) { id }
@@ -242,7 +271,11 @@ mutation {
             data: {
                 id: "virtue",
                 title: "Virtue",
-                sources: { set: ["love", "mind", "soul"] }
+                sources: { set: [
+                    "love",
+                    "mind",
+                    "soul"
+                ] }
             }
         ) { id }
             LOVE: createSource(
@@ -271,7 +304,7 @@ mutation {
         data: {
             id: "self",
             title: "Self",
-            description: "Processes the body, handling thoughts of anger, fear, pride, self pity and shame within the brain, face, gut, heart, mouth, skin and sternum, along the path of resentment",
+            description: "Processes the body.",
             process: "body"
         }
     ) { id }
@@ -279,17 +312,31 @@ mutation {
             data: {
                 id: "body",
                 title: "Body",
-                sources: { set: ["brain","face", "gut", "heart", "mouth", "skin", "sternum"] }
+                sources: { set: [
+                    "brain",
+                    "face",
+                    "gut",
+                    "heart",
+                    "mouth",
+                    "skin",
+                    "sternum",
+                    "shoulders",
+                    "eyes",
+                    "hands",
+                    "rectum",
+                    "genitals",
+                    "ears"
+                ] }
             }
         ) { id }
-            SELF_BRAIN: createSource(
+            BRAIN: createSource(
                 data: {
                     id: "brain",
                     title: "Brain",
                     feelings: { set: [] }
                 }
             ){ id }
-            SELF_FACE: createSource(
+            FACE: createSource(
                 data: {
                     id: "face",
                     title: "Face",   
@@ -331,12 +378,54 @@ mutation {
                     feelings: { set: [] }
                 }
             ){ id }
+            SHOULDERS: createSource(
+                data: {
+                    id: "shoulders",
+                    title: "Shoulders",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
+            EYES: createSource(
+                data: {
+                    id: "eyes",
+                    title: "Eyes",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
+            HANDS: createSource(
+                data: {
+                    id: "hands",
+                    title: "Hands",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
+            RECTUM: createSource(
+                data: {
+                    id: "rectum",
+                    title: "Rectum",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
+            GENITALS: createSource(
+                data: {
+                    id: "genitals",
+                    title: "Genitals",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
+            EARS: createSource(
+                data: {
+                    id: "ears",
+                    title: "Ears",                   
+                    feelings: { set: [] }
+                }
+            ){ id }
 
     SMITH: createCharacter(
         data: {
             id: "smith",
             title: "Smith",
-            description: "Processes the shield, handling thoughts of armor with silence, denial, confusion, and sarcasm along the path of strength",
+            description: "Processes the shield with silence, denial, confusion, and sarcasm.",
             process: "shield"
         }
     ) { id }
@@ -344,7 +433,12 @@ mutation {
             data: {
                 id: "shield",
                 title: "Shield",
-                sources: { set: ["confusion","denial","sarcasm","silence"] }
+                sources: { set: [
+                    "confusion",
+                    "denial",
+                    "sarcasm",
+                    "silence"
+                ] }
             }
         ) { id }
             CONFUSION: createSource(
@@ -391,7 +485,7 @@ mutation {
         data: {
             id: "victim",
             title: "Victim",
-            description: "Processes the affliction, handling thoughts of trauma and toxicity within scars, gashes, infections, tremors, nightmares and delirium, along the path of defect and obsession",
+            description: "Processes the affliction within scars, gashes, infections, tremors, nightmares and delirium.",
             process: "affliction"
         }
     ) { id }
@@ -399,7 +493,14 @@ mutation {
             data: {
                 id: "affliction",
                 title: "Affliction",
-                sources: { set: ["delirium","gash","infection","nightmare","scar","tremor"] }
+                sources: { set: [
+                    "delirium",
+                    "gash",
+                    "infection",
+                    "nightmare",
+                    "scar",
+                    "tremor"
+                ] }
             }
         ) { id }
             DELIRIUM: createSource(
@@ -449,7 +550,7 @@ mutation {
         data: {
             id: "volunteer",
             title: "Volunteer",
-            description: "Processes the act, handling thoughts of courage and compassion with service, support and sacrifice, along the path of experience, strength and hope",
+            description: "Processes the act with service, support and sacrifice.",
             process: "act"
         }
     ) { id }
@@ -457,7 +558,11 @@ mutation {
             data: {
                 id: "act",
                 title: "Act",
-                sources: { set: ["service", "support","sacrifice"] }
+                sources: { set: [
+                    "service",
+                    "support",
+                    "sacrifice"
+                ] }
             }
         ) { id }
             SERVICE: createSource(
