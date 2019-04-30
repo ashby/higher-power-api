@@ -1,3 +1,3 @@
 const { getDeepCharacters } = require( './get-deep' );
-const getCast = async () => ( { characters: await getDeepCharacters() } );
+const getCast = async ( userId ) => ( { characters: await getDeepCharacters( userId ) } );
 module.exports = getCast;

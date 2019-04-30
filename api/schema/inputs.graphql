@@ -6,43 +6,53 @@ input SetIDInput {
 
 input CharacterInput {
     id: ID
+    type: String!
     title: String!
     description: String
     process: ID
     createdAt: DateTime
     updatedAt: DateTime
+    userId: ID!
 }
 
 input ProcessInput {
     id: ID
+    type: String!
     title: String!
     sources: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: ID!
 }
 
 input SourceInput {
     id: ID
+    type: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: ID!
 }
 
 input PathInput {
     id: ID
+    type: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: ID!
 }
 
 input FeelingInput {
     id: ID
+    type: String!
     title: String!
     thoughts: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: ID!
 }
 
 input ThoughtInput {
@@ -60,4 +70,5 @@ input ThoughtInput {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+    userId: ID!
 }

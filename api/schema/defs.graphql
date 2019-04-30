@@ -1,4 +1,4 @@
-
+# import AuthPayload from "./types.graphql";
 
 # import Character from "./types.graphql";
 # import Process from "./types.graphql";
@@ -19,30 +19,33 @@
 # import ThoughtInput from "./inputs.graphql";
 
 type Query {
-    higherPower: HigherPower
-    inventory: Inventory
-    cast: Cast
+    higherPower(userId: ID!): HigherPower
+    inventory(userId: ID!): Inventory
+    cast(userId: ID!): Cast
 
-    character(id: ID!): Character
-    characters: [Character]
+    character(type: String!, userId: ID!): Character
+    characters(userId: ID!): [Character]
 
-    process(id: ID!): Process
-    processes: [Process]
+    process(type: String!, userId: ID!): Process
+    processes(userId: ID!): [Process]
 
-    source(id: ID!): Source
-    sources: [Source]
+    source(type: String!, userId: ID!): Source
+    sources(userId: ID!): [Source]
 
-    path(id: ID!): Path
-    paths: [Path]
+    path(type: String!, userId: ID!): Path
+    paths(userId: ID!): [Path]
 
-    feeling(id: ID!): Feeling
-    feelings: [Feeling]
+    feeling(type: String!, userId: ID!): Feeling
+    feelings(userId: ID!): [Feeling]
 
-    thought(id: ID!): Thought
-    thoughts: [Thought]
+    thought(type: String!, userId: ID!): Thought
+    thoughts(userId: ID!): [Thought]
 }
 
 type Mutation {
+    signup(email: String!, password: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+
     mutateThought(data:ThoughtInput): Thought!
     mutateFeeling(data:FeelingInput): Feeling!
     mutatePath(data:PathInput): Path!

@@ -2,7 +2,9 @@ const cfg =  {
     SERVER_PORT: 3200,
     ROOT_URL: '/higher-power',
     ENVIRONMENT: 'dev',
-    ENABLE_HAS: false
+    ENABLE_HAS: false,
+    APP_SECRET: 'higher-power',
+    JWT_SECRET: 'higher-power'
 };
 
 switch ( process.env.NODE_ENV ) {

@@ -1,3 +1,9 @@
+type User @model {
+  id: ID! @id
+  name: String!
+  higherPower: HigherPower!
+}
+
 type Character {
     id: ID! @id
     title: String!
@@ -5,38 +11,47 @@ type Character {
     process: ID!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Process {
     id: ID! @id
+    type: String!
     title: String!
     sources: [ID]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Source {
     id: ID! @id
+    type: String!
     title: String!
     feelings: [ID]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Path {
     id: ID! @id
+    type: String!
     title: String!
     feelings: [ID]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Feeling {
     id: ID! @id
+    type: String!
     title: String!
     thoughts: [ID]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Thought {
@@ -54,6 +69,7 @@ type Thought {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+    userId: ID!
 }
 
 type Inventory {
@@ -62,17 +78,21 @@ type Inventory {
 }
 type InventoryPath {
     id: ID! @id
+    type: String!
     title: String!
     feelings: [PathFeeling]!
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
+    userId: ID!
 }
 type PathFeeling {
     id: ID! @id
+    type: String!
     title: String!
     thoughts: [Thought]!
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
+    userId: ID!
 }
 
 type Cast {
@@ -86,30 +106,37 @@ type CastCharacter{
     process: CharacterProcess!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 type CharacterProcess{
     id: ID! @id
+    type: String!
     title: String!
     sources: [ProcessSource]!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 type ProcessSource{
     id: ID! @id
+    type: String!
     title: String!
     feelings: [SourceFeeling]!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 type SourceFeeling {
     id: ID! @id
+    type: String!
     title: String!
     thoughts: [Thought]!
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
+    userId: ID!
 }
 
-type HigherPower {
+type HigherPower @model{
     id: ID! @id
     inventory: Inventory
     cast: Cast

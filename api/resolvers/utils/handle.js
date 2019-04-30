@@ -1,21 +1,22 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 
 const handleFeeling = async ( type, data ) => {
-    let feelingId;
+    let feelingType;
     switch ( type ) {
         case 'path':
-            feelingId = `${data.path}-${data.feeling}`;
+            feelingType = `${data.path}-${data.feeling}`;
             break;
         case 'source':
-            feelingId = `${data.source}-${data.feeling}`;
+            feelingType = `${data.source}-${data.feeling}`;
             break;
     }
-    const hasFeeling = await prisma.feeling( { id: feelingId } );
+    const hasFeeling = await prisma.feeling( { type: feelingType, userId: data.userId } );
     if ( !hasFeeling ) {
         const feeling = {
-            id: feelingId,
+            type: feelingType,
             title: data.feeling,
-            thoughts: { set: [ data.id ] }
+            thoughts: { set: [ data.id ] },
+            author: data.userId
         };
         await prisma.createFeeling( feeling );
 
@@ -29,28 +30,29 @@ const handleFeeling = async ( type, data ) => {
         };
         return prisma.updateFeeling( {
             data: feeling,
-            where: { id: feelingId }
+            where: { type: feelingType, userId: data.userId }
         } );
     }
 };
 
 const handlePath = async data => {
     if ( data.path ) {
-        const pathId = data.path;
-        const feelingId = `${pathId}-${data.feeling}`;
-        const hasPath = await prisma.path( { id: pathId } );
+        const pathType = data.path;
+        const feelingType = `${pathId}-${data.feeling}`;
+        const hasPath = await prisma.path( { type: pathType, userId: data.userId } );
         if ( !hasPath ) {
             const path = {
-                id: pathId,
+                type: pathType,
                 title: data.path,
-                feelings: { set: [ feelingId ] }
+                feelings: { set: [ feelingType ] },
+                userId: data.userId
             };
             await prisma.createPath( path );
         } else {
             let { updatedAt, id, createdAt, ...path } = hasPath;
-            const hasFeelingId = path.feelings.find( feeling => feeling === feelingId );
-            if ( !hasFeelingId ) {
-                path.feelings.push( feelingId );
+            const hasFeelingType = path.feelings.find( feeling => feeling === feelingType );
+            if ( !hasFeelingType ) {
+                path.feelings.push( feelingType );
             };
             path = {
                 ...path,
@@ -58,7 +60,7 @@ const handlePath = async data => {
             };
             return prisma.updatePath( {
                 data: path,
-                where: { id: pathId }
+                where: { type: pathType, userId: data.userId }
             } );
         }
     } else {
@@ -68,21 +70,22 @@ const handlePath = async data => {
 
 const handleSource = async data => {
     if ( data.source ) {
-        const sourceId = data.source;
-        const feelingId = `${sourceId}-${data.feeling}`; 
-        const hasSource = await prisma.source( { id: sourceId } );
+        const sourceType = data.source;
+        const feelingType = `${sourceType}-${data.feeling}`; 
+        const hasSource = await prisma.source( { type: sourceType, userId: data.userId } );
         if ( !hasSource ) {
             const source = {
-                id: sourceId,
+                type: sourceType,
                 title: data.source,
-                feelings: { set: [ feelingId ] }
+                feelings: { set: [ feelingType ] },
+                userId: data.userId
             };
             await prisma.createSource( source );
         } else {
             let { updatedAt, id, createdAt, ...source } = hasSource;
-            const hasFeelingId = source.feelings.find( feeling => feeling === feelingId );
-            if ( !hasFeelingId ) {
-                source.feelings.push( feelingId );
+            const hasFeelingType = source.feelings.find( feeling => feeling === feelingType );
+            if ( !hasFeelingType ) {
+                source.feelings.push( feelingType );
             }
             source = {
                 ...source,
@@ -90,7 +93,7 @@ const handleSource = async data => {
             };
             return prisma.updateSource( {
                 data: source,
-                where: { id: sourceId }
+                where: { type: sourceType, userId: data.userId }
             } );
         }
     } else {
@@ -100,14 +103,15 @@ const handleSource = async data => {
 
 const handleProcess = async data => {
     if ( data.process ) {
-        const processId = data.process.toLowerCase();
-        const sourceId = data.source.toLowerCase();
-        const hasProcess = await prisma.process( { id: processId } );
+        const processType = data.process;
+        const sourceType = data.source;
+        const hasProcess = await prisma.process( { type: processType, userId: data.userId } );
         if ( !hasProcess ) {
             const process = {
-                id: processId,
+                type: processType,
                 title: data.process,
-                sources: { set: [ sourceId ] }
+                sources: { set: [ sourceType ] },
+                userId: data.userId
             };
             await prisma.createProcess( process );
         } 

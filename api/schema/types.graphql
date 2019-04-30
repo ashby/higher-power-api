@@ -1,44 +1,59 @@
 scalar DateTime
 
+type User {
+  id: ID!
+  name: String!
+}
+
 type Character {
     id: ID!
+    type: String!
     title: String!
     description: String
     process: ID!
     createdAt: DateTime!
     updatedAt: DateTime!
+    userId: ID!
 }
 
 type Process {
     id: ID!
+    type: String!
     title: String!
     sources: [ID]!
     createdAt: DateTime!
     updatedAt: DateTime!
+    userId: ID!
 }
 
 type Source {
     id: ID!
+    type: String!
     title: String!
     feelings: [ID]!
     createdAt: DateTime!
     updatedAt: DateTime!
+    userId: ID!
 }
 
 type Feeling {
     id: ID!
+    type: String!
     title: String!
     thoughts: [ID]!
     createdAt: DateTime!
     updatedAt: DateTime!
+    userId: ID!
 }
 
 type Path {
     id: ID!
+    type: String!
     title: String!
     feelings: [ID]!
     createdAt: DateTime!
     updatedAt: DateTime!
+    userId: ID!
 }
 
 type Thought {
@@ -56,6 +71,7 @@ type Thought {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+    userId: ID!
 }
 
 type Inventory {
@@ -64,6 +80,7 @@ type Inventory {
 }
 type InventoryPath {
     id: ID!
+    type: String!
     title: String!
     feelings: [InventoryFeeling]!
     createdAt: DateTime!
@@ -71,6 +88,7 @@ type InventoryPath {
 }
 type InventoryFeeling {
     id: ID!
+    type: String!
     title: String!
     thoughts: [Thought]!
     createdAt: DateTime!
@@ -83,6 +101,7 @@ type Cast {
 }
 type CastCharacter{
     id: ID!
+    type: String!
     title: String!
     description: String
     process: CastProcess!
@@ -91,6 +110,7 @@ type CastCharacter{
 }
 type CastProcess{
     id: ID!
+    type: String!
     title: String!
     sources: [CastSource]!
     createdAt: DateTime!
@@ -98,6 +118,7 @@ type CastProcess{
 }
 type CastSource{
     id: ID!
+    type: String!
     title: String!
     feelings: [CastFeeling]!
     createdAt: DateTime!
@@ -105,6 +126,7 @@ type CastSource{
 }
 type CastFeeling {
     id: ID!
+    type: String!
     title: String!
     thoughts: [Thought]!
     createdAt: DateTime!
@@ -115,5 +137,10 @@ type HigherPower {
     id: ID!
     inventory: Inventory
     cast: Cast
+}
+
+type AuthPayload {
+  token: String!
+  userId: ID!
 }
 
