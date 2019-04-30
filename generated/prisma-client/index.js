@@ -5,6 +5,10 @@ var typeDefs = require("./prisma-schema").typeDefs;
 
 var models = [
   {
+    name: "User",
+    embedded: false
+  },
+  {
     name: "Character",
     embedded: false
   },
@@ -63,11 +67,15 @@ var models = [
   {
     name: "HigherPower",
     embedded: false
+  },
+  {
+    name: "AuthPayload",
+    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/sakhfbh`
+  endpoint: `https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/step`
 });
 exports.prisma = new exports.Prisma();

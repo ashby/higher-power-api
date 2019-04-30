@@ -1,9 +1,9 @@
 #endpoint: ${env:PRISMA_SERVER}
-endpoint: https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/sakhfbh
+endpoint: https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/step
 datamodel: database/datamodel.prisma
 
-seed:
-  import: database/seed.graphql
+# seed:
+#   import: database/seed.graphql
 
 generate:
   - generator: javascript-client

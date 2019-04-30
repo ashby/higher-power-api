@@ -1,5 +1,11 @@
 scalar DateTime
 
+input User {
+  id: ID
+  email: String!
+  password: String!
+}
+
 input SetIDInput {
     set: [ID]
 }

@@ -1,7 +1,7 @@
-type User @model {
+type User {
   id: ID! @id
-  name: String!
-  higherPower: HigherPower!
+  email: String! @unique
+  password: String!
 }
 
 type Character {
@@ -140,4 +140,9 @@ type HigherPower @model{
     id: ID! @id
     inventory: Inventory
     cast: Cast
+}
+
+type AuthPayload {
+  token: String!
+  userId: ID! @id
 }

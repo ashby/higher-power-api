@@ -1,5 +1,4 @@
 mutation {
-
     # CAST
 
     # CONGREGANT: createCharacter(
@@ -16,6 +15,16 @@ mutation {
     #     data: {
     #         id: "drag"
     #         title: "Drag",
+    #         
+    #         process: "",
+    #         sources: { set: ["","",""] },
+    #         feelings: { set: ["", ""] }
+    #     }
+    # ) { id }
+    # SUMMONER: createCharacter(
+    #     data: {
+    #         id: "summoner"
+    #         title: "Summoner",
     #         
     #         process: "",
     #         sources: { set: ["","",""] },
@@ -469,17 +478,6 @@ mutation {
                     feelings: { set: [] }
                 }
             ){ id }
-
-    # SUMMONER: createCharacter(
-    #     data: {
-    #         id: "summoner"
-    #         title: "Summoner",
-    #         
-    #         process: "",
-    #         sources: { set: ["","",""] },
-    #         feelings: { set: ["", ""] }
-    #     }
-    # ) { id }
 
     VICTIM: createCharacter(
         data: {

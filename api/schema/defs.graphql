@@ -1,4 +1,5 @@
 # import AuthPayload from "./types.graphql";
+# import User from "./types.graphql";
 
 # import Character from "./types.graphql";
 # import Process from "./types.graphql";
@@ -19,6 +20,8 @@
 # import ThoughtInput from "./inputs.graphql";
 
 type Query {
+    # user(email: String!): User
+
     higherPower(userId: ID!): HigherPower
     inventory(userId: ID!): Inventory
     cast(userId: ID!): Cast
