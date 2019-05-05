@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const query = () => ( {
     characters: () => prisma.characters(),
-    character: ( _, { id } ) => prisma.character( { id } )
+    character: ( _, { type } ) => prisma.character( { type } )
 } );
 
 const mutateCharacter = async ( data ) => {

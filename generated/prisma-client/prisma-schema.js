@@ -570,9 +570,10 @@ input CastWhereUniqueInput {
 
 type Character {
   id: ID!
+  type: String!
   title: String!
   description: String
-  process: ID!
+  process: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -586,9 +587,10 @@ type CharacterConnection {
 
 input CharacterCreateInput {
   id: ID
+  type: String!
   title: String!
   description: String
-  process: ID!
+  process: String!
   userId: ID!
 }
 
@@ -600,6 +602,8 @@ type CharacterEdge {
 enum CharacterOrderByInput {
   id_ASC
   id_DESC
+  type_ASC
+  type_DESC
   title_ASC
   title_DESC
   description_ASC
@@ -616,9 +620,10 @@ enum CharacterOrderByInput {
 
 type CharacterPreviousValues {
   id: ID!
+  type: String!
   title: String!
   description: String
-  process: ID!
+  process: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -836,16 +841,18 @@ input CharacterSubscriptionWhereInput {
 }
 
 input CharacterUpdateInput {
+  type: String
   title: String
   description: String
-  process: ID
+  process: String
   userId: ID
 }
 
 input CharacterUpdateManyMutationInput {
+  type: String
   title: String
   description: String
-  process: ID
+  process: String
   userId: ID
 }
 
@@ -864,6 +871,20 @@ input CharacterWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -892,20 +913,20 @@ input CharacterWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  process: ID
-  process_not: ID
-  process_in: [ID!]
-  process_not_in: [ID!]
-  process_lt: ID
-  process_lte: ID
-  process_gt: ID
-  process_gte: ID
-  process_contains: ID
-  process_not_contains: ID
-  process_starts_with: ID
-  process_not_starts_with: ID
-  process_ends_with: ID
-  process_not_ends_with: ID
+  process: String
+  process_not: String
+  process_in: [String!]
+  process_not_in: [String!]
+  process_lt: String
+  process_lte: String
+  process_gt: String
+  process_gte: String
+  process_contains: String
+  process_not_contains: String
+  process_starts_with: String
+  process_not_starts_with: String
+  process_ends_with: String
+  process_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -943,6 +964,7 @@ input CharacterWhereInput {
 
 input CharacterWhereUniqueInput {
   id: ID
+  type: String
 }
 
 scalar DateTime
@@ -951,7 +973,7 @@ type Feeling {
   id: ID!
   type: String!
   title: String!
-  thoughts: [ID!]!
+  thoughts: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -972,7 +994,7 @@ input FeelingCreateInput {
 }
 
 input FeelingCreatethoughtsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 type FeelingEdge {
@@ -999,7 +1021,7 @@ type FeelingPreviousValues {
   id: ID!
   type: String!
   title: String!
-  thoughts: [ID!]!
+  thoughts: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -1038,7 +1060,7 @@ input FeelingUpdateManyMutationInput {
 }
 
 input FeelingUpdatethoughtsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input FeelingWhereInput {
@@ -1121,6 +1143,7 @@ input FeelingWhereInput {
 
 input FeelingWhereUniqueInput {
   id: ID
+  type: String
 }
 
 type HigherPower {
@@ -1729,7 +1752,7 @@ type Path {
   id: ID!
   type: String!
   title: String!
-  feelings: [ID!]!
+  feelings: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -1742,7 +1765,7 @@ type PathConnection {
 }
 
 input PathCreatefeelingsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input PathCreateInput {
@@ -2070,7 +2093,7 @@ type PathPreviousValues {
   id: ID!
   type: String!
   title: String!
-  feelings: [ID!]!
+  feelings: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -2095,7 +2118,7 @@ input PathSubscriptionWhereInput {
 }
 
 input PathUpdatefeelingsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input PathUpdateInput {
@@ -2192,13 +2215,14 @@ input PathWhereInput {
 
 input PathWhereUniqueInput {
   id: ID
+  type: String
 }
 
 type Process {
   id: ID!
   type: String!
   title: String!
-  sources: [ID!]!
+  sources: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -2219,7 +2243,7 @@ input ProcessCreateInput {
 }
 
 input ProcessCreatesourcesInput {
-  set: [ID!]
+  set: [String!]
 }
 
 type ProcessEdge {
@@ -2246,7 +2270,7 @@ type ProcessPreviousValues {
   id: ID!
   type: String!
   title: String!
-  sources: [ID!]!
+  sources: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -2578,7 +2602,7 @@ input ProcessUpdateManyMutationInput {
 }
 
 input ProcessUpdatesourcesInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input ProcessWhereInput {
@@ -2661,6 +2685,7 @@ input ProcessWhereInput {
 
 input ProcessWhereUniqueInput {
   id: ID
+  type: String
 }
 
 type Query {
@@ -2721,7 +2746,7 @@ type Source {
   id: ID!
   type: String!
   title: String!
-  feelings: [ID!]!
+  feelings: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -2734,7 +2759,7 @@ type SourceConnection {
 }
 
 input SourceCreatefeelingsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input SourceCreateInput {
@@ -3062,7 +3087,7 @@ type SourcePreviousValues {
   id: ID!
   type: String!
   title: String!
-  feelings: [ID!]!
+  feelings: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: ID!
@@ -3087,7 +3112,7 @@ input SourceSubscriptionWhereInput {
 }
 
 input SourceUpdatefeelingsInput {
-  set: [ID!]
+  set: [String!]
 }
 
 input SourceUpdateInput {
@@ -3184,6 +3209,7 @@ input SourceWhereInput {
 
 input SourceWhereUniqueInput {
   id: ID
+  type: String
 }
 
 type Subscription {

@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const query = () => ( {
     processes: () => prisma.processes(),
-    process: ( _, { id } ) => prisma.process( { id } )
+    process: ( _, { type } ) => prisma.process( { type } )
 } );
 
 const mutateProcess = async ( data ) => {

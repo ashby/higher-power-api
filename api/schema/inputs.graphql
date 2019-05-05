@@ -7,7 +7,7 @@ input User {
 }
 
 input SetIDInput {
-    set: [ID]
+    set: [String]
 }
 
 input CharacterInput {
@@ -18,7 +18,7 @@ input CharacterInput {
     process: ID
     createdAt: DateTime
     updatedAt: DateTime
-    userId: ID!
+    userId: String!
 }
 
 input ProcessInput {
@@ -28,7 +28,7 @@ input ProcessInput {
     sources: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
-    userId: ID!
+    userId: String!
 }
 
 input SourceInput {
@@ -38,7 +38,7 @@ input SourceInput {
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
-    userId: ID!
+    userId: String!
 }
 
 input PathInput {
@@ -48,7 +48,7 @@ input PathInput {
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
-    userId: ID!
+    userId: String!
 }
 
 input FeelingInput {
@@ -58,7 +58,7 @@ input FeelingInput {
     thoughts: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
-    userId: ID!
+    userId: String!
 }
 
 input ThoughtInput {
@@ -76,5 +76,5 @@ input ThoughtInput {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
-    userId: ID!
+    userId: String!
 }

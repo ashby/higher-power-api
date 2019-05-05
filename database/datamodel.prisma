@@ -6,9 +6,10 @@ type User {
 
 type Character {
     id: ID! @id
+    type: String! @unique
     title: String!
     description: String
-    process: ID!
+    process: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     userId: ID!
@@ -16,9 +17,9 @@ type Character {
 
 type Process {
     id: ID! @id
-    type: String!
+    type: String! @unique
     title: String!
-    sources: [ID]! @scalarList(strategy: RELATION)
+    sources: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     userId: ID!
@@ -26,9 +27,9 @@ type Process {
 
 type Source {
     id: ID! @id
-    type: String!
+    type: String! @unique
     title: String!
-    feelings: [ID]! @scalarList(strategy: RELATION)
+    feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     userId: ID!
@@ -36,9 +37,9 @@ type Source {
 
 type Path {
     id: ID! @id
-    type: String!
+    type: String! @unique
     title: String!
-    feelings: [ID]! @scalarList(strategy: RELATION)
+    feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     userId: ID!
@@ -46,9 +47,9 @@ type Path {
 
 type Feeling {
     id: ID! @id
-    type: String!
+    type: String! @unique
     title: String!
-    thoughts: [ID]! @scalarList(strategy: RELATION)
+    thoughts: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
     userId: ID!

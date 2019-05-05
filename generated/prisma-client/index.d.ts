@@ -952,6 +952,8 @@ export type PathOrderByInput =
 export type CharacterOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "type_ASC"
+  | "type_DESC"
   | "title_ASC"
   | "title_DESC"
   | "description_ASC"
@@ -1495,6 +1497,7 @@ export interface InventoryPathUpdateDataInput {
 
 export type CharacterWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  type?: String;
 }>;
 
 export type ThoughtWhereUniqueInput = AtLeastOne<{
@@ -1516,6 +1519,20 @@ export interface CharacterWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
+  type?: String;
+  type_not?: String;
+  type_in?: String[] | String;
+  type_not_in?: String[] | String;
+  type_lt?: String;
+  type_lte?: String;
+  type_gt?: String;
+  type_gte?: String;
+  type_contains?: String;
+  type_not_contains?: String;
+  type_starts_with?: String;
+  type_not_starts_with?: String;
+  type_ends_with?: String;
+  type_not_ends_with?: String;
   title?: String;
   title_not?: String;
   title_in?: String[] | String;
@@ -1544,20 +1561,20 @@ export interface CharacterWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
-  process?: ID_Input;
-  process_not?: ID_Input;
-  process_in?: ID_Input[] | ID_Input;
-  process_not_in?: ID_Input[] | ID_Input;
-  process_lt?: ID_Input;
-  process_lte?: ID_Input;
-  process_gt?: ID_Input;
-  process_gte?: ID_Input;
-  process_contains?: ID_Input;
-  process_not_contains?: ID_Input;
-  process_starts_with?: ID_Input;
-  process_not_starts_with?: ID_Input;
-  process_ends_with?: ID_Input;
-  process_not_ends_with?: ID_Input;
+  process?: String;
+  process_not?: String;
+  process_in?: String[] | String;
+  process_not_in?: String[] | String;
+  process_lt?: String;
+  process_lte?: String;
+  process_gt?: String;
+  process_gte?: String;
+  process_contains?: String;
+  process_not_contains?: String;
+  process_starts_with?: String;
+  process_not_starts_with?: String;
+  process_ends_with?: String;
+  process_not_ends_with?: String;
   createdAt?: DateTimeInput;
   createdAt_not?: DateTimeInput;
   createdAt_in?: DateTimeInput[] | DateTimeInput;
@@ -1748,6 +1765,7 @@ export interface InventoryUpdateOneInput {
 
 export type FeelingWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  type?: String;
 }>;
 
 export interface UserWhereInput {
@@ -2012,7 +2030,7 @@ export type CastWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface SourceUpdatefeelingsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface AuthPayloadCreateInput {
@@ -2048,7 +2066,7 @@ export interface AuthPayloadUpdateManyMutationInput {
 }
 
 export interface SourceCreatefeelingsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface InventoryPathCreateInput {
@@ -2080,7 +2098,7 @@ export interface CastCreateInput {
 }
 
 export interface ProcessUpdatesourcesInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface CastCharacterCreateManyInput {
@@ -2089,7 +2107,7 @@ export interface CastCharacterCreateManyInput {
 }
 
 export interface ProcessCreatesourcesInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface CastCharacterCreateInput {
@@ -2141,7 +2159,7 @@ export interface ProcessSourceCreateManyInput {
 }
 
 export interface PathUpdatefeelingsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface ProcessSourceCreateInput {
@@ -2153,7 +2171,7 @@ export interface ProcessSourceCreateInput {
 }
 
 export interface PathCreatefeelingsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface SourceFeelingCreateManyInput {
@@ -2187,6 +2205,7 @@ export interface ThoughtCreateManyInput {
 
 export type ProcessWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  type?: String;
 }>;
 
 export interface ThoughtCreateInput {
@@ -3170,6 +3189,7 @@ export interface ProcessSourceScalarWhereInput {
 
 export type SourceWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  type?: String;
 }>;
 
 export interface ProcessSourceUpdateManyWithWhereNestedInput {
@@ -3446,9 +3466,10 @@ export interface CastUpsertNestedInput {
 
 export interface CharacterCreateInput {
   id?: ID_Input;
+  type: String;
   title: String;
   description?: String;
-  process: ID_Input;
+  process: String;
   userId: ID_Input;
 }
 
@@ -3531,9 +3552,10 @@ export interface InventoryPathScalarWhereInput {
 }
 
 export interface CharacterUpdateInput {
+  type?: String;
   title?: String;
   description?: String;
-  process?: ID_Input;
+  process?: String;
   userId?: ID_Input;
 }
 
@@ -3549,9 +3571,10 @@ export interface PathFeelingSubscriptionWhereInput {
 }
 
 export interface CharacterUpdateManyMutationInput {
+  type?: String;
   title?: String;
   description?: String;
-  process?: ID_Input;
+  process?: String;
   userId?: ID_Input;
 }
 
@@ -3588,6 +3611,7 @@ export interface CharacterProcessUpdateManyMutationInput {
 
 export type PathWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  type?: String;
 }>;
 
 export interface FeelingCreateInput {
@@ -3611,7 +3635,7 @@ export interface FeelingUpdateManyMutationInput {
 }
 
 export interface FeelingUpdatethoughtsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface FeelingUpdateInput {
@@ -3622,7 +3646,7 @@ export interface FeelingUpdateInput {
 }
 
 export interface FeelingCreatethoughtsInput {
-  set?: ID_Input[] | ID_Input;
+  set?: String[] | String;
 }
 
 export interface ThoughtWhereInput {
@@ -4064,7 +4088,7 @@ export interface Feeling {
   id: ID_Output;
   type: String;
   title: String;
-  thoughts: ID_Output[];
+  thoughts: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -4074,7 +4098,7 @@ export interface FeelingPromise extends Promise<Feeling>, Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  thoughts: () => Promise<ID_Output[]>;
+  thoughts: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -4086,7 +4110,7 @@ export interface FeelingSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  thoughts: () => Promise<AsyncIterator<ID_Output[]>>;
+  thoughts: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -4445,7 +4469,7 @@ export interface Source {
   id: ID_Output;
   type: String;
   title: String;
-  feelings: ID_Output[];
+  feelings: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -4455,7 +4479,7 @@ export interface SourcePromise extends Promise<Source>, Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  feelings: () => Promise<ID_Output[]>;
+  feelings: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -4467,7 +4491,7 @@ export interface SourceSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<ID_Output[]>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -4626,7 +4650,7 @@ export interface Process {
   id: ID_Output;
   type: String;
   title: String;
-  sources: ID_Output[];
+  sources: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -4636,7 +4660,7 @@ export interface ProcessPromise extends Promise<Process>, Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  sources: () => Promise<ID_Output[]>;
+  sources: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -4648,7 +4672,7 @@ export interface ProcessSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  sources: () => Promise<AsyncIterator<ID_Output[]>>;
+  sources: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -4732,9 +4756,10 @@ export interface AggregatePathSubscription
 
 export interface CharacterPreviousValues {
   id: ID_Output;
+  type: String;
   title: String;
   description?: String;
-  process: ID_Output;
+  process: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -4744,9 +4769,10 @@ export interface CharacterPreviousValuesPromise
   extends Promise<CharacterPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  type: () => Promise<String>;
   title: () => Promise<String>;
   description: () => Promise<String>;
-  process: () => Promise<ID_Output>;
+  process: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -4756,9 +4782,10 @@ export interface CharacterPreviousValuesSubscription
   extends Promise<AsyncIterator<CharacterPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  process: () => Promise<AsyncIterator<ID_Output>>;
+  process: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -4808,7 +4835,7 @@ export interface Path {
   id: ID_Output;
   type: String;
   title: String;
-  feelings: ID_Output[];
+  feelings: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -4818,7 +4845,7 @@ export interface PathPromise extends Promise<Path>, Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  feelings: () => Promise<ID_Output[]>;
+  feelings: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -4830,7 +4857,7 @@ export interface PathSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<ID_Output[]>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -5014,7 +5041,7 @@ export interface FeelingPreviousValues {
   id: ID_Output;
   type: String;
   title: String;
-  thoughts: ID_Output[];
+  thoughts: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -5026,7 +5053,7 @@ export interface FeelingPreviousValuesPromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  thoughts: () => Promise<ID_Output[]>;
+  thoughts: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -5038,7 +5065,7 @@ export interface FeelingPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  thoughts: () => Promise<AsyncIterator<ID_Output[]>>;
+  thoughts: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -5067,9 +5094,10 @@ export interface HigherPowerConnectionSubscription
 
 export interface Character {
   id: ID_Output;
+  type: String;
   title: String;
   description?: String;
-  process: ID_Output;
+  process: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -5077,9 +5105,10 @@ export interface Character {
 
 export interface CharacterPromise extends Promise<Character>, Fragmentable {
   id: () => Promise<ID_Output>;
+  type: () => Promise<String>;
   title: () => Promise<String>;
   description: () => Promise<String>;
-  process: () => Promise<ID_Output>;
+  process: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -5089,9 +5118,10 @@ export interface CharacterSubscription
   extends Promise<AsyncIterator<Character>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  process: () => Promise<AsyncIterator<ID_Output>>;
+  process: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -5574,7 +5604,7 @@ export interface PathPreviousValues {
   id: ID_Output;
   type: String;
   title: String;
-  feelings: ID_Output[];
+  feelings: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -5586,7 +5616,7 @@ export interface PathPreviousValuesPromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  feelings: () => Promise<ID_Output[]>;
+  feelings: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -5598,7 +5628,7 @@ export interface PathPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<ID_Output[]>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -5825,7 +5855,7 @@ export interface ProcessPreviousValues {
   id: ID_Output;
   type: String;
   title: String;
-  sources: ID_Output[];
+  sources: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -5837,7 +5867,7 @@ export interface ProcessPreviousValuesPromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  sources: () => Promise<ID_Output[]>;
+  sources: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -5849,7 +5879,7 @@ export interface ProcessPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  sources: () => Promise<AsyncIterator<ID_Output[]>>;
+  sources: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
@@ -6290,7 +6320,7 @@ export interface SourcePreviousValues {
   id: ID_Output;
   type: String;
   title: String;
-  feelings: ID_Output[];
+  feelings: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
@@ -6302,7 +6332,7 @@ export interface SourcePreviousValuesPromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   title: () => Promise<String>;
-  feelings: () => Promise<ID_Output[]>;
+  feelings: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
@@ -6314,7 +6344,7 @@ export interface SourcePreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<ID_Output[]>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;

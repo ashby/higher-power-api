@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const query = () => ( {
     feelings: () => prisma.feelings(),
-    feeling: ( _, { id } ) => prisma.feeling( { id } )
+    feeling: ( _, { type } ) => prisma.feeling( { type } )
 } );
 
 const mutateFeeling = async ( data ) => {

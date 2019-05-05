@@ -2,7 +2,7 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const query = () => ( {
     paths: () => prisma.paths(),
-    path: ( _, { id } ) => prisma.path( { id } )
+    path: ( _, { type } ) => prisma.path( { type } )
 } );
 
 const mutatePath = async ( data ) => {

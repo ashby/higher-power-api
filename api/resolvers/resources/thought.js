@@ -4,24 +4,31 @@ const {
     handlePath,
     handleSource
 } = require( '../utils/handle' );
+const getUserId = require( '../utils/get-user-id' );
+const { AUTH_ERROR } = require( '../constants/errors' );
 
 const query = () => ( {
     thoughts: () => prisma.thoughts(),
     thought: ( _, { id } ) => prisma.thought( { id } )
 } );
 
-const mutateThought = async ( data ) => {
-    if ( !data.id ) {
-        data = await prisma.createThought( data );
+const mutateThought = async ( data, ctx ) => {
+    const userId = getUserId( ctx );
+    if ( userId === data.userId ) {
+        if ( !data.id ) {
+            data = await prisma.createThought( data );
+            await handleThought( data );
+            return data;
+        }
+        data = await prisma.updateThought( {
+            data,
+            where: { id: data.id }
+        } );
         await handleThought( data );
         return data;
+    } else {
+        throw new Error( AUTH_ERROR );
     }
-    data = await prisma.updateThought( {
-        data,
-        where: { id: data.id }
-    } );
-    await handleThought( data );
-    return data;
 };
 
 const handleThought = async ( data ) => {
@@ -33,7 +40,7 @@ const handleThought = async ( data ) => {
 }
 
 const mutate = () => ( { 
-    mutateThought: async ( parent, { data } ) => await mutateThought( data )
+    mutateThought: async ( parent, { data }, ctx ) => await mutateThought( data, ctx )
 } );
 
 const registerThought = register => register( query(), mutate() );
