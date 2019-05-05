@@ -1,5 +1,5 @@
 #endpoint: ${env:PRISMA_SERVER}
-endpoint: https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/stepNine
+endpoint: https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/stepOver
 datamodel: database/datamodel.prisma
 
 # seed:

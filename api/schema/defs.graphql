@@ -22,23 +22,23 @@
 type Query {
     # user(email: String!): User
 
-    higherPower(userId: String!): HigherPower
-    inventory(userId: String!): Inventory
-    cast(userId: String!): Cast
+    higherPower(userId: ID!): HigherPower
+    inventory(userId: ID!): Inventory
+    cast(userId: ID!): Cast
 
-    character(type: String!): Character
+    character(key: String!): Character
     characters(userId: ID!): [Character]
 
-    process(type: String!): Process
-    processes(userId: String!): [Process]
+    process(key: String!): Process
+    processes(userId: ID!): [Process]
 
-    source(type: String!): Source
-    sources(userId: String!): [Source]
+    source(key: String!): Source
+    sources(userId: ID!): [Source]
 
-    path(type: String!): Path
-    paths(userId: String!): [Path]
+    path(key: String!): Path
+    paths(userId: ID!): [Path]
 
-    feeling(type: String!): Feeling
+    feeling(key: String!): Feeling
     feelings(userId: ID!): [Feeling]
 
     thought(id: ID!): Thought

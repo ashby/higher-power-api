@@ -76,6 +76,6 @@ var models = [
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/stepNine`
+  endpoint: `https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/stepOver`
 });
 exports.prisma = new exports.Prisma();

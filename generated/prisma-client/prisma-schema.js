@@ -570,7 +570,7 @@ input CastWhereUniqueInput {
 
 type Character {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   description: String
   process: String!
@@ -587,7 +587,7 @@ type CharacterConnection {
 
 input CharacterCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   description: String
   process: String!
@@ -602,8 +602,8 @@ type CharacterEdge {
 enum CharacterOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   description_ASC
@@ -620,7 +620,7 @@ enum CharacterOrderByInput {
 
 type CharacterPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   description: String
   process: String!
@@ -631,7 +631,7 @@ type CharacterPreviousValues {
 
 type CharacterProcess {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   sources(where: ProcessSourceWhereInput, orderBy: ProcessSourceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProcessSource!]
   createdAt: DateTime!
@@ -647,7 +647,7 @@ type CharacterProcessConnection {
 
 input CharacterProcessCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   sources: ProcessSourceCreateManyInput
   userId: ID!
@@ -666,8 +666,8 @@ type CharacterProcessEdge {
 enum CharacterProcessOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -680,7 +680,7 @@ enum CharacterProcessOrderByInput {
 
 type CharacterProcessPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -706,21 +706,21 @@ input CharacterProcessSubscriptionWhereInput {
 }
 
 input CharacterProcessUpdateDataInput {
-  type: String
+  key: String
   title: String
   sources: ProcessSourceUpdateManyInput
   userId: ID
 }
 
 input CharacterProcessUpdateInput {
-  type: String
+  key: String
   title: String
   sources: ProcessSourceUpdateManyInput
   userId: ID
 }
 
 input CharacterProcessUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -752,20 +752,20 @@ input CharacterProcessWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -841,7 +841,7 @@ input CharacterSubscriptionWhereInput {
 }
 
 input CharacterUpdateInput {
-  type: String
+  key: String
   title: String
   description: String
   process: String
@@ -849,7 +849,7 @@ input CharacterUpdateInput {
 }
 
 input CharacterUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   description: String
   process: String
@@ -871,20 +871,20 @@ input CharacterWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -964,14 +964,14 @@ input CharacterWhereInput {
 
 input CharacterWhereUniqueInput {
   id: ID
-  type: String
+  key: String
 }
 
 scalar DateTime
 
 type Feeling {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   thoughts: [String!]!
   createdAt: DateTime!
@@ -987,7 +987,7 @@ type FeelingConnection {
 
 input FeelingCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   thoughts: FeelingCreatethoughtsInput
   userId: ID!
@@ -1005,8 +1005,8 @@ type FeelingEdge {
 enum FeelingOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -1019,7 +1019,7 @@ enum FeelingOrderByInput {
 
 type FeelingPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   thoughts: [String!]!
   createdAt: DateTime!
@@ -1046,14 +1046,14 @@ input FeelingSubscriptionWhereInput {
 }
 
 input FeelingUpdateInput {
-  type: String
+  key: String
   title: String
   thoughts: FeelingUpdatethoughtsInput
   userId: ID
 }
 
 input FeelingUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   thoughts: FeelingUpdatethoughtsInput
   userId: ID
@@ -1078,20 +1078,20 @@ input FeelingWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -1143,7 +1143,7 @@ input FeelingWhereInput {
 
 input FeelingWhereUniqueInput {
   id: ID
-  type: String
+  key: String
 }
 
 type HigherPower {
@@ -1268,7 +1268,7 @@ enum InventoryOrderByInput {
 
 type InventoryPath {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings(where: PathFeelingWhereInput, orderBy: PathFeelingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PathFeeling!]
   createdAt: DateTime
@@ -1284,7 +1284,7 @@ type InventoryPathConnection {
 
 input InventoryPathCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   feelings: PathFeelingCreateManyInput
   userId: ID!
@@ -1303,8 +1303,8 @@ type InventoryPathEdge {
 enum InventoryPathOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -1317,7 +1317,7 @@ enum InventoryPathOrderByInput {
 
 type InventoryPathPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   createdAt: DateTime
   updatedAt: DateTime
@@ -1339,20 +1339,20 @@ input InventoryPathScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -1421,21 +1421,21 @@ input InventoryPathSubscriptionWhereInput {
 }
 
 input InventoryPathUpdateDataInput {
-  type: String
+  key: String
   title: String
   feelings: PathFeelingUpdateManyInput
   userId: ID
 }
 
 input InventoryPathUpdateInput {
-  type: String
+  key: String
   title: String
   feelings: PathFeelingUpdateManyInput
   userId: ID
 }
 
 input InventoryPathUpdateManyDataInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -1453,7 +1453,7 @@ input InventoryPathUpdateManyInput {
 }
 
 input InventoryPathUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -1489,20 +1489,20 @@ input InventoryPathWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -1750,7 +1750,7 @@ type PageInfo {
 
 type Path {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings: [String!]!
   createdAt: DateTime!
@@ -1770,7 +1770,7 @@ input PathCreatefeelingsInput {
 
 input PathCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   feelings: PathCreatefeelingsInput
   userId: ID!
@@ -1783,7 +1783,7 @@ type PathEdge {
 
 type PathFeeling {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   thoughts(where: ThoughtWhereInput, orderBy: ThoughtOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Thought!]
   createdAt: DateTime
@@ -1799,7 +1799,7 @@ type PathFeelingConnection {
 
 input PathFeelingCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   thoughts: ThoughtCreateManyInput
   userId: ID!
@@ -1818,8 +1818,8 @@ type PathFeelingEdge {
 enum PathFeelingOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -1832,7 +1832,7 @@ enum PathFeelingOrderByInput {
 
 type PathFeelingPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   createdAt: DateTime
   updatedAt: DateTime
@@ -1854,20 +1854,20 @@ input PathFeelingScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -1936,21 +1936,21 @@ input PathFeelingSubscriptionWhereInput {
 }
 
 input PathFeelingUpdateDataInput {
-  type: String
+  key: String
   title: String
   thoughts: ThoughtUpdateManyInput
   userId: ID
 }
 
 input PathFeelingUpdateInput {
-  type: String
+  key: String
   title: String
   thoughts: ThoughtUpdateManyInput
   userId: ID
 }
 
 input PathFeelingUpdateManyDataInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -1968,7 +1968,7 @@ input PathFeelingUpdateManyInput {
 }
 
 input PathFeelingUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -2004,20 +2004,20 @@ input PathFeelingWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2077,8 +2077,8 @@ input PathFeelingWhereUniqueInput {
 enum PathOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -2091,7 +2091,7 @@ enum PathOrderByInput {
 
 type PathPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings: [String!]!
   createdAt: DateTime!
@@ -2122,14 +2122,14 @@ input PathUpdatefeelingsInput {
 }
 
 input PathUpdateInput {
-  type: String
+  key: String
   title: String
   feelings: PathUpdatefeelingsInput
   userId: ID
 }
 
 input PathUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   feelings: PathUpdatefeelingsInput
   userId: ID
@@ -2150,20 +2150,20 @@ input PathWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2215,12 +2215,12 @@ input PathWhereInput {
 
 input PathWhereUniqueInput {
   id: ID
-  type: String
+  key: String
 }
 
 type Process {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   sources: [String!]!
   createdAt: DateTime!
@@ -2236,7 +2236,7 @@ type ProcessConnection {
 
 input ProcessCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   sources: ProcessCreatesourcesInput
   userId: ID!
@@ -2254,8 +2254,8 @@ type ProcessEdge {
 enum ProcessOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -2268,7 +2268,7 @@ enum ProcessOrderByInput {
 
 type ProcessPreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   sources: [String!]!
   createdAt: DateTime!
@@ -2278,7 +2278,7 @@ type ProcessPreviousValues {
 
 type ProcessSource {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings(where: SourceFeelingWhereInput, orderBy: SourceFeelingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SourceFeeling!]
   createdAt: DateTime!
@@ -2294,7 +2294,7 @@ type ProcessSourceConnection {
 
 input ProcessSourceCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   feelings: SourceFeelingCreateManyInput
   userId: ID!
@@ -2313,8 +2313,8 @@ type ProcessSourceEdge {
 enum ProcessSourceOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -2327,7 +2327,7 @@ enum ProcessSourceOrderByInput {
 
 type ProcessSourcePreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2349,20 +2349,20 @@ input ProcessSourceScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2431,21 +2431,21 @@ input ProcessSourceSubscriptionWhereInput {
 }
 
 input ProcessSourceUpdateDataInput {
-  type: String
+  key: String
   title: String
   feelings: SourceFeelingUpdateManyInput
   userId: ID
 }
 
 input ProcessSourceUpdateInput {
-  type: String
+  key: String
   title: String
   feelings: SourceFeelingUpdateManyInput
   userId: ID
 }
 
 input ProcessSourceUpdateManyDataInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -2463,7 +2463,7 @@ input ProcessSourceUpdateManyInput {
 }
 
 input ProcessSourceUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -2499,20 +2499,20 @@ input ProcessSourceWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2588,14 +2588,14 @@ input ProcessSubscriptionWhereInput {
 }
 
 input ProcessUpdateInput {
-  type: String
+  key: String
   title: String
   sources: ProcessUpdatesourcesInput
   userId: ID
 }
 
 input ProcessUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   sources: ProcessUpdatesourcesInput
   userId: ID
@@ -2620,20 +2620,20 @@ input ProcessWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2685,7 +2685,7 @@ input ProcessWhereInput {
 
 input ProcessWhereUniqueInput {
   id: ID
-  type: String
+  key: String
 }
 
 type Query {
@@ -2744,7 +2744,7 @@ type Query {
 
 type Source {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings: [String!]!
   createdAt: DateTime!
@@ -2764,7 +2764,7 @@ input SourceCreatefeelingsInput {
 
 input SourceCreateInput {
   id: ID
-  type: String!
+  key: String!
   title: String!
   feelings: SourceCreatefeelingsInput
   userId: ID!
@@ -2777,8 +2777,8 @@ type SourceEdge {
 
 type SourceFeeling {
   id: ID!
-  type: String!
-  title: String!
+  key: String
+  title: String
   thoughts(where: ThoughtWhereInput, orderBy: ThoughtOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Thought!]
   createdAt: DateTime
   updatedAt: DateTime
@@ -2793,8 +2793,8 @@ type SourceFeelingConnection {
 
 input SourceFeelingCreateInput {
   id: ID
-  type: String!
-  title: String!
+  key: String
+  title: String
   thoughts: ThoughtCreateManyInput
   userId: ID!
 }
@@ -2812,8 +2812,8 @@ type SourceFeelingEdge {
 enum SourceFeelingOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -2826,8 +2826,8 @@ enum SourceFeelingOrderByInput {
 
 type SourceFeelingPreviousValues {
   id: ID!
-  type: String!
-  title: String!
+  key: String
+  title: String
   createdAt: DateTime
   updatedAt: DateTime
   userId: ID!
@@ -2848,20 +2848,20 @@ input SourceFeelingScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -2930,21 +2930,21 @@ input SourceFeelingSubscriptionWhereInput {
 }
 
 input SourceFeelingUpdateDataInput {
-  type: String
+  key: String
   title: String
   thoughts: ThoughtUpdateManyInput
   userId: ID
 }
 
 input SourceFeelingUpdateInput {
-  type: String
+  key: String
   title: String
   thoughts: ThoughtUpdateManyInput
   userId: ID
 }
 
 input SourceFeelingUpdateManyDataInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -2962,7 +2962,7 @@ input SourceFeelingUpdateManyInput {
 }
 
 input SourceFeelingUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   userId: ID
 }
@@ -2998,20 +2998,20 @@ input SourceFeelingWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -3071,8 +3071,8 @@ input SourceFeelingWhereUniqueInput {
 enum SourceOrderByInput {
   id_ASC
   id_DESC
-  type_ASC
-  type_DESC
+  key_ASC
+  key_DESC
   title_ASC
   title_DESC
   createdAt_ASC
@@ -3085,7 +3085,7 @@ enum SourceOrderByInput {
 
 type SourcePreviousValues {
   id: ID!
-  type: String!
+  key: String!
   title: String!
   feelings: [String!]!
   createdAt: DateTime!
@@ -3116,14 +3116,14 @@ input SourceUpdatefeelingsInput {
 }
 
 input SourceUpdateInput {
-  type: String
+  key: String
   title: String
   feelings: SourceUpdatefeelingsInput
   userId: ID
 }
 
 input SourceUpdateManyMutationInput {
-  type: String
+  key: String
   title: String
   feelings: SourceUpdatefeelingsInput
   userId: ID
@@ -3144,20 +3144,20 @@ input SourceWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  key: String
+  key_not: String
+  key_in: [String!]
+  key_not_in: [String!]
+  key_lt: String
+  key_lte: String
+  key_gt: String
+  key_gte: String
+  key_contains: String
+  key_not_contains: String
+  key_starts_with: String
+  key_not_starts_with: String
+  key_ends_with: String
+  key_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -3209,7 +3209,7 @@ input SourceWhereInput {
 
 input SourceWhereUniqueInput {
   id: ID
-  type: String
+  key: String
 }
 
 type Subscription {

@@ -6,7 +6,7 @@ type User {
 
 type Character {
     id: ID! @id
-    type: String! @unique
+    key: String! @unique
     title: String!
     description: String
     process: String!
@@ -17,7 +17,7 @@ type Character {
 
 type Process {
     id: ID! @id
-    type: String! @unique
+    key: String! @unique
     title: String!
     sources: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
@@ -27,7 +27,7 @@ type Process {
 
 type Source {
     id: ID! @id
-    type: String! @unique
+    key: String! @unique
     title: String!
     feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
@@ -37,7 +37,7 @@ type Source {
 
 type Path {
     id: ID! @id
-    type: String! @unique
+    key: String! @unique
     title: String!
     feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
@@ -47,7 +47,7 @@ type Path {
 
 type Feeling {
     id: ID! @id
-    type: String! @unique
+    key: String! @unique
     title: String!
     thoughts: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
@@ -79,7 +79,7 @@ type Inventory {
 }
 type InventoryPath {
     id: ID! @id
-    type: String!
+    key: String!
     title: String!
     feelings: [PathFeeling]!
     createdAt: DateTime @createdAt
@@ -88,7 +88,7 @@ type InventoryPath {
 }
 type PathFeeling {
     id: ID! @id
-    type: String!
+    key: String!
     title: String!
     thoughts: [Thought]!
     createdAt: DateTime @createdAt
@@ -111,7 +111,7 @@ type CastCharacter{
 }
 type CharacterProcess{
     id: ID! @id
-    type: String!
+    key: String!
     title: String!
     sources: [ProcessSource]!
     createdAt: DateTime! @createdAt
@@ -120,7 +120,7 @@ type CharacterProcess{
 }
 type ProcessSource{
     id: ID! @id
-    type: String!
+    key: String!
     title: String!
     feelings: [SourceFeeling]!
     createdAt: DateTime! @createdAt
@@ -129,9 +129,9 @@ type ProcessSource{
 }
 type SourceFeeling {
     id: ID! @id
-    type: String!
-    title: String!
-    thoughts: [Thought]!
+    key: String
+    title: String
+    thoughts: [Thought]
     createdAt: DateTime @createdAt
     updatedAt: DateTime @updatedAt
     userId: ID!

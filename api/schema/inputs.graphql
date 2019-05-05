@@ -12,7 +12,7 @@ input SetIDInput {
 
 input CharacterInput {
     id: ID
-    type: String!
+    key: String!
     title: String!
     description: String
     process: ID
@@ -23,7 +23,7 @@ input CharacterInput {
 
 input ProcessInput {
     id: ID
-    type: String!
+    key: String!
     title: String!
     sources: SetIDInput
     createdAt: DateTime
@@ -33,7 +33,7 @@ input ProcessInput {
 
 input SourceInput {
     id: ID
-    type: String!
+    key: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
@@ -43,7 +43,7 @@ input SourceInput {
 
 input PathInput {
     id: ID
-    type: String!
+    key: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
@@ -53,7 +53,7 @@ input PathInput {
 
 input FeelingInput {
     id: ID
-    type: String!
+    key: String!
     title: String!
     thoughts: SetIDInput
     createdAt: DateTime

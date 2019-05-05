@@ -1,7 +1,7 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 
 const getDeepPaths = async userId => {
-    const paths = await prisma.paths( { userId } );
+    const paths = await prisma.paths( { where: { userId } } );
     const deepPaths = paths.map( async path => {
         const feelings = await getDeepFeelings( path.feelings );
         return {
@@ -13,7 +13,7 @@ const getDeepPaths = async userId => {
 };
 
 const getDeepCharacters = async userId => {
-    const characters = await prisma.characters( { userId } );
+    const characters = await prisma.characters( { where: { userId } } );
     const deepCharacters = characters.map( async character => {
         const process = await getDeepProcesses( character.process );
         return {
@@ -24,8 +24,8 @@ const getDeepCharacters = async userId => {
     return Promise.all( deepCharacters );
 }
 
-const getDeepProcesses = async ( type ) => {
-    const process = await prisma.process( { type } );
+const getDeepProcesses = async ( key ) => {
+    const process = await prisma.process( { key } );
     const sources = process ? await getDeepSources( process.sources ) : [];
     return {
         ...process,
@@ -34,8 +34,9 @@ const getDeepProcesses = async ( type ) => {
 };
 
 const getDeepSources = async ( sources ) => {
-    const deepSources = sources.map( async type => {
-        const source = await prisma.source( { type } );
+    const deepSources = sources.map( async key => {
+        //console.log( key );
+        const source = await prisma.source( { key } );
         const feelings = source ? await getDeepFeelings( source.feelings ) : [];
         return {
             ...source,
@@ -46,8 +47,8 @@ const getDeepSources = async ( sources ) => {
 };
 
 const getDeepFeelings = async ( feelings ) => {
-    feelings = feelings.map( async type => { 
-        const feeling = await prisma.feeling( { type } );
+    feelings = feelings.map( async key => { 
+        const feeling = await prisma.feeling( { key } );
         const thoughts = feeling ? await getDeepThoughts( feeling.thoughts ): [];
         if ( feeling ) {
             return {
@@ -59,7 +60,7 @@ const getDeepFeelings = async ( feelings ) => {
     return Promise.all( feelings );
 };
 
-const getDeepThoughts = async ( thoughts, userId ) => {
+const getDeepThoughts = async ( thoughts ) => {
     thoughts = thoughts.map( async id => await prisma.thought( { id } ) );
     return Promise.all( thoughts );
 };

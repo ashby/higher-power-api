@@ -2,67 +2,67 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const CHARACTERS = [
     {
-        type: "genie",
+        key: "genie",
         title: "Genie",
         description: "Processes the wish with dreams and gifts.",
         process: "wish"
     },
     {
-        type: "grump",
+        key: "grump",
         title: "Grump",
         description: "Processes the mess with attire and the floor.",
         process: "mess"
     },
     {
-        type: "guardian",
+        key: "guardian",
         title: "Guardian",
         description: "Processes the construct with gates, walls and towers.",
         process: "construct"
     },
     {
-        type: "martyr",
+        key: "martyr",
         title: "Martyr",
         description: "Processes the stigma with nails, crown and cross.",
-        process: "stigmata"
+        process: "stigma"
     },
     {
-        type: "paladin",
+        key: "paladin",
         title: "Paladin",
         description: "Processes the oath with campaigns, crusades and pledges.",
         process: "oath"
     },
     {
-        type: "player",
+        key: "player",
         title: "Player",
         description: "Processes the game with jokes, competition and theatre.",
         process: "game"
     },
     {
-        type: "seeker",
+        key: "seeker",
         title: "Seeker",
         description: "Processes the virtue, with mind, soul and love.",
         process: "virtue"
     },
     {
-        type: "self",
+        key: "self",
         title: "Self",
         description: "Processes the body.",
         process: "body"
     },
     {
-        type: "smith",
+        key: "smith",
         title: "Smith",
         description: "Processes the shield with silence, denial, confusion, and sarcasm.",
         process: "shield"
     },
     {
-        type: "victim",
+        key: "victim",
         title: "Victim",
         description: "Processes the affliction within scars, gashes, infections, tremors, nightmares and delirium.",
         process: "affliction"
     },
     {
-        type: "volunteer",
+        key: "volunteer",
         title: "Volunteer",
         description: "Processes the act with service, support and sacrifice.",
         process: "act"
@@ -71,7 +71,7 @@ const CHARACTERS = [
 
 const PROCESSES = [
     {
-        type: "wish",
+        key: "wish",
         title: "Wish",
         sources: { set: [
             "dream",
@@ -79,7 +79,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "mess",
+        key: "mess",
         title: "Mess",
         sources: { set: [
             "attire",
@@ -87,7 +87,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "construct",
+        key: "construct",
         title: "Construct", 
         sources: { set: [
             "gate",
@@ -96,7 +96,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "stigma",
+        key: "stigma",
         title: "Stigma",
         sources: { set: [
             "cross",
@@ -105,7 +105,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "oath",
+        key: "oath",
         title: "Oath",
         sources: { set: [
             "campaign",
@@ -114,7 +114,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "game",
+        key: "game",
         title: "Game",
         sources: { set: [
             "joke",
@@ -123,7 +123,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "virtue",
+        key: "virtue",
         title: "Virtue",
         sources: { set: [
             "love",
@@ -132,7 +132,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "body",
+        key: "body",
         title: "Body",
         sources: { set: [
             "brain",
@@ -151,7 +151,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "shield",
+        key: "shield",
         title: "Shield",
         sources: { set: [
             "confusion",
@@ -161,7 +161,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "affliction",
+        key: "affliction",
         title: "Affliction",
         sources: { set: [
             "delirium",
@@ -173,7 +173,7 @@ const PROCESSES = [
         ] }
     },
     {
-        type: "act",
+        key: "act",
         title: "Act",
         sources: { set: [
             "service",
@@ -185,232 +185,232 @@ const PROCESSES = [
 
 const SOURCES = [
     {
-        type: "dream",
+        key: "dream",
         title: "Dream",
         feelings: { set: [] }
     },
     {
-        type: "fairyTale",
+        key: "fairyTale",
         title: "Fairy Tale",
         feelings: { set: [] }   
     },
     {
-        type: "gift",
+        key: "gift",
         title: "Gift",
         feelings: { set: [] }
     },
     {
-        type: "attire",
+        key: "attire",
         title: "Attire",
         feelings: { set: [] }
     },
     {
-        type: "floor",
+        key: "floor",
         title: "Floor",
         feelings: { set: [] }
     },
     {
-        type: "gate",
+        key: "gate",
         title: "Gate",
         feelings: { set: [] }
     },
     {
-        type: "wall",
+        key: "wall",
         title: "Wall",
         feelings: { set: [] }
     },
     {
-        type: "tower",
+        key: "tower",
         title: "Tower",
         feelings: { set: [] }
     },
     {
-        type: "cross",
+        key: "cross",
         title: "Cross",
         feelings: { set: [] }
     },
     {
-        type: "crown",
+        key: "crown",
         title: "Crown",
         feelings: { set: [] }
     },
     {
-        type: "nail",
+        key: "nail",
         title: "Nail",
         feelings: { set: [] }
     },
     {
-        type: "campaign",
+        key: "campaign",
         title: "Campaign",
         feelings: { set: [] }
     },
     {
-        type: "crusade",
+        key: "crusade",
         title: "Crusade",
         feelings: { set: [] }
     },
     {
-        type: "pledge",
+        key: "pledge",
         title: "Pledge",
         feelings: { set: [] }
     },
     {
-        type: "joke",
+        key: "joke",
         title: "Joke", 
         feelings: { set: [] }
     },
     {
-        type: "competition",
+        key: "competition",
         title: "Competition",
         feelings: { set: [] }
     },
     {
-        type: "theatre",
+        key: "theatre",
         title: "Theatre",
         feelings: { set: [] }
     },
     {
-        type: "love",
+        key: "love",
         title: "Love",    
         feelings: { set: [] }
     },
     {
-        type: "mind",
+        key: "mind",
         title: "Mind",          
         feelings: { set: [] }
     },
     {
-        type: "soul",
+        key: "soul",
         title: "Soul",
         feelings: { set: [] }
     },
     {
-        type: "brain",
+        key: "brain",
         title: "Brain",
         feelings: { set: [] }
     },
     {
-        type: "face",
+        key: "face",
         title: "Face",   
         feelings: { set: [] }
     },
     {
-        type: "gut",
+        key: "gut",
         title: "Gut",     
         feelings: { set: [] }
     },
     {
-        type: "heart",
+        key: "heart",
         title: "Heart",
         feelings: { set: [] }
     },
     {
-        type: "mouth",
+        key: "mouth",
         title: "Mouth",             
         feelings: { set: [] }
     },
     {
-        type: "skin",
+        key: "skin",
         title: "Skin",             
         feelings: { set: [] }
     },
     {
-        type: "sternum",
+        key: "sternum",
         title: "Sternum",                   
         feelings: { set: [] }
     },
     {
-        type: "shoulders",
+        key: "shoulders",
         title: "Shoulders",                   
         feelings: { set: [] }
     },
     {
-        type: "eyes",
+        key: "eyes",
         title: "Eyes",                   
         feelings: { set: [] }
     },
     {
-        type: "hands",
+        key: "hands",
         title: "Hands",                   
         feelings: { set: [] }
     },
     {
-        type: "rectum",
+        key: "rectum",
         title: "Rectum",                   
         feelings: { set: [] }
     },
     {
-        type: "genitals",
+        key: "genitals",
         title: "Genitals",                   
         feelings: { set: [] }
     },
     {
-        type: "ears",
+        key: "ears",
         title: "Ears",                   
         feelings: { set: [] }
     },
     {
-        type: "confusion",
+        key: "confusion",
         title: "Confusion",
         feelings: { set: [] }
     },
     {
-        type: "denial",
+        key: "denial",
         title: "Denial",
         feelings: { set: [] }
     },
     {
-        type: "sarcasm",
+        key: "sarcasm",
         title: "Sarcasm",
         feelings: { set: [] }
     },
     {
-        type: "silence",
+        key: "silence",
         title: "Silence",
         feelings: { set: [] }
     },
     {
-        type: "delirium",
+        key: "delirium",
         title: "Delirium",
         feelings: { set: [] }
     },
     {
-        type: "gash",
+        key: "gash",
         title: "Gash",
         feelings: { set: [] }
     },
     {
-        type: "infection",
+        key: "infection",
         title: "Infection",
         feelings: { set: [] }
     },
     {
-        type: "nightmare",
+        key: "nightmare",
         title: "Nightmare",
         feelings: { set: [] }
     },
     {
-        type: "scar",
+        key: "scar",
         title: "Scar",
         feelings: { set: [] }
     },
     {
-        type: "tremor",
+        key: "tremor",
         title: "Tremor",
         feelings: { set: [] }
     },
     {
-        type: "service",
+        key: "service",
         title: "Service",
         feelings: { set: [] }
     },
     {
-        type: "support",
+        key: "support",
         title: "Support",
         feelings: { set: [] }
     },
     {
-        type: "sacrifice",
+        key: "sacrifice",
         title: "Sacrifice",
         feelings: { set: [] }
     }
@@ -418,37 +418,37 @@ const SOURCES = [
 
 const PATHS = [
     {
-        type: "defect",
+        key: "defect",
         title: "Defect",
         feelings: { set: [] }
     },
     {
-        type: "discontent",
+        key: "discontent",
         title: "Discontent",
         feelings: { set: [] }
     },
     {
-        type: "experience",
+        key: "experience",
         title: "Experience",
         feelings: { set: [] }
     },
     {
-        type: "hope",
+        key: "hope",
         title: "Hope",
         feelings: { set: [] }
     },
     {
-        type: "obsession",
+        key: "obsession",
         title: "Obsession",
         feelings: { set: [] }
     },
     {
-        type: "resentment",
+        key: "resentment",
         title: "Resentment",
         feelings: { set: [] }
     },
     {
-        type: "strength",
+        key: "strength",
         title: "Strength",
         feelings: { set: [] }
     }
@@ -456,16 +456,36 @@ const PATHS = [
 
 module.exports = async ( userId ) => {
     const characterPromises = CHARACTERS.map( async ( character ) => 
-        prisma.createCharacter( { ...character, userId, type: `${character.type}-${userId}` } ) 
+        prisma.createCharacter( { 
+            ...character, 
+            userId, 
+            process:`${character.process}-${userId}`, 
+            key: `${character.key}-${userId}` 
+        } ) 
     );
     const processPromises = PROCESSES.map( async ( process ) => 
-        prisma.createProcess( { ...process, userId, type: `${process.type}-${userId}` } ) 
+        prisma.createProcess( { 
+            ...process, 
+            userId, 
+            key: `${process.key}-${userId}`,
+            sources: {
+                set: process.sources.set.map( source => `${source}-${userId}` )
+            } 
+        } ) 
     );
     const sourcePromises = SOURCES.map( async ( source ) => 
-        prisma.createSource( { ...source, userId, type: `${source.type}-${userId}` } ) 
+        prisma.createSource( { 
+            ...source, 
+            userId, 
+            key: `${source.key}-${userId}` 
+        } ) 
     );
     const pathPromises = PATHS.map( async ( path ) => 
-        prisma.createPath( { ...path, userId, type: `${path.type}-${userId}` } ) 
+        prisma.createPath( { 
+            ...path, 
+            userId, 
+            key: `${path.key}-${userId}` 
+        } ) 
     );
     await Promise.all( [ 
         ...characterPromises, 

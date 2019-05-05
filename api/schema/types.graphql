@@ -13,7 +13,7 @@ type AuthPayload {
 
 type Character {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     description: String
     process: ID!
@@ -24,7 +24,7 @@ type Character {
 
 type Process {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     sources: [ID]!
     createdAt: DateTime!
@@ -34,7 +34,7 @@ type Process {
 
 type Source {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     feelings: [String]!
     createdAt: DateTime!
@@ -44,7 +44,7 @@ type Source {
 
 type Feeling {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     thoughts: [String]!
     createdAt: DateTime!
@@ -54,7 +54,7 @@ type Feeling {
 
 type Path {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     feelings: [String]!
     createdAt: DateTime!
@@ -86,19 +86,19 @@ type Inventory {
 }
 type InventoryPath {
     id: ID!
-    type: String!
+    key: String!
     title: String!
     feelings: [InventoryFeeling]!
     createdAt: DateTime!
     updatedAt: DateTime!
 }
 type InventoryFeeling {
-    id: ID!
-    type: String!
-    title: String!
-    thoughts: [Thought]!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    id: ID
+    key: String
+    title: String
+    thoughts: [Thought]
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type Cast {
@@ -107,36 +107,36 @@ type Cast {
 }
 type CastCharacter{
     id: ID!
-    type: String!
+    key: String!
     title: String!
     description: String
-    process: CastProcess!
+    process: CharacterProcess!
     createdAt: DateTime!
     updatedAt: DateTime!
 }
-type CastProcess{
+type CharacterProcess{
     id: ID!
-    type: String!
+    key: String!
     title: String!
-    sources: [CastSource]!
+    sources: [ProcessSource]!
     createdAt: DateTime!
     updatedAt: DateTime!
 }
-type CastSource{
+type ProcessSource{
     id: ID!
-    type: String!
+    key: String!
     title: String!
-    feelings: [CastFeeling]!
+    feelings: [SourceFeeling]!
     createdAt: DateTime!
     updatedAt: DateTime!
 }
-type CastFeeling {
-    id: ID!
-    type: String!
-    title: String!
-    thoughts: [Thought]!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+type SourceFeeling {
+    id: ID
+    key: String
+    title: String
+    thoughts: [Thought]
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type HigherPower {

@@ -1,19 +1,19 @@
 const { prisma } = require( '../../../generated/prisma-client' );
 
-const handleFeeling = async ( type, data ) => {
-    let feelingType;
-    switch ( type ) {
+const handleFeeling = async ( key, data ) => {
+    let feelingKey;
+    switch ( key ) {
         case 'path':
-            feelingType = `${data.path}-${data.feeling}-${data.userId}`;
+            feelingKey = `${data.path}-${data.feeling}-${data.userId}`;
             break;
         case 'source':
-            feelingType = `${data.source}-${data.feeling}-${data.userId}`;
+            feelingKey = `${data.source}-${data.feeling}-${data.userId}`;
             break;
     }
-    const hasFeeling = await prisma.feeling( { type: feelingType } );
+    const hasFeeling = await prisma.feeling( { key: feelingKey } );
     if ( !hasFeeling ) {
         const feeling = {
-            type: feelingType,
+            key: feelingKey,
             title: data.feeling,
             thoughts: { set: [ data.id ] },
             userId: data.userId
@@ -37,22 +37,22 @@ const handleFeeling = async ( type, data ) => {
 
 const handlePath = async data => {
     if ( data.path ) {
-        const pathType = `${data.path}-${data.userId}`;
-        const feelingType = `${data.path}-${data.feeling}-${data.userId}`;
-        const hasPath = await prisma.path( { type: pathType } );
+        const pathKey = `${data.path}-${data.userId}`;
+        const feelingKey = `${data.path}-${data.feeling}-${data.userId}`;
+        const hasPath = await prisma.path( { key: pathKey } );
         if ( !hasPath ) {
             const path = {
-                type: pathType,
+                key: pathKey,
                 title: data.path,
-                feelings: { set: [ feelingType ] },
+                feelings: { set: [ feelingKey ] },
                 userId: data.userId
             };
             await prisma.createPath( path );
         } else {
             let { updatedAt, id, createdAt, ...path } = hasPath;
-            const hasFeelingType = path.feelings.find( feeling => feeling === feelingType );
-            if ( !hasFeelingType ) {
-                path.feelings.push( feelingType );
+            const hasFeelingKey = path.feelings.find( feeling => feeling === feelingKey );
+            if ( !hasFeelingKey ) {
+                path.feelings.push( feelingKey );
             };
             path = {
                 ...path,
@@ -70,22 +70,22 @@ const handlePath = async data => {
 
 const handleSource = async data => {
     if ( data.source ) {
-        const sourceType = `${data.source}-${data.userId}`
-        const feelingType = `${data.source}-${data.feeling}-${data.userId}`; 
-        const hasSource = await prisma.source( { type: sourceType } );
+        const sourceKey = `${data.source}-${data.userId}`
+        const feelingKey = `${data.source}-${data.feeling}-${data.userId}`; 
+        const hasSource = await prisma.source( { key: sourceKey } );
         if ( !hasSource ) {
             const source = {
-                type: sourceType,
+                key: sourceKey,
                 title: data.source,
-                feelings: { set: [ feelingType ] },
+                feelings: { set: [ feelingKey ] },
                 userId: data.userId
             };
             await prisma.createSource( source );
         } else {
             let { updatedAt, id, createdAt, ...source } = hasSource;
-            const hasFeelingType = source.feelings.find( feeling => feeling === feelingType );
-            if ( !hasFeelingType ) {
-                source.feelings.push( feelingType );
+            const hasFeelingKey = source.feelings.find( feeling => feeling === feelingKey );
+            if ( !hasFeelingKey ) {
+                source.feelings.push( feelingKey );
             }
             source = {
                 ...source,
@@ -103,14 +103,14 @@ const handleSource = async data => {
 
 const handleProcess = async data => {
     if ( data.process ) {
-        const processType = `${data.process}-${data.userId}`;
-        const sourceType = `${data.source}-${data.userId}`;
-        const hasProcess = await prisma.process( { type: processType } );
+        const processKey = `${data.process}-${data.userId}`;
+        const sourceKey = `${data.source}-${data.userId}`;
+        const hasProcess = await prisma.process( { key: processKey } );
         if ( !hasProcess ) {
             const process = {
-                type: processType,
+                key: processKey,
                 title: data.process,
-                sources: { set: [ sourceType ] },
+                sources: { set: [ sourceKey ] },
                 userId: data.userId
             };
             await prisma.createProcess( process );
