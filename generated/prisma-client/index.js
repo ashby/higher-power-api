@@ -31,46 +31,6 @@ var models = [
   {
     name: "Thought",
     embedded: false
-  },
-  {
-    name: "Inventory",
-    embedded: false
-  },
-  {
-    name: "InventoryPath",
-    embedded: false
-  },
-  {
-    name: "PathFeeling",
-    embedded: false
-  },
-  {
-    name: "Cast",
-    embedded: false
-  },
-  {
-    name: "CastCharacter",
-    embedded: false
-  },
-  {
-    name: "CharacterProcess",
-    embedded: false
-  },
-  {
-    name: "ProcessSource",
-    embedded: false
-  },
-  {
-    name: "SourceFeeling",
-    embedded: false
-  },
-  {
-    name: "HigherPower",
-    embedded: false
-  },
-  {
-    name: "AuthPayload",
-    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

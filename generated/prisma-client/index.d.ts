@@ -14,21 +14,11 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
 
 export interface Exists {
-  authPayload: (where?: AuthPayloadWhereInput) => Promise<boolean>;
-  cast: (where?: CastWhereInput) => Promise<boolean>;
-  castCharacter: (where?: CastCharacterWhereInput) => Promise<boolean>;
   character: (where?: CharacterWhereInput) => Promise<boolean>;
-  characterProcess: (where?: CharacterProcessWhereInput) => Promise<boolean>;
   feeling: (where?: FeelingWhereInput) => Promise<boolean>;
-  higherPower: (where?: HigherPowerWhereInput) => Promise<boolean>;
-  inventory: (where?: InventoryWhereInput) => Promise<boolean>;
-  inventoryPath: (where?: InventoryPathWhereInput) => Promise<boolean>;
   path: (where?: PathWhereInput) => Promise<boolean>;
-  pathFeeling: (where?: PathFeelingWhereInput) => Promise<boolean>;
   process: (where?: ProcessWhereInput) => Promise<boolean>;
-  processSource: (where?: ProcessSourceWhereInput) => Promise<boolean>;
   source: (where?: SourceWhereInput) => Promise<boolean>;
-  sourceFeeling: (where?: SourceFeelingWhereInput) => Promise<boolean>;
   thought: (where?: ThoughtWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
@@ -52,74 +42,6 @@ export interface Prisma {
    * Queries
    */
 
-  authPayloads: (
-    args?: {
-      where?: AuthPayloadWhereInput;
-      orderBy?: AuthPayloadOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<AuthPayload>;
-  authPayloadsConnection: (
-    args?: {
-      where?: AuthPayloadWhereInput;
-      orderBy?: AuthPayloadOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => AuthPayloadConnectionPromise;
-  cast: (where: CastWhereUniqueInput) => CastPromise;
-  casts: (
-    args?: {
-      where?: CastWhereInput;
-      orderBy?: CastOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<Cast>;
-  castsConnection: (
-    args?: {
-      where?: CastWhereInput;
-      orderBy?: CastOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => CastConnectionPromise;
-  castCharacter: (where: CastCharacterWhereUniqueInput) => CastCharacterPromise;
-  castCharacters: (
-    args?: {
-      where?: CastCharacterWhereInput;
-      orderBy?: CastCharacterOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<CastCharacter>;
-  castCharactersConnection: (
-    args?: {
-      where?: CastCharacterWhereInput;
-      orderBy?: CastCharacterOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => CastCharacterConnectionPromise;
   character: (where: CharacterWhereUniqueInput) => CharacterPromise;
   characters: (
     args?: {
@@ -143,31 +65,6 @@ export interface Prisma {
       last?: Int;
     }
   ) => CharacterConnectionPromise;
-  characterProcess: (
-    where: CharacterProcessWhereUniqueInput
-  ) => CharacterProcessPromise;
-  characterProcesses: (
-    args?: {
-      where?: CharacterProcessWhereInput;
-      orderBy?: CharacterProcessOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<CharacterProcess>;
-  characterProcessesConnection: (
-    args?: {
-      where?: CharacterProcessWhereInput;
-      orderBy?: CharacterProcessOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => CharacterProcessConnectionPromise;
   feeling: (where: FeelingWhereUniqueInput) => FeelingPromise;
   feelings: (
     args?: {
@@ -191,75 +88,6 @@ export interface Prisma {
       last?: Int;
     }
   ) => FeelingConnectionPromise;
-  higherPower: (where: HigherPowerWhereUniqueInput) => HigherPowerPromise;
-  higherPowers: (
-    args?: {
-      where?: HigherPowerWhereInput;
-      orderBy?: HigherPowerOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<HigherPower>;
-  higherPowersConnection: (
-    args?: {
-      where?: HigherPowerWhereInput;
-      orderBy?: HigherPowerOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => HigherPowerConnectionPromise;
-  inventory: (where: InventoryWhereUniqueInput) => InventoryPromise;
-  inventories: (
-    args?: {
-      where?: InventoryWhereInput;
-      orderBy?: InventoryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<Inventory>;
-  inventoriesConnection: (
-    args?: {
-      where?: InventoryWhereInput;
-      orderBy?: InventoryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => InventoryConnectionPromise;
-  inventoryPath: (where: InventoryPathWhereUniqueInput) => InventoryPathPromise;
-  inventoryPaths: (
-    args?: {
-      where?: InventoryPathWhereInput;
-      orderBy?: InventoryPathOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<InventoryPath>;
-  inventoryPathsConnection: (
-    args?: {
-      where?: InventoryPathWhereInput;
-      orderBy?: InventoryPathOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => InventoryPathConnectionPromise;
   path: (where: PathWhereUniqueInput) => PathPromise;
   paths: (
     args?: {
@@ -283,29 +111,6 @@ export interface Prisma {
       last?: Int;
     }
   ) => PathConnectionPromise;
-  pathFeeling: (where: PathFeelingWhereUniqueInput) => PathFeelingPromise;
-  pathFeelings: (
-    args?: {
-      where?: PathFeelingWhereInput;
-      orderBy?: PathFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<PathFeeling>;
-  pathFeelingsConnection: (
-    args?: {
-      where?: PathFeelingWhereInput;
-      orderBy?: PathFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => PathFeelingConnectionPromise;
   process: (where: ProcessWhereUniqueInput) => ProcessPromise;
   processes: (
     args?: {
@@ -329,29 +134,6 @@ export interface Prisma {
       last?: Int;
     }
   ) => ProcessConnectionPromise;
-  processSource: (where: ProcessSourceWhereUniqueInput) => ProcessSourcePromise;
-  processSources: (
-    args?: {
-      where?: ProcessSourceWhereInput;
-      orderBy?: ProcessSourceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<ProcessSource>;
-  processSourcesConnection: (
-    args?: {
-      where?: ProcessSourceWhereInput;
-      orderBy?: ProcessSourceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => ProcessSourceConnectionPromise;
   source: (where: SourceWhereUniqueInput) => SourcePromise;
   sources: (
     args?: {
@@ -375,29 +157,6 @@ export interface Prisma {
       last?: Int;
     }
   ) => SourceConnectionPromise;
-  sourceFeeling: (where: SourceFeelingWhereUniqueInput) => SourceFeelingPromise;
-  sourceFeelings: (
-    args?: {
-      where?: SourceFeelingWhereInput;
-      orderBy?: SourceFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => FragmentableArray<SourceFeeling>;
-  sourceFeelingsConnection: (
-    args?: {
-      where?: SourceFeelingWhereInput;
-      orderBy?: SourceFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => SourceFeelingConnectionPromise;
   thought: (where: ThoughtWhereUniqueInput) => ThoughtPromise;
   thoughts: (
     args?: {
@@ -450,55 +209,6 @@ export interface Prisma {
    * Mutations
    */
 
-  createAuthPayload: (data: AuthPayloadCreateInput) => AuthPayloadPromise;
-  updateManyAuthPayloads: (
-    args: {
-      data: AuthPayloadUpdateManyMutationInput;
-      where?: AuthPayloadWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  deleteManyAuthPayloads: (
-    where?: AuthPayloadWhereInput
-  ) => BatchPayloadPromise;
-  createCast: (data: CastCreateInput) => CastPromise;
-  updateCast: (
-    args: { data: CastUpdateInput; where: CastWhereUniqueInput }
-  ) => CastPromise;
-  upsertCast: (
-    args: {
-      where: CastWhereUniqueInput;
-      create: CastCreateInput;
-      update: CastUpdateInput;
-    }
-  ) => CastPromise;
-  deleteCast: (where: CastWhereUniqueInput) => CastPromise;
-  deleteManyCasts: (where?: CastWhereInput) => BatchPayloadPromise;
-  createCastCharacter: (data: CastCharacterCreateInput) => CastCharacterPromise;
-  updateCastCharacter: (
-    args: {
-      data: CastCharacterUpdateInput;
-      where: CastCharacterWhereUniqueInput;
-    }
-  ) => CastCharacterPromise;
-  updateManyCastCharacters: (
-    args: {
-      data: CastCharacterUpdateManyMutationInput;
-      where?: CastCharacterWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertCastCharacter: (
-    args: {
-      where: CastCharacterWhereUniqueInput;
-      create: CastCharacterCreateInput;
-      update: CastCharacterUpdateInput;
-    }
-  ) => CastCharacterPromise;
-  deleteCastCharacter: (
-    where: CastCharacterWhereUniqueInput
-  ) => CastCharacterPromise;
-  deleteManyCastCharacters: (
-    where?: CastCharacterWhereInput
-  ) => BatchPayloadPromise;
   createCharacter: (data: CharacterCreateInput) => CharacterPromise;
   updateCharacter: (
     args: { data: CharacterUpdateInput; where: CharacterWhereUniqueInput }
@@ -518,34 +228,6 @@ export interface Prisma {
   ) => CharacterPromise;
   deleteCharacter: (where: CharacterWhereUniqueInput) => CharacterPromise;
   deleteManyCharacters: (where?: CharacterWhereInput) => BatchPayloadPromise;
-  createCharacterProcess: (
-    data: CharacterProcessCreateInput
-  ) => CharacterProcessPromise;
-  updateCharacterProcess: (
-    args: {
-      data: CharacterProcessUpdateInput;
-      where: CharacterProcessWhereUniqueInput;
-    }
-  ) => CharacterProcessPromise;
-  updateManyCharacterProcesses: (
-    args: {
-      data: CharacterProcessUpdateManyMutationInput;
-      where?: CharacterProcessWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertCharacterProcess: (
-    args: {
-      where: CharacterProcessWhereUniqueInput;
-      create: CharacterProcessCreateInput;
-      update: CharacterProcessUpdateInput;
-    }
-  ) => CharacterProcessPromise;
-  deleteCharacterProcess: (
-    where: CharacterProcessWhereUniqueInput
-  ) => CharacterProcessPromise;
-  deleteManyCharacterProcesses: (
-    where?: CharacterProcessWhereInput
-  ) => BatchPayloadPromise;
   createFeeling: (data: FeelingCreateInput) => FeelingPromise;
   updateFeeling: (
     args: { data: FeelingUpdateInput; where: FeelingWhereUniqueInput }
@@ -562,60 +244,6 @@ export interface Prisma {
   ) => FeelingPromise;
   deleteFeeling: (where: FeelingWhereUniqueInput) => FeelingPromise;
   deleteManyFeelings: (where?: FeelingWhereInput) => BatchPayloadPromise;
-  createHigherPower: (data: HigherPowerCreateInput) => HigherPowerPromise;
-  updateHigherPower: (
-    args: { data: HigherPowerUpdateInput; where: HigherPowerWhereUniqueInput }
-  ) => HigherPowerPromise;
-  upsertHigherPower: (
-    args: {
-      where: HigherPowerWhereUniqueInput;
-      create: HigherPowerCreateInput;
-      update: HigherPowerUpdateInput;
-    }
-  ) => HigherPowerPromise;
-  deleteHigherPower: (where: HigherPowerWhereUniqueInput) => HigherPowerPromise;
-  deleteManyHigherPowers: (
-    where?: HigherPowerWhereInput
-  ) => BatchPayloadPromise;
-  createInventory: (data: InventoryCreateInput) => InventoryPromise;
-  updateInventory: (
-    args: { data: InventoryUpdateInput; where: InventoryWhereUniqueInput }
-  ) => InventoryPromise;
-  upsertInventory: (
-    args: {
-      where: InventoryWhereUniqueInput;
-      create: InventoryCreateInput;
-      update: InventoryUpdateInput;
-    }
-  ) => InventoryPromise;
-  deleteInventory: (where: InventoryWhereUniqueInput) => InventoryPromise;
-  deleteManyInventories: (where?: InventoryWhereInput) => BatchPayloadPromise;
-  createInventoryPath: (data: InventoryPathCreateInput) => InventoryPathPromise;
-  updateInventoryPath: (
-    args: {
-      data: InventoryPathUpdateInput;
-      where: InventoryPathWhereUniqueInput;
-    }
-  ) => InventoryPathPromise;
-  updateManyInventoryPaths: (
-    args: {
-      data: InventoryPathUpdateManyMutationInput;
-      where?: InventoryPathWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertInventoryPath: (
-    args: {
-      where: InventoryPathWhereUniqueInput;
-      create: InventoryPathCreateInput;
-      update: InventoryPathUpdateInput;
-    }
-  ) => InventoryPathPromise;
-  deleteInventoryPath: (
-    where: InventoryPathWhereUniqueInput
-  ) => InventoryPathPromise;
-  deleteManyInventoryPaths: (
-    where?: InventoryPathWhereInput
-  ) => BatchPayloadPromise;
   createPath: (data: PathCreateInput) => PathPromise;
   updatePath: (
     args: { data: PathUpdateInput; where: PathWhereUniqueInput }
@@ -632,27 +260,6 @@ export interface Prisma {
   ) => PathPromise;
   deletePath: (where: PathWhereUniqueInput) => PathPromise;
   deleteManyPaths: (where?: PathWhereInput) => BatchPayloadPromise;
-  createPathFeeling: (data: PathFeelingCreateInput) => PathFeelingPromise;
-  updatePathFeeling: (
-    args: { data: PathFeelingUpdateInput; where: PathFeelingWhereUniqueInput }
-  ) => PathFeelingPromise;
-  updateManyPathFeelings: (
-    args: {
-      data: PathFeelingUpdateManyMutationInput;
-      where?: PathFeelingWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertPathFeeling: (
-    args: {
-      where: PathFeelingWhereUniqueInput;
-      create: PathFeelingCreateInput;
-      update: PathFeelingUpdateInput;
-    }
-  ) => PathFeelingPromise;
-  deletePathFeeling: (where: PathFeelingWhereUniqueInput) => PathFeelingPromise;
-  deleteManyPathFeelings: (
-    where?: PathFeelingWhereInput
-  ) => BatchPayloadPromise;
   createProcess: (data: ProcessCreateInput) => ProcessPromise;
   updateProcess: (
     args: { data: ProcessUpdateInput; where: ProcessWhereUniqueInput }
@@ -669,32 +276,6 @@ export interface Prisma {
   ) => ProcessPromise;
   deleteProcess: (where: ProcessWhereUniqueInput) => ProcessPromise;
   deleteManyProcesses: (where?: ProcessWhereInput) => BatchPayloadPromise;
-  createProcessSource: (data: ProcessSourceCreateInput) => ProcessSourcePromise;
-  updateProcessSource: (
-    args: {
-      data: ProcessSourceUpdateInput;
-      where: ProcessSourceWhereUniqueInput;
-    }
-  ) => ProcessSourcePromise;
-  updateManyProcessSources: (
-    args: {
-      data: ProcessSourceUpdateManyMutationInput;
-      where?: ProcessSourceWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertProcessSource: (
-    args: {
-      where: ProcessSourceWhereUniqueInput;
-      create: ProcessSourceCreateInput;
-      update: ProcessSourceUpdateInput;
-    }
-  ) => ProcessSourcePromise;
-  deleteProcessSource: (
-    where: ProcessSourceWhereUniqueInput
-  ) => ProcessSourcePromise;
-  deleteManyProcessSources: (
-    where?: ProcessSourceWhereInput
-  ) => BatchPayloadPromise;
   createSource: (data: SourceCreateInput) => SourcePromise;
   updateSource: (
     args: { data: SourceUpdateInput; where: SourceWhereUniqueInput }
@@ -711,32 +292,6 @@ export interface Prisma {
   ) => SourcePromise;
   deleteSource: (where: SourceWhereUniqueInput) => SourcePromise;
   deleteManySources: (where?: SourceWhereInput) => BatchPayloadPromise;
-  createSourceFeeling: (data: SourceFeelingCreateInput) => SourceFeelingPromise;
-  updateSourceFeeling: (
-    args: {
-      data: SourceFeelingUpdateInput;
-      where: SourceFeelingWhereUniqueInput;
-    }
-  ) => SourceFeelingPromise;
-  updateManySourceFeelings: (
-    args: {
-      data: SourceFeelingUpdateManyMutationInput;
-      where?: SourceFeelingWhereInput;
-    }
-  ) => BatchPayloadPromise;
-  upsertSourceFeeling: (
-    args: {
-      where: SourceFeelingWhereUniqueInput;
-      create: SourceFeelingCreateInput;
-      update: SourceFeelingUpdateInput;
-    }
-  ) => SourceFeelingPromise;
-  deleteSourceFeeling: (
-    where: SourceFeelingWhereUniqueInput
-  ) => SourceFeelingPromise;
-  deleteManySourceFeelings: (
-    where?: SourceFeelingWhereInput
-  ) => BatchPayloadPromise;
   createThought: (data: ThoughtCreateInput) => ThoughtPromise;
   updateThought: (
     args: { data: ThoughtUpdateInput; where: ThoughtWhereUniqueInput }
@@ -778,51 +333,21 @@ export interface Prisma {
 }
 
 export interface Subscription {
-  authPayload: (
-    where?: AuthPayloadSubscriptionWhereInput
-  ) => AuthPayloadSubscriptionPayloadSubscription;
-  cast: (
-    where?: CastSubscriptionWhereInput
-  ) => CastSubscriptionPayloadSubscription;
-  castCharacter: (
-    where?: CastCharacterSubscriptionWhereInput
-  ) => CastCharacterSubscriptionPayloadSubscription;
   character: (
     where?: CharacterSubscriptionWhereInput
   ) => CharacterSubscriptionPayloadSubscription;
-  characterProcess: (
-    where?: CharacterProcessSubscriptionWhereInput
-  ) => CharacterProcessSubscriptionPayloadSubscription;
   feeling: (
     where?: FeelingSubscriptionWhereInput
   ) => FeelingSubscriptionPayloadSubscription;
-  higherPower: (
-    where?: HigherPowerSubscriptionWhereInput
-  ) => HigherPowerSubscriptionPayloadSubscription;
-  inventory: (
-    where?: InventorySubscriptionWhereInput
-  ) => InventorySubscriptionPayloadSubscription;
-  inventoryPath: (
-    where?: InventoryPathSubscriptionWhereInput
-  ) => InventoryPathSubscriptionPayloadSubscription;
   path: (
     where?: PathSubscriptionWhereInput
   ) => PathSubscriptionPayloadSubscription;
-  pathFeeling: (
-    where?: PathFeelingSubscriptionWhereInput
-  ) => PathFeelingSubscriptionPayloadSubscription;
   process: (
     where?: ProcessSubscriptionWhereInput
   ) => ProcessSubscriptionPayloadSubscription;
-  processSource: (
-    where?: ProcessSourceSubscriptionWhereInput
-  ) => ProcessSourceSubscriptionPayloadSubscription;
   source: (
     where?: SourceSubscriptionWhereInput
   ) => SourceSubscriptionPayloadSubscription;
-  sourceFeeling: (
-    where?: SourceFeelingSubscriptionWhereInput
-  ) => SourceFeelingSubscriptionPayloadSubscription;
   thought: (
     where?: ThoughtSubscriptionWhereInput
   ) => ThoughtSubscriptionPayloadSubscription;
@@ -839,89 +364,9 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type PathFeelingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "key_ASC"
-  | "key_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type CastCharacterOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type InventoryPathOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "key_ASC"
-  | "key_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type AuthPayloadOrderByInput =
-  | "token_ASC"
-  | "token_DESC"
-  | "userId_ASC"
-  | "userId_DESC"
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type FeelingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "key_ASC"
-  | "key_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type SourceOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "key_ASC"
-  | "key_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type CharacterProcessOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "key_ASC"
@@ -967,29 +412,7 @@ export type CharacterOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type HigherPowerOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type ProcessSourceOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "key_ASC"
-  | "key_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type SourceFeelingOrderByInput =
+export type SourceOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "key_ASC"
@@ -1035,19 +458,13 @@ export type ThoughtOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type CastOrderByInput =
+export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
-export type InventoryOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "password_ASC"
+  | "password_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -1067,68 +484,25 @@ export type ProcessOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "password_ASC"
-  | "password_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export interface ProcessSourceUpdateWithWhereUniqueNestedInput {
-  where: ProcessSourceWhereUniqueInput;
-  data: ProcessSourceUpdateDataInput;
+export interface FeelingCreateInput {
+  id?: ID_Input;
+  key: String;
+  title: String;
+  thoughts?: FeelingCreatethoughtsInput;
+  userId: ID_Input;
 }
 
-export interface AuthPayloadWhereInput {
-  token?: String;
-  token_not?: String;
-  token_in?: String[] | String;
-  token_not_in?: String[] | String;
-  token_lt?: String;
-  token_lte?: String;
-  token_gt?: String;
-  token_gte?: String;
-  token_contains?: String;
-  token_not_contains?: String;
-  token_starts_with?: String;
-  token_not_starts_with?: String;
-  token_ends_with?: String;
-  token_not_ends_with?: String;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: AuthPayloadWhereInput[] | AuthPayloadWhereInput;
-  OR?: AuthPayloadWhereInput[] | AuthPayloadWhereInput;
-  NOT?: AuthPayloadWhereInput[] | AuthPayloadWhereInput;
-}
-
-export interface PathFeelingUpdateManyDataInput {
+export interface ProcessUpdateInput {
   key?: String;
   title?: String;
+  sources?: ProcessUpdatesourcesInput;
   userId?: ID_Input;
 }
 
-export interface HigherPowerCreateInput {
-  id?: ID_Input;
-  inventory?: InventoryCreateOneInput;
-  cast?: CastCreateOneInput;
-}
+export type CharacterWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  key?: String;
+}>;
 
 export interface SourceWhereInput {
   id?: ID_Input;
@@ -1208,301 +582,16 @@ export interface SourceWhereInput {
   NOT?: SourceWhereInput[] | SourceWhereInput;
 }
 
-export interface ThoughtUpdateManyWithWhereNestedInput {
-  where: ThoughtScalarWhereInput;
-  data: ThoughtUpdateManyDataInput;
-}
-
-export interface PathFeelingUpdateManyWithWhereNestedInput {
-  where: PathFeelingScalarWhereInput;
-  data: PathFeelingUpdateManyDataInput;
-}
-
-export interface ThoughtSubscriptionWhereInput {
+export interface FeelingSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: ThoughtWhereInput;
-  AND?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
-  OR?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
-  NOT?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
+  node?: FeelingWhereInput;
+  AND?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
+  OR?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
+  NOT?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
 }
-
-export interface PathFeelingScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: PathFeelingScalarWhereInput[] | PathFeelingScalarWhereInput;
-  OR?: PathFeelingScalarWhereInput[] | PathFeelingScalarWhereInput;
-  NOT?: PathFeelingScalarWhereInput[] | PathFeelingScalarWhereInput;
-}
-
-export interface SourceFeelingSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: SourceFeelingWhereInput;
-  AND?:
-    | SourceFeelingSubscriptionWhereInput[]
-    | SourceFeelingSubscriptionWhereInput;
-  OR?:
-    | SourceFeelingSubscriptionWhereInput[]
-    | SourceFeelingSubscriptionWhereInput;
-  NOT?:
-    | SourceFeelingSubscriptionWhereInput[]
-    | SourceFeelingSubscriptionWhereInput;
-}
-
-export interface PathFeelingUpsertWithWhereUniqueNestedInput {
-  where: PathFeelingWhereUniqueInput;
-  update: PathFeelingUpdateDataInput;
-  create: PathFeelingCreateInput;
-}
-
-export interface SourceSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: SourceWhereInput;
-  AND?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
-  OR?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
-  NOT?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
-}
-
-export interface PathFeelingUpdateDataInput {
-  key?: String;
-  title?: String;
-  thoughts?: ThoughtUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface ProcessSourceWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  feelings_every?: SourceFeelingWhereInput;
-  feelings_some?: SourceFeelingWhereInput;
-  feelings_none?: SourceFeelingWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: ProcessSourceWhereInput[] | ProcessSourceWhereInput;
-  OR?: ProcessSourceWhereInput[] | ProcessSourceWhereInput;
-  NOT?: ProcessSourceWhereInput[] | ProcessSourceWhereInput;
-}
-
-export type SourceFeelingWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface ProcessSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ProcessWhereInput;
-  AND?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
-  OR?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
-  NOT?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
-}
-
-export interface PathFeelingUpdateWithWhereUniqueNestedInput {
-  where: PathFeelingWhereUniqueInput;
-  data: PathFeelingUpdateDataInput;
-}
-
-export type CastCharacterWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PathFeelingUpdateManyInput {
-  create?: PathFeelingCreateInput[] | PathFeelingCreateInput;
-  update?:
-    | PathFeelingUpdateWithWhereUniqueNestedInput[]
-    | PathFeelingUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | PathFeelingUpsertWithWhereUniqueNestedInput[]
-    | PathFeelingUpsertWithWhereUniqueNestedInput;
-  delete?: PathFeelingWhereUniqueInput[] | PathFeelingWhereUniqueInput;
-  connect?: PathFeelingWhereUniqueInput[] | PathFeelingWhereUniqueInput;
-  set?: PathFeelingWhereUniqueInput[] | PathFeelingWhereUniqueInput;
-  disconnect?: PathFeelingWhereUniqueInput[] | PathFeelingWhereUniqueInput;
-  deleteMany?: PathFeelingScalarWhereInput[] | PathFeelingScalarWhereInput;
-  updateMany?:
-    | PathFeelingUpdateManyWithWhereNestedInput[]
-    | PathFeelingUpdateManyWithWhereNestedInput;
-}
-
-export interface InventoryPathSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: InventoryPathWhereInput;
-  AND?:
-    | InventoryPathSubscriptionWhereInput[]
-    | InventoryPathSubscriptionWhereInput;
-  OR?:
-    | InventoryPathSubscriptionWhereInput[]
-    | InventoryPathSubscriptionWhereInput;
-  NOT?:
-    | InventoryPathSubscriptionWhereInput[]
-    | InventoryPathSubscriptionWhereInput;
-}
-
-export interface InventoryPathUpdateDataInput {
-  key?: String;
-  title?: String;
-  feelings?: PathFeelingUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export type CharacterWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  key?: String;
-}>;
-
-export type ThoughtWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
 
 export interface CharacterWhereInput {
   id?: ID_Input;
@@ -1610,512 +699,18 @@ export interface CharacterWhereInput {
   NOT?: CharacterWhereInput[] | CharacterWhereInput;
 }
 
-export interface InventoryPathUpdateWithWhereUniqueNestedInput {
-  where: InventoryPathWhereUniqueInput;
-  data: InventoryPathUpdateDataInput;
-}
-
-export interface FeelingSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: FeelingWhereInput;
-  AND?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
-  OR?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
-  NOT?: FeelingSubscriptionWhereInput[] | FeelingSubscriptionWhereInput;
-}
-
-export interface InventoryPathUpdateManyInput {
-  create?: InventoryPathCreateInput[] | InventoryPathCreateInput;
-  update?:
-    | InventoryPathUpdateWithWhereUniqueNestedInput[]
-    | InventoryPathUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | InventoryPathUpsertWithWhereUniqueNestedInput[]
-    | InventoryPathUpsertWithWhereUniqueNestedInput;
-  delete?: InventoryPathWhereUniqueInput[] | InventoryPathWhereUniqueInput;
-  connect?: InventoryPathWhereUniqueInput[] | InventoryPathWhereUniqueInput;
-  set?: InventoryPathWhereUniqueInput[] | InventoryPathWhereUniqueInput;
-  disconnect?: InventoryPathWhereUniqueInput[] | InventoryPathWhereUniqueInput;
-  deleteMany?: InventoryPathScalarWhereInput[] | InventoryPathScalarWhereInput;
-  updateMany?:
-    | InventoryPathUpdateManyWithWhereNestedInput[]
-    | InventoryPathUpdateManyWithWhereNestedInput;
-}
-
-export interface CharacterSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CharacterWhereInput;
-  AND?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
-  OR?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
-  NOT?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
-}
-
-export interface InventoryUpdateDataInput {
-  paths?: InventoryPathUpdateManyInput;
-}
-
-export interface CastCharacterWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  process?: CharacterProcessWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: CastCharacterWhereInput[] | CastCharacterWhereInput;
-  OR?: CastCharacterWhereInput[] | CastCharacterWhereInput;
-  NOT?: CastCharacterWhereInput[] | CastCharacterWhereInput;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
+export interface UserUpdateManyMutationInput {
   email?: String;
-}>;
-
-export interface CastSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CastWhereInput;
-  AND?: CastSubscriptionWhereInput[] | CastSubscriptionWhereInput;
-  OR?: CastSubscriptionWhereInput[] | CastSubscriptionWhereInput;
-  NOT?: CastSubscriptionWhereInput[] | CastSubscriptionWhereInput;
-}
-
-export interface InventoryUpdateOneInput {
-  create?: InventoryCreateInput;
-  update?: InventoryUpdateDataInput;
-  upsert?: InventoryUpsertNestedInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-  connect?: InventoryWhereUniqueInput;
-}
-
-export type FeelingWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  key?: String;
-}>;
-
-export interface UserWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
   password?: String;
-  password_not?: String;
-  password_in?: String[] | String;
-  password_not_in?: String[] | String;
-  password_lt?: String;
-  password_lte?: String;
-  password_gt?: String;
-  password_gte?: String;
-  password_contains?: String;
-  password_not_contains?: String;
-  password_starts_with?: String;
-  password_not_starts_with?: String;
-  password_ends_with?: String;
-  password_not_ends_with?: String;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
-}
-
-export interface FeelingWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: FeelingWhereInput[] | FeelingWhereInput;
-  OR?: FeelingWhereInput[] | FeelingWhereInput;
-  NOT?: FeelingWhereInput[] | FeelingWhereInput;
-}
-
-export interface HigherPowerUpdateInput {
-  inventory?: InventoryUpdateOneInput;
-  cast?: CastUpdateOneInput;
-}
-
-export interface UserCreateInput {
-  id?: ID_Input;
-  email: String;
-  password: String;
-}
-
-export interface CastCreateOneInput {
-  create?: CastCreateInput;
-  connect?: CastWhereUniqueInput;
-}
-
-export interface ThoughtUpdateInput {
-  character?: ID_Input;
-  thought?: String;
-  quality?: Boolean;
-  source?: ID_Input;
-  process?: ID_Input;
-  path?: ID_Input;
-  feeling?: ID_Input;
-  prayedAt?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  userId?: ID_Input;
-}
-
-export interface PathFeelingCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  thoughts?: ThoughtCreateManyInput;
-  userId: ID_Input;
-}
-
-export interface SourceFeelingUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface PathFeelingCreateManyInput {
-  create?: PathFeelingCreateInput[] | PathFeelingCreateInput;
-  connect?: PathFeelingWhereUniqueInput[] | PathFeelingWhereUniqueInput;
-}
-
-export interface InventoryPathWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  feelings_every?: PathFeelingWhereInput;
-  feelings_some?: PathFeelingWhereInput;
-  feelings_none?: PathFeelingWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: InventoryPathWhereInput[] | InventoryPathWhereInput;
-  OR?: InventoryPathWhereInput[] | InventoryPathWhereInput;
-  NOT?: InventoryPathWhereInput[] | InventoryPathWhereInput;
-}
-
-export type CastWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface SourceUpdatefeelingsInput {
-  set?: String[] | String;
-}
-
-export interface AuthPayloadCreateInput {
-  token: String;
-  userId: ID_Input;
-}
-
-export interface HigherPowerWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  inventory?: InventoryWhereInput;
-  cast?: CastWhereInput;
-  AND?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-  OR?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-  NOT?: HigherPowerWhereInput[] | HigherPowerWhereInput;
-}
-
-export interface AuthPayloadUpdateManyMutationInput {
-  token?: String;
-  userId?: ID_Input;
-}
-
-export interface SourceCreatefeelingsInput {
-  set?: String[] | String;
-}
-
-export interface InventoryPathCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  feelings?: PathFeelingCreateManyInput;
-  userId: ID_Input;
-}
-
-export interface ProcessSourceUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface InventoryPathCreateManyInput {
-  create?: InventoryPathCreateInput[] | InventoryPathCreateInput;
-  connect?: InventoryPathWhereUniqueInput[] | InventoryPathWhereUniqueInput;
-}
-
-export type InventoryWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface CastCreateInput {
-  id?: ID_Input;
-  characters?: CastCharacterCreateManyInput;
-}
-
-export interface ProcessUpdatesourcesInput {
-  set?: String[] | String;
-}
-
-export interface CastCharacterCreateManyInput {
-  create?: CastCharacterCreateInput[] | CastCharacterCreateInput;
-  connect?: CastCharacterWhereUniqueInput[] | CastCharacterWhereUniqueInput;
 }
 
 export interface ProcessCreatesourcesInput {
   set?: String[] | String;
 }
 
-export interface CastCharacterCreateInput {
-  id?: ID_Input;
-  title: String;
-  description?: String;
-  process: CharacterProcessCreateOneInput;
-  userId: ID_Input;
+export interface UserUpdateInput {
+  email?: String;
+  password?: String;
 }
 
 export interface ProcessCreateInput {
@@ -2124,388 +719,6 @@ export interface ProcessCreateInput {
   title: String;
   sources?: ProcessCreatesourcesInput;
   userId: ID_Input;
-}
-
-export interface CharacterProcessCreateOneInput {
-  create?: CharacterProcessCreateInput;
-  connect?: CharacterProcessWhereUniqueInput;
-}
-
-export interface PathFeelingUpdateInput {
-  key?: String;
-  title?: String;
-  thoughts?: ThoughtUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface CharacterProcessCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  sources?: ProcessSourceCreateManyInput;
-  userId: ID_Input;
-}
-
-export interface PathUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  feelings?: PathUpdatefeelingsInput;
-  userId?: ID_Input;
-}
-
-export interface ProcessSourceCreateManyInput {
-  create?: ProcessSourceCreateInput[] | ProcessSourceCreateInput;
-  connect?: ProcessSourceWhereUniqueInput[] | ProcessSourceWhereUniqueInput;
-}
-
-export interface PathUpdatefeelingsInput {
-  set?: String[] | String;
-}
-
-export interface ProcessSourceCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  feelings?: SourceFeelingCreateManyInput;
-  userId: ID_Input;
-}
-
-export interface PathCreatefeelingsInput {
-  set?: String[] | String;
-}
-
-export interface SourceFeelingCreateManyInput {
-  create?: SourceFeelingCreateInput[] | SourceFeelingCreateInput;
-  connect?: SourceFeelingWhereUniqueInput[] | SourceFeelingWhereUniqueInput;
-}
-
-export type PathFeelingWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface SourceFeelingCreateInput {
-  id?: ID_Input;
-  key?: String;
-  title?: String;
-  thoughts?: ThoughtCreateManyInput;
-  userId: ID_Input;
-}
-
-export interface InventoryPathUpdateInput {
-  key?: String;
-  title?: String;
-  feelings?: PathFeelingUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface ThoughtCreateManyInput {
-  create?: ThoughtCreateInput[] | ThoughtCreateInput;
-  connect?: ThoughtWhereUniqueInput[] | ThoughtWhereUniqueInput;
-}
-
-export type ProcessWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  key?: String;
-}>;
-
-export interface ThoughtCreateInput {
-  id?: ID_Input;
-  character?: ID_Input;
-  thought: String;
-  quality?: Boolean;
-  source?: ID_Input;
-  process?: ID_Input;
-  path?: ID_Input;
-  feeling: ID_Input;
-  prayedAt?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  userId: ID_Input;
-}
-
-export interface ProcessWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: ProcessWhereInput[] | ProcessWhereInput;
-  OR?: ProcessWhereInput[] | ProcessWhereInput;
-  NOT?: ProcessWhereInput[] | ProcessWhereInput;
-}
-
-export interface CastUpdateInput {
-  characters?: CastCharacterUpdateManyInput;
-}
-
-export interface CastUpdateOneInput {
-  create?: CastCreateInput;
-  update?: CastUpdateDataInput;
-  upsert?: CastUpsertNestedInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-  connect?: CastWhereUniqueInput;
-}
-
-export interface CastCharacterUpdateManyInput {
-  create?: CastCharacterCreateInput[] | CastCharacterCreateInput;
-  update?:
-    | CastCharacterUpdateWithWhereUniqueNestedInput[]
-    | CastCharacterUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | CastCharacterUpsertWithWhereUniqueNestedInput[]
-    | CastCharacterUpsertWithWhereUniqueNestedInput;
-  delete?: CastCharacterWhereUniqueInput[] | CastCharacterWhereUniqueInput;
-  connect?: CastCharacterWhereUniqueInput[] | CastCharacterWhereUniqueInput;
-  set?: CastCharacterWhereUniqueInput[] | CastCharacterWhereUniqueInput;
-  disconnect?: CastCharacterWhereUniqueInput[] | CastCharacterWhereUniqueInput;
-  deleteMany?: CastCharacterScalarWhereInput[] | CastCharacterScalarWhereInput;
-  updateMany?:
-    | CastCharacterUpdateManyWithWhereNestedInput[]
-    | CastCharacterUpdateManyWithWhereNestedInput;
-}
-
-export interface InventoryPathUpdateManyDataInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface CastCharacterUpdateWithWhereUniqueNestedInput {
-  where: CastCharacterWhereUniqueInput;
-  data: CastCharacterUpdateDataInput;
-}
-
-export interface InventoryPathUpdateManyWithWhereNestedInput {
-  where: InventoryPathScalarWhereInput;
-  data: InventoryPathUpdateManyDataInput;
-}
-
-export interface CastCharacterUpdateDataInput {
-  title?: String;
-  description?: String;
-  process?: CharacterProcessUpdateOneRequiredInput;
-  userId?: ID_Input;
-}
-
-export interface InventoryPathUpsertWithWhereUniqueNestedInput {
-  where: InventoryPathWhereUniqueInput;
-  update: InventoryPathUpdateDataInput;
-  create: InventoryPathCreateInput;
-}
-
-export interface CharacterProcessUpdateOneRequiredInput {
-  create?: CharacterProcessCreateInput;
-  update?: CharacterProcessUpdateDataInput;
-  upsert?: CharacterProcessUpsertNestedInput;
-  connect?: CharacterProcessWhereUniqueInput;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-}
-
-export interface CharacterProcessUpdateDataInput {
-  key?: String;
-  title?: String;
-  sources?: ProcessSourceUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface SourceFeelingWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  thoughts_every?: ThoughtWhereInput;
-  thoughts_some?: ThoughtWhereInput;
-  thoughts_none?: ThoughtWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: SourceFeelingWhereInput[] | SourceFeelingWhereInput;
-  OR?: SourceFeelingWhereInput[] | SourceFeelingWhereInput;
-  NOT?: SourceFeelingWhereInput[] | SourceFeelingWhereInput;
-}
-
-export interface ProcessSourceUpdateManyInput {
-  create?: ProcessSourceCreateInput[] | ProcessSourceCreateInput;
-  update?:
-    | ProcessSourceUpdateWithWhereUniqueNestedInput[]
-    | ProcessSourceUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | ProcessSourceUpsertWithWhereUniqueNestedInput[]
-    | ProcessSourceUpsertWithWhereUniqueNestedInput;
-  delete?: ProcessSourceWhereUniqueInput[] | ProcessSourceWhereUniqueInput;
-  connect?: ProcessSourceWhereUniqueInput[] | ProcessSourceWhereUniqueInput;
-  set?: ProcessSourceWhereUniqueInput[] | ProcessSourceWhereUniqueInput;
-  disconnect?: ProcessSourceWhereUniqueInput[] | ProcessSourceWhereUniqueInput;
-  deleteMany?: ProcessSourceScalarWhereInput[] | ProcessSourceScalarWhereInput;
-  updateMany?:
-    | ProcessSourceUpdateManyWithWhereNestedInput[]
-    | ProcessSourceUpdateManyWithWhereNestedInput;
-}
-
-export interface ProcessSourceSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ProcessSourceWhereInput;
-  AND?:
-    | ProcessSourceSubscriptionWhereInput[]
-    | ProcessSourceSubscriptionWhereInput;
-  OR?:
-    | ProcessSourceSubscriptionWhereInput[]
-    | ProcessSourceSubscriptionWhereInput;
-  NOT?:
-    | ProcessSourceSubscriptionWhereInput[]
-    | ProcessSourceSubscriptionWhereInput;
-}
-
-export interface InventoryCreateInput {
-  id?: ID_Input;
-  paths?: InventoryPathCreateManyInput;
 }
 
 export interface PathSubscriptionWhereInput {
@@ -2519,109 +732,11 @@ export interface PathSubscriptionWhereInput {
   NOT?: PathSubscriptionWhereInput[] | PathSubscriptionWhereInput;
 }
 
-export interface ProcessSourceUpdateDataInput {
+export interface PathUpdateManyMutationInput {
   key?: String;
   title?: String;
-  feelings?: SourceFeelingUpdateManyInput;
+  feelings?: PathUpdatefeelingsInput;
   userId?: ID_Input;
-}
-
-export interface HigherPowerSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: HigherPowerWhereInput;
-  AND?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-  OR?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-  NOT?: HigherPowerSubscriptionWhereInput[] | HigherPowerSubscriptionWhereInput;
-}
-
-export interface SourceFeelingUpdateManyInput {
-  create?: SourceFeelingCreateInput[] | SourceFeelingCreateInput;
-  update?:
-    | SourceFeelingUpdateWithWhereUniqueNestedInput[]
-    | SourceFeelingUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | SourceFeelingUpsertWithWhereUniqueNestedInput[]
-    | SourceFeelingUpsertWithWhereUniqueNestedInput;
-  delete?: SourceFeelingWhereUniqueInput[] | SourceFeelingWhereUniqueInput;
-  connect?: SourceFeelingWhereUniqueInput[] | SourceFeelingWhereUniqueInput;
-  set?: SourceFeelingWhereUniqueInput[] | SourceFeelingWhereUniqueInput;
-  disconnect?: SourceFeelingWhereUniqueInput[] | SourceFeelingWhereUniqueInput;
-  deleteMany?: SourceFeelingScalarWhereInput[] | SourceFeelingScalarWhereInput;
-  updateMany?:
-    | SourceFeelingUpdateManyWithWhereNestedInput[]
-    | SourceFeelingUpdateManyWithWhereNestedInput;
-}
-
-export interface CharacterProcessSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CharacterProcessWhereInput;
-  AND?:
-    | CharacterProcessSubscriptionWhereInput[]
-    | CharacterProcessSubscriptionWhereInput;
-  OR?:
-    | CharacterProcessSubscriptionWhereInput[]
-    | CharacterProcessSubscriptionWhereInput;
-  NOT?:
-    | CharacterProcessSubscriptionWhereInput[]
-    | CharacterProcessSubscriptionWhereInput;
-}
-
-export interface SourceFeelingUpdateWithWhereUniqueNestedInput {
-  where: SourceFeelingWhereUniqueInput;
-  data: SourceFeelingUpdateDataInput;
-}
-
-export interface CastCharacterSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: CastCharacterWhereInput;
-  AND?:
-    | CastCharacterSubscriptionWhereInput[]
-    | CastCharacterSubscriptionWhereInput;
-  OR?:
-    | CastCharacterSubscriptionWhereInput[]
-    | CastCharacterSubscriptionWhereInput;
-  NOT?:
-    | CastCharacterSubscriptionWhereInput[]
-    | CastCharacterSubscriptionWhereInput;
-}
-
-export interface SourceFeelingUpdateDataInput {
-  key?: String;
-  title?: String;
-  thoughts?: ThoughtUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface UserUpdateManyMutationInput {
-  email?: String;
-  password?: String;
-}
-
-export interface ThoughtUpdateManyInput {
-  create?: ThoughtCreateInput[] | ThoughtCreateInput;
-  update?:
-    | ThoughtUpdateWithWhereUniqueNestedInput[]
-    | ThoughtUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | ThoughtUpsertWithWhereUniqueNestedInput[]
-    | ThoughtUpsertWithWhereUniqueNestedInput;
-  delete?: ThoughtWhereUniqueInput[] | ThoughtWhereUniqueInput;
-  connect?: ThoughtWhereUniqueInput[] | ThoughtWhereUniqueInput;
-  set?: ThoughtWhereUniqueInput[] | ThoughtWhereUniqueInput;
-  disconnect?: ThoughtWhereUniqueInput[] | ThoughtWhereUniqueInput;
-  deleteMany?: ThoughtScalarWhereInput[] | ThoughtScalarWhereInput;
-  updateMany?:
-    | ThoughtUpdateManyWithWhereNestedInput[]
-    | ThoughtUpdateManyWithWhereNestedInput;
 }
 
 export interface ThoughtUpdateManyMutationInput {
@@ -2639,281 +754,17 @@ export interface ThoughtUpdateManyMutationInput {
   userId?: ID_Input;
 }
 
-export interface ThoughtUpdateWithWhereUniqueNestedInput {
-  where: ThoughtWhereUniqueInput;
-  data: ThoughtUpdateDataInput;
-}
+export type ThoughtWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
 
-export interface SourceFeelingUpdateInput {
+export type PathWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
   key?: String;
-  title?: String;
-  thoughts?: ThoughtUpdateManyInput;
-  userId?: ID_Input;
-}
+}>;
 
-export interface ThoughtUpdateDataInput {
-  character?: ID_Input;
-  thought?: String;
-  quality?: Boolean;
-  source?: ID_Input;
-  process?: ID_Input;
-  path?: ID_Input;
-  feeling?: ID_Input;
-  prayedAt?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  userId?: ID_Input;
-}
-
-export interface SourceUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  feelings?: SourceUpdatefeelingsInput;
-  userId?: ID_Input;
-}
-
-export interface ThoughtUpsertWithWhereUniqueNestedInput {
-  where: ThoughtWhereUniqueInput;
-  update: ThoughtUpdateDataInput;
-  create: ThoughtCreateInput;
-}
-
-export interface InventoryWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  paths_every?: InventoryPathWhereInput;
-  paths_some?: InventoryPathWhereInput;
-  paths_none?: InventoryPathWhereInput;
-  AND?: InventoryWhereInput[] | InventoryWhereInput;
-  OR?: InventoryWhereInput[] | InventoryWhereInput;
-  NOT?: InventoryWhereInput[] | InventoryWhereInput;
-}
-
-export interface ThoughtScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  character?: ID_Input;
-  character_not?: ID_Input;
-  character_in?: ID_Input[] | ID_Input;
-  character_not_in?: ID_Input[] | ID_Input;
-  character_lt?: ID_Input;
-  character_lte?: ID_Input;
-  character_gt?: ID_Input;
-  character_gte?: ID_Input;
-  character_contains?: ID_Input;
-  character_not_contains?: ID_Input;
-  character_starts_with?: ID_Input;
-  character_not_starts_with?: ID_Input;
-  character_ends_with?: ID_Input;
-  character_not_ends_with?: ID_Input;
-  thought?: String;
-  thought_not?: String;
-  thought_in?: String[] | String;
-  thought_not_in?: String[] | String;
-  thought_lt?: String;
-  thought_lte?: String;
-  thought_gt?: String;
-  thought_gte?: String;
-  thought_contains?: String;
-  thought_not_contains?: String;
-  thought_starts_with?: String;
-  thought_not_starts_with?: String;
-  thought_ends_with?: String;
-  thought_not_ends_with?: String;
-  quality?: Boolean;
-  quality_not?: Boolean;
-  source?: ID_Input;
-  source_not?: ID_Input;
-  source_in?: ID_Input[] | ID_Input;
-  source_not_in?: ID_Input[] | ID_Input;
-  source_lt?: ID_Input;
-  source_lte?: ID_Input;
-  source_gt?: ID_Input;
-  source_gte?: ID_Input;
-  source_contains?: ID_Input;
-  source_not_contains?: ID_Input;
-  source_starts_with?: ID_Input;
-  source_not_starts_with?: ID_Input;
-  source_ends_with?: ID_Input;
-  source_not_ends_with?: ID_Input;
-  process?: ID_Input;
-  process_not?: ID_Input;
-  process_in?: ID_Input[] | ID_Input;
-  process_not_in?: ID_Input[] | ID_Input;
-  process_lt?: ID_Input;
-  process_lte?: ID_Input;
-  process_gt?: ID_Input;
-  process_gte?: ID_Input;
-  process_contains?: ID_Input;
-  process_not_contains?: ID_Input;
-  process_starts_with?: ID_Input;
-  process_not_starts_with?: ID_Input;
-  process_ends_with?: ID_Input;
-  process_not_ends_with?: ID_Input;
-  path?: ID_Input;
-  path_not?: ID_Input;
-  path_in?: ID_Input[] | ID_Input;
-  path_not_in?: ID_Input[] | ID_Input;
-  path_lt?: ID_Input;
-  path_lte?: ID_Input;
-  path_gt?: ID_Input;
-  path_gte?: ID_Input;
-  path_contains?: ID_Input;
-  path_not_contains?: ID_Input;
-  path_starts_with?: ID_Input;
-  path_not_starts_with?: ID_Input;
-  path_ends_with?: ID_Input;
-  path_not_ends_with?: ID_Input;
-  feeling?: ID_Input;
-  feeling_not?: ID_Input;
-  feeling_in?: ID_Input[] | ID_Input;
-  feeling_not_in?: ID_Input[] | ID_Input;
-  feeling_lt?: ID_Input;
-  feeling_lte?: ID_Input;
-  feeling_gt?: ID_Input;
-  feeling_gte?: ID_Input;
-  feeling_contains?: ID_Input;
-  feeling_not_contains?: ID_Input;
-  feeling_starts_with?: ID_Input;
-  feeling_not_starts_with?: ID_Input;
-  feeling_ends_with?: ID_Input;
-  feeling_not_ends_with?: ID_Input;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  prayedAt?: DateTimeInput;
-  prayedAt_not?: DateTimeInput;
-  prayedAt_in?: DateTimeInput[] | DateTimeInput;
-  prayedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  prayedAt_lt?: DateTimeInput;
-  prayedAt_lte?: DateTimeInput;
-  prayedAt_gt?: DateTimeInput;
-  prayedAt_gte?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  sharedAt_not?: DateTimeInput;
-  sharedAt_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  sharedAt_lt?: DateTimeInput;
-  sharedAt_lte?: DateTimeInput;
-  sharedAt_gt?: DateTimeInput;
-  sharedAt_gte?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  amendedAt_not?: DateTimeInput;
-  amendedAt_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  amendedAt_lt?: DateTimeInput;
-  amendedAt_lte?: DateTimeInput;
-  amendedAt_gt?: DateTimeInput;
-  amendedAt_gte?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  resolvedAt_not?: DateTimeInput;
-  resolvedAt_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  resolvedAt_lt?: DateTimeInput;
-  resolvedAt_lte?: DateTimeInput;
-  resolvedAt_gt?: DateTimeInput;
-  resolvedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: ThoughtScalarWhereInput[] | ThoughtScalarWhereInput;
-  OR?: ThoughtScalarWhereInput[] | ThoughtScalarWhereInput;
-  NOT?: ThoughtScalarWhereInput[] | ThoughtScalarWhereInput;
-}
-
-export interface ProcessSourceUpdateInput {
-  key?: String;
-  title?: String;
-  feelings?: SourceFeelingUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface InventoryCreateOneInput {
-  create?: InventoryCreateInput;
-  connect?: InventoryWhereUniqueInput;
-}
-
-export interface ProcessUpdateInput {
-  key?: String;
-  title?: String;
-  sources?: ProcessUpdatesourcesInput;
-  userId?: ID_Input;
-}
-
-export interface ThoughtUpdateManyDataInput {
-  character?: ID_Input;
-  thought?: String;
-  quality?: Boolean;
-  source?: ID_Input;
-  process?: ID_Input;
-  path?: ID_Input;
-  feeling?: ID_Input;
-  prayedAt?: DateTimeInput;
-  sharedAt?: DateTimeInput;
-  amendedAt?: DateTimeInput;
-  resolvedAt?: DateTimeInput;
-  userId?: ID_Input;
-}
-
-export interface PathFeelingUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface SourceFeelingUpsertWithWhereUniqueNestedInput {
-  where: SourceFeelingWhereUniqueInput;
-  update: SourceFeelingUpdateDataInput;
-  create: SourceFeelingCreateInput;
+export interface PathUpdatefeelingsInput {
+  set?: String[] | String;
 }
 
 export interface PathWhereInput {
@@ -2992,661 +843,6 @@ export interface PathWhereInput {
   AND?: PathWhereInput[] | PathWhereInput;
   OR?: PathWhereInput[] | PathWhereInput;
   NOT?: PathWhereInput[] | PathWhereInput;
-}
-
-export interface SourceFeelingScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: SourceFeelingScalarWhereInput[] | SourceFeelingScalarWhereInput;
-  OR?: SourceFeelingScalarWhereInput[] | SourceFeelingScalarWhereInput;
-  NOT?: SourceFeelingScalarWhereInput[] | SourceFeelingScalarWhereInput;
-}
-
-export interface PathCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  feelings?: PathCreatefeelingsInput;
-  userId: ID_Input;
-}
-
-export interface SourceFeelingUpdateManyWithWhereNestedInput {
-  where: SourceFeelingScalarWhereInput;
-  data: SourceFeelingUpdateManyDataInput;
-}
-
-export interface InventoryUpdateInput {
-  paths?: InventoryPathUpdateManyInput;
-}
-
-export interface SourceFeelingUpdateManyDataInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface CastUpdateDataInput {
-  characters?: CastCharacterUpdateManyInput;
-}
-
-export interface ProcessSourceUpsertWithWhereUniqueNestedInput {
-  where: ProcessSourceWhereUniqueInput;
-  update: ProcessSourceUpdateDataInput;
-  create: ProcessSourceCreateInput;
-}
-
-export type ProcessSourceWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface ProcessSourceScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: ProcessSourceScalarWhereInput[] | ProcessSourceScalarWhereInput;
-  OR?: ProcessSourceScalarWhereInput[] | ProcessSourceScalarWhereInput;
-  NOT?: ProcessSourceScalarWhereInput[] | ProcessSourceScalarWhereInput;
-}
-
-export type SourceWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  key?: String;
-}>;
-
-export interface ProcessSourceUpdateManyWithWhereNestedInput {
-  where: ProcessSourceScalarWhereInput;
-  data: ProcessSourceUpdateManyDataInput;
-}
-
-export interface CastWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  characters_every?: CastCharacterWhereInput;
-  characters_some?: CastCharacterWhereInput;
-  characters_none?: CastCharacterWhereInput;
-  AND?: CastWhereInput[] | CastWhereInput;
-  OR?: CastWhereInput[] | CastWhereInput;
-  NOT?: CastWhereInput[] | CastWhereInput;
-}
-
-export interface ProcessSourceUpdateManyDataInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export interface InventorySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: InventoryWhereInput;
-  AND?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-  OR?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-  NOT?: InventorySubscriptionWhereInput[] | InventorySubscriptionWhereInput;
-}
-
-export interface CharacterProcessUpsertNestedInput {
-  update: CharacterProcessUpdateDataInput;
-  create: CharacterProcessCreateInput;
-}
-
-export type CharacterProcessWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface CastCharacterUpsertWithWhereUniqueNestedInput {
-  where: CastCharacterWhereUniqueInput;
-  update: CastCharacterUpdateDataInput;
-  create: CastCharacterCreateInput;
-}
-
-export interface UserUpdateInput {
-  email?: String;
-  password?: String;
-}
-
-export interface CastCharacterScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: CastCharacterScalarWhereInput[] | CastCharacterScalarWhereInput;
-  OR?: CastCharacterScalarWhereInput[] | CastCharacterScalarWhereInput;
-  NOT?: CastCharacterScalarWhereInput[] | CastCharacterScalarWhereInput;
-}
-
-export interface PathFeelingWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  thoughts_every?: ThoughtWhereInput;
-  thoughts_some?: ThoughtWhereInput;
-  thoughts_none?: ThoughtWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: PathFeelingWhereInput[] | PathFeelingWhereInput;
-  OR?: PathFeelingWhereInput[] | PathFeelingWhereInput;
-  NOT?: PathFeelingWhereInput[] | PathFeelingWhereInput;
-}
-
-export interface CastCharacterUpdateManyWithWhereNestedInput {
-  where: CastCharacterScalarWhereInput;
-  data: CastCharacterUpdateManyDataInput;
-}
-
-export interface SourceCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  feelings?: SourceCreatefeelingsInput;
-  userId: ID_Input;
-}
-
-export interface CastCharacterUpdateManyDataInput {
-  title?: String;
-  description?: String;
-  userId?: ID_Input;
-}
-
-export type InventoryPathWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface CastCharacterUpdateInput {
-  title?: String;
-  description?: String;
-  process?: CharacterProcessUpdateOneRequiredInput;
-  userId?: ID_Input;
-}
-
-export interface PathUpdateInput {
-  key?: String;
-  title?: String;
-  feelings?: PathUpdatefeelingsInput;
-  userId?: ID_Input;
-}
-
-export interface CastCharacterUpdateManyMutationInput {
-  title?: String;
-  description?: String;
-  userId?: ID_Input;
-}
-
-export interface CastUpsertNestedInput {
-  update: CastUpdateDataInput;
-  create: CastCreateInput;
-}
-
-export interface CharacterCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  description?: String;
-  process: String;
-  userId: ID_Input;
-}
-
-export interface InventoryPathScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  key?: String;
-  key_not?: String;
-  key_in?: String[] | String;
-  key_not_in?: String[] | String;
-  key_lt?: String;
-  key_lte?: String;
-  key_gt?: String;
-  key_gte?: String;
-  key_contains?: String;
-  key_not_contains?: String;
-  key_starts_with?: String;
-  key_not_starts_with?: String;
-  key_ends_with?: String;
-  key_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  userId?: ID_Input;
-  userId_not?: ID_Input;
-  userId_in?: ID_Input[] | ID_Input;
-  userId_not_in?: ID_Input[] | ID_Input;
-  userId_lt?: ID_Input;
-  userId_lte?: ID_Input;
-  userId_gt?: ID_Input;
-  userId_gte?: ID_Input;
-  userId_contains?: ID_Input;
-  userId_not_contains?: ID_Input;
-  userId_starts_with?: ID_Input;
-  userId_not_starts_with?: ID_Input;
-  userId_ends_with?: ID_Input;
-  userId_not_ends_with?: ID_Input;
-  AND?: InventoryPathScalarWhereInput[] | InventoryPathScalarWhereInput;
-  OR?: InventoryPathScalarWhereInput[] | InventoryPathScalarWhereInput;
-  NOT?: InventoryPathScalarWhereInput[] | InventoryPathScalarWhereInput;
-}
-
-export interface CharacterUpdateInput {
-  key?: String;
-  title?: String;
-  description?: String;
-  process?: String;
-  userId?: ID_Input;
-}
-
-export interface PathFeelingSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: PathFeelingWhereInput;
-  AND?: PathFeelingSubscriptionWhereInput[] | PathFeelingSubscriptionWhereInput;
-  OR?: PathFeelingSubscriptionWhereInput[] | PathFeelingSubscriptionWhereInput;
-  NOT?: PathFeelingSubscriptionWhereInput[] | PathFeelingSubscriptionWhereInput;
-}
-
-export interface CharacterUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  description?: String;
-  process?: String;
-  userId?: ID_Input;
-}
-
-export interface AuthPayloadSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: AuthPayloadWhereInput;
-  AND?: AuthPayloadSubscriptionWhereInput[] | AuthPayloadSubscriptionWhereInput;
-  OR?: AuthPayloadSubscriptionWhereInput[] | AuthPayloadSubscriptionWhereInput;
-  NOT?: AuthPayloadSubscriptionWhereInput[] | AuthPayloadSubscriptionWhereInput;
-}
-
-export interface CharacterProcessUpdateInput {
-  key?: String;
-  title?: String;
-  sources?: ProcessSourceUpdateManyInput;
-  userId?: ID_Input;
-}
-
-export interface SourceUpdateInput {
-  key?: String;
-  title?: String;
-  feelings?: SourceUpdatefeelingsInput;
-  userId?: ID_Input;
-}
-
-export interface CharacterProcessUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  userId?: ID_Input;
-}
-
-export type PathWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  key?: String;
-}>;
-
-export interface FeelingCreateInput {
-  id?: ID_Input;
-  key: String;
-  title: String;
-  thoughts?: FeelingCreatethoughtsInput;
-  userId: ID_Input;
-}
-
-export interface InventoryUpsertNestedInput {
-  update: InventoryUpdateDataInput;
-  create: InventoryCreateInput;
-}
-
-export interface FeelingUpdateManyMutationInput {
-  key?: String;
-  title?: String;
-  thoughts?: FeelingUpdatethoughtsInput;
-  userId?: ID_Input;
-}
-
-export interface FeelingUpdatethoughtsInput {
-  set?: String[] | String;
-}
-
-export interface FeelingUpdateInput {
-  key?: String;
-  title?: String;
-  thoughts?: FeelingUpdatethoughtsInput;
-  userId?: ID_Input;
-}
-
-export interface FeelingCreatethoughtsInput {
-  set?: String[] | String;
 }
 
 export interface ThoughtWhereInput {
@@ -3817,10 +1013,63 @@ export interface ThoughtWhereInput {
   NOT?: ThoughtWhereInput[] | ThoughtWhereInput;
 }
 
-export interface InventoryPathUpdateManyMutationInput {
+export interface SourceUpdateManyMutationInput {
   key?: String;
   title?: String;
+  feelings?: SourceUpdatefeelingsInput;
   userId?: ID_Input;
+}
+
+export interface SourceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: SourceWhereInput;
+  AND?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
+  OR?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
+  NOT?: SourceSubscriptionWhereInput[] | SourceSubscriptionWhereInput;
+}
+
+export interface SourceUpdateInput {
+  key?: String;
+  title?: String;
+  feelings?: SourceUpdatefeelingsInput;
+  userId?: ID_Input;
+}
+
+export interface PathUpdateInput {
+  key?: String;
+  title?: String;
+  feelings?: PathUpdatefeelingsInput;
+  userId?: ID_Input;
+}
+
+export interface SourceCreatefeelingsInput {
+  set?: String[] | String;
+}
+
+export interface PathCreatefeelingsInput {
+  set?: String[] | String;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface PathCreateInput {
+  id?: ID_Input;
+  key: String;
+  title: String;
+  feelings?: PathCreatefeelingsInput;
+  userId: ID_Input;
 }
 
 export interface ProcessUpdateManyMutationInput {
@@ -3830,11 +1079,125 @@ export interface ProcessUpdateManyMutationInput {
   userId?: ID_Input;
 }
 
-export type HigherPowerWhereUniqueInput = AtLeastOne<{
+export type UserWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  email?: String;
 }>;
 
-export interface CharacterProcessWhereInput {
+export type SourceWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  key?: String;
+}>;
+
+export interface FeelingUpdateManyMutationInput {
+  key?: String;
+  title?: String;
+  thoughts?: FeelingUpdatethoughtsInput;
+  userId?: ID_Input;
+}
+
+export type FeelingWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  key?: String;
+}>;
+
+export interface UserWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
+}
+
+export interface UserCreateInput {
+  id?: ID_Input;
+  email: String;
+  password: String;
+}
+
+export interface ThoughtSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ThoughtWhereInput;
+  AND?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
+  OR?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
+  NOT?: ThoughtSubscriptionWhereInput[] | ThoughtSubscriptionWhereInput;
+}
+
+export interface ThoughtCreateInput {
+  id?: ID_Input;
+  character?: ID_Input;
+  thought: String;
+  quality?: Boolean;
+  source?: ID_Input;
+  process?: ID_Input;
+  path?: ID_Input;
+  feeling: ID_Input;
+  prayedAt?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  userId: ID_Input;
+}
+
+export interface FeelingUpdatethoughtsInput {
+  set?: String[] | String;
+}
+
+export interface SourceUpdatefeelingsInput {
+  set?: String[] | String;
+}
+
+export interface FeelingUpdateInput {
+  key?: String;
+  title?: String;
+  thoughts?: FeelingUpdatethoughtsInput;
+  userId?: ID_Input;
+}
+
+export interface ProcessWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -3877,9 +1240,6 @@ export interface CharacterProcessWhereInput {
   title_not_starts_with?: String;
   title_ends_with?: String;
   title_not_ends_with?: String;
-  sources_every?: ProcessSourceWhereInput;
-  sources_some?: ProcessSourceWhereInput;
-  sources_none?: ProcessSourceWhereInput;
   createdAt?: DateTimeInput;
   createdAt_not?: DateTimeInput;
   createdAt_in?: DateTimeInput[] | DateTimeInput;
@@ -3910,13 +1270,211 @@ export interface CharacterProcessWhereInput {
   userId_not_starts_with?: ID_Input;
   userId_ends_with?: ID_Input;
   userId_not_ends_with?: ID_Input;
-  AND?: CharacterProcessWhereInput[] | CharacterProcessWhereInput;
-  OR?: CharacterProcessWhereInput[] | CharacterProcessWhereInput;
-  NOT?: CharacterProcessWhereInput[] | CharacterProcessWhereInput;
+  AND?: ProcessWhereInput[] | ProcessWhereInput;
+  OR?: ProcessWhereInput[] | ProcessWhereInput;
+  NOT?: ProcessWhereInput[] | ProcessWhereInput;
+}
+
+export interface FeelingCreatethoughtsInput {
+  set?: String[] | String;
+}
+
+export interface ProcessUpdatesourcesInput {
+  set?: String[] | String;
+}
+
+export interface FeelingWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  key?: String;
+  key_not?: String;
+  key_in?: String[] | String;
+  key_not_in?: String[] | String;
+  key_lt?: String;
+  key_lte?: String;
+  key_gt?: String;
+  key_gte?: String;
+  key_contains?: String;
+  key_not_contains?: String;
+  key_starts_with?: String;
+  key_not_starts_with?: String;
+  key_ends_with?: String;
+  key_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  userId?: ID_Input;
+  userId_not?: ID_Input;
+  userId_in?: ID_Input[] | ID_Input;
+  userId_not_in?: ID_Input[] | ID_Input;
+  userId_lt?: ID_Input;
+  userId_lte?: ID_Input;
+  userId_gt?: ID_Input;
+  userId_gte?: ID_Input;
+  userId_contains?: ID_Input;
+  userId_not_contains?: ID_Input;
+  userId_starts_with?: ID_Input;
+  userId_not_starts_with?: ID_Input;
+  userId_ends_with?: ID_Input;
+  userId_not_ends_with?: ID_Input;
+  AND?: FeelingWhereInput[] | FeelingWhereInput;
+  OR?: FeelingWhereInput[] | FeelingWhereInput;
+  NOT?: FeelingWhereInput[] | FeelingWhereInput;
+}
+
+export interface CharacterUpdateManyMutationInput {
+  key?: String;
+  title?: String;
+  description?: String;
+  process?: String;
+  userId?: ID_Input;
+}
+
+export interface CharacterUpdateInput {
+  key?: String;
+  title?: String;
+  description?: String;
+  process?: String;
+  userId?: ID_Input;
+}
+
+export interface CharacterCreateInput {
+  id?: ID_Input;
+  key: String;
+  title: String;
+  description?: String;
+  process: String;
+  userId: ID_Input;
+}
+
+export interface ThoughtUpdateInput {
+  character?: ID_Input;
+  thought?: String;
+  quality?: Boolean;
+  source?: ID_Input;
+  process?: ID_Input;
+  path?: ID_Input;
+  feeling?: ID_Input;
+  prayedAt?: DateTimeInput;
+  sharedAt?: DateTimeInput;
+  amendedAt?: DateTimeInput;
+  resolvedAt?: DateTimeInput;
+  userId?: ID_Input;
+}
+
+export interface CharacterSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CharacterWhereInput;
+  AND?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+  OR?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+  NOT?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+}
+
+export interface SourceCreateInput {
+  id?: ID_Input;
+  key: String;
+  title: String;
+  feelings?: SourceCreatefeelingsInput;
+  userId: ID_Input;
+}
+
+export type ProcessWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  key?: String;
+}>;
+
+export interface ProcessSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProcessWhereInput;
+  AND?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
+  OR?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
+  NOT?: ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface FeelingConnection {
+  pageInfo: PageInfo;
+  edges: FeelingEdge[];
+}
+
+export interface FeelingConnectionPromise
+  extends Promise<FeelingConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FeelingEdge>>() => T;
+  aggregate: <T = AggregateFeelingPromise>() => T;
+}
+
+export interface FeelingConnectionSubscription
+  extends Promise<AsyncIterator<FeelingConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FeelingEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFeelingSubscription>() => T;
 }
 
 export interface UserPreviousValues {
@@ -3941,1155 +1499,21 @@ export interface UserPreviousValuesSubscription
   password: () => Promise<AsyncIterator<String>>;
 }
 
-export interface FeelingConnection {
-  pageInfo: PageInfo;
-  edges: FeelingEdge[];
-}
-
-export interface FeelingConnectionPromise
-  extends Promise<FeelingConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<FeelingEdge>>() => T;
-  aggregate: <T = AggregateFeelingPromise>() => T;
-}
-
-export interface FeelingConnectionSubscription
-  extends Promise<AsyncIterator<FeelingConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<FeelingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateFeelingSubscription>() => T;
-}
-
-export interface CastCharacter {
-  id: ID_Output;
-  title: String;
-  description?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface CastCharacterPromise
-  extends Promise<CastCharacter>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  process: <T = CharacterProcessPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface CastCharacterSubscription
-  extends Promise<AsyncIterator<CastCharacter>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  process: <T = CharacterProcessSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface Cast {
-  id: ID_Output;
-}
-
-export interface CastPromise extends Promise<Cast>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  characters: <T = FragmentableArray<CastCharacter>>(
-    args?: {
-      where?: CastCharacterWhereInput;
-      orderBy?: CastCharacterOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface CastSubscription
-  extends Promise<AsyncIterator<Cast>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  characters: <T = Promise<AsyncIterator<CastCharacterSubscription>>>(
-    args?: {
-      where?: CastCharacterWhereInput;
-      orderBy?: CastCharacterOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface CharacterProcess {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface CharacterProcessPromise
-  extends Promise<CharacterProcess>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  sources: <T = FragmentableArray<ProcessSource>>(
-    args?: {
-      where?: ProcessSourceWhereInput;
-      orderBy?: ProcessSourceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface CharacterProcessSubscription
-  extends Promise<AsyncIterator<CharacterProcess>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  sources: <T = Promise<AsyncIterator<ProcessSourceSubscription>>>(
-    args?: {
-      where?: ProcessSourceWhereInput;
-      orderBy?: ProcessSourceOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface Feeling {
-  id: ID_Output;
-  key: String;
-  title: String;
-  thoughts: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface FeelingPromise extends Promise<Feeling>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  thoughts: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface FeelingSubscription
-  extends Promise<AsyncIterator<Feeling>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  thoughts: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateCharacterProcess {
-  count: Int;
-}
-
-export interface AggregateCharacterProcessPromise
-  extends Promise<AggregateCharacterProcess>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCharacterProcessSubscription
-  extends Promise<AsyncIterator<AggregateCharacterProcess>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
-}
-
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
-}
-
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProcessSource {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface ProcessSourcePromise
-  extends Promise<ProcessSource>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  feelings: <T = FragmentableArray<SourceFeeling>>(
-    args?: {
-      where?: SourceFeelingWhereInput;
-      orderBy?: SourceFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface ProcessSourceSubscription
-  extends Promise<AsyncIterator<ProcessSource>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  feelings: <T = Promise<AsyncIterator<SourceFeelingSubscription>>>(
-    args?: {
-      where?: SourceFeelingWhereInput;
-      orderBy?: SourceFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface ThoughtSubscriptionPayload {
-  mutation: MutationType;
-  node: Thought;
-  updatedFields: String[];
-  previousValues: ThoughtPreviousValues;
-}
-
-export interface ThoughtSubscriptionPayloadPromise
-  extends Promise<ThoughtSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ThoughtPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ThoughtPreviousValuesPromise>() => T;
-}
-
-export interface ThoughtSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ThoughtSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ThoughtSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ThoughtPreviousValuesSubscription>() => T;
-}
-
-export interface User {
-  id: ID_Output;
-  email: String;
-  password: String;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateThought {
-  count: Int;
-}
-
-export interface AggregateThoughtPromise
-  extends Promise<AggregateThought>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateThoughtSubscription
-  extends Promise<AsyncIterator<AggregateThought>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ThoughtConnection {
-  pageInfo: PageInfo;
-  edges: ThoughtEdge[];
-}
-
-export interface ThoughtConnectionPromise
-  extends Promise<ThoughtConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ThoughtEdge>>() => T;
-  aggregate: <T = AggregateThoughtPromise>() => T;
-}
-
-export interface ThoughtConnectionSubscription
-  extends Promise<AsyncIterator<ThoughtConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ThoughtEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateThoughtSubscription>() => T;
-}
-
-export interface AuthPayloadSubscriptionPayload {
-  mutation: MutationType;
-  node: AuthPayload;
-  updatedFields: String[];
-  previousValues: AuthPayloadPreviousValues;
-}
-
-export interface AuthPayloadSubscriptionPayloadPromise
-  extends Promise<AuthPayloadSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AuthPayloadPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AuthPayloadPreviousValuesPromise>() => T;
-}
-
-export interface AuthPayloadSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<AuthPayloadSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = AuthPayloadSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = AuthPayloadPreviousValuesSubscription>() => T;
-}
-
-export interface SourceFeelingEdge {
-  node: SourceFeeling;
-  cursor: String;
-}
-
-export interface SourceFeelingEdgePromise
-  extends Promise<SourceFeelingEdge>,
-    Fragmentable {
-  node: <T = SourceFeelingPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SourceFeelingEdgeSubscription
-  extends Promise<AsyncIterator<SourceFeelingEdge>>,
-    Fragmentable {
-  node: <T = SourceFeelingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AuthPayloadPreviousValues {
-  token: String;
-  userId: ID_Output;
-}
-
-export interface AuthPayloadPreviousValuesPromise
-  extends Promise<AuthPayloadPreviousValues>,
-    Fragmentable {
-  token: () => Promise<String>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface AuthPayloadPreviousValuesSubscription
-  extends Promise<AsyncIterator<AuthPayloadPreviousValues>>,
-    Fragmentable {
-  token: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AggregateSource {
-  count: Int;
-}
-
-export interface AggregateSourcePromise
-  extends Promise<AggregateSource>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSourceSubscription
-  extends Promise<AsyncIterator<AggregateSource>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CharacterProcessEdge {
-  node: CharacterProcess;
-  cursor: String;
-}
-
-export interface CharacterProcessEdgePromise
-  extends Promise<CharacterProcessEdge>,
-    Fragmentable {
-  node: <T = CharacterProcessPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CharacterProcessEdgeSubscription
-  extends Promise<AsyncIterator<CharacterProcessEdge>>,
-    Fragmentable {
-  node: <T = CharacterProcessSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SourceConnection {
-  pageInfo: PageInfo;
-  edges: SourceEdge[];
-}
-
-export interface SourceConnectionPromise
-  extends Promise<SourceConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SourceEdge>>() => T;
-  aggregate: <T = AggregateSourcePromise>() => T;
-}
-
-export interface SourceConnectionSubscription
-  extends Promise<AsyncIterator<SourceConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SourceEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSourceSubscription>() => T;
-}
-
-export interface CastSubscriptionPayload {
-  mutation: MutationType;
-  node: Cast;
-  updatedFields: String[];
-  previousValues: CastPreviousValues;
-}
-
-export interface CastSubscriptionPayloadPromise
-  extends Promise<CastSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CastPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CastPreviousValuesPromise>() => T;
-}
-
-export interface CastSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CastSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CastSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CastPreviousValuesSubscription>() => T;
-}
-
-export interface Source {
-  id: ID_Output;
-  key: String;
-  title: String;
-  feelings: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface SourcePromise extends Promise<Source>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  feelings: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface SourceSubscription
-  extends Promise<AsyncIterator<Source>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface CastPreviousValues {
-  id: ID_Output;
-}
-
-export interface CastPreviousValuesPromise
-  extends Promise<CastPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-}
-
-export interface CastPreviousValuesSubscription
-  extends Promise<AsyncIterator<CastPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface ProcessSourceEdge {
-  node: ProcessSource;
-  cursor: String;
-}
-
-export interface ProcessSourceEdgePromise
-  extends Promise<ProcessSourceEdge>,
-    Fragmentable {
-  node: <T = ProcessSourcePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProcessSourceEdgeSubscription
-  extends Promise<AsyncIterator<ProcessSourceEdge>>,
-    Fragmentable {
-  node: <T = ProcessSourceSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CharacterProcessConnection {
-  pageInfo: PageInfo;
-  edges: CharacterProcessEdge[];
-}
-
-export interface CharacterProcessConnectionPromise
-  extends Promise<CharacterProcessConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CharacterProcessEdge>>() => T;
-  aggregate: <T = AggregateCharacterProcessPromise>() => T;
-}
-
-export interface CharacterProcessConnectionSubscription
-  extends Promise<AsyncIterator<CharacterProcessConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CharacterProcessEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCharacterProcessSubscription>() => T;
-}
-
-export interface AggregateProcess {
-  count: Int;
-}
-
-export interface AggregateProcessPromise
-  extends Promise<AggregateProcess>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateProcessSubscription
-  extends Promise<AsyncIterator<AggregateProcess>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CastCharacterSubscriptionPayload {
-  mutation: MutationType;
-  node: CastCharacter;
-  updatedFields: String[];
-  previousValues: CastCharacterPreviousValues;
-}
-
-export interface CastCharacterSubscriptionPayloadPromise
-  extends Promise<CastCharacterSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CastCharacterPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CastCharacterPreviousValuesPromise>() => T;
-}
-
-export interface CastCharacterSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CastCharacterSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CastCharacterSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CastCharacterPreviousValuesSubscription>() => T;
-}
-
-export interface ProcessConnection {
-  pageInfo: PageInfo;
-  edges: ProcessEdge[];
-}
-
-export interface ProcessConnectionPromise
-  extends Promise<ProcessConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProcessEdge>>() => T;
-  aggregate: <T = AggregateProcessPromise>() => T;
-}
-
-export interface ProcessConnectionSubscription
-  extends Promise<AsyncIterator<ProcessConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProcessEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProcessSubscription>() => T;
-}
-
-export interface CastCharacterPreviousValues {
-  id: ID_Output;
-  title: String;
-  description?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface CastCharacterPreviousValuesPromise
-  extends Promise<CastCharacterPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface CastCharacterPreviousValuesSubscription
-  extends Promise<AsyncIterator<CastCharacterPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface Process {
-  id: ID_Output;
-  key: String;
-  title: String;
-  sources: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface ProcessPromise extends Promise<Process>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  sources: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface ProcessSubscription
-  extends Promise<AsyncIterator<Process>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  sources: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AggregateCharacter {
-  count: Int;
-}
-
-export interface AggregateCharacterPromise
-  extends Promise<AggregateCharacter>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCharacterSubscription
-  extends Promise<AsyncIterator<AggregateCharacter>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PathFeelingEdge {
-  node: PathFeeling;
-  cursor: String;
-}
-
-export interface PathFeelingEdgePromise
-  extends Promise<PathFeelingEdge>,
-    Fragmentable {
-  node: <T = PathFeelingPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PathFeelingEdgeSubscription
-  extends Promise<AsyncIterator<PathFeelingEdge>>,
-    Fragmentable {
-  node: <T = PathFeelingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CharacterSubscriptionPayload {
-  mutation: MutationType;
-  node: Character;
-  updatedFields: String[];
-  previousValues: CharacterPreviousValues;
-}
-
-export interface CharacterSubscriptionPayloadPromise
-  extends Promise<CharacterSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CharacterPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CharacterPreviousValuesPromise>() => T;
-}
-
-export interface CharacterSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CharacterSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CharacterSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CharacterPreviousValuesSubscription>() => T;
-}
-
-export interface AggregatePath {
-  count: Int;
-}
-
-export interface AggregatePathPromise
-  extends Promise<AggregatePath>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregatePathSubscription
-  extends Promise<AsyncIterator<AggregatePath>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CharacterPreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  description?: String;
-  process: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface CharacterPreviousValuesPromise
-  extends Promise<CharacterPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  process: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface CharacterPreviousValuesSubscription
-  extends Promise<AsyncIterator<CharacterPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  process: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface PathConnection {
-  pageInfo: PageInfo;
-  edges: PathEdge[];
-}
-
-export interface PathConnectionPromise
-  extends Promise<PathConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PathEdge>>() => T;
-  aggregate: <T = AggregatePathPromise>() => T;
-}
-
-export interface PathConnectionSubscription
-  extends Promise<AsyncIterator<PathConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PathEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePathSubscription>() => T;
-}
-
-export interface CharacterEdge {
-  node: Character;
-  cursor: String;
-}
-
-export interface CharacterEdgePromise
-  extends Promise<CharacterEdge>,
-    Fragmentable {
-  node: <T = CharacterPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CharacterEdgeSubscription
-  extends Promise<AsyncIterator<CharacterEdge>>,
-    Fragmentable {
-  node: <T = CharacterSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface Path {
-  id: ID_Output;
-  key: String;
-  title: String;
-  feelings: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface PathPromise extends Promise<Path>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  feelings: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface PathSubscription
-  extends Promise<AsyncIterator<Path>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface CharacterProcessSubscriptionPayload {
-  mutation: MutationType;
-  node: CharacterProcess;
-  updatedFields: String[];
-  previousValues: CharacterProcessPreviousValues;
-}
-
-export interface CharacterProcessSubscriptionPayloadPromise
-  extends Promise<CharacterProcessSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CharacterProcessPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CharacterProcessPreviousValuesPromise>() => T;
-}
-
-export interface CharacterProcessSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CharacterProcessSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CharacterProcessSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CharacterProcessPreviousValuesSubscription>() => T;
-}
-
-export interface InventoryPathEdge {
-  node: InventoryPath;
-  cursor: String;
-}
-
-export interface InventoryPathEdgePromise
-  extends Promise<InventoryPathEdge>,
-    Fragmentable {
-  node: <T = InventoryPathPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface InventoryPathEdgeSubscription
-  extends Promise<AsyncIterator<InventoryPathEdge>>,
-    Fragmentable {
-  node: <T = InventoryPathSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CharacterProcessPreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface CharacterProcessPreviousValuesPromise
-  extends Promise<CharacterProcessPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface CharacterProcessPreviousValuesSubscription
-  extends Promise<AsyncIterator<CharacterProcessPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AggregateInventory {
-  count: Int;
-}
-
-export interface AggregateInventoryPromise
-  extends Promise<AggregateInventory>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateInventorySubscription
-  extends Promise<AsyncIterator<AggregateInventory>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CharacterConnection {
-  pageInfo: PageInfo;
-  edges: CharacterEdge[];
-}
-
-export interface CharacterConnectionPromise
-  extends Promise<CharacterConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CharacterEdge>>() => T;
-  aggregate: <T = AggregateCharacterPromise>() => T;
-}
-
-export interface CharacterConnectionSubscription
-  extends Promise<AsyncIterator<CharacterConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CharacterEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCharacterSubscription>() => T;
-}
-
-export interface InventoryConnection {
-  pageInfo: PageInfo;
-  edges: InventoryEdge[];
-}
-
-export interface InventoryConnectionPromise
-  extends Promise<InventoryConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<InventoryEdge>>() => T;
-  aggregate: <T = AggregateInventoryPromise>() => T;
-}
-
-export interface InventoryConnectionSubscription
-  extends Promise<AsyncIterator<InventoryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<InventoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateInventorySubscription>() => T;
-}
-
-export interface FeelingSubscriptionPayload {
-  mutation: MutationType;
+export interface FeelingEdge {
   node: Feeling;
-  updatedFields: String[];
-  previousValues: FeelingPreviousValues;
+  cursor: String;
 }
 
-export interface FeelingSubscriptionPayloadPromise
-  extends Promise<FeelingSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
+export interface FeelingEdgePromise extends Promise<FeelingEdge>, Fragmentable {
   node: <T = FeelingPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = FeelingPreviousValuesPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface FeelingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<FeelingSubscriptionPayload>>,
+export interface FeelingEdgeSubscription
+  extends Promise<AsyncIterator<FeelingEdge>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
   node: <T = FeelingSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = FeelingPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateHigherPower {
-  count: Int;
-}
-
-export interface AggregateHigherPowerPromise
-  extends Promise<AggregateHigherPower>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateHigherPowerSubscription
-  extends Promise<AsyncIterator<AggregateHigherPower>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface FeelingPreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  thoughts: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface FeelingPreviousValuesPromise
-  extends Promise<FeelingPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  thoughts: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface FeelingPreviousValuesSubscription
-  extends Promise<AsyncIterator<FeelingPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  thoughts: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface HigherPowerConnection {
-  pageInfo: PageInfo;
-  edges: HigherPowerEdge[];
-}
-
-export interface HigherPowerConnectionPromise
-  extends Promise<HigherPowerConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<HigherPowerEdge>>() => T;
-  aggregate: <T = AggregateHigherPowerPromise>() => T;
-}
-
-export interface HigherPowerConnectionSubscription
-  extends Promise<AsyncIterator<HigherPowerConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<HigherPowerEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateHigherPowerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Character {
@@ -5127,227 +1551,6 @@ export interface CharacterSubscription
   userId: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface PathFeeling {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface PathFeelingPromise extends Promise<PathFeeling>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  thoughts: <T = FragmentableArray<Thought>>(
-    args?: {
-      where?: ThoughtWhereInput;
-      orderBy?: ThoughtOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface PathFeelingSubscription
-  extends Promise<AsyncIterator<PathFeeling>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  thoughts: <T = Promise<AsyncIterator<ThoughtSubscription>>>(
-    args?: {
-      where?: ThoughtWhereInput;
-      orderBy?: ThoughtOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface HigherPowerSubscriptionPayload {
-  mutation: MutationType;
-  node: HigherPower;
-  updatedFields: String[];
-  previousValues: HigherPowerPreviousValues;
-}
-
-export interface HigherPowerSubscriptionPayloadPromise
-  extends Promise<HigherPowerSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = HigherPowerPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = HigherPowerPreviousValuesPromise>() => T;
-}
-
-export interface HigherPowerSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<HigherPowerSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = HigherPowerSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = HigherPowerPreviousValuesSubscription>() => T;
-}
-
-export interface InventoryPath {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface InventoryPathPromise
-  extends Promise<InventoryPath>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  feelings: <T = FragmentableArray<PathFeeling>>(
-    args?: {
-      where?: PathFeelingWhereInput;
-      orderBy?: PathFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface InventoryPathSubscription
-  extends Promise<AsyncIterator<InventoryPath>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  feelings: <T = Promise<AsyncIterator<PathFeelingSubscription>>>(
-    args?: {
-      where?: PathFeelingWhereInput;
-      orderBy?: PathFeelingOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface HigherPowerPreviousValues {
-  id: ID_Output;
-}
-
-export interface HigherPowerPreviousValuesPromise
-  extends Promise<HigherPowerPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-}
-
-export interface HigherPowerPreviousValuesSubscription
-  extends Promise<AsyncIterator<HigherPowerPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface HigherPower {
-  id: ID_Output;
-}
-
-export interface HigherPowerPromise extends Promise<HigherPower>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  inventory: <T = InventoryPromise>() => T;
-  cast: <T = CastPromise>() => T;
-}
-
-export interface HigherPowerSubscription
-  extends Promise<AsyncIterator<HigherPower>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  inventory: <T = InventorySubscription>() => T;
-  cast: <T = CastSubscription>() => T;
-}
-
-export interface AggregateCastCharacter {
-  count: Int;
-}
-
-export interface AggregateCastCharacterPromise
-  extends Promise<AggregateCastCharacter>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCastCharacterSubscription
-  extends Promise<AsyncIterator<AggregateCastCharacter>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface FeelingEdge {
-  node: Feeling;
-  cursor: String;
-}
-
-export interface FeelingEdgePromise extends Promise<FeelingEdge>, Fragmentable {
-  node: <T = FeelingPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface FeelingEdgeSubscription
-  extends Promise<AsyncIterator<FeelingEdge>>,
-    Fragmentable {
-  node: <T = FeelingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface InventorySubscriptionPayload {
-  mutation: MutationType;
-  node: Inventory;
-  updatedFields: String[];
-  previousValues: InventoryPreviousValues;
-}
-
-export interface InventorySubscriptionPayloadPromise
-  extends Promise<InventorySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = InventoryPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = InventoryPreviousValuesPromise>() => T;
-}
-
-export interface InventorySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<InventorySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = InventorySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = InventoryPreviousValuesSubscription>() => T;
-}
-
 export interface BatchPayload {
   count: Long;
 }
@@ -5364,474 +1567,89 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>;
 }
 
-export interface InventoryPreviousValues {
-  id: ID_Output;
-}
-
-export interface InventoryPreviousValuesPromise
-  extends Promise<InventoryPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-}
-
-export interface InventoryPreviousValuesSubscription
-  extends Promise<AsyncIterator<InventoryPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AggregateSourceFeeling {
-  count: Int;
-}
-
-export interface AggregateSourceFeelingPromise
-  extends Promise<AggregateSourceFeeling>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSourceFeelingSubscription
-  extends Promise<AsyncIterator<AggregateSourceFeeling>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CastCharacterEdge {
-  node: CastCharacter;
-  cursor: String;
-}
-
-export interface CastCharacterEdgePromise
-  extends Promise<CastCharacterEdge>,
-    Fragmentable {
-  node: <T = CastCharacterPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CastCharacterEdgeSubscription
-  extends Promise<AsyncIterator<CastCharacterEdge>>,
-    Fragmentable {
-  node: <T = CastCharacterSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SourceEdge {
-  node: Source;
-  cursor: String;
-}
-
-export interface SourceEdgePromise extends Promise<SourceEdge>, Fragmentable {
-  node: <T = SourcePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SourceEdgeSubscription
-  extends Promise<AsyncIterator<SourceEdge>>,
-    Fragmentable {
-  node: <T = SourceSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface InventoryPathSubscriptionPayload {
-  mutation: MutationType;
-  node: InventoryPath;
-  updatedFields: String[];
-  previousValues: InventoryPathPreviousValues;
-}
-
-export interface InventoryPathSubscriptionPayloadPromise
-  extends Promise<InventoryPathSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = InventoryPathPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = InventoryPathPreviousValuesPromise>() => T;
-}
-
-export interface InventoryPathSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<InventoryPathSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = InventoryPathSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = InventoryPathPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateProcessSource {
-  count: Int;
-}
-
-export interface AggregateProcessSourcePromise
-  extends Promise<AggregateProcessSource>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateProcessSourceSubscription
-  extends Promise<AsyncIterator<AggregateProcessSource>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface InventoryPathPreviousValues {
+export interface Feeling {
   id: ID_Output;
   key: String;
   title: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface InventoryPathPreviousValuesPromise
-  extends Promise<InventoryPathPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface InventoryPathPreviousValuesSubscription
-  extends Promise<AsyncIterator<InventoryPathPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface ProcessEdge {
-  node: Process;
-  cursor: String;
-}
-
-export interface ProcessEdgePromise extends Promise<ProcessEdge>, Fragmentable {
-  node: <T = ProcessPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProcessEdgeSubscription
-  extends Promise<AsyncIterator<ProcessEdge>>,
-    Fragmentable {
-  node: <T = ProcessSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CastCharacterConnection {
-  pageInfo: PageInfo;
-  edges: CastCharacterEdge[];
-}
-
-export interface CastCharacterConnectionPromise
-  extends Promise<CastCharacterConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CastCharacterEdge>>() => T;
-  aggregate: <T = AggregateCastCharacterPromise>() => T;
-}
-
-export interface CastCharacterConnectionSubscription
-  extends Promise<AsyncIterator<CastCharacterConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CastCharacterEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCastCharacterSubscription>() => T;
-}
-
-export interface AggregatePathFeeling {
-  count: Int;
-}
-
-export interface AggregatePathFeelingPromise
-  extends Promise<AggregatePathFeeling>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregatePathFeelingSubscription
-  extends Promise<AsyncIterator<AggregatePathFeeling>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PathSubscriptionPayload {
-  mutation: MutationType;
-  node: Path;
-  updatedFields: String[];
-  previousValues: PathPreviousValues;
-}
-
-export interface PathSubscriptionPayloadPromise
-  extends Promise<PathSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PathPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PathPreviousValuesPromise>() => T;
-}
-
-export interface PathSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PathSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PathSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PathPreviousValuesSubscription>() => T;
-}
-
-export interface PathEdge {
-  node: Path;
-  cursor: String;
-}
-
-export interface PathEdgePromise extends Promise<PathEdge>, Fragmentable {
-  node: <T = PathPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PathEdgeSubscription
-  extends Promise<AsyncIterator<PathEdge>>,
-    Fragmentable {
-  node: <T = PathSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface PathPreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  feelings: String[];
+  thoughts: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   userId: ID_Output;
 }
 
-export interface PathPreviousValuesPromise
-  extends Promise<PathPreviousValues>,
-    Fragmentable {
+export interface FeelingPromise extends Promise<Feeling>, Fragmentable {
   id: () => Promise<ID_Output>;
   key: () => Promise<String>;
   title: () => Promise<String>;
-  feelings: () => Promise<String[]>;
+  thoughts: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   userId: () => Promise<ID_Output>;
 }
 
-export interface PathPreviousValuesSubscription
-  extends Promise<AsyncIterator<PathPreviousValues>>,
+export interface FeelingSubscription
+  extends Promise<AsyncIterator<Feeling>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   key: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
-  feelings: () => Promise<AsyncIterator<String[]>>;
+  thoughts: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   userId: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface AggregateInventoryPath {
-  count: Int;
-}
-
-export interface AggregateInventoryPathPromise
-  extends Promise<AggregateInventoryPath>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateInventoryPathSubscription
-  extends Promise<AsyncIterator<AggregateInventoryPath>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateCast {
-  count: Int;
-}
-
-export interface AggregateCastPromise
-  extends Promise<AggregateCast>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCastSubscription
-  extends Promise<AsyncIterator<AggregateCast>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface InventoryEdge {
-  node: Inventory;
+export interface UserEdge {
+  node: User;
   cursor: String;
 }
 
-export interface InventoryEdgePromise
-  extends Promise<InventoryEdge>,
-    Fragmentable {
-  node: <T = InventoryPromise>() => T;
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface InventoryEdgeSubscription
-  extends Promise<AsyncIterator<InventoryEdge>>,
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
     Fragmentable {
-  node: <T = InventorySubscription>() => T;
+  node: <T = UserSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface PathFeelingSubscriptionPayload {
-  mutation: MutationType;
-  node: PathFeeling;
-  updatedFields: String[];
-  previousValues: PathFeelingPreviousValues;
-}
-
-export interface PathFeelingSubscriptionPayloadPromise
-  extends Promise<PathFeelingSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PathFeelingPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PathFeelingPreviousValuesPromise>() => T;
-}
-
-export interface PathFeelingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PathFeelingSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PathFeelingSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PathFeelingPreviousValuesSubscription>() => T;
-}
-
-export interface HigherPowerEdge {
-  node: HigherPower;
-  cursor: String;
-}
-
-export interface HigherPowerEdgePromise
-  extends Promise<HigherPowerEdge>,
-    Fragmentable {
-  node: <T = HigherPowerPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface HigherPowerEdgeSubscription
-  extends Promise<AsyncIterator<HigherPowerEdge>>,
-    Fragmentable {
-  node: <T = HigherPowerSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface PathFeelingPreviousValues {
+export interface User {
   id: ID_Output;
-  key: String;
-  title: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
+  email: String;
+  password: String;
 }
 
-export interface PathFeelingPreviousValuesPromise
-  extends Promise<PathFeelingPreviousValues>,
-    Fragmentable {
+export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
 }
 
-export interface PathFeelingPreviousValuesSubscription
-  extends Promise<AsyncIterator<PathFeelingPreviousValues>>,
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateAuthPayload {
+export interface AggregateCharacter {
   count: Int;
 }
 
-export interface AggregateAuthPayloadPromise
-  extends Promise<AggregateAuthPayload>,
+export interface AggregateCharacterPromise
+  extends Promise<AggregateCharacter>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateAuthPayloadSubscription
-  extends Promise<AsyncIterator<AggregateAuthPayload>>,
+export interface AggregateCharacterSubscription
+  extends Promise<AsyncIterator<AggregateCharacter>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CastEdge {
-  node: Cast;
-  cursor: String;
-}
-
-export interface CastEdgePromise extends Promise<CastEdge>, Fragmentable {
-  node: <T = CastPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CastEdgeSubscription
-  extends Promise<AsyncIterator<CastEdge>>,
-    Fragmentable {
-  node: <T = CastSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateFeeling {
-  count: Int;
-}
-
-export interface AggregateFeelingPromise
-  extends Promise<AggregateFeeling>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateFeelingSubscription
-  extends Promise<AsyncIterator<AggregateFeeling>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProcessSubscriptionPayload {
-  mutation: MutationType;
-  node: Process;
-  updatedFields: String[];
-  previousValues: ProcessPreviousValues;
-}
-
-export interface ProcessSubscriptionPayloadPromise
-  extends Promise<ProcessSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProcessPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProcessPreviousValuesPromise>() => T;
-}
-
-export interface ProcessSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProcessSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProcessSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProcessPreviousValuesSubscription>() => T;
 }
 
 export interface ThoughtEdge {
@@ -5851,201 +1669,23 @@ export interface ThoughtEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProcessPreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  sources: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
+export interface CharacterEdge {
+  node: Character;
+  cursor: String;
 }
 
-export interface ProcessPreviousValuesPromise
-  extends Promise<ProcessPreviousValues>,
+export interface CharacterEdgePromise
+  extends Promise<CharacterEdge>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  sources: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
+  node: <T = CharacterPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface ProcessPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProcessPreviousValues>>,
+export interface CharacterEdgeSubscription
+  extends Promise<AsyncIterator<CharacterEdge>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  sources: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface AuthPayload {
-  token: String;
-  userId: ID_Output;
-}
-
-export interface AuthPayloadPromise extends Promise<AuthPayload>, Fragmentable {
-  token: () => Promise<String>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface AuthPayloadSubscription
-  extends Promise<AsyncIterator<AuthPayload>>,
-    Fragmentable {
-  token: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface CastConnection {
-  pageInfo: PageInfo;
-  edges: CastEdge[];
-}
-
-export interface CastConnectionPromise
-  extends Promise<CastConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CastEdge>>() => T;
-  aggregate: <T = AggregateCastPromise>() => T;
-}
-
-export interface CastConnectionSubscription
-  extends Promise<AsyncIterator<CastConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CastEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCastSubscription>() => T;
-}
-
-export interface AuthPayloadConnection {
-  pageInfo: PageInfo;
-  edges: AuthPayloadEdge[];
-}
-
-export interface AuthPayloadConnectionPromise
-  extends Promise<AuthPayloadConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AuthPayloadEdge>>() => T;
-  aggregate: <T = AggregateAuthPayloadPromise>() => T;
-}
-
-export interface AuthPayloadConnectionSubscription
-  extends Promise<AsyncIterator<AuthPayloadConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AuthPayloadEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAuthPayloadSubscription>() => T;
-}
-
-export interface ProcessSourceSubscriptionPayload {
-  mutation: MutationType;
-  node: ProcessSource;
-  updatedFields: String[];
-  previousValues: ProcessSourcePreviousValues;
-}
-
-export interface ProcessSourceSubscriptionPayloadPromise
-  extends Promise<ProcessSourceSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProcessSourcePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProcessSourcePreviousValuesPromise>() => T;
-}
-
-export interface ProcessSourceSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProcessSourceSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProcessSourceSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProcessSourcePreviousValuesSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProcessSourcePreviousValues {
-  id: ID_Output;
-  key: String;
-  title: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface ProcessSourcePreviousValuesPromise
-  extends Promise<ProcessSourcePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface ProcessSourcePreviousValuesSubscription
-  extends Promise<AsyncIterator<ProcessSourcePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
-}
-
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
+  node: <T = CharacterSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Thought {
@@ -6104,219 +1744,74 @@ export interface ThoughtSubscription
   userId: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface Inventory {
-  id: ID_Output;
-}
-
-export interface InventoryPromise extends Promise<Inventory>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  paths: <T = FragmentableArray<InventoryPath>>(
-    args?: {
-      where?: InventoryPathWhereInput;
-      orderBy?: InventoryPathOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface InventorySubscription
-  extends Promise<AsyncIterator<Inventory>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  paths: <T = Promise<AsyncIterator<InventoryPathSubscription>>>(
-    args?: {
-      where?: InventoryPathWhereInput;
-      orderBy?: InventoryPathOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface SourceSubscriptionPayload {
+export interface UserSubscriptionPayload {
   mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
+}
+
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface SourceEdge {
   node: Source;
-  updatedFields: String[];
-  previousValues: SourcePreviousValues;
+  cursor: String;
 }
 
-export interface SourceSubscriptionPayloadPromise
-  extends Promise<SourceSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
+export interface SourceEdgePromise extends Promise<SourceEdge>, Fragmentable {
   node: <T = SourcePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SourcePreviousValuesPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface SourceSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SourceSubscriptionPayload>>,
+export interface SourceEdgeSubscription
+  extends Promise<AsyncIterator<SourceEdge>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
   node: <T = SourceSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SourcePreviousValuesSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface SourceFeelingConnection {
-  pageInfo: PageInfo;
-  edges: SourceFeelingEdge[];
-}
-
-export interface SourceFeelingConnectionPromise
-  extends Promise<SourceFeelingConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SourceFeelingEdge>>() => T;
-  aggregate: <T = AggregateSourceFeelingPromise>() => T;
-}
-
-export interface SourceFeelingConnectionSubscription
-  extends Promise<AsyncIterator<SourceFeelingConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SourceFeelingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSourceFeelingSubscription>() => T;
-}
-
-export interface PathFeelingConnection {
-  pageInfo: PageInfo;
-  edges: PathFeelingEdge[];
-}
-
-export interface PathFeelingConnectionPromise
-  extends Promise<PathFeelingConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PathFeelingEdge>>() => T;
-  aggregate: <T = AggregatePathFeelingPromise>() => T;
-}
-
-export interface PathFeelingConnectionSubscription
-  extends Promise<AsyncIterator<PathFeelingConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PathFeelingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePathFeelingSubscription>() => T;
-}
-
-export interface SourceFeelingPreviousValues {
-  id: ID_Output;
-  key?: String;
-  title?: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface SourceFeelingPreviousValuesPromise
-  extends Promise<SourceFeelingPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface SourceFeelingPreviousValuesSubscription
-  extends Promise<AsyncIterator<SourceFeelingPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface SourceFeelingSubscriptionPayload {
+export interface CharacterSubscriptionPayload {
   mutation: MutationType;
-  node: SourceFeeling;
+  node: Character;
   updatedFields: String[];
-  previousValues: SourceFeelingPreviousValues;
+  previousValues: CharacterPreviousValues;
 }
 
-export interface SourceFeelingSubscriptionPayloadPromise
-  extends Promise<SourceFeelingSubscriptionPayload>,
+export interface CharacterSubscriptionPayloadPromise
+  extends Promise<CharacterSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = SourceFeelingPromise>() => T;
+  node: <T = CharacterPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = SourceFeelingPreviousValuesPromise>() => T;
+  previousValues: <T = CharacterPreviousValuesPromise>() => T;
 }
 
-export interface SourceFeelingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SourceFeelingSubscriptionPayload>>,
+export interface CharacterSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CharacterSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SourceFeelingSubscription>() => T;
+  node: <T = CharacterSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SourceFeelingPreviousValuesSubscription>() => T;
+  previousValues: <T = CharacterPreviousValuesSubscription>() => T;
 }
 
-export interface SourceFeeling {
-  id: ID_Output;
-  key?: String;
-  title?: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  userId: ID_Output;
-}
-
-export interface SourceFeelingPromise
-  extends Promise<SourceFeeling>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  key: () => Promise<String>;
-  title: () => Promise<String>;
-  thoughts: <T = FragmentableArray<Thought>>(
-    args?: {
-      where?: ThoughtWhereInput;
-      orderBy?: ThoughtOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  userId: () => Promise<ID_Output>;
-}
-
-export interface SourceFeelingSubscription
-  extends Promise<AsyncIterator<SourceFeeling>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  key: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  thoughts: <T = Promise<AsyncIterator<ThoughtSubscription>>>(
-    args?: {
-      where?: ThoughtWhereInput;
-      orderBy?: ThoughtOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  userId: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface SourcePreviousValues {
+export interface Source {
   id: ID_Output;
   key: String;
   title: String;
@@ -6326,9 +1821,7 @@ export interface SourcePreviousValues {
   userId: ID_Output;
 }
 
-export interface SourcePreviousValuesPromise
-  extends Promise<SourcePreviousValues>,
-    Fragmentable {
+export interface SourcePromise extends Promise<Source>, Fragmentable {
   id: () => Promise<ID_Output>;
   key: () => Promise<String>;
   title: () => Promise<String>;
@@ -6338,8 +1831,8 @@ export interface SourcePreviousValuesPromise
   userId: () => Promise<ID_Output>;
 }
 
-export interface SourcePreviousValuesSubscription
-  extends Promise<AsyncIterator<SourcePreviousValues>>,
+export interface SourceSubscription
+  extends Promise<AsyncIterator<Source>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   key: () => Promise<AsyncIterator<String>>;
@@ -6350,46 +1843,364 @@ export interface SourcePreviousValuesSubscription
   userId: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface InventoryPathConnection {
-  pageInfo: PageInfo;
-  edges: InventoryPathEdge[];
+export interface CharacterPreviousValues {
+  id: ID_Output;
+  key: String;
+  title: String;
+  description?: String;
+  process: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
 }
 
-export interface InventoryPathConnectionPromise
-  extends Promise<InventoryPathConnection>,
+export interface CharacterPreviousValuesPromise
+  extends Promise<CharacterPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  process: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface CharacterPreviousValuesSubscription
+  extends Promise<AsyncIterator<CharacterPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  process: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface ProcessEdge {
+  node: Process;
+  cursor: String;
+}
+
+export interface ProcessEdgePromise extends Promise<ProcessEdge>, Fragmentable {
+  node: <T = ProcessPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProcessEdgeSubscription
+  extends Promise<AsyncIterator<ProcessEdge>>,
+    Fragmentable {
+  node: <T = ProcessSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Process {
+  id: ID_Output;
+  key: String;
+  title: String;
+  sources: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface ProcessPromise extends Promise<Process>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  sources: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface ProcessSubscription
+  extends Promise<AsyncIterator<Process>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  sources: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface FeelingSubscriptionPayload {
+  mutation: MutationType;
+  node: Feeling;
+  updatedFields: String[];
+  previousValues: FeelingPreviousValues;
+}
+
+export interface FeelingSubscriptionPayloadPromise
+  extends Promise<FeelingSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = FeelingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = FeelingPreviousValuesPromise>() => T;
+}
+
+export interface FeelingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FeelingSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = FeelingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FeelingPreviousValuesSubscription>() => T;
+}
+
+export interface PathEdge {
+  node: Path;
+  cursor: String;
+}
+
+export interface PathEdgePromise extends Promise<PathEdge>, Fragmentable {
+  node: <T = PathPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PathEdgeSubscription
+  extends Promise<AsyncIterator<PathEdge>>,
+    Fragmentable {
+  node: <T = PathSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface FeelingPreviousValues {
+  id: ID_Output;
+  key: String;
+  title: String;
+  thoughts: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface FeelingPreviousValuesPromise
+  extends Promise<FeelingPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  thoughts: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface FeelingPreviousValuesSubscription
+  extends Promise<AsyncIterator<FeelingPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  thoughts: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface Path {
+  id: ID_Output;
+  key: String;
+  title: String;
+  feelings: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface PathPromise extends Promise<Path>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  feelings: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface PathSubscription
+  extends Promise<AsyncIterator<Path>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface CharacterConnection {
+  pageInfo: PageInfo;
+  edges: CharacterEdge[];
+}
+
+export interface CharacterConnectionPromise
+  extends Promise<CharacterConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<InventoryPathEdge>>() => T;
-  aggregate: <T = AggregateInventoryPathPromise>() => T;
+  edges: <T = FragmentableArray<CharacterEdge>>() => T;
+  aggregate: <T = AggregateCharacterPromise>() => T;
 }
 
-export interface InventoryPathConnectionSubscription
-  extends Promise<AsyncIterator<InventoryPathConnection>>,
+export interface CharacterConnectionSubscription
+  extends Promise<AsyncIterator<CharacterConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<InventoryPathEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateInventoryPathSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CharacterEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCharacterSubscription>() => T;
 }
 
-export interface ProcessSourceConnection {
+export interface UserConnection {
   pageInfo: PageInfo;
-  edges: ProcessSourceEdge[];
+  edges: UserEdge[];
 }
 
-export interface ProcessSourceConnectionPromise
-  extends Promise<ProcessSourceConnection>,
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProcessSourceEdge>>() => T;
-  aggregate: <T = AggregateProcessSourcePromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
 }
 
-export interface ProcessSourceConnectionSubscription
-  extends Promise<AsyncIterator<ProcessSourceConnection>>,
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProcessSourceEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProcessSourceSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface PathSubscriptionPayload {
+  mutation: MutationType;
+  node: Path;
+  updatedFields: String[];
+  previousValues: PathPreviousValues;
+}
+
+export interface PathSubscriptionPayloadPromise
+  extends Promise<PathSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PathPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PathPreviousValuesPromise>() => T;
+}
+
+export interface PathSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PathSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PathSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PathPreviousValuesSubscription>() => T;
+}
+
+export interface ThoughtConnection {
+  pageInfo: PageInfo;
+  edges: ThoughtEdge[];
+}
+
+export interface ThoughtConnectionPromise
+  extends Promise<ThoughtConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ThoughtEdge>>() => T;
+  aggregate: <T = AggregateThoughtPromise>() => T;
+}
+
+export interface ThoughtConnectionSubscription
+  extends Promise<AsyncIterator<ThoughtConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ThoughtEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateThoughtSubscription>() => T;
+}
+
+export interface PathPreviousValues {
+  id: ID_Output;
+  key: String;
+  title: String;
+  feelings: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface PathPreviousValuesPromise
+  extends Promise<PathPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  feelings: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface PathPreviousValuesSubscription
+  extends Promise<AsyncIterator<PathPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface SourceConnection {
+  pageInfo: PageInfo;
+  edges: SourceEdge[];
+}
+
+export interface SourceConnectionPromise
+  extends Promise<SourceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SourceEdge>>() => T;
+  aggregate: <T = AggregateSourcePromise>() => T;
+}
+
+export interface SourceConnectionSubscription
+  extends Promise<AsyncIterator<SourceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SourceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSourceSubscription>() => T;
 }
 
 export interface ThoughtPreviousValues {
@@ -6450,24 +2261,272 @@ export interface ThoughtPreviousValuesSubscription
   userId: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface AuthPayloadEdge {
-  node: AuthPayload;
-  cursor: String;
+export interface ProcessConnection {
+  pageInfo: PageInfo;
+  edges: ProcessEdge[];
 }
 
-export interface AuthPayloadEdgePromise
-  extends Promise<AuthPayloadEdge>,
+export interface ProcessConnectionPromise
+  extends Promise<ProcessConnection>,
     Fragmentable {
-  node: <T = AuthPayloadPromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProcessEdge>>() => T;
+  aggregate: <T = AggregateProcessPromise>() => T;
 }
 
-export interface AuthPayloadEdgeSubscription
-  extends Promise<AsyncIterator<AuthPayloadEdge>>,
+export interface ProcessConnectionSubscription
+  extends Promise<AsyncIterator<ProcessConnection>>,
     Fragmentable {
-  node: <T = AuthPayloadSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProcessEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProcessSubscription>() => T;
 }
+
+export interface ProcessSubscriptionPayload {
+  mutation: MutationType;
+  node: Process;
+  updatedFields: String[];
+  previousValues: ProcessPreviousValues;
+}
+
+export interface ProcessSubscriptionPayloadPromise
+  extends Promise<ProcessSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProcessPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProcessPreviousValuesPromise>() => T;
+}
+
+export interface ProcessSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProcessSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProcessSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProcessPreviousValuesSubscription>() => T;
+}
+
+export interface PathConnection {
+  pageInfo: PageInfo;
+  edges: PathEdge[];
+}
+
+export interface PathConnectionPromise
+  extends Promise<PathConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PathEdge>>() => T;
+  aggregate: <T = AggregatePathPromise>() => T;
+}
+
+export interface PathConnectionSubscription
+  extends Promise<AsyncIterator<PathConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PathEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePathSubscription>() => T;
+}
+
+export interface AggregateThought {
+  count: Int;
+}
+
+export interface AggregateThoughtPromise
+  extends Promise<AggregateThought>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateThoughtSubscription
+  extends Promise<AsyncIterator<AggregateThought>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SourcePreviousValues {
+  id: ID_Output;
+  key: String;
+  title: String;
+  feelings: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface SourcePreviousValuesPromise
+  extends Promise<SourcePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  feelings: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface SourcePreviousValuesSubscription
+  extends Promise<AsyncIterator<SourcePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  feelings: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface SourceSubscriptionPayload {
+  mutation: MutationType;
+  node: Source;
+  updatedFields: String[];
+  previousValues: SourcePreviousValues;
+}
+
+export interface SourceSubscriptionPayloadPromise
+  extends Promise<SourceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SourcePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SourcePreviousValuesPromise>() => T;
+}
+
+export interface SourceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SourceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SourceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SourcePreviousValuesSubscription>() => T;
+}
+
+export interface ThoughtSubscriptionPayload {
+  mutation: MutationType;
+  node: Thought;
+  updatedFields: String[];
+  previousValues: ThoughtPreviousValues;
+}
+
+export interface ThoughtSubscriptionPayloadPromise
+  extends Promise<ThoughtSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ThoughtPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ThoughtPreviousValuesPromise>() => T;
+}
+
+export interface ThoughtSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ThoughtSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ThoughtSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ThoughtPreviousValuesSubscription>() => T;
+}
+
+export interface ProcessPreviousValues {
+  id: ID_Output;
+  key: String;
+  title: String;
+  sources: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  userId: ID_Output;
+}
+
+export interface ProcessPreviousValuesPromise
+  extends Promise<ProcessPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  key: () => Promise<String>;
+  title: () => Promise<String>;
+  sources: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  userId: () => Promise<ID_Output>;
+}
+
+export interface ProcessPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProcessPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  key: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  sources: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  userId: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface AggregateSource {
+  count: Int;
+}
+
+export interface AggregateSourcePromise
+  extends Promise<AggregateSource>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateSourceSubscription
+  extends Promise<AsyncIterator<AggregateSource>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateFeeling {
+  count: Int;
+}
+
+export interface AggregateFeelingPromise
+  extends Promise<AggregateFeeling>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateFeelingSubscription
+  extends Promise<AsyncIterator<AggregateFeeling>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregatePath {
+  count: Int;
+}
+
+export interface AggregatePathPromise
+  extends Promise<AggregatePath>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePathSubscription
+  extends Promise<AsyncIterator<AggregatePath>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateProcess {
+  count: Int;
+}
+
+export interface AggregateProcessPromise
+  extends Promise<AggregateProcess>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProcessSubscription
+  extends Promise<AsyncIterator<AggregateProcess>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -6475,22 +2534,10 @@ The `ID` scalar type represents a unique identifier, often used to refetch an ob
 export type ID_Input = string | number;
 export type ID_Output = string;
 
-export type Long = string;
-
 /*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
-
-/*
-DateTime scalar input type, allowing Date
-*/
-export type DateTimeInput = Date | string;
-
-/*
-DateTime scalar output type, which is always a string
-*/
-export type DateTimeOutput = string;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
@@ -6501,6 +2548,16 @@ export type String = string;
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
 export type Int = number;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 /**
  * Model Metadata
@@ -6533,46 +2590,6 @@ export const models: Model[] = [
   },
   {
     name: "Thought",
-    embedded: false
-  },
-  {
-    name: "Inventory",
-    embedded: false
-  },
-  {
-    name: "InventoryPath",
-    embedded: false
-  },
-  {
-    name: "PathFeeling",
-    embedded: false
-  },
-  {
-    name: "Cast",
-    embedded: false
-  },
-  {
-    name: "CastCharacter",
-    embedded: false
-  },
-  {
-    name: "CharacterProcess",
-    embedded: false
-  },
-  {
-    name: "ProcessSource",
-    embedded: false
-  },
-  {
-    name: "SourceFeeling",
-    embedded: false
-  },
-  {
-    name: "HigherPower",
-    embedded: false
-  },
-  {
-    name: "AuthPayload",
     embedded: false
   }
 ];
