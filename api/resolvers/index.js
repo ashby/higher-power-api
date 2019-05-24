@@ -6,8 +6,8 @@ function registerResolvers( queries = {}, mutations = {} ) {
     Object.assign( Mutation, mutations );
 };
 
-require( './resources/signup' )( registerResolvers );
-require( './resources/login' )( registerResolvers );
+require( './resources/auth/signup' )( registerResolvers );
+require( './resources/auth/login' )( registerResolvers );
 //require( './resources/user' )( registerResolvers );
 
 require( './resources/cast' )( registerResolvers );

@@ -1,5 +1,5 @@
-const getInventory = require( '../utils/get-inventory' );
+const queryInventory = require( '../query/inventory' );
 
 module.exports = ( register ) => register( {
-    inventory: ( _, { userId } ) => getInventory( userId )
+    inventory: ( _, { userId } ) => queryInventory( userId )
 } );

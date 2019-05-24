@@ -1,8 +1,8 @@
 const bcrypt = require( 'bcryptjs' );
 const jwt = require( 'jsonwebtoken' );
-const { prisma } = require( '../../../generated/prisma-client' );
-const config = require( '../../config' );
-const userSeed = require( '../utils/user-seed' );
+const { prisma } = require( '../../../../generated/prisma-client' );
+const config = require( '../../../config' );
+const userSeed = require( '../../seed/user' );
 
 module.exports = ( register ) => register( null, {
     signup: async ( parent, { email, password } ) => {

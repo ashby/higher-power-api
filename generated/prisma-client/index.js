@@ -5,11 +5,15 @@ var typeDefs = require("./prisma-schema").typeDefs;
 
 var models = [
   {
-    name: "User",
+    name: "Character",
     embedded: false
   },
   {
-    name: "Character",
+    name: "Feeling",
+    embedded: false
+  },
+  {
+    name: "Path",
     embedded: false
   },
   {
@@ -21,21 +25,17 @@ var models = [
     embedded: false
   },
   {
-    name: "Path",
-    embedded: false
-  },
-  {
-    name: "Feeling",
-    embedded: false
-  },
-  {
     name: "Thought",
+    embedded: false
+  },
+  {
+    name: "User",
     embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/stepOver`
+  endpoint: `${process.env["PRISMA_SERVER"]}`
 });
 exports.prisma = new exports.Prisma();

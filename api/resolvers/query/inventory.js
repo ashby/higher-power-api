@@ -1,3 +1,3 @@
-const { getDeepPaths } = require( './deep' );
-const queryInventory = async userId => ( { paths: await queryDeepPaths( userId ) } );
+const queryPaths = require( './paths' );
+const queryInventory = async userId => ( { paths: await queryPaths( userId ) } );
 module.exports = queryInventory;
