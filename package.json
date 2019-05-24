@@ -3,9 +3,9 @@
   "version": "1.0.0-beta.3",
   "description": "Higher Power API",
   "scripts": {
-    "start": "prisma deploy && prisma seed && NODE_ENV=production node ./api/server.js",
-    "start:dev": "nodemon ./api/server.js",
     "restart:dev": "prisma reset && yarn generate && yarn run:dev",
+    "start": "prisma deploy && NODE_ENV=production node ./api/server.js",
+    "start:dev": "nodemon ./api/server.js",
     "run:dev": "npm-run-all run-dep:dev prisma-deploy:dev start:dev",
     "run-dep:dev": "docker-compose -p dev -f docker-compose.yml -f env/dev.yml up --build -d",
     "run-dep:test": "docker-compose -p test -f docker-compose.yml -f env/test.yml up --build -d",
@@ -16,7 +16,6 @@
     "prisma-deploy:test": "prisma deploy -e env/.env.test",
     "prisma-deploy:dev": "prisma deploy -e env/.env.dev",
     "prisma-deploy": "prisma deploy",
-    "prisma-seed": "prisma seed",
     "generate": "prisma generate",
     "playground": "graphql playground",
     "docs": "npm-run-all -p run:dev playground"
