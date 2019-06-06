@@ -2,6 +2,12 @@ const { prisma } = require( '../../../generated/prisma-client' );
 
 const CHARACTERS = [
     {
+        key: "coach",
+        title: "Coach",
+        description: "Processes the guidance with challenges and reassurance.",
+        process: "guidance"
+    },
+    {
         key: "genie",
         title: "Genie",
         description: "Processes the wish with dreams and gifts.",
@@ -70,6 +76,14 @@ const CHARACTERS = [
 ];
 
 const PROCESSES = [
+    {
+        key: "guidance",
+        title: "Guidance",
+        sources: { set: [
+            "challenge",
+            "reassurance"
+        ] }
+    },
     {
         key: "wish",
         title: "Wish",
@@ -184,6 +198,16 @@ const PROCESSES = [
 ];
 
 const SOURCES = [
+    {
+        key: "challenge",
+        title: "Challenge",
+        feelings: { set: [] }
+    },
+    {
+        key: "reassurance",
+        title: "Reassurance",
+        feelings: { set: [] }
+    },
     {
         key: "dream",
         title: "Dream",

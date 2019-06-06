@@ -36,6 +36,6 @@ var models = [
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
   typeDefs,
   models,
-  endpoint: `${process.env["PRISMA_SERVER"]}`
+  endpoint: `https://us1.prisma.sh/ashby-utting-73eac0/step/dev`
 });
 exports.prisma = new exports.Prisma();

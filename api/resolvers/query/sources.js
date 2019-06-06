@@ -1,5 +1,5 @@
 const { prisma } = require( '../../../generated/prisma-client' );
-const { queryFeelings } = require( './feelings' );
+const queryFeelings = require( './feelings' );
 
 const querySources = async ( sources ) => {
     const Sources = sources.map( async key => {
