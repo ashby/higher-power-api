@@ -1,8 +1,9 @@
-const cfg =  {
+const cfg = {
     SERVER_PORT: 3200,
     ROOT_URL: '/higher-power',
     ENVIRONMENT: 'dev',
-    ENABLE_HAS: false
+    APP_SECRET: 'higher-power',
+    JWT_SECRET: 'higher-power'
 };
 
 switch ( process.env.NODE_ENV ) {
@@ -19,6 +20,7 @@ switch ( process.env.NODE_ENV ) {
 
 process.env.PRISMA_SERVER = cfg.PRISMA_SERVER;
 const envPrefix = cfg.ENVIRONMENT === 'prod' ? '' : `${cfg.ENVIRONMENT === 'ci' ? 'dev' : cfg.ENVIRONMENT}.`;
-cfg.SERVER_URL = `https://${envPrefix}api.cloud${cfg.ROOT_URL}`;
+cfg.SERVER_URL = `https://${envPrefix}api.biw.cloud${cfg.ROOT_URL}`;
 
 module.exports = cfg;
+

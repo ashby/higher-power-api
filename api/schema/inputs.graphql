@@ -1,48 +1,64 @@
 scalar DateTime
 
+input User {
+  id: ID
+  email: String!
+  password: String!
+}
+
 input SetIDInput {
-    set: [ID]
+    set: [String]
 }
 
 input CharacterInput {
     id: ID
+    key: String!
     title: String!
     description: String
     process: ID
     createdAt: DateTime
     updatedAt: DateTime
+    userId: String!
 }
 
 input ProcessInput {
     id: ID
+    key: String!
     title: String!
     sources: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: String!
 }
 
 input SourceInput {
     id: ID
+    key: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: String!
 }
 
 input PathInput {
     id: ID
+    key: String!
     title: String!
     feelings: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: String!
 }
 
 input FeelingInput {
     id: ID
+    key: String!
     title: String!
     thoughts: SetIDInput
     createdAt: DateTime
     updatedAt: DateTime
+    userId: String!
 }
 
 input ThoughtInput {
@@ -60,4 +76,5 @@ input ThoughtInput {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+    userId: String!
 }

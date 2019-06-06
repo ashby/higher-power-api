@@ -1,5 +1,4 @@
 mutation {
-
     # CAST
 
     # CONGREGANT: createCharacter(
@@ -22,454 +21,6 @@ mutation {
     #         feelings: { set: ["", ""] }
     #     }
     # ) { id }
-    GENIE: createCharacter(
-        data: {
-            id: "genie",
-            title: "Genie",
-            description: "Processes the wish with dreams and gifts.",
-            process: "wish"
-        }
-    ) { id }
-        WISH: createProcess(
-            data: {
-                id: "wish",
-                title: "Wish",
-                sources: { set: [
-                    "dream",
-                    "gift"
-                ] }
-            }
-        ) { id }
-            DREAM: createSource(
-                data: {
-                    id: "dream",
-                    title: "Dream",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            FAIRY_TALE: createSource(
-                data: {
-                    id: "fairyTale",
-                    title: "Fairy Tale",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            GIFT: createSource(
-                data: {
-                    id: "gift",
-                    title: "Gift",
-                    feelings: { set: [] }
-                }
-            ){ id }
-    
-    GRUMP: createCharacter(
-        data: {
-            id: "grump",
-            title: "Grump",
-            description: "Processes the mess with attire and the floor.",
-            process: "mess"
-        }
-    ) { id }
-        MESS: createProcess(
-            data: {
-                id: "mess",
-                title: "Mess",
-                sources: { set: [
-                    "attire",
-                    "floor"
-                ] }
-            }
-        ) {id }
-            ATTIRE: createSource(
-                data: {
-                    id: "attire",
-                    title: "Attire",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            FLOOR: createSource(
-                data: {
-                    id: "floor",
-                    title: "Floor",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    GUARDIAN: createCharacter(
-        data: {
-            id: "guardian",
-            title: "Guardian",
-            description: "Processes the construct with gates, walls and towers.",
-            process: "construct"
-        }
-    ) { id }
-        CONSTRUCT: createProcess(
-            data: {
-                id: "construct",
-                title: "Construct", 
-                sources: { set: [
-                    "gate",
-                    "tower",
-                    "wall"
-                ] }
-            }
-        ) { id }
-            GATE: createSource(
-                data: {
-                    id: "gate",
-                    title: "Gate",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            WALL: createSource(
-                data: {
-                    id: "wall",
-                    title: "Wall",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            TOWER: createSource(
-                data: {
-                    id: "tower",
-                    title: "Tower",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    MARTYR: createCharacter(
-        data: {
-            id: "martyr",
-            title: "Martyr",
-            description: "Processes the stigma with nails, crown and cross.",
-            process: "stigmata"
-        }
-    ) { id }
-        STIGMA: createProcess(
-            data: {
-                id: "stigma",
-                title: "Stigma",
-                sources: { set: [
-                    "cross",
-                    "crown",
-                    "nail"
-                ] }
-            }
-        ) { id }
-            CROSS: createSource(
-                data: {
-                    id: "cross",
-                    title: "Cross",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            CROWN: createSource(
-                data: {
-                    id: "crown",
-                    title: "Crown",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            NAIL: createSource(
-                data: {
-                    id: "nail",
-                    title: "Nail",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    PALADIN: createCharacter(
-        data: {
-            id: "paladin",
-            title: "Paladin",
-            description: "Processes the oath with campaigns, crusades and pledges.",
-            process: "oath"
-        }
-    ) { id }
-        OATH: createProcess(
-            data: {
-                id: "oath",
-                title: "Oath",
-                sources: { set: [
-                    "campaign",
-                    "pledge",
-                    "crusade"
-                ] }
-            }
-        ) { id }
-            CAMPAIGN: createSource(
-                data: {
-                    id: "campaign",
-                    title: "Campaign",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            CRUSADE: createSource(
-                data: {
-                    id: "crusade",
-                    title: "Crusade",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            PLEDGE: createSource(
-                data: {
-                    id: "pledge",
-                    title: "Pledge",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    PLAYER: createCharacter(
-        data: {
-            id: "player",
-            title: "Player",
-            description: "Processes the game with jokes, competition and theatre.",
-            process: "game"
-        }
-    ) { id }
-        GAME: createProcess(
-            data: {
-                id: "game",
-                title: "Game",
-                sources: { set: [
-                    "joke",
-                    "competition",
-                    "theatre"
-                ] }
-            }
-        ) { id }
-            JOKE: createSource(
-                data: {
-                    id: "joke",
-                    title: "Joke", 
-                    feelings: { set: [] }
-                }
-            ){ id }
-            COMPETITION: createSource(
-                data: {
-                    id: "competition",
-                    title: "Competition",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            THEATRE: createSource(
-                data: {
-                    id: "theatre",
-                    title: "Theatre",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    SEEKER: createCharacter(
-        data: {
-            id: "seeker",
-            title: "Seeker",
-            description: "Processes the virtue, with mind, soul and love.",
-            process: "virtue"
-        }
-    ) { id }
-        VIRTUE: createProcess(
-            data: {
-                id: "virtue",
-                title: "Virtue",
-                sources: { set: [
-                    "love",
-                    "mind",
-                    "soul"
-                ] }
-            }
-        ) { id }
-            LOVE: createSource(
-                data: {
-                    id: "love",
-                    title: "Love",    
-                    feelings: { set: [] }
-                }
-            ){ id }
-            MIND: createSource(
-                data: {
-                    id: "mind",
-                    title: "Mind",          
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SOUL: createSource(
-                data: {
-                    id: "soul",
-                    title: "Soul",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    SELF: createCharacter(
-        data: {
-            id: "self",
-            title: "Self",
-            description: "Processes the body.",
-            process: "body"
-        }
-    ) { id }
-        BODY: createProcess(
-            data: {
-                id: "body",
-                title: "Body",
-                sources: { set: [
-                    "brain",
-                    "face",
-                    "gut",
-                    "heart",
-                    "mouth",
-                    "skin",
-                    "sternum",
-                    "shoulders",
-                    "eyes",
-                    "hands",
-                    "rectum",
-                    "genitals",
-                    "ears"
-                ] }
-            }
-        ) { id }
-            BRAIN: createSource(
-                data: {
-                    id: "brain",
-                    title: "Brain",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            FACE: createSource(
-                data: {
-                    id: "face",
-                    title: "Face",   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            GUT: createSource(
-                data: {
-                    id: "gut",
-                    title: "Gut"       
-                    feelings: { set: [] }
-                }
-            ){ id }
-            HEART: createSource(
-                data: {
-                    id: "heart",
-                    title: "Heart",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            MOUTH: createSource(
-                data: {
-                    id: "mouth",
-                    title: "Mouth",             
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SKIN: createSource(
-                data: {
-                    id: "skin",
-                    title: "Skin",             
-                    feelings: { set: [] }
-                }
-            ){ id }
-            STERNUM: createSource(
-                data: {
-                    id: "sternum",
-                    title: "Sternum",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SHOULDERS: createSource(
-                data: {
-                    id: "shoulders",
-                    title: "Shoulders",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            EYES: createSource(
-                data: {
-                    id: "eyes",
-                    title: "Eyes",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            HANDS: createSource(
-                data: {
-                    id: "hands",
-                    title: "Hands",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            RECTUM: createSource(
-                data: {
-                    id: "rectum",
-                    title: "Rectum",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            GENITALS: createSource(
-                data: {
-                    id: "genitals",
-                    title: "Genitals",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-            EARS: createSource(
-                data: {
-                    id: "ears",
-                    title: "Ears",                   
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    SMITH: createCharacter(
-        data: {
-            id: "smith",
-            title: "Smith",
-            description: "Processes the shield with silence, denial, confusion, and sarcasm.",
-            process: "shield"
-        }
-    ) { id }
-        SHIELD: createProcess(
-            data: {
-                id: "shield",
-                title: "Shield",
-                sources: { set: [
-                    "confusion",
-                    "denial",
-                    "sarcasm",
-                    "silence"
-                ] }
-            }
-        ) { id }
-            CONFUSION: createSource(
-                data: {
-                    id: "confusion",
-                    title: "Confusion",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            DENIAL: createSource(
-                data: {
-                    id: "denial",
-                    title: "Denial",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SARCASM: createSource(
-                data: {
-                    id: "sarcasm",
-                    title: "Sarcasm",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SILENCE: createSource(
-                data: {
-                    id: "silence",
-                    title: "Silence",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
     # SUMMONER: createCharacter(
     #     data: {
     #         id: "summoner"
@@ -480,168 +31,615 @@ mutation {
     #         feelings: { set: ["", ""] }
     #     }
     # ) { id }
-
-    VICTIM: createCharacter(
-        data: {
-            id: "victim",
-            title: "Victim",
-            description: "Processes the affliction within scars, gashes, infections, tremors, nightmares and delirium.",
-            process: "affliction"
-        }
-    ) { id }
-        AFFLICTION: createProcess(
-            data: {
-                id: "affliction",
-                title: "Affliction",
-                sources: { set: [
-                    "delirium",
-                    "gash",
-                    "infection",
-                    "nightmare",
-                    "scar",
-                    "tremor"
-                ] }
-            }
-        ) { id }
-            DELIRIUM: createSource(
-                data: {
-                    id: "delirium",
-                    title: "Delirium",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            GASH: createSource(
-                data: {
-                    id: "gash",
-                    title: "Gash",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            INFECTION: createSource(
-                data: {
-                    id: "infection",
-                    title: "Infection",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            NIGHTMARE: createSource(
-                data: {
-                    id: "nightmare",
-                    title: "Nightmare",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SCAR: createSource(
-                data: {
-                    id: "scar",
-                    title: "Scar",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            TREMOR: createSource(
-                data: {
-                    id: "tremor",
-                    title: "Tremor",
-                    feelings: { set: [] }
-                }
-            ){ id }
-
-    VOLUNTEER: createCharacter(
-        data: {
-            id: "volunteer",
-            title: "Volunteer",
-            description: "Processes the act with service, support and sacrifice.",
-            process: "act"
-        }
-    ) { id }
-        ACT: createProcess(
-            data: {
-                id: "act",
-                title: "Act",
-                sources: { set: [
-                    "service",
-                    "support",
-                    "sacrifice"
-                ] }
-            }
-        ) { id }
-            SERVICE: createSource(
-                data: {
-                    id: "service",
-                    title: "Service",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SUPPORT: createSource(
-                data: {
-                    id: "support",
-                    title: "Support",
-                    feelings: { set: [] }
-                }
-            ){ id }
-            SACRIFICE: createSource(
-                data: {
-                    id: "sacrifice",
-                    title: "Sacrifice",
-                    feelings: { set: [] }
-                }
-            ){ id }
+    # GENIE: createCharacter(
+    #     data: {
+    #         id: "genie",
+    #         title: "Genie",
+    #         description: "Processes the wish with dreams and gifts.",
+    #         process: "wish"
+    #     }
+    # ) { id }
+    #     WISH: createProcess(
+    #         data: {
+    #             id: "wish",
+    #             title: "Wish",
+    #             sources: { set: [
+    #                 "dream",
+    #                 "gift"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         DREAM: createSource(
+    #             data: {
+    #                 id: "dream",
+    #                 title: "Dream",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         FAIRY_TALE: createSource(
+    #             data: {
+    #                 id: "fairyTale",
+    #                 title: "Fairy Tale",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         GIFT: createSource(
+    #             data: {
+    #                 id: "gift",
+    #                 title: "Gift",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
     
-    # INVENTORY
+    # GRUMP: createCharacter(
+    #     data: {
+    #         id: "grump",
+    #         title: "Grump",
+    #         description: "Processes the mess with attire and the floor.",
+    #         process: "mess"
+    #     }
+    # ) { id }
+    #     MESS: createProcess(
+    #         data: {
+    #             id: "mess",
+    #             title: "Mess",
+    #             sources: { set: [
+    #                 "attire",
+    #                 "floor"
+    #             ] }
+    #         }
+    #     ) {id }
+    #         ATTIRE: createSource(
+    #             data: {
+    #                 id: "attire",
+    #                 title: "Attire",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         FLOOR: createSource(
+    #             data: {
+    #                 id: "floor",
+    #                 title: "Floor",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    DEFECT: createPath(
-        data: {
-            id: "defect",
-            title: "Defect",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # GUARDIAN: createCharacter(
+    #     data: {
+    #         id: "guardian",
+    #         title: "Guardian",
+    #         description: "Processes the construct with gates, walls and towers.",
+    #         process: "construct"
+    #     }
+    # ) { id }
+    #     CONSTRUCT: createProcess(
+    #         data: {
+    #             id: "construct",
+    #             title: "Construct", 
+    #             sources: { set: [
+    #                 "gate",
+    #                 "tower",
+    #                 "wall"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         GATE: createSource(
+    #             data: {
+    #                 id: "gate",
+    #                 title: "Gate",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         WALL: createSource(
+    #             data: {
+    #                 id: "wall",
+    #                 title: "Wall",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         TOWER: createSource(
+    #             data: {
+    #                 id: "tower",
+    #                 title: "Tower",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    DISCONTENT: createPath(
-        data: {
-            id: "discontent",
-            title: "Discontent",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # MARTYR: createCharacter(
+    #     data: {
+    #         id: "martyr",
+    #         title: "Martyr",
+    #         description: "Processes the stigma with nails, crown and cross.",
+    #         process: "stigmata"
+    #     }
+    # ) { id }
+    #     STIGMA: createProcess(
+    #         data: {
+    #             id: "stigma",
+    #             title: "Stigma",
+    #             sources: { set: [
+    #                 "cross",
+    #                 "crown",
+    #                 "nail"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         CROSS: createSource(
+    #             data: {
+    #                 id: "cross",
+    #                 title: "Cross",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         CROWN: createSource(
+    #             data: {
+    #                 id: "crown",
+    #                 title: "Crown",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         NAIL: createSource(
+    #             data: {
+    #                 id: "nail",
+    #                 title: "Nail",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    EXPERIENCE: createPath(
-        data: {
-            id: "experience",
-            title: "Experience",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # PALADIN: createCharacter(
+    #     data: {
+    #         id: "paladin",
+    #         title: "Paladin",
+    #         description: "Processes the oath with campaigns, crusades and pledges.",
+    #         process: "oath"
+    #     }
+    # ) { id }
+    #     OATH: createProcess(
+    #         data: {
+    #             id: "oath",
+    #             title: "Oath",
+    #             sources: { set: [
+    #                 "campaign",
+    #                 "pledge",
+    #                 "crusade"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         CAMPAIGN: createSource(
+    #             data: {
+    #                 id: "campaign",
+    #                 title: "Campaign",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         CRUSADE: createSource(
+    #             data: {
+    #                 id: "crusade",
+    #                 title: "Crusade",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         PLEDGE: createSource(
+    #             data: {
+    #                 id: "pledge",
+    #                 title: "Pledge",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    HOPE: createPath(
-        data: {
-            id: "hope",
-            title: "Hope",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # PLAYER: createCharacter(
+    #     data: {
+    #         id: "player",
+    #         title: "Player",
+    #         description: "Processes the game with jokes, competition and theatre.",
+    #         process: "game"
+    #     }
+    # ) { id }
+    #     GAME: createProcess(
+    #         data: {
+    #             id: "game",
+    #             title: "Game",
+    #             sources: { set: [
+    #                 "joke",
+    #                 "competition",
+    #                 "theatre"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         JOKE: createSource(
+    #             data: {
+    #                 id: "joke",
+    #                 title: "Joke", 
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         COMPETITION: createSource(
+    #             data: {
+    #                 id: "competition",
+    #                 title: "Competition",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         THEATRE: createSource(
+    #             data: {
+    #                 id: "theatre",
+    #                 title: "Theatre",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    OBSESSION: createPath(
-        data: {
-            id: "obsession",
-            title: "Obsession",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # SEEKER: createCharacter(
+    #     data: {
+    #         id: "seeker",
+    #         title: "Seeker",
+    #         description: "Processes the virtue, with mind, soul and love.",
+    #         process: "virtue"
+    #     }
+    # ) { id }
+    #     VIRTUE: createProcess(
+    #         data: {
+    #             id: "virtue",
+    #             title: "Virtue",
+    #             sources: { set: [
+    #                 "love",
+    #                 "mind",
+    #                 "soul"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         LOVE: createSource(
+    #             data: {
+    #                 id: "love",
+    #                 title: "Love",    
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         MIND: createSource(
+    #             data: {
+    #                 id: "mind",
+    #                 title: "Mind",          
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SOUL: createSource(
+    #             data: {
+    #                 id: "soul",
+    #                 title: "Soul",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    RESENTMENT: createPath(
-        data: {
-            id: "resentment",
-            title: "Resentment",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # SELF: createCharacter(
+    #     data: {
+    #         id: "self",
+    #         title: "Self",
+    #         description: "Processes the body.",
+    #         process: "body"
+    #     }
+    # ) { id }
+    #     BODY: createProcess(
+    #         data: {
+    #             id: "body",
+    #             title: "Body",
+    #             sources: { set: [
+    #                 "brain",
+    #                 "face",
+    #                 "gut",
+    #                 "heart",
+    #                 "mouth",
+    #                 "skin",
+    #                 "sternum",
+    #                 "shoulders",
+    #                 "eyes",
+    #                 "hands",
+    #                 "rectum",
+    #                 "genitals",
+    #                 "ears"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         BRAIN: createSource(
+    #             data: {
+    #                 id: "brain",
+    #                 title: "Brain",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         FACE: createSource(
+    #             data: {
+    #                 id: "face",
+    #                 title: "Face",   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         GUT: createSource(
+    #             data: {
+    #                 id: "gut",
+    #                 title: "Gut"       
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         HEART: createSource(
+    #             data: {
+    #                 id: "heart",
+    #                 title: "Heart",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         MOUTH: createSource(
+    #             data: {
+    #                 id: "mouth",
+    #                 title: "Mouth",             
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SKIN: createSource(
+    #             data: {
+    #                 id: "skin",
+    #                 title: "Skin",             
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         STERNUM: createSource(
+    #             data: {
+    #                 id: "sternum",
+    #                 title: "Sternum",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SHOULDERS: createSource(
+    #             data: {
+    #                 id: "shoulders",
+    #                 title: "Shoulders",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         EYES: createSource(
+    #             data: {
+    #                 id: "eyes",
+    #                 title: "Eyes",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         HANDS: createSource(
+    #             data: {
+    #                 id: "hands",
+    #                 title: "Hands",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         RECTUM: createSource(
+    #             data: {
+    #                 id: "rectum",
+    #                 title: "Rectum",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         GENITALS: createSource(
+    #             data: {
+    #                 id: "genitals",
+    #                 title: "Genitals",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         EARS: createSource(
+    #             data: {
+    #                 id: "ears",
+    #                 title: "Ears",                   
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
 
-    STRENGTH: createPath(
-        data: {
-            id: "strength",
-            title: "Strength",
-            feelings: { set: [] }
-        }
-    ) { id }
+    # SMITH: createCharacter(
+    #     data: {
+    #         id: "smith",
+    #         title: "Smith",
+    #         description: "Processes the shield with silence, denial, confusion, and sarcasm.",
+    #         process: "shield"
+    #     }
+    # ) { id }
+    #     SHIELD: createProcess(
+    #         data: {
+    #             id: "shield",
+    #             title: "Shield",
+    #             sources: { set: [
+    #                 "confusion",
+    #                 "denial",
+    #                 "sarcasm",
+    #                 "silence"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         CONFUSION: createSource(
+    #             data: {
+    #                 id: "confusion",
+    #                 title: "Confusion",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         DENIAL: createSource(
+    #             data: {
+    #                 id: "denial",
+    #                 title: "Denial",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SARCASM: createSource(
+    #             data: {
+    #                 id: "sarcasm",
+    #                 title: "Sarcasm",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SILENCE: createSource(
+    #             data: {
+    #                 id: "silence",
+    #                 title: "Silence",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+
+    # VICTIM: createCharacter(
+    #     data: {
+    #         id: "victim",
+    #         title: "Victim",
+    #         description: "Processes the affliction within scars, gashes, infections, tremors, nightmares and delirium.",
+    #         process: "affliction"
+    #     }
+    # ) { id }
+    #     AFFLICTION: createProcess(
+    #         data: {
+    #             id: "affliction",
+    #             title: "Affliction",
+    #             sources: { set: [
+    #                 "delirium",
+    #                 "gash",
+    #                 "infection",
+    #                 "nightmare",
+    #                 "scar",
+    #                 "tremor"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         DELIRIUM: createSource(
+    #             data: {
+    #                 id: "delirium",
+    #                 title: "Delirium",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         GASH: createSource(
+    #             data: {
+    #                 id: "gash",
+    #                 title: "Gash",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         INFECTION: createSource(
+    #             data: {
+    #                 id: "infection",
+    #                 title: "Infection",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         NIGHTMARE: createSource(
+    #             data: {
+    #                 id: "nightmare",
+    #                 title: "Nightmare",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SCAR: createSource(
+    #             data: {
+    #                 id: "scar",
+    #                 title: "Scar",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         TREMOR: createSource(
+    #             data: {
+    #                 id: "tremor",
+    #                 title: "Tremor",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+
+    # VOLUNTEER: createCharacter(
+    #     data: {
+    #         id: "volunteer",
+    #         title: "Volunteer",
+    #         description: "Processes the act with service, support and sacrifice.",
+    #         process: "act"
+    #     }
+    # ) { id }
+    #     ACT: createProcess(
+    #         data: {
+    #             id: "act",
+    #             title: "Act",
+    #             sources: { set: [
+    #                 "service",
+    #                 "support",
+    #                 "sacrifice"
+    #             ] }
+    #         }
+    #     ) { id }
+    #         SERVICE: createSource(
+    #             data: {
+    #                 id: "service",
+    #                 title: "Service",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SUPPORT: createSource(
+    #             data: {
+    #                 id: "support",
+    #                 title: "Support",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    #         SACRIFICE: createSource(
+    #             data: {
+    #                 id: "sacrifice",
+    #                 title: "Sacrifice",
+    #                 feelings: { set: [] }
+    #             }
+    #         ){ id }
+    
+    # # INVENTORY
+
+    # DEFECT: createPath(
+    #     data: {
+    #         id: "defect",
+    #         title: "Defect",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # DISCONTENT: createPath(
+    #     data: {
+    #         id: "discontent",
+    #         title: "Discontent",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # EXPERIENCE: createPath(
+    #     data: {
+    #         id: "experience",
+    #         title: "Experience",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # HOPE: createPath(
+    #     data: {
+    #         id: "hope",
+    #         title: "Hope",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # OBSESSION: createPath(
+    #     data: {
+    #         id: "obsession",
+    #         title: "Obsession",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # RESENTMENT: createPath(
+    #     data: {
+    #         id: "resentment",
+    #         title: "Resentment",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
+
+    # STRENGTH: createPath(
+    #     data: {
+    #         id: "strength",
+    #         title: "Strength",
+    #         feelings: { set: [] }
+    #     }
+    # ) { id }
 }

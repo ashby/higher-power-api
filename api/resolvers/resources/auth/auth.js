@@ -32,4 +32,4 @@ const auth = {
     }
 };
 
-module.exports = { auth };
+module.exports = auth;

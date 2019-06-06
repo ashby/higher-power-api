@@ -1,4 +1,5 @@
-
+# import AuthPayload from "./types.graphql";
+# import User from "./types.graphql";
 
 # import Character from "./types.graphql";
 # import Process from "./types.graphql";
@@ -19,30 +20,35 @@
 # import ThoughtInput from "./inputs.graphql";
 
 type Query {
-    higherPower: HigherPower
-    inventory: Inventory
-    cast: Cast
+    # user(email: String!): User
 
-    character(id: ID!): Character
-    characters: [Character]
+    higherPower(userId: ID!): HigherPower
+    inventory(userId: ID!): Inventory
+    cast(userId: ID!): Cast
 
-    process(id: ID!): Process
-    processes: [Process]
+    character(key: String!): Character
+    characters(userId: ID!): [Character]
 
-    source(id: ID!): Source
-    sources: [Source]
+    process(key: String!): Process
+    processes(userId: ID!): [Process]
 
-    path(id: ID!): Path
-    paths: [Path]
+    source(key: String!): Source
+    sources(userId: ID!): [Source]
 
-    feeling(id: ID!): Feeling
-    feelings: [Feeling]
+    path(key: String!): Path
+    paths(userId: ID!): [Path]
+
+    feeling(key: String!): Feeling
+    feelings(userId: ID!): [Feeling]
 
     thought(id: ID!): Thought
-    thoughts: [Thought]
+    thoughts(userId: ID!): [Thought]
 }
 
 type Mutation {
+    signup(email: String!, password: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+
     mutateThought(data:ThoughtInput): Thought!
     mutateFeeling(data:FeelingInput): Feeling!
     mutatePath(data:PathInput): Path!

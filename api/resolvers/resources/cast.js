@@ -1,6 +1,5 @@
-const getCast = require( '../utils/get-cast' );
-
+const queryCast = require( '../query/cast' );
 
 module.exports = ( register ) => register( {
-    cast: getCast
+    cast: ( _, { userId } ) => queryCast( userId )
 } );

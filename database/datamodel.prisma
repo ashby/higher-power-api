@@ -1,42 +1,58 @@
+type User {
+  id: ID! @id
+  email: String! @unique
+  password: String!
+}
+
 type Character {
     id: ID! @id
+    key: String! @unique
     title: String!
     description: String
-    process: ID!
+    process: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Process {
     id: ID! @id
+    key: String! @unique
     title: String!
-    sources: [ID]! @scalarList(strategy: RELATION)
+    sources: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Source {
     id: ID! @id
+    key: String! @unique
     title: String!
-    feelings: [ID]! @scalarList(strategy: RELATION)
+    feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Path {
     id: ID! @id
+    key: String! @unique
     title: String!
-    feelings: [ID]! @scalarList(strategy: RELATION)
+    feelings: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Feeling {
     id: ID! @id
+    key: String! @unique
     title: String!
-    thoughts: [ID]! @scalarList(strategy: RELATION)
+    thoughts: [String]! @scalarList(strategy: RELATION)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
+    userId: ID!
 }
 
 type Thought {
@@ -54,63 +70,6 @@ type Thought {
     sharedAt: DateTime
     amendedAt: DateTime
     resolvedAt: DateTime
+    userId: ID!
 }
 
-type Inventory {
-    id: ID! @id
-    paths: [InventoryPath]
-}
-type InventoryPath {
-    id: ID! @id
-    title: String!
-    feelings: [PathFeeling]!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-}
-type PathFeeling {
-    id: ID! @id
-    title: String!
-    thoughts: [Thought]!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-}
-
-type Cast {
-    id: ID! @id
-    characters: [CastCharacter]!
-}
-type CastCharacter{
-    id: ID! @id
-    title: String!
-    description: String
-    process: CharacterProcess!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-}
-type CharacterProcess{
-    id: ID! @id
-    title: String!
-    sources: [ProcessSource]!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-}
-type ProcessSource{
-    id: ID! @id
-    title: String!
-    feelings: [SourceFeeling]!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime! @updatedAt
-}
-type SourceFeeling {
-    id: ID! @id
-    title: String!
-    thoughts: [Thought]!
-    createdAt: DateTime @createdAt
-    updatedAt: DateTime @updatedAt
-}
-
-type HigherPower {
-    id: ID! @id
-    inventory: Inventory
-    cast: Cast
-}

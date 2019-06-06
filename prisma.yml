@@ -1,5 +1,5 @@
 #endpoint: ${env:PRISMA_SERVER}
-endpoint: https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/sakhfbh
+endpoint: https://us1.prisma.sh/ashby-utting-73eac0/step/dev
 datamodel: database/datamodel.prisma
 
 seed:
@@ -9,10 +9,9 @@ generate:
   - generator: javascript-client
     output: ./generated/prisma-client/
   - generator: graphql-schema
-    output: ./generated/prisma.graphql
+    output: ./generated/
 
 hooks:
   post-deploy:
     - graphql get-schema --project database
     - graphql prepare
-    - prisma generate
