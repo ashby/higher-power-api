@@ -16,13 +16,25 @@ Build prisma dependency files:
 
 `yarn generate`
 
+<<<<<<< HEAD
 Deploy server:
+=======
+Run development environment ( note: you may have to create an account with prisma to host your demo db up on the nets):
+>>>>>>> 118bb13bd260b630cbebbbcd5b86c3e798f73e40
 
 `prisma deploy:dev`
 
 Start development environment:
 
 `yarn start:dev`
+
+Go to the playground:
+
+`yarn playground`
+
+Check out the database( * will be whatever you set endpoint path to in [prisma.yml](https://github.com/ashby/higher-power-api/blob/master/prisma.yml) ):
+
+`https://eu1.prisma.sh/ashby-utting-73eac0/higher-power/*/_admin`
 
 If changes to the schema have been made, the database will need to be cleared:
 
@@ -42,6 +54,7 @@ And in some cases, redeployed:
 
 
 [Documentation](https://github.com/ashby/self/blob/master/README.md)
+<<<<<<< HEAD
 
 Use the playground:
 
@@ -249,3 +262,5 @@ query{
 }
 ```
 
+=======
+>>>>>>> 118bb13bd260b630cbebbbcd5b86c3e798f73e40
